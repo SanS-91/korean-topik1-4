@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuần 1: Hangul - TOPIK 1 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFE5EC 0%, #FFF5E4 50%, #E8F5E9 100%); min-height: 100vh; color: #5D4E6D; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+/* Breadcrumb */
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #FF6B9D; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #C06C84; }
+.breadcrumb-separator { color: #B19CD9; }
+.breadcrumb-current { color: #6C5B7B; font-weight: 700; }
+
+/* Navigation */
+.week-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #FF6B9D; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(255,107,157,0.15); transition: all 0.3s; border: 2px solid #FFB6C1; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255,107,157,0.25); background: #FFF0F5; }
+.nav-btn.primary { background: linear-gradient(135deg, #FF6B9D 0%, #FFA8B6 100%); color: white; border: none; }
+.nav-btn.disabled { opacity: 0.5; pointer-events: none; }
+
+/* Hero */
+.week-hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, rgba(255,182,193,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.week-hero::before { content: '🌸'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.week-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.week-badge { display: inline-block; background: linear-gradient(135deg, #FF6B9D 0%, #FFA8B6 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.week-hero h1 { font-family: 'Baloo 2', cursive; font-size: 3em; color: #FF6B9D; margin-bottom: 10px; }
+.week-hero .subtitle { font-size: 1.3em; color: #6C5B7B; font-weight: 700; margin-bottom: 10px; }
+.week-hero .description { color: #8E7DA3; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+/* Objectives Box */
+.objectives-box { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-left: 5px solid #FFD93D; padding: 25px; border-radius: 20px; margin: 30px 0; box-shadow: 0 5px 15px rgba(255,217,61,0.1); }
+.objectives-title { font-family: 'Baloo 2', cursive; color: #E6A800; font-size: 1.4em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.objectives-list { list-style: none; }
+.objectives-list li { padding: 8px 0; padding-left: 30px; position: relative; color: #5D4E6D; font-weight: 600; line-height: 1.6; }
+.objectives-list li::before { content: '🎯'; position: absolute; left: 0; }
+
+/* Daily Schedule */
+.daily-schedule { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(192,108,132,0.1); border: 2px solid #FFE5EC; }
+.daily-title { font-family: 'Baloo 2', cursive; color: #FF6B9D; font-size: 1.6em; margin-bottom: 20px; text-align: center; }
+.daily-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
+.daily-tab { padding: 10px 18px; border: 2px solid #FFB6C1; background: white; color: #FF6B9D; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-size: 0.9em; }
+.daily-tab.active { background: linear-gradient(135deg, #FF6B9D 0%, #FFA8B6 100%); color: white; border-color: transparent; }
+.daily-tab:hover:not(.active) { background: #FFF0F5; }
+.daily-content { display: none; animation: fadeIn 0.5s; }
+.daily-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.daily-header { background: linear-gradient(135deg, #A8E6CF 0%, #87CEEB 100%); color: white; padding: 15px 20px; border-radius: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.daily-header h3 { font-family: 'Baloo 2', cursive; font-size: 1.3em; }
+.daily-time { background: white; color: #4ECDC4; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.9em; }
+.daily-objective { background: #F0F8FF; border-left: 4px solid #87CEEB; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+.daily-objective strong { color: #4A90E2; display: block; margin-bottom: 5px; }
+.daily-activities { background: white; border: 2px dashed #FFE5EC; padding: 20px; border-radius: 15px; }
+.daily-activities h4 { color: #FF6B9D; margin-bottom: 10px; font-family: 'Baloo 2', cursive; }
+.daily-activities ul { list-style: none; }
+.daily-activities li { padding: 8px 0; padding-left: 25px; position: relative; color: #5D4E6D; }
+.daily-activities li::before { content: '✓'; position: absolute; left: 0; color: #6BCB77; font-weight: bold; }
+
+/* Section Heading */
+.section-heading { font-family: 'Baloo 2', cursive; color: #FF6B9D; font-size: 1.5em; margin: 35px 0 20px; display: flex; align-items: center; gap: 10px; }
+.section-heading::after { content: ''; flex: 1; height: 2px; background: linear-gradient(90deg, #FFB6C1, transparent); }
+
+/* Audio Player */
+.audio-player { background: linear-gradient(135deg, #F0F8FF 0%, #E8F5E9 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #A8E6CF; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #FF6B9D 0%, #FFA8B6 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(255,107,157,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #5D4E6D; margin-bottom: 4px; }
+.audio-sub { color: #8E7DA3; font-size: 0.88em; }
+
+/* Speak Button */
+.speak-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #87CEEB 0%, #A8E6CF 100%); border: none; color: white; font-size: 0.95em; cursor: pointer; margin-left: 8px; transition: all 0.3s; vertical-align: middle; box-shadow: 0 3px 10px rgba(135,206,235,0.3); }
+.speak-btn:hover { transform: scale(1.2) rotate(10deg); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; background: linear-gradient(135deg, #FF6B9D 0%, #FFA8B6 100%); }
+.speak-btn-large { width: 42px; height: 42px; }
+
+/* Vocab Grid */
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 20px 0; }
+.vocab-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 6px 18px rgba(192,108,132,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 2px solid #FFF0F5; }
+.vocab-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(255,107,157,0.2); border-color: #FFB6C1; }
+.vocab-image { width: 100%; height: 110px; display: flex; align-items: center; justify-content: center; font-size: 3.5em; font-weight: 800; color: white; font-family: 'Baloo 2', cursive; }
+.vocab-card:nth-child(4n+1) .vocab-image { background: linear-gradient(135deg, #FFB6C1 0%, #FFA8B6 100%); }
+.vocab-card:nth-child(4n+2) .vocab-image { background: linear-gradient(135deg, #A8E6CF 0%, #87CEEB 100%); }
+.vocab-card:nth-child(4n+3) .vocab-image { background: linear-gradient(135deg, #FFD93D 0%, #FFA500 100%); }
+.vocab-card:nth-child(4n+4) .vocab-image { background: linear-gradient(135deg, #B19CD9 0%, #DDA0DD 100%); }
+.vocab-content { padding: 16px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.5em; color: #FF6B9D; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; flex-wrap: wrap; }
+.vocab-name { font-size: 0.95em; color: #6C5B7B; font-weight: 600; margin-bottom: 5px; }
+.vocab-pronunciation { color: #B19CD9; font-size: 0.88em; font-weight: 600; font-style: italic; background: #F8F4FF; padding: 5px 10px; border-radius: 8px; display: inline-block; margin: 5px 0; }
+.vocab-vietnamese { color: #5D4E6D; font-size: 0.98em; font-weight: 600; margin: 8px 0; }
+.vocab-example { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); padding: 10px; border-radius: 12px; font-size: 0.88em; color: #7B6B3D; display: flex; align-items: start; gap: 8px; border: 1px dashed #FFD93D; margin-top: 8px; }
+.vocab-example-text { flex: 1; }
+.vocab-example strong { color: #FF6B9D; }
+
+/* Grammar Box */
+.grammar-box { background: linear-gradient(135deg, #F0F8FF 0%, #FFF0F5 100%); border-radius: 20px; padding: 25px; margin: 25px 0; border: 2px solid #B19CD9; box-shadow: 0 5px 15px rgba(177,156,217,0.1); }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #6C5B7B; margin-bottom: 15px; font-weight: 700; }
+.grammar-section { margin: 15px 0; }
+.grammar-section-title { color: #FF6B9D; font-weight: 700; font-size: 1.05em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.grammar-explanation { color: #5D4E6D; line-height: 1.8; margin-bottom: 12px; font-weight: 500; }
+.grammar-formula { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-left: 5px solid #FFD93D; padding: 18px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #7B6B3D; font-size: 1.02em; line-height: 1.8; }
+.grammar-note { background: #FFF0F5; border-left: 4px solid #FF6B9D; padding: 12px 15px; border-radius: 10px; margin: 15px 0; color: #C2185B; font-weight: 600; font-size: 0.95em; }
+.grammar-example { background: white; border-left: 5px solid #A8E6CF; padding: 15px; border-radius: 12px; margin: 12px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 3px 10px rgba(168,230,207,0.15); }
+.grammar-example-text { flex: 1; min-width: 200px; }
+.grammar-example-label { font-weight: 700; color: #6BCB77; margin-bottom: 5px; font-size: 0.9em; }
+.grammar-example-korean { font-size: 1.15em; color: #5D4E6D; font-weight: 700; margin-bottom: 3px; }
+.grammar-example-pron { color: #B19CD9; font-style: italic; font-size: 0.9em; margin-bottom: 3px; }
+.grammar-example-meaning { color: #8E7DA3; font-style: italic; font-size: 0.95em; }
+
+/* Exercise */
+.exercise-container { background: linear-gradient(135deg, #FFFBEA 0%, #FFF9E6 100%); border-radius: 20px; padding: 25px; margin: 25px 0; border: 2px dashed #FFD93D; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #E6A800; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #5D4E6D; margin-bottom: 15px; font-weight: 700; line-height: 1.6; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FFE5EC; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #FFB6C1; background: #FFF0F5; transform: translateX(5px); }
+.exercise-option.correct { border-color: #6BCB77; background: #E8F5E9; color: #2E7D32; }
+.exercise-option.incorrect { border-color: #FF6B9D; background: #FFE5EC; color: #C2185B; }
+.check-answer-btn { background: linear-gradient(135deg, #6BCB77 0%, #A8E6CF 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(107,203,119,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #E8F5E9; color: #2E7D32; border: 2px solid #6BCB77; }
+.exercise-feedback.incorrect { background: #FFE5EC; color: #C2185B; border: 2px solid #FF6B9D; }
+
+/* Flashcard */
+.flashcard-section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(192,108,132,0.1); border: 2px solid #FFE5EC; }
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #FF6B9D 0%, #FFA8B6 100%); color: white; }
+.flashcard-back { background: white; color: #5D4E6D; transform: rotateY(180deg); border: 3px solid #FF6B9D; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 6em; font-weight: 800; margin-bottom: 10px; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.8em; font-weight: 700; color: #FF6B9D; margin-bottom: 10px; text-align: center; }
+.flashcard-pron { color: #B19CD9; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #87CEEB 0%, #A8E6CF 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #8E7DA3; margin-top: 10px; font-weight: 600; }
+
+/* Checklist */
+.checklist-section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(192,108,132,0.1); border: 2px solid #FFE5EC; }
+.checklist-item { display: flex; align-items: center; padding: 13px; background: #FFF9FB; margin: 8px 0; border-radius: 15px; cursor: pointer; transition: all 0.3s; border: 2px solid #FFE5EC; font-weight: 600; }
+.checklist-item:hover { background: #FFF0F5; transform: translateX(5px); border-color: #FFB6C1; }
+.checklist-item input[type="checkbox"] { width: 22px; height: 22px; margin-right: 15px; cursor: pointer; accent-color: #FF6B9D; }
+.checklist-item.completed { opacity: 0.6; text-decoration: line-through; background: #F0F8FF; border-color: #A8E6CF; }
+
+/* Notes */
+.notes-section { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-radius: 25px; padding: 25px; margin: 30px 0; border: 2px dashed #FFD93D; }
+.notes-title { font-family: 'Baloo 2', cursive; color: #E6A800; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.notes-textarea { width: 100%; min-height: 120px; padding: 15px; border: 2px solid #FFE5B8; border-radius: 15px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; background: white; }
+.notes-textarea:focus { outline: none; border-color: #FFD93D; }
+.save-notes-btn { background: linear-gradient(135deg, #FFD93D 0%, #FFA500 100%); color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.save-notes-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,217,61,0.4); }
+
+/* Assessment */
+.assessment-box { background: linear-gradient(135deg, #FFB6C1 0%, #FFD93D 50%, #A8E6CF 100%); padding: 40px 30px; border-radius: 30px; margin: 40px 0; text-align: center; color: white; position: relative; overflow: hidden; }
+.assessment-box::before { content: '🎯'; position: absolute; top: 15px; left: 5%; font-size: 3em; opacity: 0.3; }
+.assessment-box::after { content: '🏆'; position: absolute; bottom: 15px; right: 5%; font-size: 3em; opacity: 0.3; }
+.assessment-title { font-family: 'Baloo 2', cursive; font-size: 2em; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+.assessment-score { font-family: 'Baloo 2', cursive; font-size: 3.5em; margin: 15px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+.assessment-message { font-size: 1.1em; margin-top: 10px; }
+
+/* Footer */
+footer { background: linear-gradient(135deg, #6C5B7B 0%, #C06C84 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+/* Responsive */
+@media (max-width: 768px) {
+.week-hero h1 { font-size: 2.2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+.flashcard { height: 240px; }
+.flashcard-char { font-size: 4.5em; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik1.html">🌱 TOPIK 1</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">🔤 Tuần 1: Hangul</span>
+</nav>
+
+<!-- Week Navigation -->
+<div class="week-nav">
+<a href="topik1.html" class="nav-btn">← Về Hub TOPIK 1</a>
+<a href="topik1-week02.html" class="nav-btn primary">Tuần 2: Chào hỏi →</a>
+</div>
+
+<!-- Hero -->
+<div class="week-hero">
+<span class="week-badge">🔤 TUẦN 1 • 1주</span>
+<h1>Hangul - Bảng chữ cái</h1>
+<div class="subtitle">Nền tảng đầu tiên của tiếng Hàn</div>
+<p class="description">
+Học 14 phụ âm, 10 nguyên âm cơ bản, 11 nguyên âm kép và các quy tắc phát âm quan trọng. 
+Đây là bước đầu tiên và quan trọng nhất để chinh phục tiếng Hàn! 🌸
+</p>
+</div>
+
+<!-- Objectives -->
+<div class="objectives-box">
+<div class="objectives-title">🎯 Mục tiêu tuần 1</div>
+<ul class="objectives-list">
+<li>Đọc thông viết thạo <strong>40 ký tự Hangul</strong> (14 phụ âm + 21 nguyên âm)</li>
+<li>Phân biệt được các cặp phụ âm: ㄱ-ㅋ, ㄷ-ㅌ, ㅂ-ㅍ, ㅈ-ㅊ</li>
+<li>Phát âm đúng các nguyên âm cơ bản và nguyên âm kép</li>
+<li>Nắm vững 3 quy tắc phát âm: <strong>nối âm, trọng âm hóa, hóa âm</strong></li>
+<li>Đọc được các từ đơn giản và câu cơ bản</li>
+<li>Hoàn thành bài kiểm tra cuối tuần với điểm ≥ 80%</li>
+</ul>
+</div>
+
+<!-- Daily Schedule -->
+<div class="daily-schedule">
+<h2 class="daily-title">📅 Lịch học chi tiết 7 buổi (30 phút/buổi)</h2>
+<div class="daily-tabs">
+<button class="daily-tab active" onclick="showDaily(1, event)">Thứ 2</button>
+<button class="daily-tab" onclick="showDaily(2, event)">Thứ 3</button>
+<button class="daily-tab" onclick="showDaily(3, event)">Thứ 4</button>
+<button class="daily-tab" onclick="showDaily(4, event)">Thứ 5</button>
+<button class="daily-tab" onclick="showDaily(5, event)">Thứ 6</button>
+<button class="daily-tab" onclick="showDaily(6, event)">Thứ 7</button>
+<button class="daily-tab" onclick="showDaily(7, event)">Chủ Nhật</button>
+</div>
+
+<!-- Day 1 -->
+<div id="day1" class="daily-content active">
+<div class="daily-header">
+<h3>🔤 Ngày 1: 7 phụ âm đầu tiên</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học và ghi nhớ 7 phụ âm cơ bản đầu tiên: ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅅ. Viết được mỗi chữ 10 lần và phát âm chuẩn.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Xem video giới thiệu về Hangul</li>
+<li><strong>15 phút:</strong> Học 7 phụ âm - viết mỗi chữ 10 lần, nghe và lặp lại</li>
+<li><strong>5 phút:</strong> Học từ vựng ví dụ cho mỗi phụ âm</li>
+<li><strong>5 phút:</strong> Tự kiểm tra - nhìn chữ và đọc to</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 2 -->
+<div id="day2" class="daily-content">
+<div class="daily-header">
+<h3>🔤 Ngày 2: 7 phụ âm còn lại</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học 7 phụ âm còn lại: ㅇ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ. Phân biệt cặp âm đôi với ngày 1.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn lại 7 phụ âm ngày 1</li>
+<li><strong>15 phút:</strong> Học 7 phụ âm mới, so sánh với cặp âm đôi</li>
+<li><strong>5 phút:</strong> Luyện phát âm các cặp: ㄱ-ㅋ, ㄷ-ㅌ, ㅂ-ㅍ, ㅈ-ㅊ</li>
+<li><strong>5 phút:</strong> Viết tất cả 14 phụ âm ngẫu nhiên</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 3 -->
+<div id="day3" class="daily-content">
+<div class="daily-header">
+<h3>🎵 Ngày 3: 10 nguyên âm cơ bản</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học 10 nguyên âm: ㅏ, ㅑ, ㅓ, ㅕ, ㅗ, ㅛ, ㅜ, ㅠ, ㅡ, ㅣ. Phân biệt các cặp đối xứng.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn 14 phụ âm</li>
+<li><strong>15 phút:</strong> Học 10 nguyên âm theo cặp: ㅏ-ㅑ, ㅓ-ㅕ, ㅗ-ㅛ, ㅜ-ㅠ, ㅡ-ㅣ</li>
+<li><strong>5 phút:</strong> Luyện phát âm theo cặp</li>
+<li><strong>5 phút:</strong> Ghép thử phụ âm + nguyên âm: 가, 나, 다...</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 4 -->
+<div id="day4" class="daily-content">
+<div class="daily-header">
+<h3>🎶 Ngày 4: 11 nguyên âm kép</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học 11 nguyên âm kép: ㅐ, ㅔ, ㅒ, ㅖ, ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn 14 phụ âm + 10 nguyên âm</li>
+<li><strong>15 phút:</strong> Học 11 nguyên âm kép, chú ý ㅐ/ㅔ (đều đọc gần "e")</li>
+<li><strong>5 phút:</strong> Luyện đọc các từ có nguyên âm kép</li>
+<li><strong>5 phút:</strong> Kiểm tra: viết lại tất cả 21 nguyên âm</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 5 -->
+<div id="day5" class="daily-content">
+<div class="daily-header">
+<h3>📝 Ngày 5: Ghép vần & Đọc từ</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học cách ghép phụ âm + nguyên âm thành âm tiết. Đọc 20+ từ đơn giản.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn tất cả 40 ký tự</li>
+<li><strong>10 phút:</strong> Học quy tắc ghép vần (ngang/dọc)</li>
+<li><strong>10 phút:</strong> Đọc 20 từ đơn: 가, 나, 다, 라, 마, 바, 사, 아, 자, 차...</li>
+<li><strong>5 phút:</strong> Viết và đọc to các từ đã học</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 6 -->
+<div id="day6" class="daily-content">
+<div class="daily-header">
+<h3>🎯 Ngày 6: Quy tắc phát âm</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Nắm 3 quy tắc phát âm quan trọng: nối âm, trọng âm hóa, hóa âm.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>10 phút:</strong> Học quy tắc nối âm (연음화)</li>
+<li><strong>10 phút:</strong> Học quy tắc trọng âm hóa (경음화)</li>
+<li><strong>5 phút:</strong> Học quy tắc hóa âm (격음화)</li>
+<li><strong>5 phút:</strong> Luyện đọc 10 từ có quy tắc đặc biệt</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 7 -->
+<div id="day7" class="daily-content">
+<div class="daily-header">
+<h3>🎉 Ngày 7: Ôn tập & Kiểm tra</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Ôn tập toàn bộ tuần 1 và làm bài kiểm tra cuối tuần.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>10 phút:</strong> Ôn tất cả 40 ký tự (viết và đọc)</li>
+<li><strong>5 phút:</strong> Ôn 3 quy tắc phát âm</li>
+<li><strong>10 phút:</strong> Làm bài kiểm tra cuối tuần (bên dưới)</li>
+<li><strong>5 phút:</strong> Tự đánh giá và ghi chú điểm yếu</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- 14 PHỤ ÂM -->
+<h2 class="section-heading">📖 14 Phụ âm cơ bản (자음)</h2>
+
+<div class="audio-player">
+<button class="play-btn" onclick="speakKorean('기역,니은,디귿,리을,미음,비읍,시옷,이응,지읒,치읓,키읔,티읕,피읖,히읗', this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ 14 phụ âm</div>
+<div class="audio-sub">Nghe và lặp lại theo 3 lần</div>
+</div>
+</div>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-image">ㄱ</div>
+<div class="vocab-content">
+<div class="vocab-korean">기역 <button class="speak-btn" onclick="speakKorean('기역', this)">🔊</button></div>
+<div class="vocab-pronunciation">[gi-yeok]</div>
+<div class="vocab-vietnamese">Phụ âm ㄱ - âm "g/k" (nhẹ)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>가방</strong> [ga-bang] - cái cặp</div>
+<button class="speak-btn" onclick="speakKorean('가방', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㄴ</div>
+<div class="vocab-content">
+<div class="vocab-korean">니은 <button class="speak-btn" onclick="speakKorean('니은', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ni-eun]</div>
+<div class="vocab-vietnamese">Phụ âm ㄴ - âm "n"</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>나라</strong> [na-ra] - đất nước</div>
+<button class="speak-btn" onclick="speakKorean('나라', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㄷ</div>
+<div class="vocab-content">
+<div class="vocab-korean">디귿 <button class="speak-btn" onclick="speakKorean('디귿', this)">🔊</button></div>
+<div class="vocab-pronunciation">[di-geut]</div>
+<div class="vocab-vietnamese">Phụ âm ㄷ - âm "d/t" (nhẹ)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>다리</strong> [da-ri] - cái chân</div>
+<button class="speak-btn" onclick="speakKorean('다리', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㄹ</div>
+<div class="vocab-content">
+<div class="vocab-korean">리을 <button class="speak-btn" onclick="speakKorean('리을', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ri-eul]</div>
+<div class="vocab-vietnamese">Phụ âm ㄹ - âm "r/l" (giữa r và l)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>사람</strong> [sa-ram] - con người</div>
+<button class="speak-btn" onclick="speakKorean('사람', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅁ</div>
+<div class="vocab-content">
+<div class="vocab-korean">미음 <button class="speak-btn" onclick="speakKorean('미음', this)">🔊</button></div>
+<div class="vocab-pronunciation">[mi-eum]</div>
+<div class="vocab-vietnamese">Phụ âm ㅁ - âm "m"</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>물</strong> [mul] - nước</div>
+<button class="speak-btn" onclick="speakKorean('물', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅂ</div>
+<div class="vocab-content">
+<div class="vocab-korean">비읍 <button class="speak-btn" onclick="speakKorean('비읍', this)">🔊</button></div>
+<div class="vocab-pronunciation">[bi-eup]</div>
+<div class="vocab-vietnamese">Phụ âm ㅂ - âm "b/p" (nhẹ)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>바다</strong> [ba-da] - biển</div>
+<button class="speak-btn" onclick="speakKorean('바다', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅅ</div>
+<div class="vocab-content">
+<div class="vocab-korean">시옷 <button class="speak-btn" onclick="speakKorean('시옷', this)">🔊</button></div>
+<div class="vocab-pronunciation">[si-ot]</div>
+<div class="vocab-vietnamese">Phụ âm ㅅ - âm "s"</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>산</strong> [san] - núi</div>
+<button class="speak-btn" onclick="speakKorean('산', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅇ</div>
+<div class="vocab-content">
+<div class="vocab-korean">이응 <button class="speak-btn" onclick="speakKorean('이응', this)">🔊</button></div>
+<div class="vocab-pronunciation">[i-eung]</div>
+<div class="vocab-vietnamese">Phụ âm ㅇ - im (đầu) / "ng" (cuối)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>아이</strong> [a-i] - đứa trẻ</div>
+<button class="speak-btn" onclick="speakKorean('아이', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅈ</div>
+<div class="vocab-content">
+<div class="vocab-korean">지읒 <button class="speak-btn" onclick="speakKorean('지읒', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ji-jeut]</div>
+<div class="vocab-vietnamese">Phụ âm ㅈ - âm "j" (nhẹ)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>집</strong> [jip] - nhà</div>
+<button class="speak-btn" onclick="speakKorean('집', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅊ</div>
+<div class="vocab-content">
+<div class="vocab-korean">치읓 <button class="speak-btn" onclick="speakKorean('치읓', this)">🔊</button></div>
+<div class="vocab-pronunciation">[chi-eut]</div>
+<div class="vocab-vietnamese">Phụ âm ㅊ - âm "ch" (bật hơi mạnh)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>차</strong> [cha] - xe, trà</div>
+<button class="speak-btn" onclick="speakKorean('차', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅋ</div>
+<div class="vocab-content">
+<div class="vocab-korean">키읔 <button class="speak-btn" onclick="speakKorean('키읔', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ki-euk]</div>
+<div class="vocab-vietnamese">Phụ âm ㅋ - âm "k" (bật hơi mạnh)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>커피</strong> [keo-pi] - cà phê</div>
+<button class="speak-btn" onclick="speakKorean('커피', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅌ</div>
+<div class="vocab-content">
+<div class="vocab-korean">티읕 <button class="speak-btn" onclick="speakKorean('티읕', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ti-eut]</div>
+<div class="vocab-vietnamese">Phụ âm ㅌ - âm "t" (bật hơi mạnh)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>토마토</strong> [to-ma-to] - cà chua</div>
+<button class="speak-btn" onclick="speakKorean('토마토', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅍ</div>
+<div class="vocab-content">
+<div class="vocab-korean">피읖 <button class="speak-btn" onclick="speakKorean('피읖', this)">🔊</button></div>
+<div class="vocab-pronunciation">[pi-eup]</div>
+<div class="vocab-vietnamese">Phụ âm ㅍ - âm "p" (bật hơi mạnh)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>파이</strong> [pa-i] - bánh pie</div>
+<button class="speak-btn" onclick="speakKorean('파이', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">ㅎ</div>
+<div class="vocab-content">
+<div class="vocab-korean">히읗 <button class="speak-btn" onclick="speakKorean('히읗', this)">🔊</button></div>
+<div class="vocab-pronunciation">[hi-eut]</div>
+<div class="vocab-vietnamese">Phụ âm ㅎ - âm "h"</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>하늘</strong> [ha-neul] - bầu trời</div>
+<button class="speak-btn" onclick="speakKorean('하늘', this)">🔊</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 10 NGUYÊN ÂM -->
+<h2 class="section-heading">📖 10 Nguyên âm cơ bản (모음)</h2>
+
+<div class="audio-player">
+<button class="play-btn" onclick="speakKorean('아,야,어,여,오,요,우,유,으,이', this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe 10 nguyên âm cơ bản</div>
+<div class="audio-sub">Chú ý khẩu hình miệng khi phát âm</div>
+</div>
+</div>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-image">ㅏ</div>
+<div class="vocab-content">
+<div class="vocab-korean">아 <button class="speak-btn" onclick="speakKorean('아', this)">🔊</button></div>
+<div class="vocab-pronunciation">[a]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅏ - "a" (miệng mở rộng)</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅑ</div>
+<div class="vocab-content">
+<div class="vocab-korean">야 <button class="speak-btn" onclick="speakKorean('야', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ya]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅑ - "ya" (thêm âm "y" trước)</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅓ</div>
+<div class="vocab-content">
+<div class="vocab-korean">어 <button class="speak-btn" onclick="speakKorean('어', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ơ]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅓ - "ơ" (miệng mở vừa)</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅕ</div>
+<div class="vocab-content">
+<div class="vocab-korean">여 <button class="speak-btn" onclick="speakKorean('여', this)">🔊</button></div>
+<div class="vocab-pronunciation">[yơ]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅕ - "yơ"</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅗ</div>
+<div class="vocab-content">
+<div class="vocab-korean">오 <button class="speak-btn" onclick="speakKorean('오', this)">🔊</button></div>
+<div class="vocab-pronunciation">[o]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅗ - "o" (miệng tròn)</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅛ</div>
+<div class="vocab-content">
+<div class="vocab-korean">요 <button class="speak-btn" onclick="speakKorean('요', this)">🔊</button></div>
+<div class="vocab-pronunciation">[yo]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅛ - "yo"</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅜ</div>
+<div class="vocab-content">
+<div class="vocab-korean">우 <button class="speak-btn" onclick="speakKorean('우', this)">🔊</button></div>
+<div class="vocab-pronunciation">[u]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅜ - "u" (miệng chu ra)</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅠ</div>
+<div class="vocab-content">
+<div class="vocab-korean">유 <button class="speak-btn" onclick="speakKorean('유', this)">🔊</button></div>
+<div class="vocab-pronunciation">[yu]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅠ - "yu"</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅡ</div>
+<div class="vocab-content">
+<div class="vocab-korean">으 <button class="speak-btn" onclick="speakKorean('으', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ư]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅡ - "ư" (miệng dẹt, căng)</div>
+</div>
+</div>
+<div class="vocab-card">
+<div class="vocab-image">ㅣ</div>
+<div class="vocab-content">
+<div class="vocab-korean">이 <button class="speak-btn" onclick="speakKorean('이', this)">🔊</button></div>
+<div class="vocab-pronunciation">[i]</div>
+<div class="vocab-vietnamese">Nguyên âm ㅣ - "i" (miệng dẹt rộng)</div>
+</div>
+</div>
+</div>
+
+<!-- 11 NGUYÊN ÂM KÉP -->
+<h2 class="section-heading">📖 11 Nguyên âm kép</h2>
+
+<div class="audio-player">
+<button class="play-btn" onclick="speakKorean('애,에,얘,예,와,왜,외,워,웨,위,의', this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe 11 nguyên âm kép</div>
+<div class="audio-sub">Chú ý ㅐ và ㅔ ngày nay phát âm giống nhau</div>
+</div>
+</div>
+
+<div class="vocab-grid">
+<div class="vocab-card"><div class="vocab-image">ㅐ</div><div class="vocab-content"><div class="vocab-korean">애 <button class="speak-btn" onclick="speakKorean('애', this)">🔊</button></div><div class="vocab-pronunciation">[e]</div><div class="vocab-vietnamese">Nguyên âm ㅐ - "e" (miệng mở)</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅔ</div><div class="vocab-content"><div class="vocab-korean">에 <button class="speak-btn" onclick="speakKorean('에', this)">🔊</button></div><div class="vocab-pronunciation">[e]</div><div class="vocab-vietnamese">Nguyên âm ㅔ - "e" (giống ㅐ)</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅒ</div><div class="vocab-content"><div class="vocab-korean">얘 <button class="speak-btn" onclick="speakKorean('얘', this)">🔊</button></div><div class="vocab-pronunciation">[ye]</div><div class="vocab-vietnamese">Nguyên âm ㅒ - "ye"</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅖ</div><div class="vocab-content"><div class="vocab-korean">예 <button class="speak-btn" onclick="speakKorean('예', this)">🔊</button></div><div class="vocab-pronunciation">[ye]</div><div class="vocab-vietnamese">Nguyên âm ㅖ - "ye"</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅘ</div><div class="vocab-content"><div class="vocab-korean">와 <button class="speak-btn" onclick="speakKorean('와', this)">🔊</button></div><div class="vocab-pronunciation">[wa]</div><div class="vocab-vietnamese">Nguyên âm ㅘ - "wa" (ㅗ + ㅏ)</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅙ</div><div class="vocab-content"><div class="vocab-korean">왜 <button class="speak-btn" onclick="speakKorean('왜', this)">🔊</button></div><div class="vocab-pronunciation">[we]</div><div class="vocab-vietnamese">Nguyên âm ㅙ - "we" (ㅗ + ㅐ)</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅚ</div><div class="vocab-content"><div class="vocab-korean">외 <button class="speak-btn" onclick="speakKorean('외', this)">🔊</button></div><div class="vocab-pronunciation">[we]</div><div class="vocab-vietnamese">Nguyên âm ㅚ - "we" (ㅗ + ㅣ)</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅝ</div><div class="vocab-content"><div class="vocab-korean">워 <button class="speak-btn" onclick="speakKorean('워', this)">🔊</button></div><div class="vocab-pronunciation">[wơ]</div><div class="vocab-vietnamese">Nguyên âm ㅝ - "wơ" (ㅜ + ㅓ)</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅞ</div><div class="vocab-content"><div class="vocab-korean">웨 <button class="speak-btn" onclick="speakKorean('웨', this)">🔊</button></div><div class="vocab-pronunciation">[we]</div><div class="vocab-vietnamese">Nguyên âm ㅞ - "we" (ㅜ + ㅔ)</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅟ</div><div class="vocab-content"><div class="vocab-korean">위 <button class="speak-btn" onclick="speakKorean('위', this)">🔊</button></div><div class="vocab-pronunciation">[wi]</div><div class="vocab-vietnamese">Nguyên âm ㅟ - "wi" (ㅜ + ㅣ)</div></div></div>
+<div class="vocab-card"><div class="vocab-image">ㅢ</div><div class="vocab-content"><div class="vocab-korean">의 <button class="speak-btn" onclick="speakKorean('의', this)">🔊</button></div><div class="vocab-pronunciation">[ưi/e]</div><div class="vocab-vietnamese">Nguyên âm ㅢ - "ưi" (đầu từ) / "e" (giữa/cuối)</div></div></div>
+</div>
+
+<!-- NGỮ PHÁP PHÁT ÂM -->
+<h2 class="section-heading">📝 3 Quy tắc phát âm quan trọng</h2>
+
+<div class="grammar-box">
+<div class="grammar-title">🔤 Quy tắc phát âm tiếng Hàn</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 1. Quy tắc nối âm (연음화)</div>
+<div class="grammar-explanation">
+<strong>Khi nào dùng:</strong> Khi phụ âm cuối (patchim) của âm tiết trước đi kèm với nguyên âm ở đầu âm tiết sau.
+</div>
+<div class="grammar-formula">
+[Phụ âm cuối] + [Nguyên âm đầu] → Phụ âm cuối di chuyển xuống làm phụ âm đầu âm tiết sau<br>
+Ví dụ: 한국 + 어 → [한구거]
+</div>
+<div class="grammar-note">
+⚠️ <strong>Lưu ý:</strong> Đây là quy tắc phổ biến nhất trong tiếng Hàn!
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 1:</div>
+<div class="grammar-example-korean">한국어</div>
+<div class="grammar-example-pronunciation">[한구거] (han-gu-geo)</div>
+<div class="grammar-example-meaning">Tiếng Hàn (한국 + 어)</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('한국어', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 2:</div>
+<div class="grammar-example-korean">이것은</div>
+<div class="grammar-example-pronunciation">[이거슨] (i-geo-seun)</div>
+<div class="grammar-example-meaning">Cái này là (이것 + 은)</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('이것은', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 3:</div>
+<div class="grammar-example-korean">어디에</div>
+<div class="grammar-example-pronunciation">[어디에] (eo-di-e)</div>
+<div class="grammar-example-meaning">Ở đâu</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('어디에', this)">🔊</button>
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 2. Quy tắc trọng âm hóa (경음화)</div>
+<div class="grammar-explanation">
+<strong>Khi nào dùng:</strong> Khi phụ âm cuối ㄱ, ㄷ, ㅂ gặp phụ âm đầu ㄱ, ㄷ, ㅂ, ㅅ, ㅈ → đọc thành âm đôi (mạnh hơn).
+</div>
+<div class="grammar-formula">
+ㄱ + ㄱ → [ㄲ]<br>
+ㄷ + ㄷ → [ㄸ]<br>
+ㅂ + ㅂ → [ㅃ]<br>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 1:</div>
+<div class="grammar-example-korean">학교</div>
+<div class="grammar-example-pronunciation">[학꾜] (hak-kkyo)</div>
+<div class="grammar-example-meaning">Trường học (학 + 교)</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('학교', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 2:</div>
+<div class="grammar-example-korean">학생</div>
+<div class="grammar-example-pronunciation">[학쌩] (hak-ssaeng)</div>
+<div class="grammar-example-meaning">Học sinh (학 + 생)</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('학생', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 3:</div>
+<div class="grammar-example-korean">책상</div>
+<div class="grammar-example-pronunciation">[책쌍] (chaek-ssang)</div>
+<div class="grammar-example-meaning">Cái bàn (책 + 상)</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('책상', this)">🔊</button>
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 3. Quy tắc hóa âm (격음화)</div>
+<div class="grammar-explanation">
+<strong>Khi nào dùng:</strong> Khi phụ âm cuối ㄱ, ㄷ, ㅂ, ㅈ gặp phụ âm đầu ㅎ → đọc thành âm bật hơi.
+</div>
+<div class="grammar-formula">
+ㄱ + ㅎ → [ㅋ]<br>
+ㄷ + ㅎ → [ㅌ]<br>
+ㅂ + ㅎ → [ㅍ]<br>
+ㅈ + ㅎ → [ㅊ]<br>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 1:</div>
+<div class="grammar-example-korean">좋다</div>
+<div class="grammar-example-pronunciation">[조타] (jo-ta)</div>
+<div class="grammar-example-meaning">Tốt (좋 + 다)</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('좋다', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 2:</div>
+<div class="grammar-example-korean">놓다</div>
+<div class="grammar-example-pronunciation">[노타] (no-ta)</div>
+<div class="grammar-example-meaning">Đặt, để (놓 + 다)</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('놓다', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 3:</div>
+<div class="grammar-example-korean">축하합니다</div>
+<div class="grammar-example-pronunciation">[추카함니다] (chu-ka-ham-ni-da)</div>
+<div class="grammar-example-meaning">Chúc mừng (축 + 하)</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('축하합니다', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<!-- FLASHCARD -->
+<div class="flashcard-section">
+<h2 class="section-heading">🎴 Flashcard ôn tập</h2>
+<p style="color: #8E7DA3; text-align: center; margin-bottom: 15px;">Click vào thẻ để lật • Dùng nút để chuyển thẻ</p>
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">ㄱ</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">기역 - âm "g/k"</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[gi-yeok]</div>
+<button class="speak-btn speak-btn-large" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 14</div>
+</div>
+
+<!-- BÀI TẬP -->
+<h2 class="section-heading">✍️ Bài tập kiểm tra</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 1: Chọn cách đọc đúng của "학교"</div>
+<div class="exercise-question">Theo quy tắc trọng âm hóa, "학교" được đọc là:</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>[하교] - đọc bình thường</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>[학꾜] - ㄱ + ㄱ → ㄲ</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>[학고] - đọc tách rời</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 2: Chọn cách đọc đúng của "좋다"</div>
+<div class="exercise-question">Theo quy tắc hóa âm, "좋다" được đọc là:</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>[조타] - ㅈ + ㅎ → ㅊ, ㄷ + ㅎ → ㅌ</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>[존다] - đọc bình thường</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>[조다] - bỏ qua ㅎ</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'a', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 3: Chọn cách đọc đúng của "한국어"</div>
+<div class="exercise-question">Theo quy tắc nối âm, "한국어" được đọc là:</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>[한국어] - đọc tách rời</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>[한구거] - ㄱ nối với ㅓ</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>[항구거] - thay đổi phụ âm</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 4: Phụ âm nào phát âm là "r/l"?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>ㄴ (ni-eun)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>ㄹ (ri-eul)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>ㅁ (mi-eum)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'b', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 5: Nguyên âm nào đọc là "ư"?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>ㅜ (u)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>ㅡ (ư)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>ㅗ (o)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<!-- ASSESSMENT -->
+<div class="assessment-box">
+<div class="assessment-title">🏆 Đánh giá cuối tuần</div>
+<div class="assessment-score" id="assessmentScore">0/5</div>
+<div class="assessment-message" id="assessmentMessage">
+Làm các bài tập trên để xem kết quả! 💪
+</div>
+</div>
+
+<!-- NOTES -->
+<div class="notes-section">
+<div class="notes-title">📝 Ghi chú cá nhân</div>
+<textarea class="notes-textarea" id="week1Notes" placeholder="Viết ghi chú của bạn về những điểm cần nhớ, từ khó, lỗi phát âm..."></textarea>
+<button class="save-notes-btn" onclick="saveNotes()">💾 Lưu ghi chú</button>
+</div>
+
+<!-- CHECKLIST -->
+<div class="checklist-section">
+<h2 class="section-heading">✅ Checklist hoàn thành tuần 1</h2>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Thuộc 14 phụ âm cơ bản</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Thuộc 10 nguyên âm cơ bản</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Thuộc 11 nguyên âm kép</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Nắm quy tắc nối âm</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Nắm quy tắc trọng âm hóa</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Nắm quy tắc hóa âm</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Đọc được từ mới bất kỳ</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Hoàn thành 5 bài tập với điểm ≥ 80%</span></div>
+</div>
+
+<!-- Navigation cuối -->
+<div class="week-nav" style="margin-top: 40px;">
+<a href="topik1.html" class="nav-btn">← Về Hub TOPIK 1</a>
+<a href="topik1-week02.html" class="nav-btn primary">Tiếp: Tuần 2 - Chào hỏi →</a>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Một ngôn ngữ mới là một cuộc sống mới" - Nelson Mandela</div>
+</footer>
+
+<script>
+// Cherry Blossom
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+// Speech
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.8;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+        if (btnElement.classList.contains('play-btn')) { btnElement.classList.add('playing'); btnElement.innerHTML = '⏸️'; }
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking', 'playing');
+            if (btnElement.classList.contains('play-btn')) btnElement.innerHTML = '▶️';
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Daily tabs
+function showDaily(dayNum, event) {
+    document.querySelectorAll('.daily-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.daily-content').forEach(c => c.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('day' + dayNum).classList.add('active');
+}
+
+// Flashcard
+const flashcards = [
+    { char: 'ㄱ', name: '기역', meaning: 'Phụ âm ㄱ - âm "g/k"', pron: '[gi-yeok]' },
+    { char: 'ㄴ', name: '니은', meaning: 'Phụ âm ㄴ - âm "n"', pron: '[ni-eun]' },
+    { char: 'ㄷ', name: '디귿', meaning: 'Phụ âm ㄷ - âm "d/t"', pron: '[di-geut]' },
+    { char: 'ㄹ', name: '리을', meaning: 'Phụ âm ㄹ - âm "r/l"', pron: '[ri-eul]' },
+    { char: 'ㅁ', name: '미음', meaning: 'Phụ âm ㅁ - âm "m"', pron: '[mi-eum]' },
+    { char: 'ㅂ', name: '비읍', meaning: 'Phụ âm ㅂ - âm "b/p"', pron: '[bi-eup]' },
+    { char: 'ㅅ', name: '시옷', meaning: 'Phụ âm ㅅ - âm "s"', pron: '[si-ot]' },
+    { char: 'ㅇ', name: '이응', meaning: 'Phụ âm ㅇ - im/"ng"', pron: '[i-eung]' },
+    { char: 'ㅈ', name: '지읒', meaning: 'Phụ âm ㅈ - âm "j"', pron: '[ji-jeut]' },
+    { char: 'ㅊ', name: '치읓', meaning: 'Phụ âm ㅊ - âm "ch"', pron: '[chi-eut]' },
+    { char: 'ㅋ', name: '키읔', meaning: 'Phụ âm ㅋ - "k" mạnh', pron: '[ki-euk]' },
+    { char: 'ㅌ', name: '티읕', meaning: 'Phụ âm ㅌ - "t" mạnh', pron: '[ti-eut]' },
+    { char: 'ㅍ', name: '피읖', meaning: 'Phụ âm ㅍ - "p" mạnh', pron: '[pi-eup]' },
+    { char: 'ㅎ', name: '히읗', meaning: 'Phụ âm ㅎ - âm "h"', pron: '[hi-eut]' }
+];
+let currentFlashcard = 0;
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = flashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = flashcards[currentFlashcard].name + ' - ' + flashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = flashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + flashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % flashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + flashcards.length) % flashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+// Exercise
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌸';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateAssessment();
+}
+
+function updateAssessment() {
+    const total = 5;
+    const answered = answeredQuestions.size;
+    document.getElementById('assessmentScore').textContent = correctAnswers + '/' + total;
+    const msg = document.getElementById('assessmentMessage');
+    if (answered < total) {
+        msg.textContent = 'Đã làm ' + answered + '/' + total + ' câu. Cố lên! 💪';
+    } else if (correctAnswers === total) {
+        msg.textContent = '🏆 Xuất sắc! Bạn đã nắm vững Hangul! Chuyển sang Tuần 2!';
+        localStorage.setItem('topik1Week1Completed', 'true');
+        updateProgress();
+    } else if (correctAnswers >= 4) {
+        msg.textContent = '🌟 Rất tốt! Bạn gần hoàn hảo rồi!';
+        localStorage.setItem('topik1Week1Completed', 'true');
+        updateProgress();
+    } else {
+        msg.textContent = '📚 Cần ôn tập thêm. Hãy xem lại bài học!';
+    }
+}
+
+function updateProgress() {
+    let completed = 0;
+    for (let i = 1; i <= 12; i++) {
+        if (localStorage.getItem('topik1Week' + i + 'Completed') === 'true') completed++;
+    }
+    localStorage.setItem('topik1Completed', completed);
+}
+
+// Notes
+function saveNotes() {
+    const notes = document.getElementById('week1Notes').value;
+    localStorage.setItem('topik1Week1Notes', notes);
+    alert('💾 Ghi chú đã được lưu!');
+}
+
+window.onload = function() {
+    const notes = localStorage.getItem('topik1Week1Notes');
+    if (notes) document.getElementById('week1Notes').value = notes;
+};
+
+// Checklist
+function toggleCheck(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('completed');
+}
+</script>
+</body>
+</html>
