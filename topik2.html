@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌿 TOPIK 2 - Sơ trung cấp | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFE5EC 0%, #FFF5E4 50%, #E8F5E9 100%); min-height: 100vh; color: #5D4E6D; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+.container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+/* Breadcrumb */
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #0891B2; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #0E7490; transform: translateX(-3px); display: inline-block; }
+.breadcrumb-separator { color: #67E8F9; }
+.breadcrumb-current { color: #6C5B7B; font-weight: 700; }
+
+/* Hero */
+.topik-hero { text-align: center; padding: 60px 20px 70px; background: linear-gradient(135deg, rgba(8,145,178,0.2) 0%, rgba(103,232,247,0.15) 50%, rgba(168,230,207,0.15) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.topik-hero::before { content: '🌿'; position: absolute; top: 30px; left: 5%; font-size: 3em; animation: float 4s ease-in-out infinite; }
+.topik-hero::after { content: '📚'; position: absolute; bottom: 30px; right: 5%; font-size: 2.5em; animation: float 3.5s ease-in-out infinite; }
+
+.topik-badge { display: inline-block; background: linear-gradient(135deg, #0891B2 0%, #67E8F9 100%); color: white; padding: 10px 30px; border-radius: 50px; font-weight: 700; margin-bottom: 20px; font-size: 1.05em; box-shadow: 0 5px 15px rgba(8,145,178,0.3); }
+.topik-hero h1 { font-family: 'Baloo 2', cursive; font-size: 3.5em; color: #0E7490; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(8,145,178,0.1); }
+.topik-hero .subtitle { font-size: 1.4em; color: #6C5B7B; font-weight: 700; margin-bottom: 15px; }
+.topik-hero .description { color: #8E7DA3; font-size: 1.1em; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+
+/* Stats Grid */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: -40px auto 40px; max-width: 1000px; position: relative; z-index: 3; }
+.stat-card { background: white; border-radius: 20px; padding: 25px 20px; text-align: center; box-shadow: 0 10px 30px rgba(8,145,178,0.15); transition: all 0.3s; border: 2px solid transparent; }
+.stat-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(8,145,178,0.25); border-color: #67E8F9; }
+.stat-icon { font-size: 2.5em; margin-bottom: 10px; }
+.stat-value { font-family: 'Baloo 2', cursive; font-size: 2.2em; color: #0891B2; font-weight: 800; line-height: 1; }
+.stat-label { color: #8E7DA3; font-weight: 600; margin-top: 5px; font-size: 0.95em; }
+
+/* Objectives Box */
+.objectives-box { background: linear-gradient(135deg, #ECFEFF 0%, #CFFAFE 100%); border-left: 5px solid #0891B2; padding: 30px; border-radius: 20px; margin: 40px 0; box-shadow: 0 5px 20px rgba(8,145,178,0.1); }
+.objectives-title { font-family: 'Baloo 2', cursive; color: #0E7490; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.objectives-list { list-style: none; }
+.objectives-list li { padding: 10px 0; padding-left: 35px; position: relative; color: #5D4E6D; font-weight: 600; line-height: 1.7; font-size: 1.02em; }
+.objectives-list li::before { content: '🎯'; position: absolute; left: 0; }
+
+/* Section Heading */
+.section-heading { font-family: 'Baloo 2', cursive; color: #0891B2; font-size: 2em; margin: 50px 0 15px; text-align: center; }
+.section-heading::after { content: ''; display: block; width: 120px; height: 5px; background: linear-gradient(90deg, #0891B2, #67E8F9, #A8E6CF); margin: 15px auto; border-radius: 10px; }
+.section-subtitle { text-align: center; color: #8E7DA3; font-size: 1.1em; margin-bottom: 40px; }
+
+/* Overview Table */
+.overview-section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(8,145,178,0.1); border: 2px solid #ECFEFF; }
+.overview-table { width: 100%; border-collapse: collapse; }
+.overview-table thead th { background: linear-gradient(135deg, #0891B2 0%, #67E8F9 100%); color: white; padding: 15px; text-align: left; font-weight: 700; font-size: 1em; }
+.overview-table thead th:first-child { border-radius: 15px 0 0 0; }
+.overview-table thead th:last-child { border-radius: 0 15px 0 0; }
+.overview-table tbody td { padding: 15px; border-bottom: 1px solid #ECFEFF; background: white; }
+.overview-table tbody tr:hover td { background: #ECFEFF; }
+.overview-table .week-num { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0891B2; font-weight: 700; }
+.overview-table .week-icon { font-size: 1.5em; }
+
+/* Weeks Grid */
+.weeks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin: 40px 0; }
+.week-card { background: white; border-radius: 25px; padding: 25px; text-decoration: none; color: inherit; box-shadow: 0 8px 25px rgba(8,145,178,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 2px solid #ECFEFF; position: relative; overflow: hidden; display: block; }
+.week-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #0891B2, #67E8F9, #A8E6CF); }
+.week-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(8,145,178,0.25); border-color: #67E8F9; }
+
+.week-card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.week-number { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #0891B2; font-weight: 800; line-height: 1; }
+.week-icon { font-size: 2.5em; }
+.week-title { font-size: 1.25em; font-weight: 700; color: #0E7490; margin-bottom: 10px; font-family: 'Baloo 2', cursive; }
+.week-desc { color: #8E7DA3; line-height: 1.7; margin-bottom: 15px; font-size: 0.95em; }
+.week-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+.week-tag { background: linear-gradient(135deg, #ECFEFF 0%, #CFFAFE 100%); color: #0891B2; padding: 5px 12px; border-radius: 15px; font-size: 0.8em; font-weight: 700; border: 1px solid #A5F3FC; }
+.week-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 2px dashed #ECFEFF; }
+.week-duration { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, #A8E6CF 0%, #6EE7B7 100%); color: white; padding: 6px 15px; border-radius: 20px; font-size: 0.85em; font-weight: 700; }
+.week-arrow { font-size: 1.5em; color: #0891B2; transition: all 0.3s; }
+.week-card:hover .week-arrow { transform: translateX(8px); }
+
+/* Progress Section */
+.progress-section { background: linear-gradient(135deg, #0891B2 0%, #67E8F9 50%, #A8E6CF 100%); padding: 50px 30px; border-radius: 30px; margin: 50px 0; text-align: center; color: white; position: relative; overflow: hidden; }
+.progress-section::before { content: '📈'; position: absolute; top: 20px; left: 5%; font-size: 3em; opacity: 0.3; animation: float 4s ease-in-out infinite; }
+.progress-section::after { content: '🎯'; position: absolute; bottom: 20px; right: 5%; font-size: 3em; opacity: 0.3; animation: float 3.5s ease-in-out infinite; }
+.progress-title { font-family: 'Baloo 2', cursive; font-size: 2.2em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+.progress-bar-container { background: rgba(255,255,255,0.3); border-radius: 50px; height: 35px; max-width: 700px; margin: 20px auto; overflow: hidden; backdrop-filter: blur(10px); }
+.progress-bar { background: white; height: 100%; border-radius: 50px; width: 0%; transition: width 2s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; align-items: center; justify-content: center; color: #0891B2; font-weight: 800; font-family: 'Baloo 2', cursive; font-size: 1.1em; }
+.progress-text { font-size: 1.1em; margin-top: 15px; opacity: 0.95; }
+
+/* Tips Section */
+.tips-section { background: white; border-radius: 25px; padding: 40px; margin: 50px 0; box-shadow: 0 8px 25px rgba(8,145,178,0.1); border: 2px solid #ECFEFF; }
+.tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+.tip-card { background: linear-gradient(135deg, #ECFEFF 0%, #CFFAFE 100%); border-left: 5px solid #0891B2; padding: 25px; border-radius: 20px; transition: all 0.3s; }
+.tip-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(8,145,178,0.15); }
+.tip-icon { font-size: 2.5em; margin-bottom: 15px; }
+.tip-title { font-family: 'Baloo 2', cursive; color: #0891B2; font-size: 1.3em; margin-bottom: 10px; font-weight: 700; }
+.tip-desc { color: #5D4E6D; line-height: 1.7; font-size: 0.98em; }
+
+/* CTA Section */
+.cta-section { text-align: center; padding: 60px 30px; background: linear-gradient(135deg, rgba(8,145,178,0.1) 0%, rgba(168,230,207,0.1) 100%); border-radius: 30px; margin: 50px 0; }
+.cta-section h2 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #0891B2; margin-bottom: 15px; }
+.cta-section p { font-size: 1.2em; color: #8E7DA3; margin-bottom: 30px; }
+.cta-button { display: inline-flex; align-items: center; gap: 10px; padding: 18px 45px; background: linear-gradient(135deg, #0891B2 0%, #67E8F9 100%); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.2em; box-shadow: 0 8px 25px rgba(8,145,178,0.3); transition: all 0.3s; }
+.cta-button:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 35px rgba(8,145,178,0.4); }
+.cta-button.secondary { background: white; color: #0891B2; border: 3px solid #67E8F9; margin-left: 15px; }
+
+/* Comparison Section */
+.comparison-section { background: white; border-radius: 25px; padding: 40px; margin: 50px 0; box-shadow: 0 8px 25px rgba(8,145,178,0.1); border: 2px solid #ECFEFF; }
+.comparison-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 30px; align-items: center; margin-top: 30px; }
+.comparison-card { background: linear-gradient(135deg, #ECFEFF 0%, #CFFAFE 100%); border-radius: 20px; padding: 30px; text-align: center; border: 2px solid #A5F3FC; }
+.comparison-card.current { background: linear-gradient(135deg, #0891B2 0%, #67E8F9 100%); color: white; border-color: transparent; }
+.comparison-card.current .comparison-title { color: white; }
+.comparison-card.current .comparison-item { color: rgba(255,255,255,0.95); }
+.comparison-icon { font-size: 3em; margin-bottom: 15px; }
+.comparison-title { font-family: 'Baloo 2', cursive; font-size: 1.8em; color: #0891B2; margin-bottom: 15px; }
+.comparison-item { padding: 8px 0; color: #5D4E6D; font-weight: 600; }
+.comparison-arrow { font-size: 3em; color: #0891B2; animation: pulse 2s infinite; }
+
+/* Footer */
+footer { background: linear-gradient(135deg, #6C5B7B 0%, #C06C84 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; font-weight: 600; }
+.footer-quote { font-style: italic; opacity: 0.9; margin-bottom: 15px; }
+.footer-extra { font-size: 0.9em; opacity: 0.8; }
+
+/* Responsive */
+@media (max-width: 768px) {
+.topik-hero h1 { font-size: 2.3em; }
+.topik-hero .subtitle { font-size: 1.2em; }
+.comparison-grid { grid-template-columns: 1fr; }
+.comparison-arrow { transform: rotate(90deg); }
+.stats-grid { grid-template-columns: repeat(2, 1fr); }
+.overview-table { font-size: 0.85em; }
+.overview-table thead th, .overview-table tbody td { padding: 10px 8px; }
+.cta-button.secondary { margin-left: 0; margin-top: 15px; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">🌿 TOPIK 2 - Sơ trung cấp</span>
+</nav>
+
+<!-- Hero -->
+<div class="topik-hero">
+<span class="topik-badge">🌿 CẤP ĐỘ SƠ TRUNG CẤP • 중급 초</span>
+<h1>TOPIK 2</h1>
+<div class="subtitle">Nâng cao kỹ năng - Giao tiếp tự tin</div>
+<p class="description">
+Tiếp nối hành trình từ TOPIK 1, bạn sẽ nâng cao vốn từ lên <strong>1500-2000 từ</strong>, 
+học <strong>100+ mẫu ngữ pháp trung cấp</strong>, và tự tin giao tiếp trong các tình huống 
+<strong>công việc, du lịch, văn hóa</strong>. Sẵn sàng cho kỳ thi TOPIK 2 với điểm mục tiêu <strong>140+</strong>! 🚀
+</p>
+</div>
+
+<!-- Stats Grid -->
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon">📅</div>
+<div class="stat-value">12</div>
+<div class="stat-label">Tuần học</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">📖</div>
+<div class="stat-value">2000+</div>
+<div class="stat-label">Từ vựng</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">📝</div>
+<div class="stat-value">100+</div>
+<div class="stat-label">Ngữ pháp</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">🎯</div>
+<div class="stat-value">140+</div>
+<div class="stat-label">Điểm mục tiêu</div>
+</div>
+</div>
+
+<!-- Objectives -->
+<div class="objectives-box">
+<div class="objectives-title">🎯 Mục tiêu TOPIK 2</div>
+<ul class="objectives-list">
+<li>Nâng cao vốn từ vựng lên <strong>1500-2000 từ</strong> với các chủ đề phức tạp hơn</li>
+<li>Nắm vững <strong>100+ mẫu ngữ pháp trung cấp</strong>: kính ngữ, liên kết, giả định, nhượng bộ</li>
+<li>Sử dụng thành thạo <strong>kính ngữ</strong> (존댓말) trong giao tiếp hàng ngày</li>
+<li>Đọc hiểu được <strong>đoạn văn dài</strong> về công việc, văn hóa, xã hội</li>
+<li>Nghe hiểu <strong>hội thoại phức tạp</strong> với tốc độ tự nhiên</li>
+<li>Viết được <strong>email, thư từ</strong> cơ bản bằng tiếng Hàn</li>
+<li>Giao tiếp tự tin trong <strong>công việc, du lịch, mua sắm nâng cao</strong></li>
+<li>Đạt <strong>140+ điểm</strong> trong kỳ thi TOPIK 2 chính thức</li>
+</ul>
+</div>
+
+<!-- Comparison Section -->
+<div class="comparison-section">
+<h2 class="section-heading">🔄 So sánh TOPIK 1 và TOPIK 2</h2>
+<p class="section-subtitle">Bạn đã sẵn sàng cho bước tiến tiếp theo!</p>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div class="comparison-icon">🌱</div>
+<div class="comparison-title">TOPIK 1</div>
+<div class="comparison-item">✅ 800-1000 từ vựng</div>
+<div class="comparison-item">✅ 60+ ngữ pháp cơ bản</div>
+<div class="comparison-item">✅ Giao tiếp cơ bản</div>
+<div class="comparison-item">✅ Đoạn văn ngắn</div>
+<div class="comparison-item">✅ 80+ điểm</div>
+</div>
+<div class="comparison-arrow">→</div>
+<div class="comparison-card current">
+<div class="comparison-icon">🌿</div>
+<div class="comparison-title">TOPIK 2</div>
+<div class="comparison-item">🚀 1500-2000 từ vựng</div>
+<div class="comparison-item">🚀 100+ ngữ pháp trung cấp</div>
+<div class="comparison-item">🚀 Giao tiếp tự tin</div>
+<div class="comparison-item">🚀 Đoạn văn dài</div>
+<div class="comparison-item">🚀 140+ điểm</div>
+</div>
+</div>
+</div>
+
+<!-- Overview Table -->
+<h2 class="section-heading">📋 Tổng quan 12 tuần học</h2>
+<p class="section-subtitle">Lộ trình bài bản từ TOPIK 1 lên TOPIK 2</p>
+
+<div class="overview-section">
+<table class="overview-table">
+<thead>
+<tr>
+<th>Tuần</th>
+<th></th>
+<th>Chủ đề</th>
+<th>Nội dung chính</th>
+<th>Ngữ pháp trọng tâm</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="week-num">1</td><td class="week-icon">🔄</td><td>Ôn tập & Kính ngữ</td><td>Ôn TOPIK 1, kính ngữ cơ bản</td><td>-(으)시-, 말씀하시다</td></tr>
+<tr><td class="week-num">2</td><td class="week-icon">📅</td><td>Kế hoạch & Dự định</td><td>Nói về kế hoạch, lời hứa</td><td>-(으)ㄹ까 봐, -기로 하다</td></tr>
+<tr><td class="week-num">3</td><td class="week-icon">🎯</td><td>Lý do & Mục đích</td><td>Giải thích nguyên nhân</td><td>-(으)려고, -기 때문에, -도록</td></tr>
+<tr><td class="week-num">4</td><td class="week-icon">⚖️</td><td>So sánh & Lựa chọn</td><td>So sánh, lựa chọn</td><td>-거나, -(으)ㄹ수록</td></tr>
+<tr><td class="week-num">5</td><td class="week-icon">✨</td><td>Trải nghiệm</td><td>Kinh nghiệm quá khứ</td><td>-(으)ㄴ 적이 있다, -는 김에</td></tr>
+<tr><td class="week-num">6</td><td class="week-icon">💼</td><td>Công việc & Phỏng vấn</td><td>Môi trường công sở</td><td>-(으)ㄹ 때, -는 동안</td></tr>
+<tr><td class="week-num">7</td><td class="week-icon">🏠</td><td>Thuê nhà & Nhà cửa</td><td>Hợp đồng, nội thất</td><td>-게 되다, -아/어 보다</td></tr>
+<tr><td class="week-num">8</td><td class="week-icon">✈️</td><td>Du lịch & Đặt phòng</td><td>Đặt vé, khách sạn</td><td>-아/어 놓다, -는 길</td></tr>
+<tr><td class="week-num">9</td><td class="week-icon">🎎</td><td>Văn hóa Hàn Quốc</td><td>Tết, Trung thu, phong tục</td><td>-ㄴ/은 적이 있다, -기로 하다</td></tr>
+<tr><td class="week-num">10</td><td class="week-icon">📱</td><td>Công nghệ & Internet</td><td>Điện thoại, MXH</td><td>-게 하다, -아/어지다</td></tr>
+<tr><td class="week-num">11</td><td class="week-icon">💌</td><td>Viết thư & Email</td><td>Thư trang trọng</td><td>-(으)ㅂ니다, -께서</td></tr>
+<tr><td class="week-num">12</td><td class="week-icon">🎓</td><td>Ôn tập & Luyện thi</td><td>Tổng hợp, đề thi thử</td><td>100+ ngữ pháp</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Weeks Grid -->
+<h2 class="section-heading">📚 Chi tiết 12 tuần học</h2>
+<p class="section-subtitle">Mỗi tuần 30 phút/ngày - Đủ để nâng cao kỹ năng!</p>
+
+<div class="weeks-grid">
+<!-- Week 1 -->
+<a href="topik2-week01.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">01</div>
+<div class="week-icon">🔄</div>
+</div>
+<h3 class="week-title">Ôn tập TOPIK 1 & Kính ngữ</h3>
+<p class="week-desc">Ôn tập toàn bộ TOPIK 1, làm quen với kính ngữ (존댓말) - nền tảng của giao tiếp lịch sự trong tiếng Hàn.</p>
+<div class="week-tags">
+<span class="week-tag">-(으)시-</span>
+<span class="week-tag">말씀하다</span>
+<span class="week-tag">주무시다</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 2 -->
+<a href="topik2-week02.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">02</div>
+<div class="week-icon">📅</div>
+</div>
+<h3 class="week-title">Kế hoạch & Dự định</h3>
+<p class="week-desc">Học cách nói về kế hoạch tương lai, lời hứa, và những lo lắng. Diễn đạt ý định một cách tự nhiên.</p>
+<div class="week-tags">
+<span class="week-tag">-(으)ㄹ까 봐</span>
+<span class="week-tag">-기로 하다</span>
+<span class="week-tag">-ㄹ 예정이다</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 3 -->
+<a href="topik2-week03.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">03</div>
+<div class="week-icon">🎯</div>
+</div>
+<h3 class="week-title">Lý do & Mục đích</h3>
+<p class="week-desc">Diễn tả nguyên nhân, lý do và mục đích một cách chi tiết. Phân biệt các cấu trúc tương tự.</p>
+<div class="week-tags">
+<span class="week-tag">-(으)려고</span>
+<span class="week-tag">-기 때문에</span>
+<span class="week-tag">-도록</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 4 -->
+<a href="topik2-week04.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">04</div>
+<div class="week-icon">⚖️</div>
+</div>
+<h3 class="week-title">So sánh & Lựa chọn</h3>
+<p class="week-desc">So sánh giữa các sự vật, hiện tượng và diễn tả sự lựa chọn. Nâng cao khả năng diễn đạt.</p>
+<div class="week-tags">
+<span class="week-tag">-거나</span>
+<span class="week-tag">-(으)ㄹ수록</span>
+<span class="week-tag">-보다는</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 5 -->
+<a href="topik2-week05.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">05</div>
+<div class="week-icon">✨</div>
+</div>
+<h3 class="week-title">Trải nghiệm & Kinh nghiệm</h3>
+<p class="week-desc">Nói về kinh nghiệm đã trải qua, những việc đã từng làm và kết hợp nhiều hành động.</p>
+<div class="week-tags">
+<span class="week-tag">-(으)ㄴ 적이 있다</span>
+<span class="week-tag">-는 김에</span>
+<span class="week-tag">-아/어 보다</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 6 -->
+<a href="topik2-week06.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">06</div>
+<div class="week-icon">💼</div>
+</div>
+<h3 class="week-title">Công việc & Phỏng vấn</h3>
+<p class="week-desc">Từ vựng và hội thoại về môi trường công sở, phỏng vấn xin việc, và giao tiếp chuyên nghiệp.</p>
+<div class="week-tags">
+<span class="week-tag">-(으)ㄹ 때</span>
+<span class="week-tag">-는 동안</span>
+<span class="week-tag">-은 후에</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 7 -->
+<a href="topik2-week07.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">07</div>
+<div class="week-icon">🏠</div>
+</div>
+<h3 class="week-title">Thuê nhà & Nhà cửa</h3>
+<p class="week-desc">Học cách thuê nhà, nói về hợp đồng, nội thất và các vấn đề liên quan đến nhà ở.</p>
+<div class="week-tags">
+<span class="week-tag">-게 되다</span>
+<span class="week-tag">-아/어 보다</span>
+<span class="week-tag">보증금/월세</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 8 -->
+<a href="topik2-week08.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">08</div>
+<div class="week-icon">✈️</div>
+</div>
+<h3 class="week-title">Du lịch & Đặt phòng</h3>
+<p class="week-desc">Đặt vé máy bay, khách sạn, hỏi đường và các tình huống khi đi du lịch Hàn Quốc.</p>
+<div class="week-tags">
+<span class="week-tag">-아/어 놓다</span>
+<span class="week-tag">-는 길</span>
+<span class="week-tag">예약하다</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 9 -->
+<a href="topik2-week09.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">09</div>
+<div class="week-icon">🎎</div>
+</div>
+<h3 class="week-title">Văn hóa Hàn Quốc</h3>
+<p class="week-desc">Tìm hiểu về Tết (설날), Trung thu (추석), phong tục và các ngày lễ truyền thống Hàn Quốc.</p>
+<div class="week-tags">
+<span class="week-tag">설날/추석</span>
+<span class="week-tag">-ㄴ/은 적이 있다</span>
+<span class="week-tag">전통</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 10 -->
+<a href="topik2-week10.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">10</div>
+<div class="week-icon">📱</div>
+</div>
+<h3 class="week-title">Công nghệ & Internet</h3>
+<p class="week-desc">Từ vựng về điện thoại, máy tính, mạng xã hội và các ứng dụng công nghệ hiện đại.</p>
+<div class="week-tags">
+<span class="week-tag">-게 하다</span>
+<span class="week-tag">-아/어지다</span>
+<span class="week-tag">스마트폰</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 11 -->
+<a href="topik2-week11.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">11</div>
+<div class="week-icon">💌</div>
+</div>
+<h3 class="week-title">Viết thư & Email</h3>
+<p class="week-desc">Học cách viết thư trang trọng, email công việc và các mẫu câu thường dùng trong văn bản.</p>
+<div class="week-tags">
+<span class="week-tag">-(으)ㅂ니다</span>
+<span class="week-tag">-께서</span>
+<span class="week-tag">-올림</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Week 12 -->
+<a href="topik2-week12.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">12</div>
+<div class="week-icon">🎓</div>
+</div>
+<h3 class="week-title">Ôn tập & Luyện thi TOPIK 2</h3>
+<p class="week-desc">Tổng hợp toàn bộ kiến thức 11 tuần, làm quen cấu trúc đề thi TOPIK 2 và luyện đề thi thử.</p>
+<div class="week-tags">
+<span class="week-tag">100+ ngữ pháp</span>
+<span class="week-tag">Đề thi thử</span>
+<span class="week-tag">140+ điểm</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+</div>
+
+<!-- Progress Section -->
+<div class="progress-section">
+<h2 class="progress-title">📈 Tiến độ TOPIK 2 của bạn</h2>
+<div class="progress-bar-container">
+<div class="progress-bar" id="progressBar">0%</div>
+</div>
+<p class="progress-text">Hoàn thành 12 tuần để chinh phục TOPIK 2! 🏆</p>
+</div>
+
+<!-- Tips Section -->
+<div class="tips-section">
+<h2 class="section-heading">💡 Bí quyết chinh phục TOPIK 2</h2>
+<p class="section-subtitle">Những mẹo quan trọng để nâng cao kỹ năng</p>
+
+<div class="tips-grid">
+<div class="tip-card">
+<div class="tip-icon">🎯</div>
+<h3 class="tip-title">Tập trung vào ngữ pháp trung cấp</h3>
+<p class="tip-desc">TOPIK 2 khác TOPIK 1 ở độ phức tạp ngữ pháp. Hãy học kỹ các cấu trúc liên kết, giả định, nhượng bộ.</p>
+</div>
+
+<div class="tip-card">
+<div class="tip-icon">📚</div>
+<h3 class="tip-title">Đọc báo & tin tức Hàn Quốc</h3>
+<p class="tip-desc">Đọc báo Naver, Yahoo Korea mỗi ngày 10 phút. Giúp nâng cao từ vựng và ngữ pháp tự nhiên.</p>
+</div>
+
+<div class="tip-card">
+<div class="tip-icon">🎧</div>
+<h3 class="tip-title">Nghe podcast tốc độ tự nhiên</h3>
+<p class="tip-desc">Chuyển từ tài liệu học sang podcast thực tế: Talk To Me In Korean, KBS World Radio.</p>
+</div>
+
+<div class="tip-card">
+<div class="tip-icon">✍️</div>
+<h3 class="tip-title">Viết nhật ký bằng tiếng Hàn</h3>
+<p class="tip-desc">Mỗi ngày viết 5-10 câu về ngày của bạn. Giúp ghi nhớ ngữ pháp và từ vựng lâu hơn.</p>
+</div>
+
+<div class="tip-card">
+<div class="tip-icon">🗣️</div>
+<h3 class="tip-title">Luyện nói với người bản xứ</h3>
+<p class="tip-desc">Dùng HelloTalk, Tandem để tìm bạn Hàn. Luyện nói 15-20 phút mỗi ngày.</p>
+</div>
+
+<div class="tip-card">
+<div class="tip-icon">🎬</div>
+<h3 class="tip-title">Xem phim Hàn không phụ đề</h3>
+<p class="tip-desc">Bắt đầu với phim có sub tiếng Hàn, dần chuyển sang không sub để luyện nghe.</p>
+</div>
+</div>
+</div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+<h2>🚀 Sẵn sàng bắt đầu TOPIK 2?</h2>
+<p>Hành trình 12 tuần nâng cao kỹ năng đang chờ bạn!</p>
+<div>
+<a href="topik2-week01.html" class="cta-button">🌿 Bắt đầu Tuần 1</a>
+<a href="index.html" class="cta-button secondary">← Về trang chủ</a>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn chinh phục TOPIK 2 thành công!</div>
+<div class="footer-quote">"Học tập là hạt giống, kiến thức là cây, thành công là quả" - Ngạn ngữ</div>
+<div class="footer-extra">
+© 2024 Korean Learning Roadmap | Made with 💖
+</div>
+</footer>
+
+<script>
+// Cherry Blossom
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮', '🌿'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+// Load progress
+window.onload = function() {
+    const completed = localStorage.getItem('topik2Completed') || 0;
+    const percentage = (parseInt(completed) / 12) * 100;
+    setTimeout(() => {
+        const bar = document.getElementById('progressBar');
+        bar.style.width = percentage + '%';
+        bar.textContent = Math.round(percentage) + '%';
+    }, 500);
+};
+</script>
+</body>
+</html>
