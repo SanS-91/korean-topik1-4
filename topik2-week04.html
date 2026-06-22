@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuần 4: So sánh & Lựa chọn - TOPIK 2 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFE5EC 0%, #FFF5E4 50%, #E8F5E9 100%); min-height: 100vh; color: #5D4E6D; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+/* Breadcrumb */
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #7C3AED; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #6D28D9; }
+.breadcrumb-separator { color: #A78BFA; }
+.breadcrumb-current { color: #6C5B7B; font-weight: 700; }
+
+/* Navigation */
+.week-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #7C3AED; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(124,58,237,0.15); transition: all 0.3s; border: 2px solid #A78BFA; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(124,58,237,0.25); background: #F5F3FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; }
+
+/* Hero */
+.week-hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(167,139,250,0.15) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.week-hero::before { content: '⚖️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.week-hero::after { content: '🎯'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+.week-badge { display: inline-block; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.week-hero h1 { font-family: 'Baloo 2', cursive; font-size: 3em; color: #6D28D9; margin-bottom: 10px; }
+.week-hero .subtitle { font-size: 1.3em; color: #6C5B7B; font-weight: 700; margin-bottom: 10px; }
+.week-hero .description { color: #8E7DA3; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+/* Objectives Box */
+.objectives-box { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border-left: 5px solid #7C3AED; padding: 25px; border-radius: 20px; margin: 30px 0; box-shadow: 0 5px 15px rgba(124,58,237,0.1); }
+.objectives-title { font-family: 'Baloo 2', cursive; color: #6D28D9; font-size: 1.4em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.objectives-list { list-style: none; }
+.objectives-list li { padding: 8px 0; padding-left: 30px; position: relative; color: #5D4E6D; font-weight: 600; line-height: 1.6; }
+.objectives-list li::before { content: '🎯'; position: absolute; left: 0; }
+
+/* Daily Schedule */
+.daily-schedule { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(124,58,237,0.1); border: 2px solid #F5F3FF; }
+.daily-title { font-family: 'Baloo 2', cursive; color: #7C3AED; font-size: 1.6em; margin-bottom: 20px; text-align: center; }
+.daily-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
+.daily-tab { padding: 10px 18px; border: 2px solid #A78BFA; background: white; color: #7C3AED; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-size: 0.9em; }
+.daily-tab.active { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border-color: transparent; }
+.daily-tab:hover:not(.active) { background: #F5F3FF; }
+.daily-content { display: none; animation: fadeIn 0.5s; }
+.daily-content.active { display: block; }
+.daily-header { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; padding: 15px 20px; border-radius: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.daily-header h3 { font-family: 'Baloo 2', cursive; font-size: 1.3em; }
+.daily-time { background: white; color: #7C3AED; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.9em; }
+.daily-objective { background: #F5F3FF; border-left: 4px solid #7C3AED; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+.daily-objective strong { color: #6D28D9; display: block; margin-bottom: 5px; }
+.daily-activities { background: white; border: 2px dashed #F5F3FF; padding: 20px; border-radius: 15px; }
+.daily-activities h4 { color: #7C3AED; margin-bottom: 10px; font-family: 'Baloo 2', cursive; }
+.daily-activities ul { list-style: none; }
+.daily-activities li { padding: 8px 0; padding-left: 25px; position: relative; color: #5D4E6D; }
+.daily-activities li::before { content: '✓'; position: absolute; left: 0; color: #7C3AED; font-weight: bold; }
+
+/* Section Heading */
+.section-heading { font-family: 'Baloo 2', cursive; color: #7C3AED; font-size: 1.5em; margin: 35px 0 20px; display: flex; align-items: center; gap: 10px; }
+.section-heading::after { content: ''; flex: 1; height: 2px; background: linear-gradient(90deg, #A78BFA, transparent); }
+
+/* Info Box */
+.info-box { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border-left: 5px solid #7C3AED; padding: 25px; border-radius: 20px; margin: 25px 0; box-shadow: 0 5px 15px rgba(124,58,237,0.1); }
+.info-box-title { font-family: 'Baloo 2', cursive; color: #6D28D9; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.info-box-content { color: #5D4E6D; line-height: 1.8; }
+.info-box-content strong { color: #7C3AED; }
+.info-box-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+.info-box-table th { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; padding: 12px; text-align: left; font-weight: 700; }
+.info-box-table td { padding: 12px; border-bottom: 1px solid #F5F3FF; background: white; }
+.info-box-table tr:hover td { background: #EDE9FE; }
+
+/* Audio Player */
+.audio-player { background: linear-gradient(135deg, #F5F3FF 0%, #F0FDF4 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #A78BFA; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(124,58,237,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #5D4E6D; margin-bottom: 4px; }
+.audio-sub { color: #8E7DA3; font-size: 0.88em; }
+
+/* Speak Button */
+.speak-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #87CEEB 0%, #A8E6CF 100%); border: none; color: white; font-size: 0.95em; cursor: pointer; margin-left: 8px; transition: all 0.3s; vertical-align: middle; box-shadow: 0 3px 10px rgba(135,206,235,0.3); }
+.speak-btn:hover { transform: scale(1.2) rotate(10deg); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); }
+.speak-btn-large { width: 42px; height: 42px; }
+
+/* Vocab Grid */
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 20px 0; }
+.vocab-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 6px 18px rgba(124,58,237,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 2px solid #F5F3FF; }
+.vocab-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(124,58,237,0.2); border-color: #A78BFA; }
+.vocab-image { width: 100%; height: 110px; display: flex; align-items: center; justify-content: center; font-size: 3.5em; }
+.vocab-card:nth-child(4n+1) .vocab-image { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); }
+.vocab-card:nth-child(4n+2) .vocab-image { background: linear-gradient(135deg, #FFB6C1 0%, #FFA8B6 100%); }
+.vocab-card:nth-child(4n+3) .vocab-image { background: linear-gradient(135deg, #A8E6CF 0%, #87CEEB 100%); }
+.vocab-card:nth-child(4n+4) .vocab-image { background: linear-gradient(135deg, #FFD93D 0%, #FFA500 100%); }
+.vocab-content { padding: 16px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.5em; color: #7C3AED; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; flex-wrap: wrap; }
+.vocab-pronunciation { color: #B19CD9; font-size: 0.88em; font-weight: 600; font-style: italic; background: #F8F4FF; padding: 5px 10px; border-radius: 8px; display: inline-block; margin: 5px 0; }
+.vocab-vietnamese { color: #5D4E6D; font-size: 0.98em; font-weight: 600; margin: 8px 0; }
+.vocab-example { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); padding: 10px; border-radius: 12px; font-size: 0.88em; color: #7B6B3D; display: flex; align-items: start; gap: 8px; border: 1px dashed #FFD93D; margin-top: 8px; }
+.vocab-example-text { flex: 1; }
+.vocab-example strong { color: #7C3AED; }
+
+/* Grammar Box */
+.grammar-box { background: linear-gradient(135deg, #F5F3FF 0%, #F0FDF4 100%); border-radius: 20px; padding: 25px; margin: 25px 0; border: 2px solid #A78BFA; box-shadow: 0 5px 15px rgba(124,58,237,0.1); }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #6D28D9; margin-bottom: 15px; font-weight: 700; }
+.grammar-section { margin: 15px 0; }
+.grammar-section-title { color: #7C3AED; font-weight: 700; font-size: 1.05em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.grammar-explanation { color: #5D4E6D; line-height: 1.8; margin-bottom: 12px; font-weight: 500; }
+.grammar-formula { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-left: 5px solid #FFD93D; padding: 18px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #7B6B3D; font-size: 1.02em; line-height: 1.8; }
+.grammar-note { background: #FFF0F5; border-left: 4px solid #FF6B9D; padding: 12px 15px; border-radius: 10px; margin: 15px 0; color: #C2185B; font-weight: 600; font-size: 0.95em; }
+.grammar-example { background: white; border-left: 5px solid #A78BFA; padding: 15px; border-radius: 12px; margin: 12px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 3px 10px rgba(167,139,250,0.15); }
+.grammar-example-text { flex: 1; min-width: 200px; }
+.grammar-example-label { font-weight: 700; color: #7C3AED; margin-bottom: 5px; font-size: 0.9em; }
+.grammar-example-korean { font-size: 1.15em; color: #5D4E6D; font-weight: 700; margin-bottom: 3px; }
+.grammar-example-pron { color: #B19CD9; font-style: italic; font-size: 0.9em; margin-bottom: 3px; }
+.grammar-example-meaning { color: #8E7DA3; font-style: italic; font-size: 0.95em; }
+
+/* Conversation */
+.conversation-box { background: white; border-radius: 25px; padding: 25px; margin: 25px 0; box-shadow: 0 8px 25px rgba(124,58,237,0.1); border: 2px solid #F5F3FF; }
+.conversation-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #6D28D9; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 700; }
+.dialog-line { display: flex; align-items: start; gap: 12px; padding: 14px; margin: 10px 0; border-radius: 18px; background: linear-gradient(135deg, #EDE9FE 0%, #FFFFFF 100%); transition: all 0.3s; border: 1px solid #F5F3FF; }
+.dialog-line:hover { transform: translateX(5px); }
+.dialog-line.speaker-b { background: linear-gradient(135deg, #F0F8FF 0%, #FFFFFF 100%); border-color: #B3D9FF; }
+.dialog-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.4em; flex-shrink: 0; }
+.dialog-line.speaker-b .dialog-avatar { background: linear-gradient(135deg, #87CEEB 0%, #A8E6CF 100%); }
+.dialog-content { flex: 1; }
+.dialog-korean { font-size: 1.08em; color: #5D4E6D; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dialog-pron { color: #B19CD9; font-style: italic; font-size: 0.85em; margin-bottom: 3px; }
+.dialog-vietnamese { color: #8E7DA3; font-style: italic; font-size: 0.93em; }
+
+/* Exercise */
+.exercise-container { background: linear-gradient(135deg, #FFFBEA 0%, #FFF9E6 100%); border-radius: 20px; padding: 25px; margin: 25px 0; border: 2px dashed #FFD93D; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #E6A800; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #5D4E6D; margin-bottom: 15px; font-weight: 700; line-height: 1.6; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #F5F3FF; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #A78BFA; background: #F5F3FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #E8F5E9; color: #2E7D32; }
+.exercise-option.incorrect { border-color: #FF6B9D; background: #FFE5EC; color: #C2185B; }
+.check-answer-btn { background: linear-gradient(135deg, #10B981 0%, #A8E6CF 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(16,185,129,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #E8F5E9; color: #2E7D32; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FFE5EC; color: #C2185B; border: 2px solid #FF6B9D; }
+
+/* Flashcard */
+.flashcard-section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(124,58,237,0.1); border: 2px solid #F5F3FF; }
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; }
+.flashcard-back { background: white; color: #5D4E6D; transform: rotateY(180deg); border: 3px solid #7C3AED; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 2.5em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.3em; font-weight: 700; color: #7C3AED; margin-bottom: 10px; text-align: center; }
+.flashcard-pron { color: #B19CD9; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #87CEEB 0%, #A8E6CF 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #8E7DA3; margin-top: 10px; font-weight: 600; }
+
+/* Checklist */
+.checklist-section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(124,58,237,0.1); border: 2px solid #F5F3FF; }
+.checklist-item { display: flex; align-items: center; padding: 13px; background: #EDE9FE; margin: 8px 0; border-radius: 15px; cursor: pointer; transition: all 0.3s; border: 2px solid #F5F3FF; font-weight: 600; }
+.checklist-item:hover { background: #F5F3FF; transform: translateX(5px); border-color: #A78BFA; }
+.checklist-item input[type="checkbox"] { width: 22px; height: 22px; margin-right: 15px; cursor: pointer; accent-color: #7C3AED; }
+.checklist-item.completed { opacity: 0.6; text-decoration: line-through; background: #F0F8FF; border-color: #A8E6CF; }
+
+/* Notes */
+.notes-section { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-radius: 25px; padding: 25px; margin: 30px 0; border: 2px dashed #FFD93D; }
+.notes-title { font-family: 'Baloo 2', cursive; color: #E6A800; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.notes-textarea { width: 100%; min-height: 120px; padding: 15px; border: 2px solid #FFE5B8; border-radius: 15px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; background: white; }
+.notes-textarea:focus { outline: none; border-color: #FFD93D; }
+.save-notes-btn { background: linear-gradient(135deg, #FFD93D 0%, #FFA500 100%); color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.save-notes-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,217,61,0.4); }
+
+/* Assessment */
+.assessment-box { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 50%, #FFD93D 100%); padding: 40px 30px; border-radius: 30px; margin: 40px 0; text-align: center; color: white; position: relative; overflow: hidden; }
+.assessment-box::before { content: '🎯'; position: absolute; top: 15px; left: 5%; font-size: 3em; opacity: 0.3; }
+.assessment-box::after { content: '🏆'; position: absolute; bottom: 15px; right: 5%; font-size: 3em; opacity: 0.3; }
+.assessment-title { font-family: 'Baloo 2', cursive; font-size: 2em; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+.assessment-score { font-family: 'Baloo 2', cursive; font-size: 3.5em; margin: 15px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+.assessment-message { font-size: 1.1em; margin-top: 10px; }
+
+/* Footer */
+footer { background: linear-gradient(135deg, #6C5B7B 0%, #C06C84 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+/* Responsive */
+@media (max-width: 768px) {
+.week-hero h1 { font-size: 2.2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+.flashcard { height: 240px; }
+.flashcard-char { font-size: 2em; }
+.info-box-table { font-size: 0.9em; }
+.info-box-table th, .info-box-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik2.html">🌿 TOPIK 2</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">⚖️ Tuần 4: So sánh & Lựa chọn</span>
+</nav>
+
+<!-- Week Navigation -->
+<div class="week-nav">
+<a href="topik2-week03.html" class="nav-btn">← Tuần 3: Lý do</a>
+<a href="topik2-week05.html" class="nav-btn primary">Tuần 5: Trải nghiệm →</a>
+</div>
+
+<!-- Hero -->
+<div class="week-hero">
+<span class="week-badge">⚖️ TUẦN 4 • 4주 - MÀU TÍM</span>
+<h1>So sánh & Lựa chọn</h1>
+<div class="subtitle">So sánh thông minh - Lựa chọn đúng đắn</div>
+<p class="description">
+Học cách <strong>so sánh</strong> sự vật, hiện tượng và diễn tả <strong>sự lựa chọn</strong> một cách tự nhiên. 
+Thành thạo các cấu trúc <strong>-거나</strong>, <strong>-(으)ㄹ수록</strong>, <strong>-보다는</strong> 
+để giao tiếp linh hoạt và chính xác! 🎯
+</p>
+</div>
+
+<!-- Objectives -->
+<div class="objectives-box">
+<div class="objectives-title">🎯 Mục tiêu tuần 4</div>
+<ul class="objectives-list">
+<li>Biết <strong>15+ từ vựng</strong> về so sánh, lựa chọn, sự khác biệt</li>
+<li>Nắm vững ngữ pháp <strong>-거나</strong> (hoặc, hay là)</li>
+<li>Nắm vững ngữ pháp <strong>-(으)ㄹ수록</strong> (càng... càng...)</li>
+<li>Nắm vững ngữ pháp <strong>-보다는</strong> (hơn là, so với)</li>
+<li><strong>Phân biệt rõ ràng</strong> sự khác nhau giữa 3 cấu trúc trên</li>
+<li>Diễn tả <strong>sự so sánh</strong> trong cuộc sống hàng ngày</li>
+<li>Nói về <strong>sự lựa chọn</strong> và đưa ra quyết định</li>
+<li>Thực hành <strong>2 hội thoại thực tế</strong>: mua sắm và lựa chọn công việc</li>
+</ul>
+</div>
+
+<!-- Daily Schedule -->
+<div class="daily-schedule">
+<h2 class="daily-title">📅 Lịch học chi tiết 7 buổi (30 phút/buổi)</h2>
+<div class="daily-tabs">
+<button class="daily-tab active" onclick="showDaily(1, event)">Thứ 2</button>
+<button class="daily-tab" onclick="showDaily(2, event)">Thứ 3</button>
+<button class="daily-tab" onclick="showDaily(3, event)">Thứ 4</button>
+<button class="daily-tab" onclick="showDaily(4, event)">Thứ 5</button>
+<button class="daily-tab" onclick="showDaily(5, event)">Thứ 6</button>
+<button class="daily-tab" onclick="showDaily(6, event)">Thứ 7</button>
+<button class="daily-tab" onclick="showDaily(7, event)">Chủ Nhật</button>
+</div>
+
+<!-- Day 1 -->
+<div id="day1" class="daily-content active">
+<div class="daily-header">
+<h3>📊 Ngày 1: Từ vựng về so sánh</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học từ vựng diễn tả sự so sánh, khác biệt, tương đồng.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn tập tuần 3 (lý do & mục đích)</li>
+<li><strong>15 phút:</strong> Học 8 từ vựng về so sánh</li>
+<li><strong>5 phút:</strong> Đặt câu với mỗi từ</li>
+<li><strong>5 phút:</strong> Luyện phát âm và ghi nhớ</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 2 -->
+<div id="day2" class="daily-content">
+<div class="daily-header">
+<h3>🎯 Ngày 2: Từ vựng về lựa chọn</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học từ vựng về sự lựa chọn, quyết định, ưu tiên.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn ngày 1</li>
+<li><strong>15 phút:</strong> Học 7 từ vựng về lựa chọn</li>
+<li><strong>5 phút:</strong> Nói về lựa chọn của bạn</li>
+<li><strong>5 phút:</strong> Luyện phát âm</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 3 -->
+<div id="day3" class="daily-content">
+<div class="daily-header">
+<h3>📝 Ngày 3: Ngữ pháp -거나</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học cách diễn tả sự lựa chọn: "hoặc, hay là..."
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn từ vựng</li>
+<li><strong>15 phút:</strong> Học công thức -거나 + 10 ví dụ</li>
+<li><strong>5 phút:</strong> Nói về lựa chọn của bạn</li>
+<li><strong>5 phút:</strong> Luyện hội thoại</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 4 -->
+<div id="day4" class="daily-content">
+<div class="daily-header">
+<h3>📝 Ngày 4: Ngữ pháp -(으)ㄹ수록</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học cách diễn tả "càng... càng..."
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn -거나</li>
+<li><strong>15 phút:</strong> Học -(으)ㄹ수록 + 10 ví dụ</li>
+<li><strong>5 phút:</strong> So sánh với -거나</li>
+<li><strong>5 phút:</strong> Luyện phát âm</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 5 -->
+<div id="day5" class="daily-content">
+<div class="daily-header">
+<h3>📝 Ngày 5: Ngữ pháp -보다는</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Học cách so sánh: "hơn là, so với..."
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn 2 ngữ pháp trước</li>
+<li><strong>15 phút:</strong> Học -보다는 + 10 ví dụ</li>
+<li><strong>5 phút:</strong> Phân biệt 3 cấu trúc</li>
+<li><strong>5 phút:</strong> Luyện hội thoại</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 6 -->
+<div id="day6" class="daily-content">
+<div class="daily-header">
+<h3>💬 Ngày 6: Hội thoại so sánh & lựa chọn</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Thực hành hội thoại về so sánh và lựa chọn trong các tình huống thực tế.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>5 phút:</strong> Ôn 3 ngữ pháp</li>
+<li><strong>15 phút:</strong> Học cụm từ và hội thoại</li>
+<li><strong>5 phút:</strong> Thực hành 2 hội thoại</li>
+<li><strong>5 phút:</strong> Ghi âm và nghe lại</li>
+</ul>
+</div>
+</div>
+
+<!-- Day 7 -->
+<div id="day7" class="daily-content">
+<div class="daily-header">
+<h3>🎉 Ngày 7: Ôn tập & Kiểm tra</h3>
+<span class="daily-time">⏰ 30 phút</span>
+</div>
+<div class="daily-objective">
+<strong>🎯 Mục tiêu ngày:</strong>
+Ôn tập toàn bộ tuần 4 và làm bài kiểm tra cuối tuần.
+</div>
+<div class="daily-activities">
+<h4>📝 Phân bổ thời gian:</h4>
+<ul>
+<li><strong>10 phút:</strong> Ôn từ vựng + 3 ngữ pháp</li>
+<li><strong>5 phút:</strong> So sánh 2 thành phố</li>
+<li><strong>10 phút:</strong> Làm bài kiểm tra cuối tuần</li>
+<li><strong>5 phút:</strong> Tự đánh giá và ghi chú</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- TỪ VỰNG VỀ SO SÁNH -->
+<h2 class="section-heading">📊 Từ vựng về so sánh</h2>
+
+<div class="audio-player">
+<button class="play-btn" onclick="speakKorean('비교,차이,유사,같다,다르다,비슷하다', this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe từ vựng so sánh</div>
+<div class="audio-sub">Nghe và lặp lại theo 3 lần</div>
+</div>
+</div>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-image">⚖️</div>
+<div class="vocab-content">
+<div class="vocab-korean">비교 <button class="speak-btn" onclick="speakKorean('비교', this)">🔊</button></div>
+<div class="vocab-pronunciation">[bi-gyo]</div>
+<div class="vocab-vietnamese">So sánh</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>두 가지를 비교해요.</strong> - So sánh hai thứ.</div>
+<button class="speak-btn" onclick="speakKorean('두 가지를 비교해요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🔍</div>
+<div class="vocab-content">
+<div class="vocab-korean">차이 <button class="speak-btn" onclick="speakKorean('차이', this)">🔊</button></div>
+<div class="vocab-pronunciation">[cha-i]</div>
+<div class="vocab-vietnamese">Sự khác biệt</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>차이가 있어요.</strong> - Có sự khác biệt.</div>
+<button class="speak-btn" onclick="speakKorean('차이가 있어요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🔄</div>
+<div class="vocab-content">
+<div class="vocab-korean">유사 <button class="speak-btn" onclick="speakKorean('유사', this)">🔊</button></div>
+<div class="vocab-pronunciation">[yu-sa]</div>
+<div class="vocab-vietnamese">Tương tự</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>유사한 점이 있어요.</strong> - Có điểm tương tự.</div>
+<button class="speak-btn" onclick="speakKorean('유사한 점이 있어요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🟰</div>
+<div class="vocab-content">
+<div class="vocab-korean">같다 <button class="speak-btn" onclick="speakKorean('같다', this)">🔊</button></div>
+<div class="vocab-pronunciation">[gat-da]</div>
+<div class="vocab-vietnamese">Giống nhau</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>두 개가 같아요.</strong> - Hai cái giống nhau.</div>
+<button class="speak-btn" onclick="speakKorean('두 개가 같아요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🔀</div>
+<div class="vocab-content">
+<div class="vocab-korean">다르다 <button class="speak-btn" onclick="speakKorean('다르다', this)">🔊</button></div>
+<div class="vocab-pronunciation">[da-reu-da]</div>
+<div class="vocab-vietnamese">Khác nhau</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>생각이 달라요.</strong> - Suy nghĩ khác nhau.</div>
+<button class="speak-btn" onclick="speakKorean('생각이 달라요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">👥</div>
+<div class="vocab-content">
+<div class="vocab-korean">비슷하다 <button class="speak-btn" onclick="speakKorean('비슷하다', this)">🔊</button></div>
+<div class="vocab-pronunciation">[bi-seu-ta-da]</div>
+<div class="vocab-vietnamese">Tương tự, giống</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>서로 비슷해요.</strong> - Giống nhau.</div>
+<button class="speak-btn" onclick="speakKorean('서로 비슷해요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">📏</div>
+<div class="vocab-content">
+<div class="vocab-korean">크다 <button class="speak-btn" onclick="speakKorean('크다', this)">🔊</button></div>
+<div class="vocab-pronunciation">[keu-da]</div>
+<div class="vocab-vietnamese">To, lớn</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>이게 더 커요.</strong> - Cái này to hơn.</div>
+<button class="speak-btn" onclick="speakKorean('이게 더 커요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">📐</div>
+<div class="vocab-content">
+<div class="vocab-korean">작다 <button class="speak-btn" onclick="speakKorean('작다', this)">🔊</button></div>
+<div class="vocab-pronunciation">[jak-da]</div>
+<div class="vocab-vietnamese">Nhỏ, bé</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>이게 더 작아요.</strong> - Cái này nhỏ hơn.</div>
+<button class="speak-btn" onclick="speakKorean('이게 더 작아요', this)">🔊</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- TỪ VỰNG VỀ LỰA CHỌN -->
+<h2 class="section-heading">🎯 Từ vựng về lựa chọn</h2>
+
+<div class="audio-player">
+<button class="play-btn" onclick="speakKorean('선택,결정,우선,고르다,택하다,선호하다', this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe từ vựng lựa chọn</div>
+</div>
+</div>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-image">✅</div>
+<div class="vocab-content">
+<div class="vocab-korean">선택 <button class="speak-btn" onclick="speakKorean('선택', this)">🔊</button></div>
+<div class="vocab-pronunciation">[seon-taek]</div>
+<div class="vocab-vietnamese">Sự lựa chọn</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>선택을 해요.</strong> - Đưa ra lựa chọn.</div>
+<button class="speak-btn" onclick="speakKorean('선택을 해요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🎯</div>
+<div class="vocab-content">
+<div class="vocab-korean">결정 <button class="speak-btn" onclick="speakKorean('결정', this)">🔊</button></div>
+<div class="vocab-pronunciation">[gyeol-jeong]</div>
+<div class="vocab-vietnamese">Quyết định</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>결정을 내렸어요.</strong> - Đã đưa ra quyết định.</div>
+<button class="speak-btn" onclick="speakKorean('결정을 내렸어요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">⭐</div>
+<div class="vocab-content">
+<div class="vocab-korean">우선 <button class="speak-btn" onclick="speakKorean('우선', this)">🔊</button></div>
+<div class="vocab-pronunciation">[u-seon]</div>
+<div class="vocab-vietnamese">Ưu tiên, trước hết</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>우선 순위를 정해요.</strong> - Xác định thứ tự ưu tiên.</div>
+<button class="speak-btn" onclick="speakKorean('우선 순위를 정해요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">👆</div>
+<div class="vocab-content">
+<div class="vocab-korean">고르다 <button class="speak-btn" onclick="speakKorean('고르다', this)">🔊</button></div>
+<div class="vocab-pronunciation">[go-reu-da]</div>
+<div class="vocab-vietnamese">Chọn, lựa</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>하나를 골라요.</strong> - Chọn một cái.</div>
+<button class="speak-btn" onclick="speakKorean('하나를 골라요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🎪</div>
+<div class="vocab-content">
+<div class="vocab-korean">택하다 <button class="speak-btn" onclick="speakKorean('택하다', this)">🔊</button></div>
+<div class="vocab-pronunciation">[tae-ka-da]</div>
+<div class="vocab-vietnamese">Chọn lựa (trang trọng)</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>옳은 길을 택했어요.</strong> - Đã chọn con đường đúng.</div>
+<button class="speak-btn" onclick="speakKorean('옳은 길을 택했어요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">❤️</div>
+<div class="vocab-content">
+<div class="vocab-korean">선호하다 <button class="speak-btn" onclick="speakKorean('선호하다', this)">🔊</button></div>
+<div class="vocab-pronunciation">[seon-ho-ha-da]</div>
+<div class="vocab-vietnamese">Ưa thích, thiên về</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>커피를 선호해요.</strong> - Tôi thích cà phê hơn.</div>
+<button class="speak-btn" onclick="speakKorean('커피를 선호해요', this)">🔊</button>
+</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🤔</div>
+<div class="vocab-content">
+<div class="vocab-korean">고민 <button class="speak-btn" onclick="speakKorean('고민', this)">🔊</button></div>
+<div class="vocab-pronunciation">[go-min]</div>
+<div class="vocab-vietnamese">Suy nghĩ, băn khoăn</div>
+<div class="vocab-example">
+<div class="vocab-example-text"><strong>고민이 있어요.</strong> - Có điều băn khoăn.</div>
+<button class="speak-btn" onclick="speakKorean('고민이 있어요', this)">🔊</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-note">
+💡 <strong>Phân biệt các từ về "chọn":</strong><br>
+• <strong>선택</strong>: Sự lựa chọn (danh từ chung)<br>
+• <strong>고르다</strong>: Chọn (thông dụng nhất)<br>
+• <strong>택하다</strong>: Chọn lựa (trang trọng, văn viết)<br>
+• <strong>선호하다</strong>: Ưa thích, thiên về (so sánh sở thích)<br>
+<br>
+<strong>Ví dụ:</strong><br>
+• <strong>선택</strong>: 이 선택이 맞아요. (Lựa chọn này đúng.)<br>
+• <strong>고르다</strong>: 하나를 골라요. (Chọn một cái.)<br>
+• <strong>택하다</strong>: 안전한 방법을 택했어요. (Đã chọn phương pháp an toàn.)<br>
+• <strong>선호하다</strong>: 차를 선호해요. (Tôi thích trà hơn.)
+</div>
+
+<!-- NGỮ PHÁP 1: -거나 -->
+<h2 class="section-heading">📝 Ngữ pháp: -거나 (Hoặc, hay là)</h2>
+
+<div class="grammar-box">
+<div class="grammar-title">🔀 Diễn tả sự lựa chọn: -거나</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Công thức</div>
+<div class="grammar-formula">
+[Động từ/Tính từ 1] + <strong>-거나</strong> + [Động từ/Tính từ 2]<br>
+<br>
+<strong>Cấu tạo:</strong><br>
+• Động từ/Tính từ + <strong>-거나</strong><br>
+<br>
+<strong>Dạng phủ định:</strong><br>
+• <strong>-거나 -지 않다</strong> (hoặc không)
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Cách sử dụng</div>
+<div class="grammar-explanation">
+Dùng để diễn tả <strong>sự lựa chọn</strong> giữa hai hoặc nhiều khả năng.<br>
+Tương tự: "hoặc", "hay là", "hoặc là" trong tiếng Việt.<br>
+<br>
+<strong>⚠️ Lưu ý quan trọng:</strong><br>
+• Dùng khi có <strong>2 hoặc nhiều lựa chọn</strong><br>
+• Các lựa chọn <strong>ngang hàng</strong>, không phân biệt thứ tự<br>
+• Có thể dùng với cả động từ và tính từ
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Ví dụ minh họa</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 1:</div>
+<div class="grammar-example-korean">커피나 차를 마시거나 해요.</div>
+<div class="grammar-example-pronunciation">[keo-pi-na cha-reul ma-si-geo-na hae-yo]</div>
+<div class="grammar-example-meaning">Tôi uống cà phê hoặc trà.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('커피나 차를 마시거나 해요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 2:</div>
+<div class="grammar-example-korean">주말에 영화를 보거나 책을 읽어요.</div>
+<div class="grammar-example-pronunciation">[ju-ma-re yeong-hwa-reul bo-geo-na chae-geul il-geo-yo]</div>
+<div class="grammar-example-meaning">Cuối tuần tôi xem phim hoặc đọc sách.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('주말에 영화를 보거나 책을 읽어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 3:</div>
+<div class="grammar-example-korean">크거나 작거나 상관없어요.</div>
+<div class="grammar-example-pronunciation">[keu-geo-na jak-geo-na sang-gwan-eop-seo-yo]</div>
+<div class="grammar-example-meaning">To hay nhỏ đều không sao.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('크거나 작거나 상관없어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 4:</div>
+<div class="grammar-example-korean">한국에 가거나 일본에 갈 거예요.</div>
+<div class="grammar-example-pronunciation">[han-gu-e ka-geo-na il-bo-ne gal geo-ye-yo]</div>
+<div class="grammar-example-meaning">Tôi sẽ đi Hàn Quốc hoặc Nhật Bản.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('한국에 가거나 일본에 갈 거예요', this)">🔊</button>
+</div>
+</div>
+
+<div class="grammar-note">
+💡 <strong>-거나 vs -든지:</strong><br>
+• <strong>-거나</strong>: Lựa chọn giữa các khả năng cụ thể<br>
+• <strong>-든지</strong>: Bất cứ cái nào cũng được (tự do lựa chọn)<br>
+<br>
+Ví dụ:<br>
+• <strong>커피나 차를 마시거나 해요.</strong> = Tôi uống cà phê hoặc trà. (2 lựa chọn)<br>
+• <strong>뭐든지 마셔요.</strong> = Uống gì cũng được. (tự do)
+</div>
+</div>
+
+<!-- NGỮ PHÁP 2: -(으)ㄹ수록 -->
+<h2 class="section-heading">📝 Ngữ pháp: -(으)ㄹ수록 (Càng... càng...)</h2>
+
+<div class="grammar-box">
+<div class="grammar-title">📈 Diễn tả mức độ tăng dần: -(으)ㄹ수록</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Công thức</div>
+<div class="grammar-formula">
+[Động từ/Tính từ] + <strong>-(으)ㄹ수록</strong> + [Mệnh đề chính]<br>
+<br>
+<strong>Quy tắc:</strong><br>
+• Gốc <strong>không có patchim</strong> → + <strong>-ㄹ수록</strong><br>
+• Gốc <strong>có patchim</strong> → + <strong>-을수록</strong><br>
+<br>
+<strong>Nghĩa:</strong> "Càng... càng..."
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Cách sử dụng</div>
+<div class="grammar-explanation">
+Dùng để diễn tả <strong>mức độ tăng dần</strong> theo một yếu tố nào đó.<br>
+Mệnh đề trước là <strong>ĐIỀU KIỆN</strong>, mệnh đề sau là <strong>KẾT QUẢ</strong> tăng dần.<br>
+<br>
+Tương tự: "càng... càng..." trong tiếng Việt.<br>
+<br>
+<strong>⚠️ Lưu ý quan trọng:</strong><br>
+• Mệnh đề trước thường là <strong>tính từ</strong> hoặc <strong>động từ chỉ trạng thái</strong><br>
+• Mệnh đề sau diễn tả <strong>sự thay đổi theo mức độ</strong>
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Ví dụ minh họa</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 1:</div>
+<div class="grammar-example-korean">공부할수록 재미있어요.</div>
+<div class="grammar-example-pronunciation">[gong-bu-hal-su-rok jae-mi-i-sseo-yo]</div>
+<div class="grammar-example-meaning">Càng học càng thú vị.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('공부할수록 재미있어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 2:</div>
+<div class="grammar-example-korean">날씨가 추울수록 따뜻한 옷을 입어요.</div>
+<div class="grammar-example-pronunciation">[nal-ssi-ga chu-ul-su-rok tta-tteu-tan o-seul i-beo-yo]</div>
+<div class="grammar-example-meaning">Trời càng lạnh thì mặc áo càng ấm.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('날씨가 추울수록 따뜻한 옷을 입어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 3:</div>
+<div class="grammar-example-korean">많이 먹을수록 살이 쪄요.</div>
+<div class="grammar-example-pronunciation">[ma-ni meo-geul-su-rok sa-ri jjeo-yo]</div>
+<div class="grammar-example-meaning">Càng ăn nhiều càng béo.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('많이 먹을수록 살이 쪄요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 4:</div>
+<div class="grammar-example-korean">오래 살수록 건강이 중요해요.</div>
+<div class="grammar-example-pronunciation">[o-rae sal-su-rok geon-gang-i jung-yo-hae-yo]</div>
+<div class="grammar-example-meaning">Càng sống lâu thì sức khỏe càng quan trọng.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('오래 살수록 건강이 중요해요', this)">🔊</button>
+</div>
+</div>
+
+<div class="grammar-note">
+💡 <strong>Cấu trúc đặc biệt:</strong><br>
+• <strong>-(으)면 -(으)ㄹ수록</strong> = Nếu càng... thì càng...<br>
+<br>
+Ví dụ:<br>
+• <strong>많이 공부하면 할수록 실력이 늘어요.</strong><br>
+= Càng học nhiều thì kỹ năng càng tăng.<br>
+<br>
+• <strong>자주 만날수록 친해져요.</strong><br>
+= Càng gặp thường xuyên thì càng thân thiết.
+</div>
+</div>
+
+<!-- NGỮ PHÁP 3: -보다는 -->
+<h2 class="section-heading">📝 Ngữ pháp: -보다는 (Hơn là, so với)</h2>
+
+<div class="grammar-box">
+<div class="grammar-title">⚖️ Diễn tả sự so sánh: -보다는</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Công thức</div>
+<div class="grammar-formula">
+[Danh từ/Động từ/Tính từ] + <strong>-보다는</strong> + [Mệnh đề chính]<br>
+<br>
+<strong>Cấu tạo:</strong><br>
+• Danh từ + <strong>보다는</strong><br>
+• Động từ/Tính từ + <strong>-기보다는</strong><br>
+<br>
+<strong>Nghĩa:</strong> "Hơn là", "so với", "thay vì"
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Cách sử dụng</div>
+<div class="grammar-explanation">
+Dùng để <strong>so sánh</strong> và <strong>ưa thích</strong> một cái hơn cái kia.<br>
+Nhấn mạnh vào <strong>sự lựa chọn</strong> hoặc <strong>ưu tiên</strong>.<br>
+<br>
+Tương tự: "hơn là", "so với", "thay vì" trong tiếng Việt.<br>
+<br>
+<strong>⚠️ Lưu ý quan trọng:</strong><br>
+• Mệnh đề trước là <strong>đối tượng được so sánh</strong><br>
+• Mệnh đề sau là <strong>đối tượng được ưa thích hơn</strong><br>
+• Thường đi với <strong>더</strong> (hơn) ở mệnh đề sau
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Ví dụ minh họa</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 1:</div>
+<div class="grammar-example-korean">커피보다는 차를 더 좋아해요.</div>
+<div class="grammar-example-pronunciation">[keo-pi-bo-da-neun cha-reul deo jo-a-hae-yo]</div>
+<div class="grammar-example-meaning">Tôi thích trà hơn cà phê.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('커피보다는 차를 더 좋아해요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 2:</div>
+<div class="grammar-example-korean">크기보다는 질이 중요해요.</div>
+<div class="grammar-example-pronunciation">[keu-gi-bo-da-neun ji-ri jung-yo-hae-yo]</div>
+<div class="grammar-example-meaning">Chất lượng quan trọng hơn kích cỡ.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('크기보다는 질이 중요해요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 3:</div>
+<div class="grammar-example-korean">보기보다는 먹기가 더 어려워요.</div>
+<div class="grammar-example-pronunciation">[bo-gi-bo-da-neun meok-gi-ga deo eo-ryeo-wo-yo]</div>
+<div class="grammar-example-meaning">Ăn khó hơn nhìn.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('보기보다는 먹기가 더 어려워요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 4:</div>
+<div class="grammar-example-korean">서울보다는 부산이 더 좋아요.</div>
+<div class="grammar-example-pronunciation">[seo-ul-bo-da-neun bu-san-i deo jo-a-yo]</div>
+<div class="grammar-example-meaning">Tôi thích Busan hơn Seoul.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('서울보다는 부산이 더 좋아요', this)">🔊</button>
+</div>
+</div>
+
+<div class="grammar-note">
+💡 <strong>So sánh 3 cấu trúc:</strong><br>
+<table style="width: 100%; margin-top: 10px; border-collapse: collapse;">
+<tr style="background: #F5F3FF;"><td style="padding: 8px; border: 1px solid #A78BFA;"><strong>-거나</strong></td><td style="padding: 8px; border: 1px solid #A78BFA;">Lựa chọn giữa 2+ khả năng</td><td style="padding: 8px; border: 1px solid #A78BFA;">Hoặc, hay là</td></tr>
+<tr><td style="padding: 8px; border: 1px solid #A78BFA;"><strong>-(으)ㄹ수록</strong></td><td style="padding: 8px; border: 1px solid #A78BFA;">Mức độ tăng dần</td><td style="padding: 8px; border: 1px solid #A78BFA;">Càng... càng...</td></tr>
+<tr style="background: #F5F3FF;"><td style="padding: 8px; border: 1px solid #A78BFA;"><strong>-보다는</strong></td><td style="padding: 8px; border: 1px solid #A78BFA;">So sánh, ưa thích hơn</td><td style="padding: 8px; border: 1px solid #A78BFA;">Hơn là, so với</td></tr>
+</table>
+<br>
+<strong>Ví dụ so sánh:</strong><br>
+• <strong>커피나 차를 마시거나 해요.</strong> = Tôi uống cà phê hoặc trà. (lựa chọn)<br>
+• <strong>마실수록 맛있어요.</strong> = Càng uống càng ngon. (mức độ)<br>
+• <strong>커피보다는 차를 더 좋아해요.</strong> = Tôi thích trà hơn cà phê. (so sánh)
+</div>
+</div>
+
+<!-- HỘI THOẠI -->
+<h2 class="section-heading">💬 Hội thoại thực tế</h2>
+
+<div class="conversation-box">
+<div class="conversation-title">💬 Hội thoại 1: Mua sắm & Lựa chọn 
+<button class="speak-btn speak-btn-large" onclick="speakConversation(['어떤 걸 사려고 해요?','이거랑 저거 중에서 고르려고 해요','둘 다 비슷해요','가격은 어떻게 돼요?','이게 더 비싸지만质量이 더 좋아요','그래요? 그럼 이걸로 할게요'])">🔊 Nghe</button>
+</div>
+<div class="dialog-line">
+<div class="dialog-avatar">👨</div>
+<div class="dialog-content">
+<div class="dialog-korean">어떤 걸 사려고 해요? <button class="speak-btn" onclick="speakKorean('어떤 걸 사려고 해요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[eotteon geol sa-ryeo-go hae-yo]</div>
+<div class="dialog-vietnamese">Bạn định mua cái nào?</div>
+</div>
+</div>
+<div class="dialog-line speaker-b">
+<div class="dialog-avatar">👩</div>
+<div class="dialog-content">
+<div class="dialog-korean">이거랑 저거 중에서 고르려고 해요. <button class="speak-btn" onclick="speakKorean('이거랑 저거 중에서 고르려고 해요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[i-geo-rang jeo-geo jung-e-seo go-reu-ryeo-go hae-yo]</div>
+<div class="dialog-vietnamese">Tôi đang định chọn giữa cái này và cái kia.</div>
+</div>
+</div>
+<div class="dialog-line">
+<div class="dialog-avatar">👨</div>
+<div class="dialog-content">
+<div class="dialog-korean">둘 다 비슷해요. <button class="speak-btn" onclick="speakKorean('둘 다 비슷해요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[dul da bi-seu-tae-yo]</div>
+<div class="dialog-vietnamese">Cả hai đều giống nhau.</div>
+</div>
+</div>
+<div class="dialog-line speaker-b">
+<div class="dialog-avatar">👩</div>
+<div class="dialog-content">
+<div class="dialog-korean">가격은 어떻게 돼요? <button class="speak-btn" onclick="speakKorean('가격은 어떻게 돼요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[ga-gyeok-eun eotteoke dwae-yo]</div>
+<div class="dialog-vietnamese">Giá cả thế nào?</div>
+</div>
+</div>
+<div class="dialog-line">
+<div class="dialog-avatar">👨</div>
+<div class="dialog-content">
+<div class="dialog-korean">이게 더 비싸지만 질이 더 좋아요. <button class="speak-btn" onclick="speakKorean('이게 더 비싸지만 질이 더 좋아요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[i-ge deo bi-ssa-ji-man ji-ri deo jo-a-yo]</div>
+<div class="dialog-vietnamese">Cái này đắt hơn nhưng chất lượng tốt hơn.</div>
+</div>
+</div>
+<div class="dialog-line speaker-b">
+<div class="dialog-avatar">👩</div>
+<div class="dialog-content">
+<div class="dialog-korean">그래요? 그럼 이걸로 할게요. <button class="speak-btn" onclick="speakKorean('그래요? 그럼 이걸로 할게요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[geu-rae-yo? geu-reom i-geol-ro hal-ge-yo]</div>
+<div class="dialog-vietnamese">Vậy à? Vậy tôi sẽ lấy cái này.</div>
+</div>
+</div>
+</div>
+
+<div class="conversation-box">
+<div class="conversation-title">💬 Hội thoại 2: Lựa chọn công việc 
+<button class="speak-btn speak-btn-large" onclick="speakConversation(['취업 준비는 잘 돼가요?','아니요, 아직 고민이 많아요','무슨 고민이에요?','큰 회사에 갈지 작은 회사에 갈지','어떤 게 더 좋아요?','크기는 중요하지 않아요. 분위기가 더 중요해요'])">🔊 Nghe</button>
+</div>
+<div class="dialog-line">
+<div class="dialog-avatar">👨</div>
+<div class="dialog-content">
+<div class="dialog-korean">취업 준비는 잘 돼가요? <button class="speak-btn" onclick="speakKorean('취업 준비는 잘 돼가요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[chwi-eop jun-bi-neun jal dwae-ga-yo]</div>
+<div class="dialog-vietnamese">Chuẩn bị xin việc thế nào rồi?</div>
+</div>
+</div>
+<div class="dialog-line speaker-b">
+<div class="dialog-avatar">👩</div>
+<div class="dialog-content">
+<div class="dialog-korean">아니요, 아직 고민이 많아요. <button class="speak-btn" onclick="speakKorean('아니요, 아직 고민이 많아요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[a-ni-yo, a-jik go-mi-ni ma-na-yo]</div>
+<div class="dialog-vietnamese">Chưa, vẫn còn nhiều băn khoăn.</div>
+</div>
+</div>
+<div class="dialog-line">
+<div class="dialog-avatar">👨</div>
+<div class="dialog-content">
+<div class="dialog-korean">무슨 고민이에요? <button class="speak-btn" onclick="speakKorean('무슨 고민이에요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[mu-seun go-mi-ni-e-yo]</div>
+<div class="dialog-vietnamese">Băn khoăn chuyện gì?</div>
+</div>
+</div>
+<div class="dialog-line speaker-b">
+<div class="dialog-avatar">👩</div>
+<div class="dialog-content">
+<div class="dialog-korean">큰 회사에 갈지 작은 회사에 갈지... <button class="speak-btn" onclick="speakKorean('큰 회사에 갈지 작은 회사에 갈지', this)">🔊</button></div>
+<div class="dialog-pronunciation">[keun hoe-sa-e gal-ji jak-eun hoe-sa-e gal-ji]</div>
+<div class="dialog-vietnamese">Nên đi công ty lớn hay công ty nhỏ...</div>
+</div>
+</div>
+<div class="dialog-line">
+<div class="dialog-avatar">👨</div>
+<div class="dialog-content">
+<div class="dialog-korean">어떤 게 더 좋아요? <button class="speak-btn" onclick="speakKorean('어떤 게 더 좋아요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[eotteon ge deo jo-a-yo]</div>
+<div class="dialog-vietnamese">Cái nào tốt hơn?</div>
+</div>
+</div>
+<div class="dialog-line speaker-b">
+<div class="dialog-avatar">👩</div>
+<div class="dialog-content">
+<div class="dialog-korean">크기는 중요하지 않아요. 분위기가 더 중요해요. <button class="speak-btn" onclick="speakKorean('크기는 중요하지 않아요. 분위기가 더 중요해요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[keu-gi-neun jung-yo-ha-ji a-na-yo. bun-wi-gi-ga deo jung-yo-hae-yo]</div>
+<div class="dialog-vietnamese">Kích cỡ không quan trọng. Bầu không khí quan trọng hơn.</div>
+</div>
+</div>
+</div>
+
+<!-- FLASHCARD -->
+<div class="flashcard-section">
+<h2 class="section-heading">🎴 Flashcard ôn tập</h2>
+<p style="color: #8E7DA3; text-align: center; margin-bottom: 15px;">Click vào thẻ để lật • Dùng nút để chuyển thẻ</p>
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">비교</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">So sánh</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[bi-gyo] • 두 가지를 비교해요</div>
+<button class="speak-btn speak-btn-large" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 15</div>
+</div>
+
+<!-- BÀI TẬP -->
+<h2 class="section-heading">✍️ Bài tập kiểm tra</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 1: "Tôi uống cà phê hoặc trà" nói là?</div>
+<div class="exercise-question">Dùng -거나 để diễn tả sự lựa chọn:</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>커피나 차를 마셔요.</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>커피나 차를 마시거나 해요.</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>커피나 차를 마실 거예요.</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 2: "Càng học càng thú vị" nói là?</div>
+<div class="exercise-question">Dùng -(으)ㄹ수록 để diễn tả mức độ tăng dần:</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>공부하면 재미있어요.</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>공부할수록 재미있어요.</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>공부하는 게 재미있어요.</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 3: "Tôi thích trà hơn cà phê" nói là?</div>
+<div class="exercise-question">Dùng -보다는 để so sánh:</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>커피보다 차를 좋아해요.</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>커피보다는 차를 더 좋아해요.</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>커피나 차를 좋아해요.</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 4: Cấu trúc nào diễn tả "CÀNG... CÀNG..."?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>-거나</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>-(으)ㄹ수록</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>-보다는</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'b', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 5: "Chất lượng quan trọng hơn kích cỡ" nói là?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>크기보다 질이 중요해요.</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>크기보다는 질이 더 중요해요.</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>크기나 질이 중요해요.</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<!-- ASSESSMENT -->
+<div class="assessment-box">
+<div class="assessment-title">🏆 Đánh giá cuối tuần</div>
+<div class="assessment-score" id="assessmentScore">0/5</div>
+<div class="assessment-message" id="assessmentMessage">
+Làm các bài tập trên để xem kết quả! 💪
+</div>
+</div>
+
+<!-- NOTES -->
+<div class="notes-section">
+<div class="notes-title">📝 Ghi chú cá nhân</div>
+<textarea class="notes-textarea" id="week4Notes" placeholder="Viết ghi chú của bạn về:&#10;- Phân biệt -거나 vs -(으)ㄹ수록 vs -보다는&#10;- Các từ vựng so sánh cần nhớ&#10;- So sánh 2 thành phố bạn biết&#10;- Lựa chọn khó khăn nhất của bạn..."></textarea>
+<button class="save-notes-btn" onclick="saveNotes()">💾 Lưu ghi chú</button>
+</div>
+
+<!-- CHECKLIST -->
+<div class="checklist-section">
+<h2 class="section-heading">✅ Checklist hoàn thành tuần 4</h2>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Biết 15+ từ vựng về so sánh & lựa chọn</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Phân biệt 비교, 차이, 유사</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Phân biệt 선택, 결정, 우선</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Dùng -거나 (hoặc, hay là)</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Dùng -(으)ㄹ수록 (càng... càng...)</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Dùng -보다는 (hơn là, so với)</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Phân biệt 3 cấu trúc trên</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>So sánh 2 sự vật</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Thực hành 2 hội thoại</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Hoàn thành 5 bài tập với điểm ≥ 80%</span></div>
+</div>
+
+<!-- Navigation cuối -->
+<div class="week-nav" style="margin-top: 40px;">
+<a href="topik2-week03.html" class="nav-btn">← Tuần 3: Lý do</a>
+<a href="topik2-week05.html" class="nav-btn primary">Tiếp: Tuần 5 - Trải nghiệm →</a>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="footer-text">🇰 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"So sánh để hiểu rõ, lựa chọn để tiến bộ"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮', '🌿'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.8;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+        if (btnElement.classList.contains('play-btn')) { btnElement.classList.add('playing'); btnElement.innerHTML = '⏸️'; }
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking', 'playing');
+            if (btnElement.classList.contains('play-btn')) btnElement.innerHTML = '▶️';
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function showDaily(dayNum, event) {
+    document.querySelectorAll('.daily-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.daily-content').forEach(c => c.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('day' + dayNum).classList.add('active');
+}
+
+const flashcards = [
+    { char: '비교', meaning: 'So sánh', pron: '[bi-gyo] • 두 가지를 비교해요' },
+    { char: '차이', meaning: 'Sự khác biệt', pron: '[cha-i] • 차이가 있어요' },
+    { char: '유사', meaning: 'Tương tự', pron: '[yu-sa] • 유사한 점' },
+    { char: '같다', meaning: 'Giống nhau', pron: '[gat-da] • 두 개가 같아요' },
+    { char: '다르다', meaning: 'Khác nhau', pron: '[da-reu-da] • 생각이 달라요' },
+    { char: '비슷하다', meaning: 'Tương tự, giống', pron: '[bi-seu-ta-da] • 서로 비슷해요' },
+    { char: '크다', meaning: 'To, lớn', pron: '[keu-da] • 이게 더 커요' },
+    { char: '작다', meaning: 'Nhỏ, bé', pron: '[jak-da] • 이게 더 작아요' },
+    { char: '선택', meaning: 'Sự lựa chọn', pron: '[seon-taek] • 선택을 해요' },
+    { char: '결정', meaning: 'Quyết định', pron: '[gyeol-jeong] • 결정을 내리다' },
+    { char: '우선', meaning: 'Ưu tiên', pron: '[u-seon] • 우선 순위' },
+    { char: '고르다', meaning: 'Chọn, lựa', pron: '[go-reu-da] • 하나를 골라요' },
+    { char: '택하다', meaning: 'Chọn lựa (trang trọng)', pron: '[tae-ka-da] • 길을 택하다' },
+    { char: '선호하다', meaning: 'Ưa thích', pron: '[seon-ho-ha-da] • 커피를 선호해요' },
+    { char: '고민', meaning: 'Suy nghĩ, băn khoăn', pron: '[go-min] • 고민이 있어요' }
+];
+let currentFlashcard = 0;
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = flashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = flashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = flashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + flashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % flashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + flashcards.length) % flashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌸';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateAssessment();
+}
+
+function updateAssessment() {
+    const total = 5;
+    const answered = answeredQuestions.size;
+    document.getElementById('assessmentScore').textContent = correctAnswers + '/' + total;
+    const msg = document.getElementById('assessmentMessage');
+    if (answered < total) {
+        msg.textContent = 'Đã làm ' + answered + '/' + total + ' câu. Cố lên! 💪';
+    } else if (correctAnswers === total) {
+        msg.textContent = '🏆 Xuất sắc! Bạn đã nắm vững so sánh & lựa chọn! Chuyển sang Tuần 5!';
+        localStorage.setItem('topik2Week4Completed', 'true');
+        updateProgress();
+    } else if (correctAnswers >= 4) {
+        msg.textContent = '🌟 Rất tốt! Bạn gần hoàn hảo rồi!';
+        localStorage.setItem('topik2Week4Completed', 'true');
+        updateProgress();
+    } else {
+        msg.textContent = '📚 Cần ôn tập thêm. Hãy xem lại bài học!';
+    }
+}
+
+function updateProgress() {
+    let completed = 0;
+    for (let i = 1; i <= 12; i++) {
+        if (localStorage.getItem('topik2Week' + i + 'Completed') === 'true') completed++;
+    }
+    localStorage.setItem('topik2Completed', completed);
+}
+
+function saveNotes() {
+    const notes = document.getElementById('week4Notes').value;
+    localStorage.setItem('topik2Week4Notes', notes);
+    alert('💾 Ghi chú đã được lưu!');
+}
+
+window.onload = function() {
+    const notes = localStorage.getItem('topik2Week4Notes');
+    if (notes) document.getElementById('week4Notes').value = notes;
+};
+
+function toggleCheck(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('completed');
+}
+</script>
+</body>
+</html>
