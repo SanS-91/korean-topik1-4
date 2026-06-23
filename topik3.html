@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌳 TOPIK 3 - Trung cấp | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFE5EC 0%, #FFF5E4 50%, #E8F5E9 100%); min-height: 100vh; color: #5D4E6D; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+.container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #10B981; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #059669; }
+.breadcrumb-separator { color: #6EE7B7; }
+.breadcrumb-current { color: #6C5B7B; font-weight: 700; }
+
+.week-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #10B981; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(16,185,129,0.15); transition: all 0.3s; border: 2px solid #6EE7B7; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(16,185,129,0.25); background: #ECFDF5; }
+.nav-btn.primary { background: linear-gradient(135deg, #10B981 0%, #6EE7B7 100%); color: white; border: none; }
+
+.topik-hero { text-align: center; padding: 60px 20px 70px; background: linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(110,231,183,0.15) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.topik-hero::before { content: '🌳'; position: absolute; top: 30px; left: 5%; font-size: 3em; animation: float 4s ease-in-out infinite; }
+.topik-hero::after { content: '📚'; position: absolute; bottom: 30px; right: 5%; font-size: 2.5em; animation: float 3.5s ease-in-out infinite; }
+.topik-badge { display: inline-block; background: linear-gradient(135deg, #10B981 0%, #6EE7B7 100%); color: white; padding: 10px 30px; border-radius: 50px; font-weight: 700; margin-bottom: 20px; font-size: 1.05em; box-shadow: 0 5px 15px rgba(16,185,129,0.3); }
+.topik-hero h1 { font-family: 'Baloo 2', cursive; font-size: 3.5em; color: #059669; margin-bottom: 15px; }
+.topik-hero .subtitle { font-size: 1.4em; color: #6C5B7B; font-weight: 700; margin-bottom: 15px; }
+.topik-hero .description { color: #8E7DA3; font-size: 1.1em; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: -40px auto 40px; max-width: 1000px; position: relative; z-index: 3; }
+.stat-card { background: white; border-radius: 20px; padding: 25px 20px; text-align: center; box-shadow: 0 10px 30px rgba(16,185,129,0.15); transition: all 0.3s; }
+.stat-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(16,185,129,0.25); }
+.stat-icon { font-size: 2.5em; margin-bottom: 10px; }
+.stat-value { font-family: 'Baloo 2', cursive; font-size: 2.2em; color: #10B981; font-weight: 800; }
+.stat-label { color: #8E7DA3; margin-top: 5px; font-weight: 600; font-size: 0.95em; }
+
+.section-heading { font-family: 'Baloo 2', cursive; color: #10B981; font-size: 2em; margin: 50px 0 20px; text-align: center; }
+.section-heading::after { content: ''; display: block; width: 120px; height: 5px; background: linear-gradient(90deg, #10B981, #6EE7B7, #A7F3D0); margin: 15px auto; border-radius: 10px; }
+.section-subtitle { text-align: center; color: #8E7DA3; font-size: 1.1em; margin-bottom: 40px; }
+
+.info-box { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border-left: 5px solid #10B981; padding: 25px; border-radius: 20px; margin: 25px 0; box-shadow: 0 5px 15px rgba(16,185,129,0.1); }
+.info-box-title { font-family: 'Baloo 2', cursive; color: #059669; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.info-box-content { color: #5D4E6D; line-height: 1.8; }
+.info-box-content strong { color: #10B981; }
+.info-box-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+.info-box-table th { background: linear-gradient(135deg, #10B981 0%, #6EE7B7 100%); color: white; padding: 12px; text-align: left; font-weight: 700; }
+.info-box-table td { padding: 12px; border-bottom: 1px solid #D1FAE5; background: white; }
+.info-box-table tr:hover td { background: #ECFDF5; }
+
+.weeks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin: 40px 0; }
+.week-card { background: white; border-radius: 25px; padding: 25px; text-decoration: none; color: inherit; box-shadow: 0 8px 25px rgba(16,185,129,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 2px solid #ECFDF5; position: relative; overflow: hidden; display: block; }
+.week-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #10B981, #6EE7B7, #A7F3D0); }
+.week-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(16,185,129,0.2); border-color: #6EE7B7; }
+.week-card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.week-number { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #10B981; font-weight: 800; line-height: 1; }
+.week-icon { font-size: 2.5em; }
+.week-title { font-size: 1.25em; font-weight: 700; color: #059669; margin-bottom: 10px; font-family: 'Baloo 2', cursive; }
+.week-desc { color: #8E7DA3; line-height: 1.7; margin-bottom: 15px; font-size: 0.95em; }
+.week-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+.week-tag { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); color: #10B981; padding: 5px 12px; border-radius: 15px; font-size: 0.8em; font-weight: 700; border: 1px solid #A7F3D0; }
+.week-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 2px dashed #ECFDF5; }
+.week-duration { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, #A7F3D0 0%, #6EE7B7 100%); color: white; padding: 6px 15px; border-radius: 20px; font-size: 0.85em; font-weight: 700; }
+.week-arrow { font-size: 1.5em; color: #10B981; transition: all 0.3s; }
+.week-card:hover .week-arrow { transform: translateX(8px); }
+
+.comparison-section { background: white; border-radius: 25px; padding: 40px; margin: 50px 0; box-shadow: 0 8px 25px rgba(16,185,129,0.1); }
+.comparison-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 30px; align-items: center; margin-top: 30px; }
+.comparison-card { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border-radius: 20px; padding: 30px; text-align: center; border: 2px solid #A7F3D0; }
+.comparison-card.current { background: linear-gradient(135deg, #10B981 0%, #6EE7B7 100%); color: white; border-color: transparent; }
+.comparison-card.current .comparison-title { color: white; }
+.comparison-card.current .comparison-item { color: rgba(255,255,255,0.95); }
+.comparison-icon { font-size: 3em; margin-bottom: 15px; }
+.comparison-title { font-family: 'Baloo 2', cursive; font-size: 1.8em; color: #10B981; margin-bottom: 15px; }
+.comparison-item { padding: 8px 0; color: #5D4E6D; font-weight: 600; }
+.comparison-arrow { font-size: 3em; color: #10B981; animation: pulse 2s infinite; }
+
+.resources-section { background: white; border-radius: 25px; padding: 40px; margin: 50px 0; box-shadow: 0 8px 25px rgba(16,185,129,0.1); }
+.resources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+.resource-card { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border-left: 5px solid #10B981; padding: 25px; border-radius: 18px; transition: all 0.3s; }
+.resource-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(16,185,129,0.15); }
+.resource-card h3 { font-family: 'Baloo 2', cursive; color: #10B981; font-size: 1.3em; margin-bottom: 10px; font-weight: 700; }
+.resource-card ul { list-style: none; padding: 0; }
+.resource-card li { padding: 10px 0; border-bottom: 1px dashed #A7F3D0; }
+.resource-card li:last-child { border-bottom: none; }
+.resource-card a { color: #059669; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.resource-card a:hover { color: #10B981; text-decoration: underline; }
+.resource-card .desc { color: #8E7DA3; font-size: 0.9em; margin-top: 5px; padding-left: 28px; }
+
+footer { background: linear-gradient(135deg, #6C5B7B 0%, #C06C84 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@media (max-width: 768px) {
+.topik-hero h1 { font-size: 2.3em; }
+.comparison-grid { grid-template-columns: 1fr; }
+.comparison-arrow { transform: rotate(90deg); }
+.stats-grid { grid-template-columns: repeat(2, 1fr); }
+.info-box-table { font-size: 0.9em; }
+.info-box-table th, .info-box-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">🌳 TOPIK 3 - Trung cấp</span>
+</nav>
+
+<div class="topik-hero">
+<span class="topik-badge">🌳 CẤP ĐỘ TRUNG CẤP • 중급</span>
+<h1>TOPIK 3</h1>
+<div class="subtitle">Thành thạo tiếng Hàn - Tự tin giao tiếp</div>
+<p class="description">
+Bước vào cấp độ <strong>trung cấp</strong>, bạn sẽ nâng cao kỹ năng <strong>đọc hiểu văn bản dài</strong>, 
+<strong>viết essay</strong>, và <strong>nghe hiểu bài nói phức tạp</strong>. Mở rộng vốn từ lên 
+<strong>3000-4000 từ</strong> với các chủ đề <strong>học thuật, chuyên ngành</strong>! 📚
+</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon">📅</div>
+<div class="stat-value">12</div>
+<div class="stat-label">Tuần học</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">📚</div>
+<div class="stat-value">4000+</div>
+<div class="stat-label">Từ vựng</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">📝</div>
+<div class="stat-value">150+</div>
+<div class="stat-label">Ngữ pháp</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">🎯</div>
+<div class="stat-value">120+</div>
+<div class="stat-label">Điểm mục tiêu</div>
+</div>
+</div>
+
+<!-- SO SÁNH VỚI TOPIK 2 -->
+<div class="comparison-section">
+<h2 class="section-heading">🔄 So sánh TOPIK 2 và TOPIK 3</h2>
+<p class="section-subtitle">Bạn đã sẵn sàng cho bước tiến tiếp theo!</p>
+<div class="comparison-grid">
+<div class="comparison-card">
+<div class="comparison-icon">🌿</div>
+<div class="comparison-title">TOPIK 2</div>
+<div class="comparison-item">✅ 1500-2000 từ vựng</div>
+<div class="comparison-item">✅ 100+ ngữ pháp</div>
+<div class="comparison-item">✅ Giao tiếp cơ bản</div>
+<div class="comparison-item">✅ Đọc đoạn văn ngắn</div>
+<div class="comparison-item">✅ 140+ điểm</div>
+</div>
+<div class="comparison-arrow">→</div>
+<div class="comparison-card current">
+<div class="comparison-icon">🌳</div>
+<div class="comparison-title">TOPIK 3</div>
+<div class="comparison-item">🚀 3000-4000 từ vựng</div>
+<div class="comparison-item">🚀 150+ ngữ pháp</div>
+<div class="comparison-item">🚀 Giao tiếp thành thạo</div>
+<div class="comparison-item">🚀 Đọc văn bản dài</div>
+<div class="comparison-item">🚀 120+ điểm</div>
+</div>
+</div>
+</div>
+
+<!-- 12 TUẦN HỌC -->
+<h2 class="section-heading">📚 12 Tuần Học Chi Tiết</h2>
+<p class="section-subtitle">Lộ trình bài bản từ cơ bản đến thành thạo</p>
+
+<div class="weeks-grid">
+<!-- Tuần 1 -->
+<a href="topik3-week01.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">01</div>
+<div class="week-icon">📰</div>
+</div>
+<h3 class="week-title">Đọc hiểu văn bản xã hội</h3>
+<p class="week-desc">Học cách đọc và phân tích các bài viết về vấn đề xã hội, văn hóa, đời sống.</p>
+<div class="week-tags">
+<span class="week-tag">Đọc hiểu</span>
+<span class="week-tag">Phân tích</span>
+<span class="week-tag">Xã hội</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 2 -->
+<a href="topik3-week02.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">02</div>
+<div class="week-icon">✍️</div>
+</div>
+<h3 class="week-title">Viết essay cơ bản</h3>
+<p class="week-desc">Học cấu trúc essay, cách viết mở bài, thân bài, kết luận bằng tiếng Hàn.</p>
+<div class="week-tags">
+<span class="week-tag">Viết essay</span>
+<span class="week-tag">Cấu trúc</span>
+<span class="week-tag">Lập luận</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 3 -->
+<a href="topik3-week03.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">03</div>
+<div class="week-icon">🎧</div>
+</div>
+<h3 class="week-title">Nghe hiểu tin tức</h3>
+<p class="week-desc">Luyện nghe và hiểu các bản tin thời sự, tin tức xã hội bằng tiếng Hàn.</p>
+<div class="week-tags">
+<span class="week-tag">Nghe hiểu</span>
+<span class="week-tag">Tin tức</span>
+<span class="week-tag">Thời sự</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 4 -->
+<a href="topik3-week04.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">04</div>
+<div class="week-icon">💼</div>
+</div>
+<h3 class="week-title">Từ vựng kinh tế, kinh doanh</h3>
+<p class="week-desc">Mở rộng vốn từ về kinh tế, tài chính, kinh doanh và thị trường.</p>
+<div class="week-tags">
+<span class="week-tag">Kinh tế</span>
+<span class="week-tag">Kinh doanh</span>
+<span class="week-tag">Tài chính</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 5 -->
+<a href="topik3-week05.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">05</div>
+<div class="week-icon">📝</div>
+</div>
+<h3 class="week-title">Ngữ pháp trung cấp nâng cao 1</h3>
+<p class="week-desc">Học các mẫu ngữ pháp trung cấp nâng cao: -ㄹ/을 뿐만 아니라, -기 때문에, -는 김에.</p>
+<div class="week-tags">
+<span class="week-tag">Ngữ pháp</span>
+<span class="week-tag">Trung cấp</span>
+<span class="week-tag">Nâng cao</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 6 -->
+<a href="topik3-week06.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">06</div>
+<div class="week-icon">🎎</div>
+</div>
+<h3 class="week-title">Đọc hiểu văn hóa, lịch sử</h3>
+<p class="week-desc">Đọc và hiểu các bài viết về văn hóa truyền thống, lịch sử Hàn Quốc.</p>
+<div class="week-tags">
+<span class="week-tag">Văn hóa</span>
+<span class="week-tag">Lịch sử</span>
+<span class="week-tag">Đọc hiểu</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 7 -->
+<a href="topik3-week07.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">07</div>
+<div class="week-icon">✉️</div>
+</div>
+<h3 class="week-title">Viết email công việc nâng cao</h3>
+<p class="week-desc">Học cách viết email công việc chuyên nghiệp, trang trọng trong môi trường công sở.</p>
+<div class="week-tags">
+<span class="week-tag">Email</span>
+<span class="week-tag">Công việc</span>
+<span class="week-tag">Chuyên nghiệp</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 8 -->
+<a href="topik3-week08.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">08</div>
+<div class="week-icon">🎤</div>
+</div>
+<h3 class="week-title">Nghe hiểu phỏng vấn</h3>
+<p class="week-desc">Luyện nghe và hiểu các bài phỏng vấn, bài nói chuyện dài, phức tạp.</p>
+<div class="week-tags">
+<span class="week-tag">Nghe hiểu</span>
+<span class="week-tag">Phỏng vấn</span>
+<span class="week-tag">Bài nói</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 9 -->
+<a href="topik3-week09.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">09</div>
+<div class="week-icon">🔬</div>
+</div>
+<h3 class="week-title">Từ vựng khoa học, công nghệ</h3>
+<p class="week-desc">Mở rộng vốn từ về khoa học, công nghệ, nghiên cứu và phát triển.</p>
+<div class="week-tags">
+<span class="week-tag">Khoa học</span>
+<span class="week-tag">Công nghệ</span>
+<span class="week-tag">Nghiên cứu</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 10 -->
+<a href="topik3-week10.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">10</div>
+<div class="week-icon">📝</div>
+</div>
+<h3 class="week-title">Ngữ pháp trung cấp nâng cao 2</h3>
+<p class="week-desc">Học các mẫu ngữ pháp phức tạp: -ㄹ/을 수밖에 없다, -기 마련이다, -는 셈이다.</p>
+<div class="week-tags">
+<span class="week-tag">Ngữ pháp</span>
+<span class="week-tag">Phức tạp</span>
+<span class="week-tag">Nâng cao</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 11 -->
+<a href="topik3-week11.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">11</div>
+<div class="week-icon">📚</div>
+</div>
+<h3 class="week-title">Đọc hiểu văn học</h3>
+<p class="week-desc">Đọc và phân tích các tác phẩm văn học Hàn Quốc: truyện ngắn, tiểu thuyết, thơ.</p>
+<div class="week-tags">
+<span class="week-tag">Văn học</span>
+<span class="week-tag">Truyện ngắn</span>
+<span class="week-tag">Phân tích</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+
+<!-- Tuần 12 -->
+<a href="topik3-week12.html" class="week-card">
+<div class="week-card-header">
+<div class="week-number">12</div>
+<div class="week-icon">🎓</div>
+</div>
+<h3 class="week-title">Ôn tập & Luyện thi TOPIK 3</h3>
+<p class="week-desc">Ôn tập tổng hợp toàn bộ kiến thức, làm quen cấu trúc đề thi và luyện đề thi thử.</p>
+<div class="week-tags">
+<span class="week-tag">Ôn tập</span>
+<span class="week-tag">Đề thi thử</span>
+<span class="week-tag">Luyện thi</span>
+</div>
+<div class="week-footer">
+<span class="week-duration">⏰ 30 phút/ngày</span>
+<span class="week-arrow">→</span>
+</div>
+</a>
+</div>
+
+<!-- CẤU TRÚC ĐỀ THI TOPIK 3 -->
+<div class="info-box">
+<div class="info-box-title">💡 Cấu trúc đề thi TOPIK II (TOPIK 3-4)</div>
+<div class="info-box-content">
+<p>Đề thi TOPIK 3 thuộc <strong>TOPIK II</strong> (중급 II) gồm <strong>4 phần</strong> với tổng thời gian <strong>180 phút</strong>:</p>
+<table class="info-box-table">
+<thead>
+<tr><th>Phần thi</th><th>Số câu</th><th>Thời gian</th><th>Điểm tối đa</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>📝 Viết (쓰기)</strong></td><td>4 câu</td><td>50 phút</td><td>50 điểm</td></tr>
+<tr><td><strong>🎧 Nghe (듣기)</strong></td><td>50 câu</td><td>60 phút</td><td>50 điểm</td></tr>
+<tr><td><strong>📖 Đọc (읽기)</strong></td><td>50 câu</td><td>70 phút</td><td>50 điểm</td></tr>
+<tr><td><strong>TỔNG</strong></td><td><strong>104 câu</strong></td><td><strong>180 phút</strong></td><td><strong>300 điểm</strong></td></tr>
+</tbody>
+</table>
+<div style="margin-top: 15px; padding: 15px; background: #ECFDF5; border-radius: 10px;">
+<strong>💡 Điểm đạt:</strong><br>
+• <strong>TOPIK 3 (중급 3):</strong> 120-149 điểm<br>
+• <strong>TOPIK 4 (중급 4):</strong> 150-179 điểm<br>
+• <strong>TOPIK 5 (고급 5):</strong> 180-229 điểm<br>
+• <strong>TOPIK 6 (고급 6):</strong> 230-300 điểm
+</div>
+</div>
+</div>
+
+<!-- TÀI LIỆU THAM KHẢO -->
+<div class="resources-section">
+<h2 class="section-heading">📚 Tài liệu & Đường dẫn tham khảo</h2>
+<p class="section-subtitle">Các nguồn tài nguyên hữu ích để ôn luyện TOPIK 3</p>
+
+<div class="resources-grid">
+
+<!-- Website chính thức -->
+<div class="resource-card">
+<div style="font-size: 2.5em; margin-bottom: 15px;">🌐</div>
+<h3>Website chính thức</h3>
+<ul>
+<li>
+<a href="https://www.topik.go.kr" target="_blank">
+<span>🔗</span> www.topik.go.kr
+</a>
+<div class="desc">Thông tin chính thức, đề thi mẫu</div>
+</li>
+<li>
+<a href="https://www.topik.go.kr/eng/main.do" target="_blank">
+<span>🔗</span> TOPIK tiếng Anh
+</a>
+<div class="desc">Phiên bản tiếng Anh</div>
+</li>
+</ul>
+</div>
+
+<!-- Ứng dụng học tập -->
+<div class="resource-card">
+<div style="font-size: 2.5em; margin-bottom: 15px;">📱</div>
+<h3>Ứng dụng học tập</h3>
+<ul>
+<li>
+<strong>📚 TOPIK One</strong>
+<div class="desc">Luyện đề thi TOPIK đầy đủ</div>
+</li>
+<li>
+<strong>📖 Naver Dictionary</strong>
+<div class="desc">Từ điển Hàn-Việt-Anh</div>
+</li>
+<li>
+<strong>🎧 Anki</strong>
+<div class="desc">Flashcard từ vựng</div>
+</li>
+</ul>
+</div>
+
+<!-- Kênh YouTube -->
+<div class="resource-card">
+<div style="font-size: 2.5em; margin-bottom: 15px;">🎬</div>
+<h3>Kênh YouTube</h3>
+<ul>
+<li>
+<a href="https://www.youtube.com/c/GoBillyKorean" target="_blank">
+▶️ Go Billy Korean
+</a>
+<div class="desc">Ngữ pháp, từ vựng TOPIK</div>
+</li>
+<li>
+<a href="https://www.youtube.com/c/KoreanClass101" target="_blank">
+▶️ Korean Class 101
+</a>
+<div class="desc">Bài học từ cơ bản đến nâng cao</div>
+</li>
+<li>
+<a href="https://www.youtube.com/c/TalkToMeInKorean" target="_blank">
+▶️ Talk To Me In Korean
+</a>
+<div class="desc">Nghe hiểu, hội thoại</div>
+</li>
+</ul>
+</div>
+
+<!-- Sách luyện thi -->
+<div class="resource-card">
+<div style="font-size: 2.5em; margin-bottom: 15px;">📖</div>
+<h3>Sách luyện thi TOPIK</h3>
+<ul>
+<li>
+<strong>📘 TOPIK II 실전 모의고사</strong>
+<div class="desc">Đề thi thử thực tế (Darakwon)</div>
+</li>
+<li>
+<strong>📗 TOPIK II 문법</strong>
+<div class="desc">Ngữ pháp trung cấp (Gilemsarang)</div>
+</li>
+<li>
+<strong>📕 TOPIK II 쓰기</strong>
+<div class="desc">Luyện viết essay (Seoul National University)</div>
+</li>
+</ul>
+</div>
+
+<!-- Website luyện đề -->
+<div class="resource-card">
+<div style="font-size: 2.5em; margin-bottom: 15px;">💻</div>
+<h3>Website luyện đề</h3>
+<ul>
+<li>
+<a href="https://www.studytopik.com" target="_blank">
+🔗 Study TOPIK
+</a>
+<div class="desc">Đề thi thử online miễn phí</div>
+</li>
+<li>
+<a href="https://www.howtostudykorean.com" target="_blank">
+🔗 How to Study Korean
+</a>
+<div class="desc">Bài học ngữ pháp chi tiết</div>
+</li>
+<li>
+<a href="https://www.donga.com" target="_blank">
+🔗 Donga Ilbo
+</a>
+<div class="desc">Đọc báo tiếng Hàn (luyện đọc)</div>
+</li>
+</ul>
+</div>
+
+<!-- Diễn đàn & Cộng đồng -->
+<div class="resource-card">
+<div style="font-size: 2.5em; margin-bottom: 15px;">💬</div>
+<h3>Diễn đàn & Cộng đồng</h3>
+<ul>
+<li>
+<a href="https://www.reddit.com/r/Korean" target="_blank">
+🌐 Reddit r/Korean
+</a>
+<div class="desc">Cộng đồng học tiếng Hàn lớn nhất</div>
+</li>
+<li>
+<a href="https://www.hellotalk.com" target="_blank">
+🌐 HelloTalk
+</a>
+<div class="desc">Trao đổi ngôn ngữ với người Hàn</div>
+</li>
+<li>
+<a href="https://www.tandem.net" target="_blank">
+🌐 Tandem
+</a>
+<div class="desc">Tìm bạn học tiếng Hàn</div>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border-radius: 18px; border-left: 5px solid #10B981;">
+<h3 style="font-family: 'Baloo 2', cursive; color: #059669; font-size: 1.2em; margin-bottom: 15px;">💡 Lưu ý quan trọng:</h3>
+<ul style="list-style: none; padding: 0;">
+<li style="padding: 8px 0; padding-left: 30px; position: relative; color: #5D4E6D;">
+<span style="position: absolute; left: 0;">✅</span> 
+<strong>Đề thi thử:</strong> Làm ít nhất 10-15 đề thi thử trước khi thi chính thức
+</li>
+<li style="padding: 8px 0; padding-left: 30px; position: relative; color: #5D4E6D;">
+<span style="position: absolute; left: 0;">✅</span> 
+<strong>Thời gian:</strong> Luyện tập đúng thời gian quy định của đề thi (180 phút)
+</li>
+<li style="padding: 8px 0; padding-left: 30px; position: relative; color: #5D4E6D;">
+<span style="position: absolute; left: 0;">✅</span> 
+<strong>Phân tích lỗi:</strong> Sau mỗi đề thi, phân tích kỹ các câu sai để tránh lặp lại
+</li>
+<li style="padding: 8px 0; padding-left: 30px; position: relative; color: #5D4E6D;">
+<span style="position: absolute; left: 0;">✅</span> 
+<strong>Từ vựng:</strong> Ghi chú và học từ mới từ các bài đọc, bài nghe
+</li>
+</ul>
+</div>
+</div>
+
+<!-- SO SÁNH VỚI TOPIK 4 -->
+<div class="comparison-section">
+<h2 class="section-heading">🚀 Bước tiếp theo: TOPIK 4</h2>
+<p class="section-subtitle">Sau khi hoàn thành TOPIK 3, bạn sẽ sẵn sàng cho TOPIK 4</p>
+<div class="comparison-grid">
+<div class="comparison-card current">
+<div class="comparison-icon">🌳</div>
+<div class="comparison-title">TOPIK 3</div>
+<div class="comparison-item">📚 3000-4000 từ vựng</div>
+<div class="comparison-item">📝 150+ ngữ pháp</div>
+<div class="comparison-item">💬 Giao tiếp thành thạo</div>
+<div class="comparison-item">📖 Đọc văn bản dài</div>
+<div class="comparison-item">🎯 120+ điểm</div>
+</div>
+<div class="comparison-arrow">→</div>
+<div class="comparison-card">
+<div class="comparison-icon">🌲</div>
+<div class="comparison-title">TOPIK 4</div>
+<div class="comparison-item">🚀 5000-6000 từ vựng</div>
+<div class="comparison-item">🚀 200+ ngữ pháp</div>
+<div class="comparison-item">🚀 Giao tiếp như bản xứ</div>
+<div class="comparison-item">🚀 Đọc văn bản phức tạp</div>
+<div class="comparison-item">🚀 150+ điểm</div>
+</div>
+</div>
+</div>
+
+<div class="week-nav" style="margin-top: 40px;">
+<a href="index.html" class="nav-btn">← Về trang chủ</a>
+<a href="topik3-week01.html" class="nav-btn primary">Bắt đầu Tuần 1 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Học tập là hạt giống, kiến thức là cây, thành công là quả"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮', '🌿', '🍃'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+</script>
+</body>
+</html>
