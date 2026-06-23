@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuần 8: Du lịch & Đặt phòng - TOPIK 2 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFE5EC 0%, #FFF5E4 50%, #E8F5E9 100%); min-height: 100vh; color: #5D4E6D; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #2563EB; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #1D4ED8; }
+.breadcrumb-separator { color: #60A5FA; }
+.breadcrumb-current { color: #6C5B7B; font-weight: 700; }
+
+.week-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #2563EB; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(37,99,235,0.15); transition: all 0.3s; border: 2px solid #60A5FA; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(37,99,235,0.25); background: #EFF6FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); color: white; border: none; }
+
+.week-hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, rgba(37,99,235,0.2) 0%, rgba(96,165,250,0.15) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.week-hero::before { content: '✈️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.week-hero::after { content: '🏖️'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+.week-badge { display: inline-block; background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.week-hero h1 { font-family: 'Baloo 2', cursive; font-size: 3em; color: #1D4ED8; margin-bottom: 10px; }
+.week-hero .subtitle { font-size: 1.3em; color: #6C5B7B; font-weight: 700; margin-bottom: 10px; }
+.week-hero .description { color: #8E7DA3; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.objectives-box { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-left: 5px solid #2563EB; padding: 25px; border-radius: 20px; margin: 30px 0; box-shadow: 0 5px 15px rgba(37,99,235,0.1); }
+.objectives-title { font-family: 'Baloo 2', cursive; color: #1D4ED8; font-size: 1.4em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.objectives-list { list-style: none; }
+.objectives-list li { padding: 8px 0; padding-left: 30px; position: relative; color: #5D4E6D; font-weight: 600; line-height: 1.6; }
+.objectives-list li::before { content: '🎯'; position: absolute; left: 0; }
+
+.daily-schedule { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(37,99,235,0.1); border: 2px solid #EFF6FF; }
+.daily-title { font-family: 'Baloo 2', cursive; color: #2563EB; font-size: 1.6em; margin-bottom: 20px; text-align: center; }
+.daily-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
+.daily-tab { padding: 10px 18px; border: 2px solid #60A5FA; background: white; color: #2563EB; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-size: 0.9em; }
+.daily-tab.active { background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); color: white; border-color: transparent; }
+.daily-tab:hover:not(.active) { background: #EFF6FF; }
+.daily-content { display: none; animation: fadeIn 0.5s; }
+.daily-content.active { display: block; }
+.daily-header { background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); color: white; padding: 15px 20px; border-radius: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.daily-header h3 { font-family: 'Baloo 2', cursive; font-size: 1.3em; }
+.daily-time { background: white; color: #2563EB; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.9em; }
+.daily-objective { background: #EFF6FF; border-left: 4px solid #2563EB; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+.daily-objective strong { color: #1D4ED8; display: block; margin-bottom: 5px; }
+.daily-activities { background: white; border: 2px dashed #EFF6FF; padding: 20px; border-radius: 15px; }
+.daily-activities h4 { color: #2563EB; margin-bottom: 10px; font-family: 'Baloo 2', cursive; }
+.daily-activities ul { list-style: none; }
+.daily-activities li { padding: 8px 0; padding-left: 25px; position: relative; color: #5D4E6D; }
+.daily-activities li::before { content: '✓'; position: absolute; left: 0; color: #2563EB; font-weight: bold; }
+
+.section-heading { font-family: 'Baloo 2', cursive; color: #2563EB; font-size: 1.5em; margin: 35px 0 20px; display: flex; align-items: center; gap: 10px; }
+.section-heading::after { content: ''; flex: 1; height: 2px; background: linear-gradient(90deg, #60A5FA, transparent); }
+
+.info-box { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-left: 5px solid #2563EB; padding: 25px; border-radius: 20px; margin: 25px 0; box-shadow: 0 5px 15px rgba(37,99,235,0.1); }
+.info-box-title { font-family: 'Baloo 2', cursive; color: #1D4ED8; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.info-box-content { color: #5D4E6D; line-height: 1.8; }
+.info-box-content strong { color: #2563EB; }
+.info-box-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+.info-box-table th { background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); color: white; padding: 12px; text-align: left; font-weight: 700; }
+.info-box-table td { padding: 12px; border-bottom: 1px solid #EFF6FF; background: white; }
+.info-box-table tr:hover td { background: #DBEAFE; }
+
+.audio-player { background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #60A5FA; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(37,99,235,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #5D4E6D; margin-bottom: 4px; }
+.audio-sub { color: #8E7DA3; font-size: 0.88em; }
+
+.speak-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, #87CEEB 0%, #A8E6CF 100%); border: none; color: white; font-size: 0.95em; cursor: pointer; margin-left: 8px; transition: all 0.3s; vertical-align: middle; box-shadow: 0 3px 10px rgba(135,206,235,0.3); }
+.speak-btn:hover { transform: scale(1.2) rotate(10deg); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); }
+.speak-btn-large { width: 42px; height: 42px; }
+
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 20px 0; }
+.vocab-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 6px 18px rgba(37,99,235,0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); border: 2px solid #EFF6FF; }
+.vocab-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(37,99,235,0.2); border-color: #60A5FA; }
+.vocab-image { width: 100%; height: 110px; display: flex; align-items: center; justify-content: center; font-size: 3.5em; }
+.vocab-card:nth-child(4n+1) .vocab-image { background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); }
+.vocab-card:nth-child(4n+2) .vocab-image { background: linear-gradient(135deg, #FFB6C1 0%, #FFA8B6 100%); }
+.vocab-card:nth-child(4n+3) .vocab-image { background: linear-gradient(135deg, #A78BFA 0%, #C4B5FD 100%); }
+.vocab-card:nth-child(4n+4) .vocab-image { background: linear-gradient(135deg, #34D399 0%, #6EE7B7 100%); }
+.vocab-content { padding: 16px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.5em; color: #2563EB; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; flex-wrap: wrap; }
+.vocab-pronunciation { color: #B19CD9; font-size: 0.88em; font-weight: 600; font-style: italic; background: #F8F4FF; padding: 5px 10px; border-radius: 8px; display: inline-block; margin: 5px 0; }
+.vocab-vietnamese { color: #5D4E6D; font-size: 0.98em; font-weight: 600; margin: 8px 0; }
+.vocab-example { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); padding: 10px; border-radius: 12px; font-size: 0.88em; color: #7B6B3D; display: flex; align-items: start; gap: 8px; border: 1px dashed #FFD93D; margin-top: 8px; }
+.vocab-example-text { flex: 1; }
+.vocab-example strong { color: #2563EB; }
+
+.grammar-box { background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%); border-radius: 20px; padding: 25px; margin: 25px 0; border: 2px solid #60A5FA; box-shadow: 0 5px 15px rgba(37,99,235,0.1); }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1D4ED8; margin-bottom: 15px; font-weight: 700; }
+.grammar-section { margin: 15px 0; }
+.grammar-section-title { color: #2563EB; font-weight: 700; font-size: 1.05em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.grammar-explanation { color: #5D4E6D; line-height: 1.8; margin-bottom: 12px; font-weight: 500; }
+.grammar-formula { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-left: 5px solid #FFD93D; padding: 18px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #7B6B3D; font-size: 1.02em; line-height: 1.8; }
+.grammar-note { background: #FFF0F5; border-left: 4px solid #FF6B9D; padding: 12px 15px; border-radius: 10px; margin: 15px 0; color: #C2185B; font-weight: 600; font-size: 0.95em; }
+.grammar-example { background: white; border-left: 5px solid #60A5FA; padding: 15px; border-radius: 12px; margin: 12px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 3px 10px rgba(96,165,250,0.15); }
+.grammar-example-text { flex: 1; min-width: 200px; }
+.grammar-example-label { font-weight: 700; color: #2563EB; margin-bottom: 5px; font-size: 0.9em; }
+.grammar-example-korean { font-size: 1.15em; color: #5D4E6D; font-weight: 700; margin-bottom: 3px; }
+.grammar-example-pron { color: #B19CD9; font-style: italic; font-size: 0.9em; margin-bottom: 3px; }
+.grammar-example-meaning { color: #8E7DA3; font-style: italic; font-size: 0.95em; }
+
+.conversation-box { background: white; border-radius: 25px; padding: 25px; margin: 25px 0; box-shadow: 0 8px 25px rgba(37,99,235,0.1); border: 2px solid #EFF6FF; }
+.conversation-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1D4ED8; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 700; }
+.dialog-line { display: flex; align-items: start; gap: 12px; padding: 14px; margin: 10px 0; border-radius: 18px; background: linear-gradient(135deg, #DBEAFE 0%, #FFFFFF 100%); transition: all 0.3s; border: 1px solid #EFF6FF; }
+.dialog-line:hover { transform: translateX(5px); }
+.dialog-line.speaker-b { background: linear-gradient(135deg, #F0F8FF 0%, #FFFFFF 100%); border-color: #B3D9FF; }
+.dialog-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.4em; flex-shrink: 0; }
+.dialog-line.speaker-b .dialog-avatar { background: linear-gradient(135deg, #87CEEB 0%, #A8E6CF 100%); }
+.dialog-content { flex: 1; }
+.dialog-korean { font-size: 1.08em; color: #5D4E6D; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dialog-pron { color: #B19CD9; font-style: italic; font-size: 0.85em; margin-bottom: 3px; }
+.dialog-vietnamese { color: #8E7DA3; font-style: italic; font-size: 0.93em; }
+
+.exercise-container { background: linear-gradient(135deg, #FFFBEA 0%, #FFF9E6 100%); border-radius: 20px; padding: 25px; margin: 25px 0; border: 2px dashed #FFD93D; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #E6A800; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #5D4E6D; margin-bottom: 15px; font-weight: 700; line-height: 1.6; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #EFF6FF; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #60A5FA; background: #EFF6FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #E8F5E9; color: #2E7D32; }
+.exercise-option.incorrect { border-color: #FF6B9D; background: #FFE5EC; color: #C2185B; }
+.check-answer-btn { background: linear-gradient(135deg, #10B981 0%, #A8E6CF 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(16,185,129,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #E8F5E9; color: #2E7D32; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FFE5EC; color: #C2185B; border: 2px solid #FF6B9D; }
+
+.flashcard-section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(37,99,235,0.1); border: 2px solid #EFF6FF; }
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%); color: white; }
+.flashcard-back { background: white; color: #5D4E6D; transform: rotateY(180deg); border: 3px solid #2563EB; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 2.5em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.3em; font-weight: 700; color: #2563EB; margin-bottom: 10px; text-align: center; }
+.flashcard-pron { color: #B19CD9; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #87CEEB 0%, #A8E6CF 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #8E7DA3; margin-top: 10px; font-weight: 600; }
+
+.checklist-section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(37,99,235,0.1); border: 2px solid #EFF6FF; }
+.checklist-item { display: flex; align-items: center; padding: 13px; background: #DBEAFE; margin: 8px 0; border-radius: 15px; cursor: pointer; transition: all 0.3s; border: 2px solid #EFF6FF; font-weight: 600; }
+.checklist-item:hover { background: #EFF6FF; transform: translateX(5px); border-color: #60A5FA; }
+.checklist-item input[type="checkbox"] { width: 22px; height: 22px; margin-right: 15px; cursor: pointer; accent-color: #2563EB; }
+.checklist-item.completed { opacity: 0.6; text-decoration: line-through; background: #F0F8FF; border-color: #A8E6CF; }
+
+.notes-section { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-radius: 25px; padding: 25px; margin: 30px 0; border: 2px dashed #FFD93D; }
+.notes-title { font-family: 'Baloo 2', cursive; color: #E6A800; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.notes-textarea { width: 100%; min-height: 120px; padding: 15px; border: 2px solid #FFE5B8; border-radius: 15px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; background: white; }
+.notes-textarea:focus { outline: none; border-color: #FFD93D; }
+.save-notes-btn { background: linear-gradient(135deg, #FFD93D 0%, #FFA500 100%); color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.save-notes-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,217,61,0.4); }
+
+.assessment-box { background: linear-gradient(135deg, #2563EB 0%, #60A5FA 50%, #FFD93D 100%); padding: 40px 30px; border-radius: 30px; margin: 40px 0; text-align: center; color: white; position: relative; overflow: hidden; }
+.assessment-box::before { content: '🎯'; position: absolute; top: 15px; left: 5%; font-size: 3em; opacity: 0.3; }
+.assessment-box::after { content: '🏆'; position: absolute; bottom: 15px; right: 5%; font-size: 3em; opacity: 0.3; }
+.assessment-title { font-family: 'Baloo 2', cursive; font-size: 2em; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+.assessment-score { font-family: 'Baloo 2', cursive; font-size: 3.5em; margin: 15px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+.assessment-message { font-size: 1.1em; margin-top: 10px; }
+
+footer { background: linear-gradient(135deg, #6C5B7B 0%, #C06C84 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@media (max-width: 768px) {
+.week-hero h1 { font-size: 2.2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+.flashcard { height: 240px; }
+.flashcard-char { font-size: 2em; }
+.info-box-table { font-size: 0.9em; }
+.info-box-table th, .info-box-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik2.html">🌿 TOPIK 2</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">✈️ Tuần 8: Du lịch & Đặt phòng</span>
+</nav>
+
+<div class="week-nav">
+<a href="topik2-week07.html" class="nav-btn">← Tuần 7: Thuê nhà</a>
+<a href="topik2-week09.html" class="nav-btn primary">Tuần 9: Văn hóa →</a>
+</div>
+
+<div class="week-hero">
+<span class="week-badge">✈️ TUẦN 8 • 8주 - MÀU XANH DƯƠNG</span>
+<h1>Du lịch & Đặt phòng</h1>
+<div class="subtitle">Khám phá Hàn Quốc - Trải nghiệm đáng nhớ</div>
+<p class="description">
+Học cách <strong>đặt vé, đặt phòng khách sạn</strong> và các tình huống khi <strong>du lịch Hàn Quốc</strong>. 
+Thành thạo 3 cấu trúc quan trọng: <strong>-아/어 놓다</strong> (chuẩn bị trước), 
+<strong>-는 길</strong> (trên đường đi), <strong>예약하다</strong> (đặt trước)! 🏖️
+</p>
+</div>
+
+<div class="objectives-box">
+<div class="objectives-title">🎯 Mục tiêu tuần 8</div>
+<ul class="objectives-list">
+<li>Biết <strong>15+ từ vựng</strong> về du lịch, đặt vé, khách sạn</li>
+<li>Biết <strong>10+ từ vựng</strong> về địa điểm du lịch nổi tiếng</li>
+<li>Nắm vững ngữ pháp <strong>-아/어 놓다</strong> (chuẩn bị trước, để sẵn)</li>
+<li>Nắm vững ngữ pháp <strong>-는 길</strong> (trên đường đi, đang trên đường)</li>
+<li>Biết cách dùng <strong>예약하다</strong> và các từ liên quan đến đặt trước</li>
+<li>Nói về <strong>kế hoạch du lịch</strong> và đặt phòng</li>
+<li>Thực hành <strong>2 hội thoại</strong>: đặt phòng khách sạn & hỏi đường khi du lịch</li>
+<li>Biết các <strong>địa điểm du lịch nổi tiếng</strong> ở Hàn Quốc</li>
+</ul>
+</div>
+
+<div class="daily-schedule">
+<h2 class="daily-title">📅 Lịch học chi tiết 7 buổi (30 phút/buổi)</h2>
+<div class="daily-tabs">
+<button class="daily-tab active" onclick="showDaily(1, event)">Thứ 2</button>
+<button class="daily-tab" onclick="showDaily(2, event)">Thứ 3</button>
+<button class="daily-tab" onclick="showDaily(3, event)">Thứ 4</button>
+<button class="daily-tab" onclick="showDaily(4, event)">Thứ 5</button>
+<button class="daily-tab" onclick="showDaily(5, event)">Thứ 6</button>
+<button class="daily-tab" onclick="showDaily(6, event)">Thứ 7</button>
+<button class="daily-tab" onclick="showDaily(7, event)">Chủ Nhật</button>
+</div>
+
+<div id="day1" class="daily-content active">
+<div class="daily-header"><h3>✈️ Ngày 1: Từ vựng về du lịch & đặt vé</h3><span class="daily-time">⏰ 30 phút</span></div>
+<div class="daily-objective"><strong>🎯 Mục tiêu ngày:</strong> Học từ vựng về du lịch, đặt vé, sân bay.</div>
+<div class="daily-activities"><h4>📝 Phân bổ thời gian:</h4><ul>
+<li><strong>5 phút:</strong> Ôn tập tuần 7 (thuê nhà & nhà cửa)</li>
+<li><strong>15 phút:</strong> Học 8 từ vựng về du lịch</li>
+<li><strong>5 phút:</strong> Đặt câu với mỗi từ</li>
+<li><strong>5 phút:</strong> Luyện phát âm và ghi nhớ</li>
+</ul></div>
+</div>
+
+<div id="day2" class="daily-content">
+<div class="daily-header"><h3>🏨 Ngày 2: Từ vựng về khách sạn & đặt phòng</h3><span class="daily-time">⏰ 30 phút</span></div>
+<div class="daily-objective"><strong>🎯 Mục tiêu ngày:</strong> Học từ vựng về khách sạn, loại phòng và dịch vụ.</div>
+<div class="daily-activities"><h4>📝 Phân bổ thời gian:</h4><ul>
+<li><strong>5 phút:</strong> Ôn ngày 1</li>
+<li><strong>15 phút:</strong> Học 10 từ vựng về khách sạn</li>
+<li><strong>5 phút:</strong> Nói về kỳ nghỉ mơ ước</li>
+<li><strong>5 phút:</strong> Luyện phát âm</li>
+</ul></div>
+</div>
+
+<div id="day3" class="daily-content">
+<div class="daily-header"><h3>📝 Ngày 3: Ngữ pháp -아/어 놓다</h3><span class="daily-time">⏰ 30 phút</span></div>
+<div class="daily-objective"><strong>🎯 Mục tiêu ngày:</strong> Học cách nói "chuẩn bị trước, để sẵn" cho tương lai.</div>
+<div class="daily-activities"><h4>📝 Phân bổ thời gian:</h4><ul>
+<li><strong>5 phút:</strong> Ôn từ vựng</li>
+<li><strong>15 phút:</strong> Học -아/어 놓다 + 10 ví dụ</li>
+<li><strong>5 phút:</strong> Nói về chuẩn bị du lịch</li>
+<li><strong>5 phút:</strong> Luyện hội thoại</li>
+</ul></div>
+</div>
+
+<div id="day4" class="daily-content">
+<div class="daily-header"><h3>📝 Ngày 4: Ngữ pháp -는 길</h3><span class="daily-time">⏰ 30 phút</span></div>
+<div class="daily-objective"><strong>🎯 Mục tiêu ngày:</strong> Học cách nói "trên đường đi, đang trên đường" làm gì.</div>
+<div class="daily-activities"><h4>📝 Phân bổ thời gian:</h4><ul>
+<li><strong>5 phút:</strong> Ôn -아/어 놓다</li>
+<li><strong>15 phút:</strong> Học -는 길 + 10 ví dụ</li>
+<li><strong>5 phút:</strong> So sánh với các ngữ pháp đã học</li>
+<li><strong>5 phút:</strong> Luyện phát âm</li>
+</ul></div>
+</div>
+
+<div id="day5" class="daily-content">
+<div class="daily-header"><h3>📝 Ngày 5: Từ vựng đặt trước & địa điểm du lịch</h3><span class="daily-time">⏰ 30 phút</span></div>
+<div class="daily-objective"><strong>🎯 Mục tiêu ngày:</strong> Học từ vựng về đặt trước và các địa điểm du lịch nổi tiếng.</div>
+<div class="daily-activities"><h4>📝 Phân bổ thời gian:</h4><ul>
+<li><strong>5 phút:</strong> Ôn 2 ngữ pháp trước</li>
+<li><strong>10 phút:</strong> Học từ vựng đặt trước (예약, 취소, 변경)</li>
+<li><strong>10 phút:</strong> Học 10 địa điểm du lịch nổi tiếng</li>
+<li><strong>5 phút:</strong> Luyện hội thoại</li>
+</ul></div>
+</div>
+
+<div id="day6" class="daily-content">
+<div class="daily-header"><h3>💬 Ngày 6: Hội thoại du lịch</h3><span class="daily-time">⏰ 30 phút</span></div>
+<div class="daily-objective"><strong>🎯 Mục tiêu ngày:</strong> Thực hành hội thoại đặt phòng khách sạn và hỏi đường khi du lịch.</div>
+<div class="daily-activities"><h4>📝 Phân bổ thời gian:</h4><ul>
+<li><strong>5 phút:</strong> Ôn từ vựng và ngữ pháp</li>
+<li><strong>15 phút:</strong> Học cụm từ và hội thoại</li>
+<li><strong>5 phút:</strong> Thực hành 2 hội thoại</li>
+<li><strong>5 phút:</strong> Ghi âm và nghe lại</li>
+</ul></div>
+</div>
+
+<div id="day7" class="daily-content">
+<div class="daily-header"><h3>🎉 Ngày 7: Ôn tập & Kiểm tra</h3><span class="daily-time">⏰ 30 phút</span></div>
+<div class="daily-objective"><strong>🎯 Mục tiêu ngày:</strong> Ôn tập toàn bộ tuần 8 và làm bài kiểm tra cuối tuần.</div>
+<div class="daily-activities"><h4>📝 Phân bổ thời gian:</h4><ul>
+<li><strong>10 phút:</strong> Ôn từ vựng + 2 ngữ pháp</li>
+<li><strong>5 phút:</strong> Lập kế hoạch du lịch Hàn Quốc</li>
+<li><strong>10 phút:</strong> Làm bài kiểm tra cuối tuần</li>
+<li><strong>5 phút:</strong> Tự đánh giá và ghi chú</li>
+</ul></div>
+</div>
+</div>
+
+<!-- ĐỊA ĐIỂM DU LỊCH HÀN QUỐC -->
+<h2 class="section-heading">🇰🇷 Địa điểm du lịch nổi tiếng Hàn Quốc</h2>
+
+<div class="info-box">
+<div class="info-box-title">💡 Bạn có biết?</div>
+<div class="info-box-content">
+<p>Hàn Quốc có nhiều <strong>địa điểm du lịch hấp dẫn</strong> với sự kết hợp giữa truyền thống và hiện đại:</p>
+<table class="info-box-table">
+<thead>
+<tr><th>Địa điểm</th><th>Tiếng Hàn</th><th>Đặc điểm</th><th>Hoạt động</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>🏯 Cung Gyeongbok</strong></td><td>경복궁</div><td>Cung điện cổ xưa nhất Seoul</td><td>Mặc Hanbok, tham quan</td></tr>
+<tr><td><strong>🗼 Tháp Namsan</strong></td><td>남산타워</div><td>Ngắm toàn cảnh Seoul</td><td>Khóa tình yêu, ngắm cảnh</td></tr>
+<tr><td><strong>🏖️ Đảo Jeju</strong></td><td>제주도</div><td>Đảo thiên đường</div><td>Bãi biển, núi Halla</td></tr>
+<tr><td><strong>🎭 Làng Bukchon</strong></td><td>북촌한옥마을</div><td>Làng truyền thống</div><td>Chụp ảnh, trải nghiệm</td></tr>
+<tr><td><strong>🛍️ Myeongdong</strong></td><td>명동</div><td>Thiên đường mua sắm</div><td>Mua sắm, ẩm thực</td></tr>
+<tr><td><strong>🌊 Busan</strong></td><td>부산</div><td>Thành phố biển</div><td>Bãi biển Haeundae</td></tr>
+</tbody>
+</table>
+<div class="grammar-note">
+💡 <strong>Mẹo du lịch Hàn Quốc:</strong><br>
+• <strong>T-Money</strong> (티머니): Thẻ giao thông, dùng cho tàu điện, xe buýt<br>
+• <strong>KTX</strong> (케이티엑스): Tàu cao tốc liên tỉnh<br>
+• <strong>Hanbok</strong> (한복): Trang phục truyền thống, miễn phí vào cung điện<br>
+• <strong>Jjimjilbang</strong> (찜질방): Phòng tắm hơi công cộng<br>
+• <strong>PC Bang</strong> (PC방): Quán internet gaming<br>
+• <strong>Noraebang</strong> (노래방): Quán karaoke
+</div>
+</div>
+</div>
+
+<!-- TỪ VỰNG VỀ DU LỊCH -->
+<h2 class="section-heading">✈️ Từ vựng về du lịch & đặt vé</h2>
+
+<div class="audio-player">
+<button class="play-btn" onclick="speakKorean('여행,항공권,숙소,호텔,예약,체크인,체크아웃,관광지', this)">▶️</button>
+<div class="audio-info"><div class="audio-label">🎧 Nghe từ vựng du lịch</div><div class="audio-sub">Nghe và lặp lại theo 3 lần</div></div>
+</div>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-image">✈️</div>
+<div class="vocab-content">
+<div class="vocab-korean">여행 <button class="speak-btn" onclick="speakKorean('여행', this)">🔊</button></div>
+<div class="vocab-pronunciation">[yeo-haeng]</div>
+<div class="vocab-vietnamese">Du lịch, chuyến đi</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>한국에 여행 가요.</strong> - Đi du lịch Hàn Quốc.</div><button class="speak-btn" onclick="speakKorean('한국에 여행 가요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🎫</div>
+<div class="vocab-content">
+<div class="vocab-korean">항공권 <button class="speak-btn" onclick="speakKorean('항공권', this)">🔊</button></div>
+<div class="vocab-pronunciation">[hang-gong-gwon]</div>
+<div class="vocab-vietnamese">Vé máy bay</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>항공권을 예매했어요.</strong> - Đã đặt vé máy bay.</div><button class="speak-btn" onclick="speakKorean('항공권을 예매했어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🏨</div>
+<div class="vocab-content">
+<div class="vocab-korean">호텔 <button class="speak-btn" onclick="speakKorean('호텔', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ho-tel]</div>
+<div class="vocab-vietnamese">Khách sạn</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>호텔을 예약했어요.</strong> - Đã đặt khách sạn.</div><button class="speak-btn" onclick="speakKorean('호텔을 예약했어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🛏️</div>
+<div class="vocab-content">
+<div class="vocab-korean">숙소 <button class="speak-btn" onclick="speakKorean('숙소', this)">🔊</button></div>
+<div class="vocab-pronunciation">[suk-so]</div>
+<div class="vocab-vietnamese">Chỗ ở, nơi lưu trú</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>숙소를 찾고 있어요.</strong> - Đang tìm chỗ ở.</div><button class="speak-btn" onclick="speakKorean('숙소를 찾고 있어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">📝</div>
+<div class="vocab-content">
+<div class="vocab-korean">예약 <button class="speak-btn" onclick="speakKorean('예약', this)">🔊</button></div>
+<div class="vocab-pronunciation">[ye-yak]</div>
+<div class="vocab-vietnamese">Đặt trước, đặt chỗ</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>예약을 했어요.</strong> - Đã đặt chỗ rồi.</div><button class="speak-btn" onclick="speakKorean('예약을 했어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">📅</div>
+<div class="vocab-content">
+<div class="vocab-korean">체크인 <button class="speak-btn" onclick="speakKorean('체크인', this)">🔊</button></div>
+<div class="vocab-pronunciation">[che-keu-in]</div>
+<div class="vocab-vietnamese">Nhận phòng</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>체크인 시간이 언제예요?</strong> - Giờ nhận phòng là khi nào?</div><button class="speak-btn" onclick="speakKorean('체크인 시간이 언제예요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🚪</div>
+<div class="vocab-content">
+<div class="vocab-korean">체크아웃 <button class="speak-btn" onclick="speakKorean('체크아웃', this)">🔊</button></div>
+<div class="vocab-pronunciation">[che-keu-aut]</div>
+<div class="vocab-vietnamese">Trả phòng</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>체크아웃은 열두 시까지예요.</strong> - Trả phòng trước 12 giờ.</div><button class="speak-btn" onclick="speakKorean('체크아웃은 열두 시까지예요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🗺️</div>
+<div class="vocab-content">
+<div class="vocab-korean">관광지 <button class="speak-btn" onclick="speakKorean('관광지', this)">🔊</button></div>
+<div class="vocab-pronunciation">[gwan-gwang-ji]</div>
+<div class="vocab-vietnamese">Địa điểm du lịch</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>관광지가 어디에 있어요?</strong> - Địa điểm du lịch ở đâu?</div><button class="speak-btn" onclick="speakKorean('관광지가 어디에 있어요', this)">🔊</button></div>
+</div>
+</div>
+</div>
+
+<!-- TỪ VỰNG KHÁCH SẠN -->
+<h2 class="section-heading">🏨 Từ vựng về khách sạn & dịch vụ</h2>
+
+<div class="audio-player">
+<button class="play-btn" onclick="speakKorean('싱글룸,더블룸,조식,무료,유료,서비스', this)">▶️</button>
+<div class="audio-info"><div class="audio-label">🎧 Nghe từ vựng khách sạn</div></div>
+</div>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-image">🛏️</div>
+<div class="vocab-content">
+<div class="vocab-korean">싱글룸 <button class="speak-btn" onclick="speakKorean('싱글룸', this)">🔊</button></div>
+<div class="vocab-pronunciation">[sing-geul-lum]</div>
+<div class="vocab-vietnamese">Phòng đơn</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>싱글룸을 예약했어요.</strong> - Đã đặt phòng đơn.</div><button class="speak-btn" onclick="speakKorean('싱글룸을 예약했어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🛏️</div>
+<div class="vocab-content">
+<div class="vocab-korean">더블룸 <button class="speak-btn" onclick="speakKorean('더블룸', this)">🔊</button></div>
+<div class="vocab-pronunciation">[deo-beul-lum]</div>
+<div class="vocab-vietnamese">Phòng đôi</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>더블룸이 있어요?</strong> - Có phòng đôi không?</div><button class="speak-btn" onclick="speakKorean('더블룸이 있어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🍳</div>
+<div class="vocab-content">
+<div class="vocab-korean">조식 <button class="speak-btn" onclick="speakKorean('조식', this)">🔊</button></div>
+<div class="vocab-pronunciation">[jo-sik]</div>
+<div class="vocab-vietnamese">Bữa sáng</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>조식이 포함되어 있어요.</strong> - Bao gồm bữa sáng.</div><button class="speak-btn" onclick="speakKorean('조식이 포함되어 있어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">✅</div>
+<div class="vocab-content">
+<div class="vocab-korean">무료 <button class="speak-btn" onclick="speakKorean('무료', this)">🔊</button></div>
+<div class="vocab-pronunciation">[mu-ryo]</div>
+<div class="vocab-vietnamese">Miễn phí</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>와이파이는 무료예요.</strong> - Wifi miễn phí.</div><button class="speak-btn" onclick="speakKorean('와이파이는 무료예요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">💰</div>
+<div class="vocab-content">
+<div class="vocab-korean">유료 <button class="speak-btn" onclick="speakKorean('유료', this)">🔊</button></div>
+<div class="vocab-pronunciation">[yu-ryo]</div>
+<div class="vocab-vietnamese">Tính phí</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>조식은 유료예요.</strong> - Bữa sáng tính phí.</div><button class="speak-btn" onclick="speakKorean('조식은 유료예요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">❌</div>
+<div class="vocab-content">
+<div class="vocab-korean">취소 <button class="speak-btn" onclick="speakKorean('취소', this)">🔊</button></div>
+<div class="vocab-pronunciation">[chwi-so]</div>
+<div class="vocab-vietnamese">Hủy bỏ</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>예약을 취소하고 싶어요.</strong> - Tôi muốn hủy đặt chỗ.</div><button class="speak-btn" onclick="speakKorean('예약을 취소하고 싶어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🔄</div>
+<div class="vocab-content">
+<div class="vocab-korean">변경 <button class="speak-btn" onclick="speakKorean('변경', this)">🔊</button></div>
+<div class="vocab-pronunciation">[byeon-gyeong]</div>
+<div class="vocab-vietnamese">Thay đổi</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>날짜를 변경할 수 있어요?</strong> - Có thể thay đổi ngày không?</div><button class="speak-btn" onclick="speakKorean('날짜를 변경할 수 있어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🎁</div>
+<div class="vocab-content">
+<div class="vocab-korean">서비스 <button class="speak-btn" onclick="speakKorean('서비스', this)">🔊</button></div>
+<div class="vocab-pronunciation">[seo-bi-seu]</div>
+<div class="vocab-vietnamese">Dịch vụ</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>서비스가 좋아요.</strong> - Dịch vụ tốt.</div><button class="speak-btn" onclick="speakKorean('서비스가 좋아요', this)">🔊</button></div>
+</div>
+</div>
+</div>
+
+<!-- NGỮ PHÁP 1: -아/어 놓다 -->
+<h2 class="section-heading">📝 Ngữ pháp: -아/어 놓다 (Chuẩn bị trước, để sẵn)</h2>
+
+<div class="grammar-box">
+<div class="grammar-title">📦 Diễn tả chuẩn bị trước: -아/어 놓다</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Công thức</div>
+<div class="grammar-formula">
+[Động từ] + <strong>-아/어 놓다</strong><br>
+<br>
+<strong>Quy tắc:</strong><br>
+• Gốc có ㅏ, ㅗ → + <strong>-아 놓다</strong><br>
+• Gốc khác → + <strong>-어 놓다</strong><br>
+• 하다 → <strong>-해 놓다</strong><br>
+<br>
+<strong>Chia thì:</strong><br>
+• Hiện tại: -아/어 <strong>놓았어요</strong><br>
+• Quá khứ: -아/어 <strong>놓았었어요</strong>
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Cách sử dụng</div>
+<div class="grammar-explanation">
+Dùng để diễn tả việc <strong>chuẩn bị trước</strong> hoặc <strong>để sẵn</strong> một việc gì đó cho tương lai.<br>
+Tương tự: "chuẩn bị sẵn", "để sẵn", "đặt trước" trong tiếng Việt.<br>
+<br>
+<strong>⚠️ Lưu ý quan trọng:</strong><br>
+• Nhấn mạnh <strong>HÀNH ĐỘNG ĐÃ HOÀN THÀNH</strong> để chuẩn bị cho tương lai<br>
+• Thường dùng khi <strong>chuẩn bị cho chuyến đi, sự kiện</strong><br>
+• Khác với <strong>-아/어 두다</strong> (tương tự nhưng trang trọng hơn)
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Ví dụ minh họa</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 1:</div>
+<div class="grammar-example-korean">여행 가기 전에 호텔을 예약해 놓았어요.</div>
+<div class="grammar-example-pronunciation">[yeo-haeng ga-gi jeo-ne ho-tel-eul ye-yak-hae no-a-sseo-yo]</div>
+<div class="grammar-example-meaning">Trước khi đi du lịch đã đặt khách sạn sẵn.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('여행 가기 전에 호텔을 예약해 놓았어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 2:</div>
+<div class="grammar-example-korean">내일 일찍 일어나려고 알람을 맞춰 놓았어요.</div>
+<div class="grammar-example-pronunciation">[nae-il il-jjik i-reo-na-ryeo-go a-ram-eul match-wo no-a-sseo-yo]</div>
+<div class="grammar-example-meaning">Để ngày mai dậy sớm nên đã đặt báo thức sẵn.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('내일 일찍 일어나려고 알람을 맞춰 놓았어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 3:</div>
+<div class="grammar-example-korean">손님이 오시기 전에 방을 정리해 놓았어요.</div>
+<div class="grammar-example-pronunciation">[son-nim-i o-si-gi jeo-ne bang-eul jeong-ri-hae no-a-sseo-yo]</div>
+<div class="grammar-example-meaning">Trước khi khách đến đã dọn dẹp phòng sẵn.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('손님이 오시기 전에 방을 정리해 놓았어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 4:</div>
+<div class="grammar-example-korean">공항에 도착해서 택시를 불러 놓았어요.</div>
+<div class="grammar-example-pronunciation">[gong-hang-e do-chak-hae-seo taek-si-reul bul-leo no-a-sseo-yo]</div>
+<div class="grammar-example-meaning">Đến sân bay rồi đã gọi taxi sẵn.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('공항에 도착해서 택시를 불러 놓았어요', this)">🔊</button>
+</div>
+</div>
+
+<div class="grammar-note">
+💡 <strong>Phân biệt -아/어 놓다 và -아/어 두다:</strong><br>
+• <strong>-아/어 놓다</strong>: Nhấn mạnh <strong>HÀNH ĐỘNG</strong> chuẩn bị (thân mật hơn)<br>
+• <strong>-아/어 두다</strong>: Nhấn mạnh <strong>KẾT QUẢ</strong> (trang trọng hơn)<br>
+<br>
+Ví dụ:<br>
+• <strong>예약을 해 놓았어요.</strong> = Đã đặt chỗ sẵn rồi. (nhấn mạnh hành động)<br>
+• <strong>예약을 해 두었어요.</strong> = Đã đặt chỗ rồi. (nhấn mạnh kết quả)
+</div>
+</div>
+
+<!-- NGỮ PHÁP 2: -는 길 -->
+<h2 class="section-heading">📝 Ngữ pháp: -는 길 (Trên đường đi)</h2>
+
+<div class="grammar-box">
+<div class="grammar-title">🛣️ Diễn tả "trên đường đi": -는 길</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Công thức</div>
+<div class="grammar-formula">
+[Động từ] + <strong>-는 길</strong><br>
+<br>
+<strong>Quy tắc:</strong><br>
+• Động từ + <strong>-는 길</strong><br>
+• 하다 → <strong>-하는 길</strong><br>
+<br>
+<strong>Nghĩa:</strong> "trên đường [làm gì]", "đang trên đường [làm gì]"
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Cách sử dụng</div>
+<div class="grammar-explanation">
+Dùng để diễn tả <strong>đang trên đường</strong> đi đâu đó hoặc làm gì đó.<br>
+Tương tự: "trên đường đi", "trên đường về", "trên đường đến" trong tiếng Việt.<br>
+<br>
+<strong>⚠️ Lưu ý quan trọng:</strong><br>
+• Dùng với <strong>động từ di chuyển</strong>: 가다, 오다, 돌아오다...<br>
+• Thường đi kèm với <strong>만나다</strong> (gặp) hoặc sự kiện bất ngờ<br>
+• Có thể dùng với <strong>-에</strong>: -는 길에 (trên đường đến)
+</div>
+</div>
+
+<div class="grammar-section">
+<div class="grammar-section-title">📌 Ví dụ minh họa</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 1:</div>
+<div class="grammar-example-korean">학교에 가는 길에 친구를 만났어요.</div>
+<div class="grammar-example-pronunciation">[hak-gyo-e ga-neun gi-re chin-gu-reul man-na-sseo-yo]</div>
+<div class="grammar-example-meaning">Trên đường đến trường đã gặp bạn.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('학교에 가는 길에 친구를 만났어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 2:</div>
+<div class="grammar-example-korean">집에 돌아오는 길에 비가 왔어요.</div>
+<div class="grammar-example-pronunciation">[ji-be do-ra-o-neun gi-re bi-ga wa-sseo-yo]</div>
+<div class="grammar-example-meaning">Trên đường về nhà thì trời mưa.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('집에 돌아오는 길에 비가 왔어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 3:</div>
+<div class="grammar-example-korean">여행 가는 길에 사진을 많이 찍었어요.</div>
+<div class="grammar-example-pronunciation">[yeo-haeng ga-neun gi-e sa-jin-eul ma-ni jji-geo-sseo-yo]</div>
+<div class="grammar-example-meaning">Trên đường đi du lịch đã chụp nhiều ảnh.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('여행 가는 길에 사진을 많이 찍었어요', this)">🔊</button>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-text">
+<div class="grammar-example-label">Ví dụ 4:</div>
+<div class="grammar-example-korean">회사에 가는 길에 커피를 샀어요.</div>
+<div class="grammar-example-pronunciation">[hoe-sa-e ga-neun gi-re keo-pi-reul sa-sseo-yo]</div>
+<div class="grammar-example-meaning">Trên đường đến công ty đã mua cà phê.</div>
+</div>
+<button class="speak-btn speak-btn-large" onclick="speakKorean('회사에 가는 길에 커피를 샀어요', this)">🔊</button>
+</div>
+</div>
+
+<div class="grammar-note">
+💡 <strong>Phân biệt -는 길 và -면서:</strong><br>
+• <strong>-는 길</strong>: Trên đường đi (nhấn mạnh <strong>di chuyển</strong>)<br>
+• <strong>-면서</strong>: Vừa... vừa... (2 hành động <strong>đồng thời</strong>)<br>
+<br>
+Ví dụ:<br>
+• <strong>학교에 가는 길에</strong> 친구를 만났어요. = <strong>Trên đường</strong> đến trường gặp bạn. (di chuyển)<br>
+• <strong>걸으면서</strong> 음악을 들어요. = <strong>Vừa</strong> đi bộ <strong>vừa</strong> nghe nhạc. (đồng thời)
+</div>
+</div>
+
+<!-- TỪ VỰNG ĐỊA ĐIỂM DU LỊCH -->
+<h2 class="section-heading">🗺️ Địa điểm du lịch nổi tiếng Hàn Quốc</h2>
+
+<div class="audio-player">
+<button class="play-btn" onclick="speakKorean('경복궁,남산타워,제주도,명동,해운대,북촌', this)">▶️</button>
+<div class="audio-info"><div class="audio-label">🎧 Nghe địa điểm du lịch</div></div>
+</div>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-image">🏯</div>
+<div class="vocab-content">
+<div class="vocab-korean">경복궁 <button class="speak-btn" onclick="speakKorean('경복궁', this)">🔊</button></div>
+<div class="vocab-pronunciation">[gyeong-bok-gung]</div>
+<div class="vocab-vietnamese">Cung Gyeongbok (Seoul)</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>경복궁에 가 본 적이 있어요.</strong> - Đã từng đến cung Gyeongbok.</div><button class="speak-btn" onclick="speakKorean('경복궁에 가 본 적이 있어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🗼</div>
+<div class="vocab-content">
+<div class="vocab-korean">남산타워 <button class="speak-btn" onclick="speakKorean('남산타워', this)">🔊</button></div>
+<div class="vocab-pronunciation">[nam-san-ta-wo]</div>
+<div class="vocab-vietnamese">Tháp Namsan (Seoul)</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>남산타워에서 경치를 봤어요.</strong> - Đã ngắm cảnh từ tháp Namsan.</div><button class="speak-btn" onclick="speakKorean('남산타워에서 경치를 봤어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🏖️</div>
+<div class="vocab-content">
+<div class="vocab-korean">제주도 <button class="speak-btn" onclick="speakKorean('제주도', this)">🔊</button></div>
+<div class="vocab-pronunciation">[je-ju-do]</div>
+<div class="vocab-vietnamese">Đảo Jeju</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>제주도에 여행 가고 싶어요.</strong> - Muốn đi du lịch đảo Jeju.</div><button class="speak-btn" onclick="speakKorean('제주도에 여행 가고 싶어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🛍️</div>
+<div class="vocab-content">
+<div class="vocab-korean">명동 <button class="speak-btn" onclick="speakKorean('명동', this)">🔊</button></div>
+<div class="vocab-pronunciation">[myeong-dong]</div>
+<div class="vocab-vietnamese">Phố Myeongdong (Seoul)</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>명동에서 쇼핑했어요.</strong> - Đã mua sắm ở Myeongdong.</div><button class="speak-btn" onclick="speakKorean('명동에서 쇼핑했어요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🏖️</div>
+<div class="vocab-content">
+<div class="vocab-korean">해운대 <button class="speak-btn" onclick="speakKorean('해운대', this)">🔊</button></div>
+<div class="vocab-pronunciation">[hae-un-dae]</div>
+<div class="vocab-vietnamese">Bãi biển Haeundae (Busan)</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>해운대가 아름다워요.</strong> - Haeundae đẹp.</div><button class="speak-btn" onclick="speakKorean('해운대가 아름다워요', this)">🔊</button></div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-image">🏘️</div>
+<div class="vocab-content">
+<div class="vocab-korean">북촌한옥마을 <button class="speak-btn" onclick="speakKorean('북촌한옥마을', this)">🔊</button></div>
+<div class="vocab-pronunciation">[buk-chon-ha-nok-ma-eul]</div>
+<div class="vocab-vietnamese">Làng Bukchon (Seoul)</div>
+<div class="vocab-example"><div class="vocab-example-text"><strong>북촌에서 한복을 입었어요.</strong> - Đã mặc Hanbok ở Bukchon.</div><button class="speak-btn" onclick="speakKorean('북촌에서 한복을 입었어요', this)">🔊</button></div>
+</div>
+</div>
+</div>
+
+<!-- HỘI THOẠI -->
+<h2 class="section-heading">💬 Hội thoại thực tế</h2>
+
+<div class="conversation-box">
+<div class="conversation-title">💬 Hội thoại 1: Đặt phòng khách sạn
+<button class="speak-btn speak-btn-large" onclick="speakConversation(['안녕하세요. 호텔을 예약하고 싶은데요','언제부터 언제까지 묵으실 거예요?','다음 주 월요일부터 금요일까지요','어떤 방을 원하세요?','더블룸 하나요','네, 조식이 포함되어 있나요?','네, 조식이 포함되어 있습니다'])">🔊 Nghe</button>
+</div>
+<div class="dialog-line"><div class="dialog-avatar">👤</div><div class="dialog-content">
+<div class="dialog-korean">안녕하세요. 호텔을 예약하고 싶은데요. <button class="speak-btn" onclick="speakKorean('안녕하세요. 호텔을 예약하고 싶은데요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[an-nyeong-ha-se-yo. ho-tel-eul ye-yak-ha-go xi-pneun-de-yo]</div>
+<div class="dialog-vietnamese">Xin chào. Tôi muốn đặt khách sạn.</div>
+</div></div>
+<div class="dialog-line speaker-b"><div class="dialog-avatar">🏨</div><div class="dialog-content">
+<div class="dialog-korean">언제부터 언제까지 묵으실 거예요? <button class="speak-btn" onclick="speakKorean('언제부터 언제까지 묵으실 거예요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[eon-je-bu-teo eon-je-kka-ji mu-geu-sil geo-ye-yo]</div>
+<div class="dialog-vietnamese">Từ khi nào đến khi nào ạ?</div>
+</div></div>
+<div class="dialog-line"><div class="dialog-avatar">👤</div><div class="dialog-content">
+<div class="dialog-korean">다음 주 월요일부터 금요일까지요. <button class="speak-btn" onclick="speakKorean('다음 주 월요일부터 금요일까지요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[da-eum ju wo-r yo-il-bu-teo geum-yo-il-kka-ji-yo]</div>
+<div class="dialog-vietnamese">Từ thứ Hai tuần sau đến thứ Sáu ạ.</div>
+</div></div>
+<div class="dialog-line speaker-b"><div class="dialog-avatar">🏨</div><div class="dialog-content">
+<div class="dialog-korean">어떤 방을 원하세요? <button class="speak-btn" onclick="speakKorean('어떤 방을 원하세요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[eotteon bang-eul won-ha-se-yo]</div>
+<div class="dialog-vietnamese">Quý khách muốn phòng nào ạ?</div>
+</div></div>
+<div class="dialog-line"><div class="dialog-avatar">👤</div><div class="dialog-content">
+<div class="dialog-korean">더블룸 하나요. <button class="speak-btn" onclick="speakKorean('더블룸 하나요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[deo-beul-lum ha-na-yo]</div>
+<div class="dialog-vietnamese">Một phòng đôi ạ.</div>
+</div></div>
+<div class="dialog-line speaker-b"><div class="dialog-avatar">👤</div><div class="dialog-content">
+<div class="dialog-korean">조식이 포함되어 있나요? <button class="speak-btn" onclick="speakKorean('조식이 포함되어 있나요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[jo-si-gi po-ham-doe-eo it-na-yo]</div>
+<div class="dialog-vietnamese">Có bao gồm bữa sáng không?</div>
+</div></div>
+<div class="dialog-line"><div class="dialog-avatar">🏨</div><div class="dialog-content">
+<div class="dialog-korean">네, 조식이 포함되어 있습니다. <button class="speak-btn" onclick="speakKorean('네, 조식이 포함되어 있습니다', this)">🔊</button></div>
+<div class="dialog-pronunciation">[ne, jo-si-gi po-ham-doe-eo it-seum-ni-da]</div>
+<div class="dialog-vietnamese">Vâng, có bao gồm bữa sáng ạ.</div>
+</div></div>
+</div>
+
+<div class="conversation-box">
+<div class="conversation-title">💬 Hội thoại 2: Hỏi đường khi du lịch
+<button class="speak-btn speak-btn-large" onclick="speakConversation(['실례합니다. 남산타워에 가고 싶은데요','어떻게 가야 해요?','지하철을 타세요','몇 호선을 타야 해요?','사 호선을 타세요','몇 번 역에서 내려야 해요?'])">🔊 Nghe</button>
+</div>
+<div class="dialog-line"><div class="dialog-avatar">👤</div><div class="dialog-content">
+<div class="dialog-korean">실례합니다. 남산타워에 가고 싶은데요. <button class="speak-btn" onclick="speakKorean('실례합니다. 남산타워에 가고 싶은데요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[sil-lye-ham-ni-da. nam-san-ta-wo-e ga-go xi-pneun-de-yo]</div>
+<div class="dialog-vietnamese">Xin lỗi. Tôi muốn đến tháp Namsan.</div>
+</div></div>
+<div class="dialog-line speaker-b"><div class="dialog-avatar">🧑</div><div class="dialog-content">
+<div class="dialog-korean">어떻게 가야 해요? <button class="speak-btn" onclick="speakKorean('어떻게 가야 해요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[eotteoke ga-ya hae-yo]</div>
+<div class="dialog-vietnamese">Phải đi như thế nào?</div>
+</div></div>
+<div class="dialog-line"><div class="dialog-avatar">🧑</div><div class="dialog-content">
+<div class="dialog-korean">지하철을 타세요. <button class="speak-btn" onclick="speakKorean('지하철을 타세요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[ji-ha-cheol-eul ta-se-yo]</div>
+<div class="dialog-vietnamese">Hãy đi tàu điện ngầm.</div>
+</div></div>
+<div class="dialog-line speaker-b"><div class="dialog-avatar">👤</div><div class="dialog-content">
+<div class="dialog-korean">몇 호선을 타야 해요? <button class="speak-btn" onclick="speakKorean('몇 호선을 타야 해요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[myeot ho-seon-eul ta-ya hae-yo]</div>
+<div class="dialog-vietnamese">Phải đi tuyến số mấy?</div>
+</div></div>
+<div class="dialog-line"><div class="dialog-avatar">🧑</div><div class="dialog-content">
+<div class="dialog-korean">사 호선을 타세요. <button class="speak-btn" onclick="speakKorean('사 호선을 타세요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[sa ho-seon-eul ta-se-yo]</div>
+<div class="dialog-vietnamese">Hãy đi tuyến số 4.</div>
+</div></div>
+<div class="dialog-line speaker-b"><div class="dialog-avatar">👤</div><div class="dialog-content">
+<div class="dialog-korean">몇 번 역에서 내려야 해요? <button class="speak-btn" onclick="speakKorean('몇 번 역에서 내려야 해요', this)">🔊</button></div>
+<div class="dialog-pronunciation">[myeot beon yeok-e-seo nae-geo-ya hae-yo]</div>
+<div class="dialog-vietnamese">Phải xuống ở ga số mấy?</div>
+</div></div>
+</div>
+
+<!-- FLASHCARD -->
+<div class="flashcard-section">
+<h2 class="section-heading">🎴 Flashcard ôn tập</h2>
+<p style="color: #8E7DA3; text-align: center; margin-bottom: 15px;">Click vào thẻ để lật • Dùng nút để chuyển thẻ</p>
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front"><div class="flashcard-char" id="flashcardChar">여행</div><div class="flashcard-hint">Click để xem nghĩa</div></div>
+<div class="flashcard-back"><div class="flashcard-meaning" id="flashcardMeaning">Du lịch, chuyến đi</div><div class="flashcard-pronunciation" id="flashcardPron">[yeo-haeng] • 한국에 여행 가요</div>
+<button class="speak-btn speak-btn-large" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button></div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 15</div>
+</div>
+
+<!-- BÀI TẬP -->
+<h2 class="section-heading">✍️ Bài tập kiểm tra</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 1: "Trước khi đi du lịch đã đặt khách sạn sẵn" nói là?</div>
+<div class="exercise-question">Dùng -아/어 놓다 để diễn tả chuẩn bị trước:</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>여행 가기 전에 호텔을 예약해 놓았어요.</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>여행 가기 전에 호텔을 예약했어요.</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>여행 가는 길에 호텔을 예약했어요.</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'a', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 2: "Trên đường đến trường đã gặp bạn" nói là?</div>
+<div class="exercise-question">Dùng -는 길 để diễn tả trên đường đi:</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>학교에 가면서 친구를 만났어요.</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>학교에 가는 길에 친구를 만났어요.</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>학교에 가기 전에 친구를 만났어요.</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 3: "Tôi muốn đặt khách sạn" nói là?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>호텔을 예약하고 싶어요.</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>호텔을 예약해 놓았어요.</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>호텔에 가고 싶어요.</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'a', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 4: "Phải đi tuyến số mấy?" nói là?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>몇 호선이에요?</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>몇 호선을 타야 해요?</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>어떤 호선이에요?</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'b', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Bài 5: "Đảo Jeju" trong tiếng Hàn là?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>남산타워</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>경복궁</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>제주도</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'c', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<!-- ASSESSMENT -->
+<div class="assessment-box">
+<div class="assessment-title">🏆 Đánh giá cuối tuần</div>
+<div class="assessment-score" id="assessmentScore">0/5</div>
+<div class="assessment-message" id="assessmentMessage">Làm các bài tập trên để xem kết quả! 💪</div>
+</div>
+
+<!-- NOTES -->
+<div class="notes-section">
+<div class="notes-title">📝 Ghi chú cá nhân</div>
+<textarea class="notes-textarea" id="week8Notes" placeholder="Viết ghi chú của bạn về:&#10;- Phân biệt -아/어 놓다 vs -는 길&#10;- Các địa điểm du lịch muốn đến ở Hàn Quốc&#10;- Kế hoạch du lịch của bạn&#10;- Câu hội thoại hay dùng khi du lịch..."></textarea>
+<button class="save-notes-btn" onclick="saveNotes()">💾 Lưu ghi chú</button>
+</div>
+
+<!-- CHECKLIST -->
+<div class="checklist-section">
+<h2 class="section-heading">✅ Checklist hoàn thành tuần 8</h2>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Biết 15+ từ vựng về du lịch</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Biết 10+ từ vựng về khách sạn</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Biết địa điểm du lịch nổi tiếng</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Dùng -아/어 놓다 (chuẩn bị trước)</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Dùng -는 길 (trên đường đi)</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Dùng 예약하다 (đặt trước)</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Đặt phòng khách sạn</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Hỏi đường khi du lịch</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Thực hành 2 hội thoại</span></div>
+<div class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"><span>Hoàn thành 5 bài tập với điểm ≥ 80%</span></div>
+</div>
+
+<div class="week-nav" style="margin-top: 40px;">
+<a href="topik2-week07.html" class="nav-btn">← Tuần 7: Thuê nhà</a>
+<a href="topik2-week09.html" class="nav-btn primary">Tiếp: Tuần 9 - Văn hóa →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Du lịch là điều duy nhất bạn mua mà khiến bạn giàu có hơn"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮', '🌿'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.8;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+        if (btnElement.classList.contains('play-btn')) { btnElement.classList.add('playing'); btnElement.innerHTML = '⏸️'; }
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking', 'playing');
+            if (btnElement.classList.contains('play-btn')) btnElement.innerHTML = '▶️';
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function showDaily(dayNum, event) {
+    document.querySelectorAll('.daily-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.daily-content').forEach(c => c.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('day' + dayNum).classList.add('active');
+}
+
+const flashcards = [
+    { char: '여행', meaning: 'Du lịch, chuyến đi', pron: '[yeo-haeng] • 한국에 여행 가요' },
+    { char: '항공권', meaning: 'Vé máy bay', pron: '[hang-gong-gwon] • 항공권을 예매했어요' },
+    { char: '호텔', meaning: 'Khách sạn', pron: '[ho-tel] • 호텔을 예약했어요' },
+    { char: '숙소', meaning: 'Chỗ ở, nơi lưu trú', pron: '[suk-so] • 숙소를 찾고 있어요' },
+    { char: '예약', meaning: 'Đặt trước, đặt chỗ', pron: '[ye-yak] • 예약을 했어요' },
+    { char: '체크인', meaning: 'Nhận phòng', pron: '[che-keu-in] • 체크인 시간' },
+    { char: '체크아웃', meaning: 'Trả phòng', pron: '[che-keu-aut] • 체크아웃 시간' },
+    { char: '관광지', meaning: 'Địa điểm du lịch', pron: '[gwan-gwang-ji] • 관광지가 어디?' },
+    { char: '싱글룸', meaning: 'Phòng đơn', pron: '[sing-geul-lum] • 싱글룸 예약' },
+    { char: '더블룸', meaning: 'Phòng đôi', pron: '[deo-beul-lum] • 더블룸 있어요?' },
+    { char: '조식', meaning: 'Bữa sáng', pron: '[jo-sik] • 조식 포함' },
+    { char: '무료', meaning: 'Miễn phí', pron: '[mu-ryo] • 와이파이 무료' },
+    { char: '유료', meaning: 'Tính phí', pron: '[yu-ryo] • 조식 유료' },
+    { char: '취소', meaning: 'Hủy bỏ', pron: '[chwi-so] • 예약 취소' },
+    { char: '경복궁', meaning: 'Cung Gyeongbok', pron: '[gyeong-bok-gung] • 경복궁에 가다' }
+];
+let currentFlashcard = 0;
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = flashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = flashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = flashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + flashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() { currentFlashcard = (currentFlashcard + 1) % flashcards.length; updateFlashcard(); }
+function prevFlashcard() { currentFlashcard = (currentFlashcard - 1 + flashcards.length) % flashcards.length; updateFlashcard(); }
+function shuffleFlashcards() {
+    for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+    }
+    currentFlashcard = 0; updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) { selectedValue = option.value; if (selectedValue === correctAnswer) parent.classList.add('correct'); else parent.classList.add('incorrect'); }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌸';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) { answeredQuestions.add(questionName); correctAnswers++; }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateAssessment();
+}
+
+function updateAssessment() {
+    const total = 5; const answered = answeredQuestions.size;
+    document.getElementById('assessmentScore').textContent = correctAnswers + '/' + total;
+    const msg = document.getElementById('assessmentMessage');
+    if (answered < total) { msg.textContent = 'Đã làm ' + answered + '/' + total + ' câu. Cố lên! 💪'; }
+    else if (correctAnswers === total) { msg.textContent = '🏆 Xuất sắc! Bạn đã nắm vững du lịch & đặt phòng! Chuyển sang Tuần 9!'; localStorage.setItem('topik2Week8Completed', 'true'); updateProgress(); }
+    else if (correctAnswers >= 4) { msg.textContent = '🌟 Rất tốt! Bạn gần hoàn hảo rồi!'; localStorage.setItem('topik2Week8Completed', 'true'); updateProgress(); }
+    else { msg.textContent = '📚 Cần ôn tập thêm. Hãy xem lại bài học!'; }
+}
+
+function updateProgress() {
+    let completed = 0;
+    for (let i = 1; i <= 12; i++) { if (localStorage.getItem('topik2Week' + i + 'Completed') === 'true') completed++; }
+    localStorage.setItem('topik2Completed', completed);
+}
+
+function saveNotes() {
+    const notes = document.getElementById('week8Notes').value;
+    localStorage.setItem('topik2Week8Notes', notes);
+    alert('💾 Ghi chú đã được lưu!');
+}
+
+window.onload = function() {
+    const notes = localStorage.getItem('topik2Week8Notes');
+    if (notes) document.getElementById('week8Notes').value = notes;
+};
+
+function toggleCheck(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('completed');
+}
+</script>
+</body>
+</html>
