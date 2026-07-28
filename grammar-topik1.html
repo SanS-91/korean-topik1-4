@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 Ôn tập Ngữ pháp TOPIK 1 - Hub Trung tâm</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand',sans-serif;background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 50%,#DDD6FE 100%);min-height:100vh;color:#4A5568;overflow-x:hidden}
+.cherry-blossom{position:fixed;top:-50px;font-size:20px;animation:fall linear infinite;pointer-events:none;z-index:1;opacity:.6}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}}
+.container{max-width:1400px;margin:0 auto;position:relative;z-index:2;padding:0 20px}
+.breadcrumb{padding:20px 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:600}
+.breadcrumb a{color:#7C3AED;text-decoration:none;transition:all .3s}
+.breadcrumb a:hover{color:#6D28D9}
+.breadcrumb-separator{color:#A78BFA}
+.breadcrumb-current{color:#4A5568;font-weight:700}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;color:#7C3AED;text-decoration:none;border-radius:25px;font-weight:700;box-shadow:0 4px 12px rgba(124,58,237,.12);transition:all .3s;margin-bottom:20px}
+.back-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(124,58,237,.2)}
+.hero{text-align:center;padding:60px 20px 70px;background:linear-gradient(135deg,rgba(124,58,237,.15) 0%,rgba(167,139,250,.1) 50%,rgba(221,214,254,.08) 100%);border-radius:30px;margin:20px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:'📚';position:absolute;top:30px;left:5%;font-size:3em;animation:float 4s ease-in-out infinite}
+.hero::after{content:'️';position:absolute;bottom:30px;right:5%;font-size:2.5em;animation:float 3.5s ease-in-out infinite}
+.badge{display:inline-block;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;padding:10px 30px;border-radius:50px;font-weight:700;margin-bottom:20px;font-size:1.05em;box-shadow:0 5px 15px rgba(124,58,237,.3)}
+.hero h1{font-family:'Baloo 2',cursive;font-size:3.2em;color:#6D28D9;margin-bottom:15px}
+.hero .subtitle{font-size:1.4em;color:#4A5568;font-weight:700;margin-bottom:15px}
+.hero .description{color:#718096;font-size:1.1em;max-width:800px;margin:0 auto;line-height:1.8}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin:-40px auto 40px;max-width:1000px;position:relative;z-index:3}
+.stat-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 8px 25px rgba(124,58,237,.12);transition:all .3s}
+.stat-card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(124,58,237,.2)}
+.stat-icon{font-size:2.2em;margin-bottom:8px}
+.stat-value{font-family:'Baloo 2',cursive;font-size:2em;color:#7C3AED;font-weight:800}
+.stat-label{color:#718096;margin-top:5px;font-weight:600;font-size:.9em}
+.groups-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px;margin:40px 0}
+.group-card{background:white;border-radius:25px;padding:35px;box-shadow:0 8px 25px rgba(124,58,237,.12);transition:all .3s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.group-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 15px 40px rgba(124,58,237,.25)}
+.group-card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#7C3AED,#8B5CF6,#A78BFA)}
+.group-icon{font-size:3.5em;margin-bottom:15px;display:block}
+.group-title{font-family:'Baloo 2',cursive;font-size:1.6em;color:#6D28D9;margin-bottom:10px}
+.group-desc{color:#718096;margin-bottom:20px;font-size:.95em;line-height:1.6}
+.group-stats{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}
+.group-stat{background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 100%);padding:8px 15px;border-radius:15px;font-size:.85em;font-weight:600;color:#7C3AED}
+.group-stat strong{display:block;font-size:1.3em;color:#6D28D9}
+.group-topics{margin:15px 0;padding:15px;background:#FAF5FF;border-radius:15px}
+.group-topics-title{font-weight:700;color:#6D28D9;margin-bottom:10px;font-size:.95em}
+.group-topic-list{list-style:none;font-size:.9em;color:#4A5568}
+.group-topic-list li{padding:5px 0;padding-left:20px;position:relative}
+.group-topic-list li::before{content:'•';color:#7C3AED;position:absolute;left:0;font-weight:bold}
+.group-btn{display:inline-block;margin-top:15px;padding:12px 30px;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;border-radius:20px;font-weight:700;transition:all .3s;text-align:center}
+.group-card:hover .group-btn{transform:scale(1.05);box-shadow:0 5px 15px rgba(124,58,237,.3)}
+.info-box{background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 100%);border-left:5px solid #7C3AED;padding:25px;border-radius:20px;margin:40px 0;box-shadow:0 5px 15px rgba(124,58,237,.1)}
+.info-box-title{font-family:'Baloo 2',cursive;color:#6D28D9;font-size:1.3em;margin-bottom:15px;display:flex;align-items:center;gap:10px}
+.info-box-content{color:#4A5568;line-height:1.8}
+footer{background:linear-gradient(135deg,#6C5B7B 0%,#C06C84 100%);color:white;text-align:center;padding:40px 20px;margin-top:60px;border-radius:30px 30px 0 0}
+.footer-text{font-size:1.2em;margin-bottom:10px}
+.footer-quote{font-style:italic;opacity:.9}
+@media(max-width:768px){
+.hero h1{font-size:2.2em}
+.groups-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topics.html"> Chủ đề ôn tập</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">📚 Ngữ pháp TOPIK 1</span>
+</nav>
+<a href="index.html" class="back-btn">← Về trang chủ</a>
+
+<div class="hero">
+<span class="badge">📚 TOPIK 1 - NGỮ PHÁP SƠ CẤP</span>
+<h1>Ôn tập Ngữ pháp</h1>
+<div class="subtitle">80+ mẫu ngữ pháp chia thành 8 nhóm</div>
+<p class="description">
+Mỗi nhóm ngữ pháp được thiết kế riêng với <strong>công thức</strong>, 
+<strong>cách dùng</strong>, <strong>ví dụ minh họa</strong> và 
+<strong>audio</strong> phát âm chuẩn! ✏️
+</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-icon"></div><div class="stat-value">80+</div><div class="stat-label">Mẫu ngữ pháp</div></div>
+<div class="stat-card"><div class="stat-icon">📦</div><div class="stat-value">8</div><div class="stat-label">Nhóm ngữ pháp</div></div>
+<div class="stat-card"><div class="stat-icon">💬</div><div class="stat-value">160+</div><div class="stat-label">Ví dụ</div></div>
+<div class="stat-card"><div class="stat-icon">🎧</div><div class="stat-value">320+</div><div class="stat-label">Audio</div></div>
+</div>
+
+<div class="groups-grid">
+
+<!-- Nhóm 1 -->
+<a href="grammar-topik1-group1.html" class="group-card">
+<span class="group-icon">📝</span>
+<h3 class="group-title">1. Thì & Thời gian</h3>
+<p class="group-desc">Các thì cơ bản: hiện tại, quá khứ, tương lai, tiếp diễn và trải nghiệm</p>
+<div class="group-stats">
+<div class="group-stat"><strong>15</strong>Mẫu</div>
+<div class="group-stat"><strong>30+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title"> Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Hiện tại: -습니다, -아/어요, -는다</li>
+<li>Quá khứ: -았습니다, -았/었어요</li>
+<li>Tương lai: -겠습니다, -을 거예요</li>
+<li>Tiếp diễn: -고 있다, -는 중이다</li>
+<li>Trải nghiệm: -아/어 보다, -는 적이 있다</li>
+</ul>
+</div>
+<span class="group-btn">Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 2 -->
+<a href="grammar-topik1-group2.html" class="group-card">
+<span class="group-icon">🔄</span>
+<h3 class="group-title">2. Động từ khuyết thiếu</h3>
+<p class="group-desc">Diễn đạt khả năng, sự cần thiết, mong muốn và dự định</p>
+<div class="group-stats">
+<div class="group-stat"><strong>12</strong>Mẫu</div>
+<div class="group-stat"><strong>24+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Khả năng: -을/ㄹ 수 있다/없다</li>
+<li>Bắt buộc: -아/어야 하다/되다</li>
+<li>Lời khuyên: -는 것이 좋다</li>
+<li>Mong muốn: -고 싶다, -았/었으면 좋겠다</li>
+<li>Dự định: -(으)려고 하다, -기로 하다</li>
+</ul>
+</div>
+<span class="group-btn">Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 3 -->
+<a href="grammar-topik1-group3.html" class="group-card">
+<span class="group-icon">🔗</span>
+<h3 class="group-title">3. Liên kết câu</h3>
+<p class="group-desc">Kết nối các mệnh đề: và, nhưng, vì, nếu, trong khi</p>
+<div class="group-stats">
+<div class="group-stat"><strong>20</strong>Mẫu</div>
+<div class="group-stat"><strong>40+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Và: -고, -며</li>
+<li>Nhưng: -지만, -(으)나, -는데</li>
+<li>Vì/Nên: -아/어서, -(으)니까</li>
+<li>Nếu: -(으)면, -다면</li>
+<li>Trong khi: -면서, -는 동안</li>
+</ul>
+</div>
+<span class="group-btn">Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 4 -->
+<a href="grammar-topik1-group4.html" class="group-card">
+<span class="group-icon"></span>
+<h3 class="group-title">4. Danh từ hóa & Tính từ hóa</h3>
+<p class="group-desc">Chuyển đổi động từ/tính từ thành danh từ và tính từ</p>
+<div class="group-stats">
+<div class="group-stat"><strong>10</strong>Mẫu</div>
+<div class="group-stat"><strong>20+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Danh từ hóa: -기, -음/ㅁ, -는 것</li>
+<li>Tính từ hóa: -은/ㄴ, -는, -을/ㄹ</li>
+<li>Trạng từ hóa: -이, -히, -리</li>
+<li>Cấu trúc với danh từ hóa</li>
+</ul>
+</div>
+<span class="group-btn">Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 5 -->
+<a href="grammar-topik1-group5.html" class="group-card">
+<span class="group-icon">⚖️</span>
+<h3 class="group-title">5. So sánh & Mức độ</h3>
+<p class="group-desc">So sánh hơn, nhất, giống nhau và khác nhau</p>
+<div class="group-stats">
+<div class="group-stat"><strong>8</strong>Mẫu</div>
+<div class="group-stat"><strong>16+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>So sánh hơn: -보다 더</li>
+<li>So sánh nhất: -이/가 가장</li>
+<li>Giống nhau: -처럼, -와/과 같다</li>
+<li>Khác nhau: -와/과 다르다</li>
+<li>Mức độ: 아주, 매우, 조금</li>
+</ul>
+</div>
+<span class="group-btn">Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 6 -->
+<a href="grammar-topik1-group6.html" class="group-card">
+<span class="group-icon">📍</span>
+<h3 class="group-title">6. Địa điểm & Phương hướng</h3>
+<p class="group-desc">Diễn đạt vị trí, nơi chốn và hướng di chuyển</p>
+<div class="group-stats">
+<div class="group-stat"><strong>8</strong>Mẫu</div>
+<div class="group-stat"><strong>16+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Ở, tại: -에서, -에</li>
+<li>Đến: -으로/로, -까지</li>
+<li>Từ: -부터, -에서부터</li>
+<li>Trong, ngoài: -안, -밖</li>
+<li>Trên, dưới: -위, -아래</li>
+</ul>
+</div>
+<span class="group-btn">Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 7 -->
+<a href="grammar-topik1-group7.html" class="group-card">
+<span class="group-icon">🔢</span>
+<h3 class="group-title">7. Sở hữu & Số lượng</h3>
+<p class="group-desc">Diễn đạt sở hữu, số đếm và số lượng</p>
+<div class="group-stats">
+<div class="group-stat"><strong>7</strong>Mẫu</div>
+<div class="group-stat"><strong>14+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title"> Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Của: -의, -것</li>
+<li>Số đếm thuần Hàn</li>
+<li>Số đếm Hán Hàn</li>
+<li>Đơn vị đếm: -명, -개, -권</li>
+<li>Khoảng: -쯤, -정도</li>
+</ul>
+</div>
+<span class="group-btn">Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 8 -->
+<a href="grammar-topik1-group8.html" class="group-card">
+<span class="group-icon">✨</span>
+<h3 class="group-title">8. Trợ từ & Thán từ</h3>
+<p class="group-desc">Các trợ từ chủ ngữ, tân ngữ và thán từ cơ bản</p>
+<div class="group-stats">
+<div class="group-stat"><strong>10</strong>Mẫu</div>
+<div class="group-stat"><strong>20+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title"> Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Chủ ngữ: -이/가, -은/는</li>
+<li>Tân ngữ: -을/를</li>
+<li>Thán từ: 네, 아니요, 안녕하세요</li>
+<li>Trợ từ chỉ đối tượng: -에게, -한테</li>
+<li>Trợ từ liên kết: -하고, -(이)랑</li>
+</ul>
+</div>
+<span class="group-btn">Học nhóm này →</span>
+</a>
+
+</div>
+
+<div class="info-box">
+<div class="info-box-title">💡 Cách học hiệu quả</div>
+<div class="info-box-content">
+<strong>Học theo thứ tự:</strong> Bắt đầu từ Nhóm 1 (Thì & Thời gian) vì đây là nền tảng quan trọng nhất. Sau đó lần lượt học các nhóm tiếp theo.<br><br>
+<strong>Mỗi nhóm mất 1-2 tuần:</strong> Dành thời gian ôn tập kỹ từng nhóm trước khi chuyển sang nhóm mới.<br><br>
+<strong>Luyện tập hàng ngày:</strong> Mỗi ngày học 2-3 mẫu ngữ pháp, đọc ví dụ và tự đặt câu.
+</div>
+</div>
+
+<div style="text-align:center;margin:40px 0">
+<a href="index.html" class="back-btn">← Về trang chủ</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học ngữ pháp TOPIK 1 hiệu quả!</div>
+<div class="footer-quote">"Mỗi ngữ pháp mới là một bước tiến trên con đường chinh phục tiếng Hàn"</div>
+</footer>
+
+<script>
+function createCherryBlossoms(){const c=document.getElementById('cherryContainer');const b=['🌸','','💮',''];setInterval(()=>{const b2=document.createElement('div');b2.className='cherry-blossom';b2.textContent=b[Math.floor(Math.random()*b.length)];b2.style.left=Math.random()*100+'vw';b2.style.animationDuration=(8+Math.random()*7)+'s';b2.style.fontSize=(15+Math.random()*15)+'px';c.appendChild(b2);setTimeout(()=>b2.remove(),15000)},2500)}
+createCherryBlossoms();
+</script>
+</body>
+</html>

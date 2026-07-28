@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚖️ Nhóm 5: So sánh & Mức độ - TOPIK 1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand',sans-serif;background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 50%,#DDD6FE 100%);min-height:100vh;color:#4A5568;overflow-x:hidden}
+.cherry-blossom{position:fixed;top:-50px;font-size:20px;animation:fall linear infinite;pointer-events:none;z-index:1;opacity:.6}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}}
+.container{max-width:1400px;margin:0 auto;position:relative;z-index:2;padding:0 20px}
+.breadcrumb{padding:20px 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:600}
+.breadcrumb a{color:#7C3AED;text-decoration:none;transition:all .3s}
+.breadcrumb a:hover{color:#6D28D9}
+.breadcrumb-separator{color:#A78BFA}
+.breadcrumb-current{color:#4A5568;font-weight:700}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;color:#7C3AED;text-decoration:none;border-radius:25px;font-weight:700;box-shadow:0 4px 12px rgba(124,58,237,.12);transition:all .3s;margin-bottom:20px}
+.back-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(124,58,237,.2)}
+.hero{text-align:center;padding:60px 20px 70px;background:linear-gradient(135deg,rgba(124,58,237,.15) 0%,rgba(167,139,250,.1) 50%,rgba(221,214,254,.08) 100%);border-radius:30px;margin:20px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:'️';position:absolute;top:30px;left:5%;font-size:3em;animation:float 4s ease-in-out infinite}
+.hero::after{content:'📏';position:absolute;bottom:30px;right:5%;font-size:2.5em;animation:float 3.5s ease-in-out infinite}
+.badge{display:inline-block;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;padding:10px 30px;border-radius:50px;font-weight:700;margin-bottom:20px;font-size:1.05em;box-shadow:0 5px 15px rgba(124,58,237,.3)}
+.hero h1{font-family:'Baloo 2',cursive;font-size:3.2em;color:#6D28D9;margin-bottom:15px}
+.hero .subtitle{font-size:1.4em;color:#4A5568;font-weight:700;margin-bottom:15px}
+.hero .description{color:#718096;font-size:1.1em;max-width:800px;margin:0 auto;line-height:1.8}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin:-40px auto 40px;max-width:1000px;position:relative;z-index:3}
+.stat-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 8px 25px rgba(124,58,237,.12);transition:all .3s}
+.stat-card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(124,58,237,.2)}
+.stat-icon{font-size:2.2em;margin-bottom:8px}
+.stat-value{font-family:'Baloo 2',cursive;font-size:2em;color:#7C3AED;font-weight:800}
+.stat-label{color:#718096;margin-top:5px;font-weight:600;font-size:.9em}
+.group-section{margin:60px 0}
+.group-header{padding:25px 30px;border-radius:20px;margin-bottom:30px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,.08);position:relative;background:linear-gradient(135deg,#E9D5FF 0%,#DDD6FE 100%);color:#5B21B6}
+.group-header h2{font-family:'Baloo 2',cursive;font-size:2em;margin-bottom:8px}
+.group-header p{font-size:1.05em;opacity:.9}
+.group-count{position:absolute;top:15px;right:20px;background:rgba(255,255,255,.5);padding:6px 16px;border-radius:20px;font-size:.9em;font-weight:700}
+.subgroup{margin:40px 0}
+.subgroup-title{font-family:'Baloo 2',cursive;font-size:1.5em;color:#6D28D9;margin-bottom:20px;padding:12px 20px;background:linear-gradient(90deg,#F3E8FF 0%,transparent 100%);border-left:5px solid #7C3AED;border-radius:10px}
+.grammar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:20px;margin:25px 0}
+.grammar-card{background:white;border-radius:20px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,.06);transition:all .3s;border:2px solid transparent;position:relative}
+.grammar-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(0,0,0,.1);border-color:#A78BFA}
+.grammar-number{position:absolute;top:12px;right:15px;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85em;box-shadow:0 2px 8px rgba(124,58,237,.3)}
+.grammar-main{display:flex;align-items:center;gap:12px;margin-bottom:15px;padding-right:45px}
+.grammar-name{font-family:'Baloo 2',cursive;font-size:1.6em;color:#6D28D9;font-weight:800}
+.grammar-level{color:#7C3AED;font-size:.85em;font-style:italic;background:#F3E8FF;padding:4px 12px;border-radius:8px;font-weight:600}
+.grammar-meaning{color:#4A5568;font-size:1.05em;font-weight:600;margin-bottom:15px;padding-bottom:12px;border-bottom:1px dashed #DDD6FE}
+.formula-box{background:linear-gradient(135deg,#F0F9FF 0%,#E0F2FE 100%);border-radius:12px;padding:15px;margin-bottom:15px;border:2px solid #7DD3FC}
+.formula-title{font-size:.85em;color:#0369A1;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.formula-content{background:white;padding:12px;border-radius:8px;font-family:'Courier New',monospace;font-size:1.05em;color:#0369A1;font-weight:700;text-align:center;line-height:1.6}
+.usage-box{background:linear-gradient(135deg,#FEF3C7 0%,#FDE68A 100%);border-radius:12px;padding:15px;margin-bottom:15px;border:2px solid #F59E0B}
+.usage-title{font-size:.85em;color:#92400E;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.usage-content{color:#78350F;line-height:1.6}
+.examples-box{margin-top:15px}
+.examples-title{font-size:.85em;color:#6D28D9;font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.example-item{background:linear-gradient(135deg,#ECFDF5 0%,#D1FAE5 100%);border-left:4px solid #10B981;padding:12px 15px;border-radius:10px;margin-bottom:10px}
+.example-korean{color:#065F46;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.example-meaning{color:#047857;font-style:italic;font-size:.95em}
+.example-audio{background:none;border:none;color:#10B981;cursor:pointer;font-size:1em;padding:2px;transition:all .2s}
+.example-audio:hover{color:#059669;transform:scale(1.2)}
+.info-box{background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 100%);border-left:5px solid #7C3AED;padding:25px;border-radius:20px;margin:40px 0;box-shadow:0 5px 15px rgba(124,58,237,.1)}
+.info-box-title{font-family:'Baloo 2',cursive;color:#6D28D9;font-size:1.3em;margin-bottom:15px;display:flex;align-items:center;gap:10px}
+.info-box-content{color:#4A5568;line-height:1.8}
+footer{background:linear-gradient(135deg,#6C5B7B 0%,#C06C84 100%);color:white;text-align:center;padding:40px 20px;margin-top:60px;border-radius:30px 30px 0 0}
+.footer-text{font-size:1.2em;margin-bottom:10px}
+.footer-quote{font-style:italic;opacity:.9}
+@media(max-width:768px){
+.hero h1{font-size:2.2em}
+.grammar-grid{grid-template-columns:1fr}
+.group-header h2{font-size:1.5em}
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topics-grammar.html">📚 Ôn tập Ngữ pháp</a>
+<span class="breadcrumb-separator">›</span>
+<a href="grammar-topik1.html">🌱 TOPIK 1</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">⚖️ Nhóm 5: So sánh & Mức độ</span>
+</nav>
+<a href="grammar-topik1.html" class="back-btn">← Về TOPIK 1</a>
+
+<div class="hero">
+<span class="badge">⚖️ NHÓM 5: SO SÁNH & MỨC ĐỘ</span>
+<h1>8 Mẫu Ngữ Pháp So Sánh</h1>
+<div class="subtitle">Hơn, Nhất, Giống nhau, Khác nhau & Mức độ</div>
+<p class="description">
+Nắm vững các cấu trúc so sánh và diễn tả mức độ với <strong>8 mẫu ngữ pháp</strong> chi tiết.
+Mỗi mẫu có <strong>công thức</strong>, <strong>cách dùng</strong>, <strong>ví dụ minh họa</strong> và
+<strong>audio</strong> phát âm chuẩn! ️
+</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-icon">📖</div><div class="stat-value">8</div><div class="stat-label">Mẫu ngữ pháp</div></div>
+<div class="stat-card"><div class="stat-icon">💬</div><div class="stat-value">16+</div><div class="stat-label">Ví dụ</div></div>
+<div class="stat-card"><div class="stat-icon">🎧</div><div class="stat-value">32+</div><div class="stat-label">Audio</div></div>
+<div class="stat-card"><div class="stat-icon">📦</div><div class="stat-value">3</div><div class="stat-label">Nhóm chức năng</div></div>
+</div>
+
+<!-- ============================================ -->
+<!-- SO SÁNH HƠN -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header">
+<h2> So sánh hơn</h2>
+<p>2 mẫu ngữ pháp diễn tả so sánh hơn kém</p>
+<span class="group-count">2 mẫu</span>
+</div>
+
+<div class="grammar-grid">
+
+<div class="grammar-card">
+<span class="grammar-number">1</span>
+<div class="grammar-main">
+<span class="grammar-name">-보다 더</span>
+<span class="grammar-level">Hơn, hơn nữa</span>
+</div>
+<div class="grammar-meaning">So sánh hơn, hơn nữa</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 보다 더 + Tính từ<br>
+<br>
+• 보다 = so với<br>
+• 더 = hơn, hơn nữa
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Diễn tả sự so sánh hơn kém giữa hai đối tượng. Tương đương "hơn" trong tiếng Việt.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국어가 영어보다 더 어려워요. <button class="example-audio" onclick="speakKorean('한국어가 영어보다 더 어려워요')"></button></div>
+<div class="example-meaning">Tiếng Hàn khó hơn tiếng Anh.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">오늘이 어제보다 더 추워요. <button class="example-audio" onclick="speakKorean('오늘이 어제보다 더 추워요')"></button></div>
+<div class="example-meaning">Hôm nay lạnh hơn hôm qua.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">2</span>
+<div class="grammar-main">
+<span class="grammar-name">-이/가 더</span>
+<span class="grammar-level">Hơn (chủ ngữ)</span>
+</div>
+<div class="grammar-meaning">Chủ ngữ so sánh hơn</div>
+<div class="formula-box">
+<div class="formula-title"> Công thức</div>
+<div class="formula-content">
+Danh từ + 이/가 더 + Tính từ<br>
+<br>
+• Danh từ có patchim: + 이 더<br>
+• Danh từ không patchim: + 가 더
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Diễn tả chủ ngữ có tính chất nào đó hơn. Thường dùng khi so sánh hai đối tượng đã được nhắc đến.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">이 책이 더 재미있어요. <button class="example-audio" onclick="speakKorean('이 책이 더 재미있어요')">🔊</button></div>
+<div class="example-meaning">Cuốn sách này thú vị hơn.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">한국어가 더 어려워요. <button class="example-audio" onclick="speakKorean('한국어가 더 어려워요')">🔊</button></div>
+<div class="example-meaning">Tiếng Hàn khó hơn.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- SO SÁNH NHẤT -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header">
+<h2>🏆 So sánh nhất</h2>
+<p>1 mẫu ngữ pháp diễn tả so sánh nhất</p>
+<span class="group-count">1 mẫu</span>
+</div>
+
+<div class="grammar-grid">
+
+<div class="grammar-card">
+<span class="grammar-number">3</span>
+<div class="grammar-main">
+<span class="grammar-name">-이/가 가장</span>
+<span class="grammar-level">Nhất, nhất là</span>
+</div>
+<div class="grammar-meaning">So sánh nhất, nhất là</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 이/가 가장 + Tính từ<br>
+<br>
+• Danh từ có patchim: + 이 가장<br>
+• Danh từ không patchim: + 가 가장<br>
+<br>
+• 가장 = nhất, nhất là
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Diễn tả đối tượng có tính chất nào đó nhất trong một nhóm. Tương đương "nhất" trong tiếng Việt.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title"> Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국어가 가장 어려워요. <button class="example-audio" onclick="speakKorean('한국어가 가장 어려워요')">🔊</button></div>
+<div class="example-meaning">Tiếng Hàn là khó nhất.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">사과가 가장 맛있어요. <button class="example-audio" onclick="speakKorean('사과가 가장 맛있어요')">🔊</button></div>
+<div class="example-meaning">Táo là ngon nhất.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- GIỐNG NHAU & KHÁC NHAU -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header">
+<h2>🔄 Giống nhau & Khác nhau</h2>
+<p>3 mẫu ngữ pháp diễn tả sự giống và khác biệt</p>
+<span class="group-count">3 mẫu</span>
+</div>
+
+<div class="grammar-grid">
+
+<div class="grammar-card">
+<span class="grammar-number">4</span>
+<div class="grammar-main">
+<span class="grammar-name">-처럼</span>
+<span class="grammar-level">Giống như</span>
+</div>
+<div class="grammar-meaning">Giống như, như là</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 처럼
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Diễn tả sự giống nhau, tương tự. Tương đương "giống như", "như là" trong tiếng Việt.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title"> Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">눈처럼 하얘요. <button class="example-audio" onclick="speakKorean('눈처럼 하얘요')">🔊</button></div>
+<div class="example-meaning">Trắng như tuyết.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">아이처럼 웃어요. <button class="example-audio" onclick="speakKorean('아이처럼 웃어요')">🔊</button></div>
+<div class="example-meaning">Cười như trẻ con.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">5</span>
+<div class="grammar-main">
+<span class="grammar-name">-와/과 같다</span>
+<span class="grammar-level">Giống nhau</span>
+</div>
+<div class="grammar-meaning">Giống nhau, giống với</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 와/과 + 같다<br>
+<br>
+• Danh từ có patchim: + 과 같다<br>
+• Danh từ không patchim: + 와 같다
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Diễn tả hai đối tượng giống nhau. Tương đương "giống nhau", "giống với" trong tiếng Việt.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">이 책이 저 책과 같아요. <button class="example-audio" onclick="speakKorean('이 책이 저 책과 같아요')">🔊</button></div>
+<div class="example-meaning">Cuốn sách này giống cuốn sách kia.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">한국어가 중국어와 같아요. <button class="example-audio" onclick="speakKorean('한국어가 중국어와 같아요')">🔊</button></div>
+<div class="example-meaning">Tiếng Hàn giống tiếng Trung.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">6</span>
+<div class="grammar-main">
+<span class="grammar-name">-와/과 다르다</span>
+<span class="grammar-level">Khác nhau</span>
+</div>
+<div class="grammar-meaning">Khác nhau, khác với</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 와/과 + 다르다<br>
+<br>
+• Danh từ có patchim: + 과 다르다<br>
+• Danh từ không patchim: + 와 다르다
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title"> Cách dùng</div>
+<div class="usage-content">
+Diễn tả hai đối tượng khác nhau. Tương đương "khác nhau", "khác với" trong tiếng Việt.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국어가 영어와 달라요. <button class="example-audio" onclick="speakKorean('한국어가 영어와 달라요')"></button></div>
+<div class="example-meaning">Tiếng Hàn khác tiếng Anh.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">한국 음식이 중국 음식과 달라요. <button class="example-audio" onclick="speakKorean('한국 음식이 중국 음식과 달라요')"></button></div>
+<div class="example-meaning">Đồ ăn Hàn khác đồ ăn Trung.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- MỨC ĐỘ -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header">
+<h2>📊 Mức độ</h2>
+<p>2 mẫu ngữ pháp diễn tả mức độ</p>
+<span class="group-count">2 mẫu</span>
+</div>
+
+<div class="grammar-grid">
+
+<div class="grammar-card">
+<span class="grammar-number">7</span>
+<div class="grammar-main">
+<span class="grammar-name">아주/매우</span>
+<span class="grammar-level">Rất, rất là</span>
+</div>
+<div class="grammar-meaning">Rất, rất là (mức độ cao)</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+아주/매우 + Tính từ<br>
+<br>
+• 아주 = rất (thông dụng)<br>
+• 매우 = rất (trang trọng hơn)
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Diễn tả mức độ cao của tính từ. Tương đương "rất", "rất là" trong tiếng Việt.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">아주 좋아요. <button class="example-audio" onclick="speakKorean('아주 좋아요')">🔊</button></div>
+<div class="example-meaning">Rất tốt.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">매우 어려워요. <button class="example-audio" onclick="speakKorean('매우 어려워요')"></button></div>
+<div class="example-meaning">Rất khó.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">8</span>
+<div class="grammar-main">
+<span class="grammar-name">조금/좀</span>
+<span class="grammar-level">Một chút, hơi</span>
+</div>
+<div class="grammar-meaning">Một chút, hơi (mức độ thấp)</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+조금/좀 + Tính từ<br>
+<br>
+• 조금 = một chút (trang trọng)<br>
+• 좀 = hơi (thân mật, rút gọn của 조금)
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Diễn tả mức độ thấp của tính từ. Tương đương "một chút", "hơi" trong tiếng Việt.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">조금 어려워요. <button class="example-audio" onclick="speakKorean('조금 어려워요')">🔊</button></div>
+<div class="example-meaning">Hơi khó.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">좀 비싸요. <button class="example-audio" onclick="speakKorean('좀 비싸요')">🔊</button></div>
+<div class="example-meaning">Hơi đắt.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="info-box">
+<div class="info-box-title">💡 Tóm tắt So sánh & Mức độ</div>
+<div class="info-box-content">
+<strong>So sánh hơn:</strong><br>
+• -보다 더: So sánh hơn (한국어가 영어보다 더 어려워요 - Tiếng Hàn khó hơn tiếng Anh)<br>
+• -이/가 더: Chủ ngữ so sánh hơn (이 책이 더 재미있어요 - Cuốn sách này thú vị hơn)<br><br>
+<strong>So sánh nhất:</strong><br>
+• -이/가 가장: So sánh nhất (한국어가 가장 어려워요 - Tiếng Hàn là khó nhất)<br><br>
+<strong>Giống nhau & Khác nhau:</strong><br>
+• -처럼: Giống như (눈처럼 하얘요 - Trắng như tuyết)<br>
+• -와/과 같다: Giống nhau (이 책이 저 책과 같아요 - Cuốn sách này giống cuốn sách kia)<br>
+• -와/과 다르다: Khác nhau (한국어가 영어와 달라요 - Tiếng Hàn khác tiếng Anh)<br><br>
+<strong>Mức độ:</strong><br>
+• 아주/매우: Rất, rất là (아주 좋아요 - Rất tốt)<br>
+• 조금/좀: Một chút, hơi (조금 어려워요 - Hơi khó)
+</div>
+</div>
+
+<div style="text-align:center;margin:40px 0">
+<a href="grammar-topik1.html" class="back-btn">← Về TOPIK 1</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học ngữ pháp TOPIK 1 hiệu quả!</div>
+<div class="footer-quote">"Mỗi ngữ pháp mới là một bước tiến trên con đường chinh phục tiếng Hàn"</div>
+</footer>
+
+<script>
+function createCherryBlossoms(){const c=document.getElementById('cherryContainer');const b=['🌸','','💮','🌼'];setInterval(()=>{const b2=document.createElement('div');b2.className='cherry-blossom';b2.textContent=b[Math.floor(Math.random()*b.length)];b2.style.left=Math.random()*100+'vw';b2.style.animationDuration=(8+Math.random()*7)+'s';b2.style.fontSize=(15+Math.random()*15)+'px';c.appendChild(b2);setTimeout(()=>b2.remove(),15000)},2500)}
+createCherryBlossoms();
+function speakKorean(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ko-KR';u.rate=0.8;speechSynthesis.speak(u)}
+</script>
+</body>
+</html>
