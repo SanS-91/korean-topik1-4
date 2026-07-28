@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 Ôn tập Ngữ pháp TOPIK 2 - Hub Trung tâm</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand',sans-serif;background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 50%,#DDD6FE 100%);min-height:100vh;color:#4A5568;overflow-x:hidden}
+.cherry-blossom{position:fixed;top:-50px;font-size:20px;animation:fall linear infinite;pointer-events:none;z-index:1;opacity:.6}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}}
+.container{max-width:1400px;margin:0 auto;position:relative;z-index:2;padding:0 20px}
+.breadcrumb{padding:20px 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:600}
+.breadcrumb a{color:#7C3AED;text-decoration:none;transition:all .3s}
+.breadcrumb a:hover{color:#6D28D9}
+.breadcrumb-separator{color:#A78BFA}
+.breadcrumb-current{color:#4A5568;font-weight:700}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;color:#7C3AED;text-decoration:none;border-radius:25px;font-weight:700;box-shadow:0 4px 12px rgba(124,58,237,.12);transition:all .3s;margin-bottom:20px}
+.back-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(124,58,237,.2)}
+.hero{text-align:center;padding:60px 20px 70px;background:linear-gradient(135deg,rgba(124,58,237,.15) 0%,rgba(167,139,250,.1) 50%,rgba(221,214,254,.08) 100%);border-radius:30px;margin:20px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:'🌿';position:absolute;top:30px;left:5%;font-size:3em;animation:float 4s ease-in-out infinite}
+.hero::after{content:'📝';position:absolute;bottom:30px;right:5%;font-size:2.5em;animation:float 3.5s ease-in-out infinite}
+.badge{display:inline-block;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;padding:10px 30px;border-radius:50px;font-weight:700;margin-bottom:20px;font-size:1.05em;box-shadow:0 5px 15px rgba(124,58,237,.3)}
+.hero h1{font-family:'Baloo 2',cursive;font-size:3.2em;color:#6D28D9;margin-bottom:15px}
+.hero .subtitle{font-size:1.4em;color:#4A5568;font-weight:700;margin-bottom:15px}
+.hero .description{color:#718096;font-size:1.1em;max-width:800px;margin:0 auto;line-height:1.8}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin:-40px auto 40px;max-width:1000px;position:relative;z-index:3}
+.stat-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 8px 25px rgba(124,58,237,.12);transition:all .3s}
+.stat-card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(124,58,237,.2)}
+.stat-icon{font-size:2.2em;margin-bottom:8px}
+.stat-value{font-family:'Baloo 2',cursive;font-size:2em;color:#7C3AED;font-weight:800}
+.stat-label{color:#718096;margin-top:5px;font-weight:600;font-size:.9em}
+.groups-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px;margin:40px 0}
+.group-card{background:white;border-radius:25px;padding:35px;box-shadow:0 8px 25px rgba(124,58,237,.12);transition:all .3s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.group-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 15px 40px rgba(124,58,237,.25)}
+.group-card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#7C3AED,#8B5CF6,#A78BFA)}
+.group-icon{font-size:3.5em;margin-bottom:15px;display:block}
+.group-title{font-family:'Baloo 2',cursive;font-size:1.6em;color:#6D28D9;margin-bottom:10px}
+.group-desc{color:#718096;margin-bottom:20px;font-size:.95em;line-height:1.6}
+.group-stats{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap}
+.group-stat{background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 100%);padding:8px 15px;border-radius:15px;font-size:.85em;font-weight:600;color:#7C3AED}
+.group-stat strong{display:block;font-size:1.3em;color:#6D28D9}
+.group-topics{margin:15px 0;padding:15px;background:#FAF5FF;border-radius:15px}
+.group-topics-title{font-weight:700;color:#6D28D9;margin-bottom:10px;font-size:.95em}
+.group-topic-list{list-style:none;font-size:.9em;color:#4A5568}
+.group-topic-list li{padding:5px 0;padding-left:20px;position:relative}
+.group-topic-list li::before{content:'•';color:#7C3AED;position:absolute;left:0;font-weight:bold}
+.group-btn{display:inline-block;margin-top:15px;padding:12px 30px;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;border-radius:20px;font-weight:700;transition:all .3s;text-align:center}
+.group-card:hover .group-btn{transform:scale(1.05);box-shadow:0 5px 15px rgba(124,58,237,.3)}
+.info-box{background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 100%);border-left:5px solid #7C3AED;padding:25px;border-radius:20px;margin:40px 0;box-shadow:0 5px 15px rgba(124,58,237,.1)}
+.info-box-title{font-family:'Baloo 2',cursive;color:#6D28D9;font-size:1.3em;margin-bottom:15px;display:flex;align-items:center;gap:10px}
+.info-box-content{color:#4A5568;line-height:1.8}
+.progress-box{background:linear-gradient(135deg,#FEF3C7 0%,#FDE68A 100%);border-left:5px solid #F59E0B;padding:25px;border-radius:20px;margin:40px 0;box-shadow:0 5px 15px rgba(245,158,11,.1)}
+.progress-box-title{font-family:'Baloo 2',cursive;color:#92400E;font-size:1.3em;margin-bottom:15px;display:flex;align-items:center;gap:10px}
+.progress-box-content{color:#78350F;line-height:1.8}
+footer{background:linear-gradient(135deg,#6C5B7B 0%,#C06C84 100%);color:white;text-align:center;padding:40px 20px;margin-top:60px;border-radius:30px 30px 0 0}
+.footer-text{font-size:1.2em;margin-bottom:10px}
+.footer-quote{font-style:italic;opacity:.9}
+@media(max-width:768px){
+.hero h1{font-size:2.2em}
+.groups-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topics.html">📚 Chủ đề ôn tập</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current"> Ngữ pháp TOPIK 2</span>
+</nav>
+<a href="index.html" class="back-btn">← Về trang chủ</a>
+
+<div class="hero">
+<span class="badge">🌿 TOPIK 2 - NGỮ PHÁP SƠ TRUNG CẤP</span>
+<h1>Ôn tập Ngữ pháp TOPIK 2</h1>
+<div class="subtitle">120+ mẫu ngữ pháp chia thành 7 nhóm</div>
+<p class="description">
+Nâng cao kỹ năng ngữ pháp với <strong>120+ mẫu</strong> được chia thành <strong>7 nhóm</strong> chức năng.
+Mỗi nhóm có <strong>công thức</strong>, <strong>cách dùng</strong>, <strong>ví dụ minh họa</strong> và 
+<strong>audio</strong> phát âm chuẩn! 
+</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-icon">📖</div><div class="stat-value">120+</div><div class="stat-label">Mẫu ngữ pháp</div></div>
+<div class="stat-card"><div class="stat-icon">📦</div><div class="stat-value">7</div><div class="stat-label">Nhóm ngữ pháp</div></div>
+<div class="stat-card"><div class="stat-icon">💬</div><div class="stat-value">240+</div><div class="stat-label">Ví dụ</div></div>
+<div class="stat-card"><div class="stat-icon"></div><div class="stat-value">480+</div><div class="stat-label">Audio</div></div>
+</div>
+
+<div class="groups-grid">
+
+<!-- Nhóm 1 -->
+<a href="grammar-topik2-group1.html" class="group-card">
+<span class="group-icon"></span>
+<h3 class="group-title">1. Ngữ pháp nâng cao</h3>
+<p class="group-desc">Bị động, chủ động, nhân quả phức tạp và giả định</p>
+<div class="group-stats">
+<div class="group-stat"><strong>25</strong>Mẫu</div>
+<div class="group-stat"><strong>50+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Bị động: -이/히/리/기, -아/어지다</li>
+<li>Chủ động: -게 하다, -도록 하다</li>
+<li>Nhân quả: -느라고, -는 바람에</li>
+<li>Giả định: -다면, -았/었더라면</li>
+</ul>
+</div>
+<span class="group-btn">📖 Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 2 -->
+<a href="grammar-topik2-group2.html" class="group-card">
+<span class="group-icon"></span>
+<h3 class="group-title">2. Diễn đạt ý kiến</h3>
+<p class="group-desc">Suy nghĩ, chắc chắn, nghi ngờ và nhấn mạnh</p>
+<div class="group-stats">
+<div class="group-stat"><strong>20</strong>Mẫu</div>
+<div class="group-stat"><strong>40+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Suy nghĩ: -는 것 같다, -나 보다</li>
+<li>Chắc chắn: -겠-, -을 것이다</li>
+<li>Nghi ngờ: -나, -ㄴ/(으)ㄴ가</li>
+<li>Nhấn mạnh: 정말, 꼭, 반드시</li>
+</ul>
+</div>
+<span class="group-btn">📖 Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 3 -->
+<a href="grammar-topik2-group3.html" class="group-card">
+<span class="group-icon">⏰</span>
+<h3 class="group-title">3. Thời gian & Tần suất</h3>
+<p class="group-desc">Mỗi khi, trước khi, sau khi, ngay khi và định kỳ</p>
+<div class="group-stats">
+<div class="group-stat"><strong>15</strong>Mẫu</div>
+<div class="group-stat"><strong>30+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Mỗi khi: -을 때마다</li>
+<li>Trước khi: -기 전에</li>
+<li>Sau khi: -고 나서, -은/ㄴ 후에</li>
+<li>Ngay khi: -자마자, -는 순간</li>
+</ul>
+</div>
+<span class="group-btn">📖 Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 4 -->
+<a href="grammar-topik2-group4.html" class="group-card">
+<span class="group-icon">🎯</span>
+<h3 class="group-title">4. Mục đích & Kết quả</h3>
+<p class="group-desc">Diễn đạt mục đích, kết quả và sự thử nghiệm</p>
+<div class="group-stats">
+<div class="group-stat"><strong>15</strong>Mẫu</div>
+<div class="group-stat"><strong>30+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Để: -기 위해, -려고</li>
+<li>Kết quả: -게 되다, -아/어 버리다</li>
+<li>Thử: -아/어 보다</li>
+<li>Để sẵn: -아/어 두다</li>
+</ul>
+</div>
+<span class="group-btn">📖 Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 5 -->
+<a href="grammar-topik2-group5.html" class="group-card">
+<span class="group-icon">🔄</span>
+<h3 class="group-title">5. Trạng thái & Thay đổi</h3>
+<p class="group-desc">Trở nên, vẫn còn, hoàn thành và duy trì trạng thái</p>
+<div class="group-stats">
+<div class="group-stat"><strong>15</strong>Mẫu</div>
+<div class="group-stat"><strong>30+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Trở nên: -아/어지다, -게 되다</li>
+<li>Vẫn còn: -아/어 있다</li>
+<li>Hoàn thành: -아/어 놓다</li>
+<li>Duy trì: -고 있다</li>
+</ul>
+</div>
+<span class="group-btn">📖 Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 6 -->
+<a href="grammar-topik2-group6.html" class="group-card">
+<span class="group-icon">🗣️</span>
+<h3 class="group-title">6. Truyền đạt & Tường thuật</h3>
+<p class="group-desc">Nghe nói, hỏi, ra lệnh, đề nghị và tường thuật</p>
+<div class="group-stats">
+<div class="group-stat"><strong>15</strong>Mẫu</div>
+<div class="group-stat"><strong>30+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Nghe nói: -다고 하다</li>
+<li>Hỏi: -느냐고 하다, -냐고 하다</li>
+<li>Ra lệnh: -라고 하다</li>
+<li>Đề nghị: -자고 하다</li>
+</ul>
+</div>
+<span class="group-btn">📖 Học nhóm này →</span>
+</a>
+
+<!-- Nhóm 7 -->
+<a href="grammar-topik2-group7.html" class="group-card">
+<span class="group-icon">🔀</span>
+<h3 class="group-title">7. Điều kiện & Giả thiết</h3>
+<p class="group-desc">Nếu, cho dù, chỉ cần và các điều kiện phức tạp</p>
+<div class="group-stats">
+<div class="group-stat"><strong>15</strong>Mẫu</div>
+<div class="group-stat"><strong>30+</strong>Ví dụ</div>
+</div>
+<div class="group-topics">
+<div class="group-topics-title">📋 Nội dung chính:</div>
+<ul class="group-topic-list">
+<li>Nếu: -(으)면, -다면</li>
+<li>Cho dù: -아/어도, -더라도</li>
+<li>Chỉ cần: -기만 하면</li>
+<li>Dù...cũng: -/는지라도</li>
+</ul>
+</div>
+<span class="group-btn">📖 Học nhóm này →</span>
+</a>
+
+</div>
+
+<div class="progress-box">
+<div class="progress-box-title">📊 Lộ trình học TOPIK 2</div>
+<div class="progress-box-content">
+<strong>Thời gian học:</strong> 6-8 tuần (120+ mẫu ngữ pháp)<br><br>
+<strong>Tuần 1-2:</strong> Nhóm 1 (Ngữ pháp nâng cao) + Nhóm 2 (Diễn đạt ý kiến)<br>
+<strong>Tuần 3-4:</strong> Nhóm 3 (Thời gian & Tần suất) + Nhóm 4 (Mục đích & Kết quả)<br>
+<strong>Tuần 5-6:</strong> Nhóm 5 (Trạng thái & Thay đổi) + Nhóm 6 (Truyền đạt & Tường thuật)<br>
+<strong>Tuần 7-8:</strong> Nhóm 7 (Điều kiện & Giả thiết) + Ôn tập tổng hợp<br><br>
+<strong>Lời khuyên:</strong> Mỗi ngày học 2-3 mẫu ngữ pháp, đọc to ví dụ và tự đặt câu tương tự. Ôn tập lại sau 1 ngày, 3 ngày, 1 tuần để ghi nhớ lâu dài.
+</div>
+</div>
+
+<div class="info-box">
+<div class="info-box-title">💡 Cách học ngữ pháp TOPIK 2 hiệu quả</div>
+<div class="info-box-content">
+<strong>So sánh với TOPIK 1:</strong> TOPIK 2 xây dựng trên nền tảng TOPIK 1, tập trung vào các cấu trúc phức tạp hơn và cách diễn đạt tinh tế hơn.<br><br>
+<strong>Học theo nhóm chức năng:</strong> Mỗi nhóm ngữ pháp phục vụ một mục đích giao tiếp cụ thể. Hãy học cách sử dụng chúng trong ngữ cảnh thực tế.<br><br>
+<strong>Luyện viết câu:</strong> Với mỗi mẫu ngữ pháp, hãy tự đặt ít nhất 3 câu khác nhau về các chủ đề quen thuộc.<br><br>
+<strong>Nghe và đọc:</strong> Tìm các bài đọc, bài nghe ở trình độ TOPIK 2 để thấy ngữ pháp được sử dụng trong thực tế.<br><br>
+<strong>Làm bài tập:</strong> Thực hành với các bài tập chia động từ, điền vào chỗ trống và nối câu.
+</div>
+</div>
+
+<div style="text-align:center;margin:40px 0;display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+<a href="grammar-topik1.html" class="back-btn">← TOPIK 1</a>
+<a href="topics-grammar.html" class="back-btn">🏠 Hub Ngữ pháp</a>
+<a href="grammar-topik3.html" class="back-btn">TOPIK 3 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học ngữ pháp TOPIK 2 hiệu quả!</div>
+<div class="footer-quote">"Mỗi ngữ pháp mới là một bước tiến trên con đường chinh phục tiếng Hàn"</div>
+</footer>
+
+<script>
+function createCherryBlossoms(){const c=document.getElementById('cherryContainer');const b=['🌸','','💮','🌼'];setInterval(()=>{const b2=document.createElement('div');b2.className='cherry-blossom';b2.textContent=b[Math.floor(Math.random()*b.length)];b2.style.left=Math.random()*100+'vw';b2.style.animationDuration=(8+Math.random()*7)+'s';b2.style.fontSize=(15+Math.random()*15)+'px';c.appendChild(b2);setTimeout(()=>b2.remove(),15000)},2500)}
+createCherryBlossoms();
+</script>
+</body>
+</html>
