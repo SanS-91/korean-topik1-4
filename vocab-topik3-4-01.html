@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌏 Xã hội & Văn hóa - 80 từ vựng TOPIK 3-4</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand',sans-serif;background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 50%,#DDD6FE 100%);min-height:100vh;color:#4A5568;overflow-x:hidden}
+.cherry-blossom{position:fixed;top:-50px;font-size:20px;animation:fall linear infinite;pointer-events:none;z-index:1;opacity:.6}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}}
+.container{max-width:1400px;margin:0 auto;position:relative;z-index:2;padding:0 20px}
+.breadcrumb{padding:20px 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:600}
+.breadcrumb a{color:#7C3AED;text-decoration:none;transition:all .3s}
+.breadcrumb a:hover{color:#6D28D9}
+.breadcrumb-separator{color:#A78BFA}
+.breadcrumb-current{color:#4A5568;font-weight:700}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;color:#7C3AED;text-decoration:none;border-radius:25px;font-weight:700;box-shadow:0 4px 12px rgba(124,58,237,.12);transition:all .3s;margin-bottom:20px}
+.back-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(124,58,237,.2)}
+.hero{text-align:center;padding:60px 20px 70px;background:linear-gradient(135deg,rgba(124,58,237,.2) 0%,rgba(167,139,250,.15) 50%,rgba(221,214,254,.1) 100%);border-radius:30px;margin:20px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:'🌏';position:absolute;top:30px;left:5%;font-size:3em;animation:float 4s ease-in-out infinite}
+.hero::after{content:'🎎';position:absolute;bottom:30px;right:5%;font-size:2.5em;animation:float 3.5s ease-in-out infinite}
+.badge{display:inline-block;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;padding:10px 30px;border-radius:50px;font-weight:700;margin-bottom:20px;font-size:1.05em;box-shadow:0 5px 15px rgba(124,58,237,.3)}
+.hero h1{font-family:'Baloo 2',cursive;font-size:3.2em;color:#6D28D9;margin-bottom:15px}
+.hero .subtitle{font-size:1.4em;color:#4A5568;font-weight:700;margin-bottom:15px}
+.hero .description{color:#718096;font-size:1.1em;max-width:800px;margin:0 auto;line-height:1.8}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin:-40px auto 40px;max-width:1000px;position:relative;z-index:3}
+.stat-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 8px 25px rgba(124,58,237,.12);transition:all .3s}
+.stat-card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(124,58,237,.2)}
+.stat-icon{font-size:2.2em;margin-bottom:8px}
+.stat-value{font-family:'Baloo 2',cursive;font-size:2em;color:#7C3AED;font-weight:800}
+.stat-label{color:#718096;margin-top:5px;font-weight:600;font-size:.9em}
+.group-section{margin:60px 0}
+.group-header{padding:25px 30px;border-radius:20px;margin-bottom:30px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,.08);position:relative}
+.group-header.noun{background:linear-gradient(135deg,#E9D5FF 0%,#DDD6FE 100%);color:#5B21B6}
+.group-header.verb{background:linear-gradient(135deg,#D1FAE5 0%,#A7F3D0 100%);color:#065F46}
+.group-header.adj{background:linear-gradient(135deg,#FEF3C7 0%,#FDE68A 100%);color:#92400E}
+.group-header h2{font-family:'Baloo 2',cursive;font-size:2em;margin-bottom:8px}
+.group-header p{font-size:1.05em;opacity:.9}
+.group-count{position:absolute;top:15px;right:20px;background:rgba(255,255,255,.5);padding:6px 16px;border-radius:20px;font-size:.9em;font-weight:700}
+.subgroup{margin:40px 0}
+.subgroup-title{font-family:'Baloo 2',cursive;font-size:1.5em;color:#6D28D9;margin-bottom:20px;padding:12px 20px;background:linear-gradient(90deg,#F3E8FF 0%,transparent 100%);border-left:5px solid #7C3AED;border-radius:10px}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;margin:25px 0}
+.vocab-card{background:white;border-radius:20px;padding:22px;box-shadow:0 4px 15px rgba(0,0,0,.06);transition:all .3s;border:2px solid transparent;position:relative}
+.vocab-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(0,0,0,.1);border-color:#A78BFA}
+.vocab-card.noun{border-top:4px solid #8B5CF6;background:linear-gradient(135deg,#FFFFFF 0%,#F5F3FF 100%)}
+.vocab-card.verb{border-top:4px solid #10B981;background:linear-gradient(135deg,#FFFFFF 0%,#ECFDF5 100%)}
+.vocab-card.adj{border-top:4px solid #F59E0B;background:linear-gradient(135deg,#FFFFFF 0%,#FFFBEB 100%)}
+.vocab-number{position:absolute;top:12px;right:15px;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85em;box-shadow:0 2px 8px rgba(124,58,237,.3)}
+.vocab-main{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-right:45px}
+.vocab-korean{font-family:'Baloo 2',cursive;font-size:1.8em;color:#6D28D9;font-weight:800}
+.vocab-pron{color:#7C3AED;font-size:.9em;font-style:italic;background:#F3E8FF;padding:4px 12px;border-radius:8px;font-weight:600}
+.vocab-meaning{color:#4A5568;font-size:1.05em;font-weight:600;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed #DDD6FE}
+.vocab-audio{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;padding:6px 14px;border-radius:20px;font-size:.85em;font-weight:700;cursor:pointer;border:none;transition:all .3s;margin-bottom:12px}
+.vocab-audio:hover{transform:scale(1.05);box-shadow:0 5px 15px rgba(124,58,237,.4)}
+.conjugation-box{background:linear-gradient(135deg,#F0FDF4 0%,#ECFDF5 100%);border-radius:12px;padding:14px;margin-bottom:12px;border:1px solid #A7F3D0}
+.conjugation-title{font-size:.8em;color:#059669;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.conjugation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.conjugation-item{background:white;padding:8px 12px;border-radius:8px;font-size:.85em;display:flex;justify-content:space-between;align-items:center;border:1px solid #D1FAE5}
+.conjugation-label{color:#718096;font-size:.8em;font-weight:600}
+.conjugation-value{color:#059669;font-weight:700;display:flex;align-items:center;gap:6px}
+.conjugation-audio{background:none;border:none;color:#10B981;cursor:pointer;font-size:.9em;padding:2px;transition:all .2s}
+.conjugation-audio:hover{color:#059669;transform:scale(1.2)}
+.examples-box{margin-top:12px}
+.examples-title{font-size:.85em;color:#6D28D9;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.example-item{background:linear-gradient(135deg,#FEF3C7 0%,#FDE68A 100%);border-left:3px solid #F59E0B;padding:10px 14px;border-radius:8px;font-size:.9em}
+.example-korean{color:#78350F;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.example-meaning{color:#92400E;font-style:italic;font-size:.9em}
+.example-audio{background:none;border:none;color:#F59E0B;cursor:pointer;font-size:.9em;padding:2px;transition:all .2s}
+.example-audio:hover{color:#D97706;transform:scale(1.2)}
+.info-box{background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 100%);border-left:5px solid #7C3AED;padding:25px;border-radius:20px;margin:40px 0;box-shadow:0 5px 15px rgba(124,58,237,.1)}
+.info-box-title{font-family:'Baloo 2',cursive;color:#6D28D9;font-size:1.3em;margin-bottom:15px;display:flex;align-items:center;gap:10px}
+.info-box-content{color:#4A5568;line-height:1.8}
+.info-box-content ul{list-style:none;padding:0}
+.info-box-content li{padding:8px 0;padding-left:30px;position:relative;border-bottom:1px dashed #DDD6FE}
+.info-box-content li:last-child{border-bottom:none}
+.info-box-content li::before{content:'✅';position:absolute;left:0}
+.info-box-content strong{color:#7C3AED}
+.flashcard-section{background:white;border-radius:25px;padding:30px;margin:60px 0;box-shadow:0 8px 25px rgba(124,58,237,.1)}
+.flashcard-section h2{font-family:'Baloo 2',cursive;color:#7C3AED;font-size:2em;margin-bottom:20px;text-align:center}
+.flashcard-container{perspective:1000px;margin:20px auto;max-width:500px}
+.flashcard{width:100%;height:320px;position:relative;transform-style:preserve-3d;transition:transform .6s;cursor:pointer}
+.flashcard.flipped{transform:rotateY(180deg)}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:25px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.flashcard-front{background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white}
+.flashcard-back{background:white;color:#4A5568;transform:rotateY(180deg);border:3px solid #7C3AED}
+.flashcard-char{font-family:'Baloo 2',cursive;font-size:3em;font-weight:800;margin-bottom:15px;text-align:center}
+.flashcard-hint{font-size:1em;opacity:.9}
+.flashcard-meaning{font-size:1.5em;font-weight:700;color:#7C3AED;margin-bottom:15px;text-align:center}
+.flashcard-pron{color:#7C3AED;font-style:italic;margin-bottom:15px}
+.flashcard-controls{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.flashcard-btn{padding:10px 20px;border:none;border-radius:20px;background:linear-gradient(135deg,#87CEEB 0%,#A8E6CF 100%);color:white;cursor:pointer;font-weight:700;transition:all .3s;font-family:'Quicksand',sans-serif}
+.flashcard-btn:hover{transform:scale(1.05)}
+.flashcard-counter{text-align:center;color:#718096;margin-top:10px;font-weight:600}
+footer{background:linear-gradient(135deg,#6C5B7B 0%,#C06C84 100%);color:white;text-align:center;padding:40px 20px;margin-top:60px;border-radius:30px 30px 0 0}
+.footer-text{font-size:1.2em;margin-bottom:10px}
+.footer-quote{font-style:italic;opacity:.9}
+@media(max-width:768px){
+.hero h1{font-size:2.2em}
+.vocab-grid{grid-template-columns:1fr}
+.group-header h2{font-size:1.5em}
+.conjugation-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html"> Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topics-vocabulary.html">📚 Từ vựng</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">🌏 Xã hội & Văn hóa</span>
+</nav>
+<a href="topics-vocabulary.html" class="back-btn">← Về danh sách từ vựng</a>
+
+<div class="hero">
+<span class="badge"> TOPIK 3-4 • XÃ HỘI & VĂN HÓA</span>
+<h1>사회와 문화 - Xã hội & Văn hóa</h1>
+<div class="subtitle">80 từ vựng nâng cao về xã hội, văn hóa và truyền thống Hàn Quốc</div>
+<p class="description">
+Bộ từ vựng <strong>80 từ</strong> về xã hội và văn hóa Hàn Quốc, được phân loại thành
+<strong>3 nhóm</strong>: Danh từ, Động từ, Tính từ. Mỗi từ có <strong>các thể chia</strong>,
+<strong>1 ví dụ</strong>, <strong>phiên âm</strong> và <strong>audio</strong> phát âm chuẩn! 🌏
+</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-icon">📚</div><div class="stat-value">80</div><div class="stat-label">Từ vựng</div></div>
+<div class="stat-card"><div class="stat-icon">📝</div><div class="stat-value">3</div><div class="stat-label">Nhóm từ</div></div>
+<div class="stat-card"><div class="stat-icon">💬</div><div class="stat-value">80</div><div class="stat-label">Ví dụ</div></div>
+<div class="stat-card"><div class="stat-icon"></div><div class="stat-value">400+</div><div class="stat-label">Audio</div></div>
+</div>
+
+<!-- ============================================ -->
+<!-- PHẦN 1: DANH TỪ (명사) - 25 từ -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header noun">
+<h2>📘 Danh từ (명사)</h2>
+<p>Từ chỉ xã hội, văn hóa, phong tục và di sản</p>
+<span class="group-count">25 từ</span>
+</div>
+
+<div class="subgroup">
+<div class="subgroup-title">🌐 Chủ đề 1: Xã hội & Cộng đồng</div>
+<div class="vocab-grid">
+
+<div class="vocab-card noun">
+<span class="vocab-number">1</span>
+<div class="vocab-main">
+<span class="vocab-korean">사회</span>
+<span class="vocab-pron">[sa-hoe]</span>
+</div>
+<div class="vocab-meaning">Xã hội</div>
+<button class="vocab-audio" onclick="speakKorean('사회')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국 사회는 빠르게 변하고 있어요. <button class="example-audio" onclick="speakKorean('한국 사회는 빠르게 변하고 있어요')">🔊</button></div>
+<div class="example-meaning">Xã hội Hàn Quốc đang thay đổi nhanh chóng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">2</span>
+<div class="vocab-main">
+<span class="vocab-korean">공동체</span>
+<span class="vocab-pron">[gong-dong-che]</span>
+</div>
+<div class="vocab-meaning">Cộng đồng</div>
+<button class="vocab-audio" onclick="speakKorean('공동체')"> Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">지역 공동체 활동에 참여해요. <button class="example-audio" onclick="speakKorean('지역 공동체 활동에 참여해요')">🔊</button></div>
+<div class="example-meaning">Tham gia hoạt động cộng đồng địa phương.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">3</span>
+<div class="vocab-main">
+<span class="vocab-korean">계급</span>
+<span class="vocab-pron">[gye-geup]</span>
+</div>
+<div class="vocab-meaning">Giai cấp</div>
+<button class="vocab-audio" onclick="speakKorean('계급')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">사회 계급 차이가 있어요. <button class="example-audio" onclick="speakKorean('사회 계급 차이가 있어요')">🔊</button></div>
+<div class="example-meaning">Có sự khác biệt giai cấp xã hội.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">4</span>
+<div class="vocab-main">
+<span class="vocab-korean">계층</span>
+<span class="vocab-pron">[gye-cheung]</span>
+</div>
+<div class="vocab-meaning">Tầng lớp</div>
+<button class="vocab-audio" onclick="speakKorean('계층')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title"> Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">중산층 계층이 커지고 있어요. <button class="example-audio" onclick="speakKorean('중산층 계층이 커지고 있어요')">🔊</button></div>
+<div class="example-meaning">Tầng lớp trung lưu đang mở rộng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">5</span>
+<div class="vocab-main">
+<span class="vocab-korean">민족</span>
+<span class="vocab-pron">[min-jok]</span>
+</div>
+<div class="vocab-meaning">Dân tộc</div>
+<button class="vocab-audio" onclick="speakKorean('민족')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국 민족의 전통 문화예요. <button class="example-audio" onclick="speakKorean('한국 민족의 전통 문화예요')">🔊</button></div>
+<div class="example-meaning">Đó là văn hóa truyền thống của dân tộc Hàn.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">6</span>
+<div class="vocab-main">
+<span class="vocab-korean">시민</span>
+<span class="vocab-pron">[si-min]</span>
+</div>
+<div class="vocab-meaning">Công dân</div>
+<button class="vocab-audio" onclick="speakKorean('시민')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">시민의 권리와 의무가 있어요. <button class="example-audio" onclick="speakKorean('시민의 권리와 의무가 있어요')">🔊</button></div>
+<div class="example-meaning">Có quyền và nghĩa vụ của công dân.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">7</span>
+<div class="vocab-main">
+<span class="vocab-korean">대중</span>
+<span class="vocab-pron">[dae-jung]</span>
+</div>
+<div class="vocab-meaning">Đại chúng, quần chúng</div>
+<button class="vocab-audio" onclick="speakKorean('대중')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">대중 문화가 인기 있어요. <button class="example-audio" onclick="speakKorean('대중 문화가 인기 있어요')">🔊</button></div>
+<div class="example-meaning">Văn hóa đại chúng rất phổ biến.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">8</span>
+<div class="vocab-main">
+<span class="vocab-korean">여론</span>
+<span class="vocab-pron">[yeo-ron]</span>
+</div>
+<div class="vocab-meaning">Dư luận</div>
+<button class="vocab-audio" onclick="speakKorean('여론')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">여론 조사 결과가 나왔어요. <button class="example-audio" onclick="speakKorean('여론 조사 결과가 나왔어요')">🔊</button></div>
+<div class="example-meaning">Kết quả khảo sát dư luận đã được công bố.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">9</span>
+<div class="vocab-main">
+<span class="vocab-korean">관습</span>
+<span class="vocab-pron">[gwan-seup]</span>
+</div>
+<div class="vocab-meaning">Tập quán, thói quen</div>
+<button class="vocab-audio" onclick="speakKorean('관습')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title"> Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국의 전통 관습이에요. <button class="example-audio" onclick="speakKorean('한국의 전통 관습이에요')">🔊</button></div>
+<div class="example-meaning">Đó là tập quán truyền thống của Hàn Quốc.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">10</span>
+<div class="vocab-main">
+<span class="vocab-korean">제도</span>
+<span class="vocab-pron">[je-do]</span>
+</div>
+<div class="vocab-meaning">Chế độ, thể chế</div>
+<button class="vocab-audio" onclick="speakKorean('제도')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">사회 제도가 변하고 있어요. <button class="example-audio" onclick="speakKorean('사회 제도가 변하고 있어요')">🔊</button></div>
+<div class="example-meaning">Thể chế xã hội đang thay đổi.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="subgroup">
+<div class="subgroup-title">🎭 Chủ đề 2: Văn hóa & Phong tục</div>
+<div class="vocab-grid">
+
+<div class="vocab-card noun">
+<span class="vocab-number">11</span>
+<div class="vocab-main">
+<span class="vocab-korean">문화</span>
+<span class="vocab-pron">[mun-hwa]</span>
+</div>
+<div class="vocab-meaning">Văn hóa</div>
+<button class="vocab-audio" onclick="speakKorean('문화')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title"> Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국 문화를 배우고 싶어요. <button class="example-audio" onclick="speakKorean('한국 문화를 배우고 싶어요')">🔊</button></div>
+<div class="example-meaning">Tôi muốn học văn hóa Hàn Quốc.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">12</span>
+<div class="vocab-main">
+<span class="vocab-korean">전통</span>
+<span class="vocab-pron">[jeon-tong]</span>
+</div>
+<div class="vocab-meaning">Truyền thống</div>
+<button class="vocab-audio" onclick="speakKorean('전통')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">전통 문화를 지켜야 해요. <button class="example-audio" onclick="speakKorean('전통 문화를 지켜야 해요')">🔊</button></div>
+<div class="example-meaning">Phải giữ gìn văn hóa truyền thống.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">13</span>
+<div class="vocab-main">
+<span class="vocab-korean">풍습</span>
+<span class="vocab-pron">[pung-seup]</span>
+</div>
+<div class="vocab-meaning">Phong tục</div>
+<button class="vocab-audio" onclick="speakKorean('풍습')"> Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국의 독특한 풍습이에요. <button class="example-audio" onclick="speakKorean('한국의 독특한 풍습이에요')">🔊</button></div>
+<div class="example-meaning">Đó là phong tục độc đáo của Hàn Quốc.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">14</span>
+<div class="vocab-main">
+<span class="vocab-korean">예절</span>
+<span class="vocab-pron">[ye-jeol]</span>
+</div>
+<div class="vocab-meaning">Lễ nghi, phép tắc</div>
+<button class="vocab-audio" onclick="speakKorean('예절')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국 예절을 배워야 해요. <button class="example-audio" onclick="speakKorean('한국 예절을 배워야 해요')"></button></div>
+<div class="example-meaning">Phải học lễ nghi Hàn Quốc.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">15</span>
+<div class="vocab-main">
+<span class="vocab-korean">관례</span>
+<span class="vocab-pron">[gwan-rye]</span>
+</div>
+<div class="vocab-meaning">Thông lệ, lệ thường</div>
+<button class="vocab-audio" onclick="speakKorean('관례')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">관례대로 진행해요. <button class="example-audio" onclick="speakKorean('관례대로 진행해요')">🔊</button></div>
+<div class="example-meaning">Tiến hành theo thông lệ.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">16</span>
+<div class="vocab-main">
+<span class="vocab-korean">관행</span>
+<span class="vocab-pron">[gwan-haeng]</span>
+</div>
+<div class="vocab-meaning">Thói quen, thông lệ</div>
+<button class="vocab-audio" onclick="speakKorean('관행')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">그런 관행이 있어요. <button class="example-audio" onclick="speakKorean('그런 관행이 있어요')">🔊</button></div>
+<div class="example-meaning">Có thông lệ như vậy.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">17</span>
+<div class="vocab-main">
+<span class="vocab-korean">문화유산</span>
+<span class="vocab-pron">[mun-hwa-yu-san]</span>
+</div>
+<div class="vocab-meaning">Di sản văn hóa</div>
+<button class="vocab-audio" onclick="speakKorean('문화유산')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">유네스코 문화유산이에요. <button class="example-audio" onclick="speakKorean('유네스코 문화유산이에요')">🔊</button></div>
+<div class="example-meaning">Là di sản văn hóa UNESCO.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">18</span>
+<div class="vocab-main">
+<span class="vocab-korean">정체성</span>
+<span class="vocab-pron">[jeong-che-seong]</span>
+</div>
+<div class="vocab-meaning">Bản sắc, căn tính</div>
+<button class="vocab-audio" onclick="speakKorean('정체성')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화적 정체성이 중요해요. <button class="example-audio" onclick="speakKorean('문화적 정체성이 중요해요')"></button></div>
+<div class="example-meaning">Bản sắc văn hóa rất quan trọng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">19</span>
+<div class="vocab-main">
+<span class="vocab-korean">다양성</span>
+<span class="vocab-pron">[da-yang-seong]</span>
+</div>
+<div class="vocab-meaning">Sự đa dạng</div>
+<button class="vocab-audio" onclick="speakKorean('다양성')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화적 다양성을 존중해요. <button class="example-audio" onclick="speakKorean('문화적 다양성을 존중해요')">🔊</button></div>
+<div class="example-meaning">Tôn trọng sự đa dạng văn hóa.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">20</span>
+<div class="vocab-main">
+<span class="vocab-korean">명절</span>
+<span class="vocab-pron">[myeong-jeol]</span>
+</div>
+<div class="vocab-meaning">Ngày lễ, tết</div>
+<button class="vocab-audio" onclick="speakKorean('명절')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">설날은 큰 명절이에요. <button class="example-audio" onclick="speakKorean('설날은 큰 명절이에요')">🔊</button></div>
+<div class="example-meaning">Seollal là ngày lễ lớn.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="subgroup">
+<div class="subgroup-title">️ Chủ đề 3: Lễ hội & Di sản</div>
+<div class="vocab-grid">
+
+<div class="vocab-card noun">
+<span class="vocab-number">21</span>
+<div class="vocab-main">
+<span class="vocab-korean">축제</span>
+<span class="vocab-pron">[chuk-je]</span>
+</div>
+<div class="vocab-meaning">Lễ hội</div>
+<button class="vocab-audio" onclick="speakKorean('축제')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">봄 축제가 있어요. <button class="example-audio" onclick="speakKorean('봄 축제가 있어요')">🔊</button></div>
+<div class="example-meaning">Có lễ hội mùa xuân.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">22</span>
+<div class="vocab-main">
+<span class="vocab-korean">한복</span>
+<span class="vocab-pron">[han-bok]</span>
+</div>
+<div class="vocab-meaning">Hanbok (trang phục truyền thống)</div>
+<button class="vocab-audio" onclick="speakKorean('한복')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">명절에 한복을 입어요. <button class="example-audio" onclick="speakKorean('명절에 한복을 입어요')">🔊</button></div>
+<div class="example-meaning">Mặc hanbok vào ngày lễ.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">23</span>
+<div class="vocab-main">
+<span class="vocab-korean">박물관</span>
+<span class="vocab-pron">[bang-mul-gwan]</span>
+</div>
+<div class="vocab-meaning">Bảo tàng</div>
+<button class="vocab-audio" onclick="speakKorean('박물관')"> Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">박물관에 가요. <button class="example-audio" onclick="speakKorean('박물관에 가요')">🔊</button></div>
+<div class="example-meaning">Đi đến bảo tàng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">24</span>
+<div class="vocab-main">
+<span class="vocab-korean">문화재</span>
+<span class="vocab-pron">[mun-hwa-jae]</span>
+</div>
+<div class="vocab-meaning">Di tích văn hóa</div>
+<button class="vocab-audio" onclick="speakKorean('문화재')"> Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화재를 보호해요. <button class="example-audio" onclick="speakKorean('문화재를 보호해요')">🔊</button></div>
+<div class="example-meaning">Bảo vệ di tích văn hóa.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card noun">
+<span class="vocab-number">25</span>
+<div class="vocab-main">
+<span class="vocab-korean">유산</span>
+<span class="vocab-pron">[yu-san]</span>
+</div>
+<div class="vocab-meaning">Di sản</div>
+<button class="vocab-audio" onclick="speakKorean('유산')">🔊 Nghe</button>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화 유산이에요. <button class="example-audio" onclick="speakKorean('문화 유산이에요')">🔊</button></div>
+<div class="example-meaning">Là di sản văn hóa.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PHẦN 2: ĐỘNG TỪ (동사) - 35 từ -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header verb">
+<h2>📗 Động từ (동사)</h2>
+<p>Từ chỉ hành động văn hóa, bảo tồn và giao tiếp</p>
+<span class="group-count">35 từ</span>
+</div>
+
+<div class="subgroup">
+<div class="subgroup-title"> Chủ đề 1: Hoạt động văn hóa</div>
+<div class="vocab-grid">
+
+<div class="vocab-card verb">
+<span class="vocab-number">1</span>
+<div class="vocab-main">
+<span class="vocab-korean">보존하다</span>
+<span class="vocab-pron">[bo-jon-ha-da]</span>
+</div>
+<div class="vocab-meaning">Bảo tồn</div>
+<button class="vocab-audio" onclick="speakKorean('보존하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">보존해요 <button class="conjugation-audio" onclick="speakKorean('보존해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">보존했어요 <button class="conjugation-audio" onclick="speakKorean('보존했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">보존할 거예요 <button class="conjugation-audio" onclick="speakKorean('보존할 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">보존하십니다 <button class="conjugation-audio" onclick="speakKorean('보존하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화 보존이 중요해요. <button class="example-audio" onclick="speakKorean('문화 보존이 중요해요')">🔊</button></div>
+<div class="example-meaning">Bảo tồn văn hóa rất quan trọng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">2</span>
+<div class="vocab-main">
+<span class="vocab-korean">계승하다</span>
+<span class="vocab-pron">[gye-seung-ha-da]</span>
+</div>
+<div class="vocab-meaning">Kế thừa</div>
+<button class="vocab-audio" onclick="speakKorean('계승하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">계승해요 <button class="conjugation-audio" onclick="speakKorean('계승해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">계승했어요 <button class="conjugation-audio" onclick="speakKorean('계승했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">계승할 거예요 <button class="conjugation-audio" onclick="speakKorean('계승할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">계승하십니다 <button class="conjugation-audio" onclick="speakKorean('계승하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">전통을 계승해요. <button class="example-audio" onclick="speakKorean('전통을 계승해요')">🔊</button></div>
+<div class="example-meaning">Kế thừa truyền thống.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">3</span>
+<div class="vocab-main">
+<span class="vocab-korean">발전하다</span>
+<span class="vocab-pron">[bal-jeon-ha-da]</span>
+</div>
+<div class="vocab-meaning">Phát triển</div>
+<button class="vocab-audio" onclick="speakKorean('발전하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">발전해요 <button class="conjugation-audio" onclick="speakKorean('발전해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">발전했어요 <button class="conjugation-audio" onclick="speakKorean('발전했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">발전할 거예요 <button class="conjugation-audio" onclick="speakKorean('발전할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">발전하십니다 <button class="conjugation-audio" onclick="speakKorean('발전하십니다')"></button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화 발전이 중요해요. <button class="example-audio" onclick="speakKorean('문화 발전이 중요해요')">🔊</button></div>
+<div class="example-meaning">Phát triển văn hóa rất quan trọng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">4</span>
+<div class="vocab-main">
+<span class="vocab-korean">변화하다</span>
+<span class="vocab-pron">[byeon-hwa-ha-da]</span>
+</div>
+<div class="vocab-meaning">Thay đổi, biến hóa</div>
+<button class="vocab-audio" onclick="speakKorean('변화하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">변화해요 <button class="conjugation-audio" onclick="speakKorean('변화해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">변화했어요 <button class="conjugation-audio" onclick="speakKorean('변화했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">변화할 거예요 <button class="conjugation-audio" onclick="speakKorean('변화할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">변화하십니다 <button class="conjugation-audio" onclick="speakKorean('변화하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">사회가 변화해요. <button class="example-audio" onclick="speakKorean('사회가 변화해요')">🔊</button></div>
+<div class="example-meaning">Xã hội thay đổi.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">5</span>
+<div class="vocab-main">
+<span class="vocab-korean">참여하다</span>
+<span class="vocab-pron">[cham-yeo-ha-da]</span>
+</div>
+<div class="vocab-meaning">Tham gia</div>
+<button class="vocab-audio" onclick="speakKorean('참여하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">참여해요 <button class="conjugation-audio" onclick="speakKorean('참여해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">참여했어요 <button class="conjugation-audio" onclick="speakKorean('참여했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">참여할 거예요 <button class="conjugation-audio" onclick="speakKorean('참여할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">참여하십니다 <button class="conjugation-audio" onclick="speakKorean('참여하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">행사에 참여해요. <button class="example-audio" onclick="speakKorean('행사에 참여해요')">🔊</button></div>
+<div class="example-meaning">Tham gia sự kiện.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">6</span>
+<div class="vocab-main">
+<span class="vocab-korean">관람하다</span>
+<span class="vocab-pron">[gwan-ram-ha-da]</span>
+</div>
+<div class="vocab-meaning">Tham quan, xem</div>
+<button class="vocab-audio" onclick="speakKorean('관람하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">관람해요 <button class="conjugation-audio" onclick="speakKorean('관람해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">관람했어요 <button class="conjugation-audio" onclick="speakKorean('관람했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">관람할 거예요 <button class="conjugation-audio" onclick="speakKorean('관람할 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">관람하십니다 <button class="conjugation-audio" onclick="speakKorean('관람하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">박물관을 관람해요. <button class="example-audio" onclick="speakKorean('박물관을 관람해요')">🔊</button></div>
+<div class="example-meaning">Tham quan bảo tàng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="word-number">7</span>
+<div class="word-main">
+<span class="word-korean">공연하다</span>
+<span class="word-pron">[gong-yeon-ha-da]</span>
+</div>
+<div class="word-meaning">Biểu diễn</div>
+<button class="word-audio" onclick="speakKorean('공연하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title"> Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">공연해요 <button class="conjugation-audio" onclick="speakKorean('공연해요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">공연했어요 <button class="conjugation-audio" onclick="speakKorean('공연했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">공연할 거예요 <button class="conjugation-audio" onclick="speakKorean('공연할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">공연하십니다 <button class="conjugation-audio" onclick="speakKorean('공연하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title"> Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">국악을 공연해요. <button class="example-audio" onclick="speakKorean('국악을 공연해요')">🔊</button></div>
+<div class="example-meaning">Biểu diễn nhạc truyền thống.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">8</span>
+<div class="vocab-main">
+<span class="vocab-korean">번역하다</span>
+<span class="vocab-pron">[beon-yeok-ha-da]</span>
+</div>
+<div class="vocab-meaning">Dịch thuật</div>
+<button class="vocab-audio" onclick="speakKorean('번역하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">번역해요 <button class="conjugation-audio" onclick="speakKorean('번역해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">번역했어요 <button class="conjugation-audio" onclick="speakKorean('번역했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">번역할 거예요 <button class="conjugation-audio" onclick="speakKorean('번역할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">번역하십니다 <button class="conjugation-audio" onclick="speakKorean('번역하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">소설을 번역해요. <button class="example-audio" onclick="speakKorean('소설을 번역해요')">🔊</button></div>
+<div class="example-meaning">Dịch tiểu thuyết.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">9</span>
+<div class="vocab-main">
+<span class="vocab-korean">연구하다</span>
+<span class="vocab-pron">[yeon-gu-ha-da]</span>
+</div>
+<div class="vocab-meaning">Nghiên cứu</div>
+<button class="vocab-audio" onclick="speakKorean('연구하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">연구해요 <button class="conjugation-audio" onclick="speakKorean('연구해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">연구했어요 <button class="conjugation-audio" onclick="speakKorean('연구했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">연구할 거예요 <button class="conjugation-audio" onclick="speakKorean('연구할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">연구하십니다 <button class="conjugation-audio" onclick="speakKorean('연구하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국 문화를 연구해요. <button class="example-audio" onclick="speakKorean('한국 문화를 연구해요')">🔊</button></div>
+<div class="example-meaning">Nghiên cứu văn hóa Hàn Quốc.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">10</span>
+<div class="vocab-main">
+<span class="vocab-korean">발표하다</span>
+<span class="vocab-pron">[bal-pyo-ha-da]</span>
+</div>
+<div class="vocab-meaning">Phát biểu, công bố</div>
+<button class="vocab-audio" onclick="speakKorean('발표하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">발표해요 <button class="conjugation-audio" onclick="speakKorean('발표해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">발표했어요 <button class="conjugation-audio" onclick="speakKorean('발표했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">발표할 거예요 <button class="conjugation-audio" onclick="speakKorean('발표할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">발표하십니다 <button class="conjugation-audio" onclick="speakKorean('발표하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">연구 결과를 발표해요. <button class="example-audio" onclick="speakKorean('연구 결과를 발표해요')">🔊</button></div>
+<div class="example-meaning">Công bố kết quả nghiên cứu.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="subgroup">
+<div class="subgroup-title">🛡️ Chủ đề 2: Bảo tồn & Kế thừa</div>
+<div class="vocab-grid">
+
+<div class="vocab-card verb">
+<span class="vocab-number">11</span>
+<div class="vocab-main">
+<span class="vocab-korean">보호하다</span>
+<span class="vocab-pron">[bo-ho-ha-da]</span>
+</div>
+<div class="vocab-meaning">Bảo vệ</div>
+<button class="vocab-audio" onclick="speakKorean('보호하다')"> Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">보호해요 <button class="conjugation-audio" onclick="speakKorean('보호해요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">보호했어요 <button class="conjugation-audio" onclick="speakKorean('보호했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">보호할 거예요 <button class="conjugation-audio" onclick="speakKorean('보호할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">보호하십니다 <button class="conjugation-audio" onclick="speakKorean('보호하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">환경을 보호해요. <button class="example-audio" onclick="speakKorean('환경을 보호해요')">🔊</button></div>
+<div class="example-meaning">Bảo vệ môi trường.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">12</span>
+<div class="vocab-main">
+<span class="vocab-korean">지키다</span>
+<span class="vocab-pron">[ji-ki-da]</span>
+</div>
+<div class="vocab-meaning">Giữ gìn, bảo vệ</div>
+<button class="vocab-audio" onclick="speakKorean('지키다')"> Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title"> Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">지켜요 <button class="conjugation-audio" onclick="speakKorean('지켜요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">지켰어요 <button class="conjugation-audio" onclick="speakKorean('지켰어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">지킬 거예요 <button class="conjugation-audio" onclick="speakKorean('지킬 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">지키십니다 <button class="conjugation-audio" onclick="speakKorean('지키십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">전통을 지켜요. <button class="example-audio" onclick="speakKorean('전통을 지켜요')">🔊</button></div>
+<div class="example-meaning">Giữ gìn truyền thống.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">13</span>
+<div class="vocab-main">
+<span class="vocab-korean">전하다</span>
+<span class="vocab-pron">[jeon-ha-da]</span>
+</div>
+<div class="vocab-meaning">Truyền đạt, truyền lại</div>
+<button class="vocab-audio" onclick="speakKorean('전하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">전해요 <button class="conjugation-audio" onclick="speakKorean('전해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">전했어요 <button class="conjugation-audio" onclick="speakKorean('전했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">전할 거예요 <button class="conjugation-audio" onclick="speakKorean('전할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">전하십니다 <button class="conjugation-audio" onclick="speakKorean('전하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화를下一代에게 전해요. <button class="example-audio" onclick="speakKorean('문화를下一代에게 전해요')">🔊</button></div>
+<div class="example-meaning">Truyền văn hóa cho thế hệ sau.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">14</span>
+<div class="vocab-main">
+<span class="vocab-korean">교육하다</span>
+<span class="vocab-pron">[gyo-yuk-ha-da]</span>
+</div>
+<div class="vocab-meaning">Giáo dục</div>
+<button class="vocab-audio" onclick="speakKorean('교육하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">교육해요 <button class="conjugation-audio" onclick="speakKorean('교육해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">교육했어요 <button class="conjugation-audio" onclick="speakKorean('교육했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">교육할 거예요 <button class="conjugation-audio" onclick="speakKorean('교육할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">교육하십니다 <button class="conjugation-audio" onclick="speakKorean('교육하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">학생들을 교육해요. <button class="example-audio" onclick="speakKorean('학생들을 교육해요')"></button></div>
+<div class="example-meaning">Giáo dục học sinh.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">15</span>
+<div class="vocab-main">
+<span class="vocab-korean">학습하다</span>
+<span class="vocab-pron">[hak-seup-ha-da]</span>
+</div>
+<div class="vocab-meaning">Học tập</div>
+<button class="vocab-audio" onclick="speakKorean('학습하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">학습해요 <button class="conjugation-audio" onclick="speakKorean('학습해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">학습했어요 <button class="conjugation-audio" onclick="speakKorean('학습했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">학습할 거예요 <button class="conjugation-audio" onclick="speakKorean('학습할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">학습하십니다 <button class="conjugation-audio" onclick="speakKorean('학습하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국어를 학습해요. <button class="example-audio" onclick="speakKorean('한국어를 학습해요')">🔊</button></div>
+<div class="example-meaning">Học tiếng Hàn.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">16</span>
+<div class="vocab-main">
+<span class="vocab-korean">이해하다</span>
+<span class="vocab-pron">[i-hae-ha-da]</span>
+</div>
+<div class="vocab-meaning">Hiểu, thông cảm</div>
+<button class="vocab-audio" onclick="speakKorean('이해하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">이해해요 <button class="conjugation-audio" onclick="speakKorean('이해해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">이해했어요 <button class="conjugation-audio" onclick="speakKorean('이해했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">이해할 거예요 <button class="conjugation-audio" onclick="speakKorean('이해할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">이해하십니다 <button class="conjugation-audio" onclick="speakKorean('이해하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">서로 이해해야 해요. <button class="example-audio" onclick="speakKorean('서로 이해해야 해요')">🔊</button></div>
+<div class="example-meaning">Phải hiểu lẫn nhau.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">17</span>
+<div class="vocab-main">
+<span class="vocab-korean">존중하다</span>
+<span class="vocab-pron">[jon-jung-ha-da]</span>
+</div>
+<div class="vocab-meaning">Tôn trọng</div>
+<button class="vocab-audio" onclick="speakKorean('존중하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">존중해요 <button class="conjugation-audio" onclick="speakKorean('존중해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">존중했어요 <button class="conjugation-audio" onclick="speakKorean('존중했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">존중할 거예요 <button class="conjugation-audio" onclick="speakKorean('존중할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">존중하십니다 <button class="conjugation-audio" onclick="speakKorean('존중하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">서로 존중해야 해요. <button class="example-audio" onclick="speakKorean('서로 존중해야 해요')">🔊</button></div>
+<div class="example-meaning">Phải tôn trọng lẫn nhau.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">18</span>
+<div class="vocab-main">
+<span class="vocab-korean">실현하다</span>
+<span class="vocab-pron">[sil-hyeon-ha-da]</span>
+</div>
+<div class="vocab-meaning">Thực hiện</div>
+<button class="vocab-audio" onclick="speakKorean('실현하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">실현해요 <button class="conjugation-audio" onclick="speakKorean('실현해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">실현했어요 <button class="conjugation-audio" onclick="speakKorean('실현했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">실현할 거예요 <button class="conjugation-audio" onclick="speakKorean('실현할 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">실현하십니다 <button class="conjugation-audio" onclick="speakKorean('실현하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">정의를 실현해요. <button class="example-audio" onclick="speakKorean('정의를 실현해요')">🔊</button></div>
+<div class="example-meaning">Thực hiện công lý.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">19</span>
+<div class="vocab-main">
+<span class="vocab-korean">진행하다</span>
+<span class="vocab-pron">[jin-haeng-ha-da]</span>
+</div>
+<div class="vocab-meaning">Tiến hành</div>
+<button class="vocab-audio" onclick="speakKorean('진행하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">진행해요 <button class="conjugation-audio" onclick="speakKorean('진행해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">진행했어요 <button class="conjugation-audio" onclick="speakKorean('진행했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">진행할 거예요 <button class="conjugation-audio" onclick="speakKorean('진행할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">진행하십니다 <button class="conjugation-audio" onclick="speakKorean('진행하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">행사를 진행해요. <button class="example-audio" onclick="speakKorean('행사를 진행해요')"></button></div>
+<div class="example-meaning">Tiến hành sự kiện.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">20</span>
+<div class="vocab-main">
+<span class="vocab-korean">소개하다</span>
+<span class="vocab-pron">[so-gae-ha-da]</span>
+</div>
+<div class="vocab-meaning">Giới thiệu</div>
+<button class="vocab-audio" onclick="speakKorean('소개하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">소개해요 <button class="conjugation-audio" onclick="speakKorean('소개해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">소개했어요 <button class="conjugation-audio" onclick="speakKorean('소개했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">소개할 거예요 <button class="conjugation-audio" onclick="speakKorean('소개할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">소개하십니다 <button class="conjugation-audio" onclick="speakKorean('소개하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국 문화를 소개해요. <button class="example-audio" onclick="speakKorean('한국 문화를 소개해요')">🔊</button></div>
+<div class="example-meaning">Giới thiệu văn hóa Hàn Quốc.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="subgroup">
+<div class="subgroup-title">🗣️ Chủ đề 3: Giao tiếp & Thể hiện</div>
+<div class="vocab-grid">
+
+<div class="vocab-card verb">
+<span class="vocab-number">21</span>
+<div class="vocab-main">
+<span class="vocab-korean">표현하다</span>
+<span class="vocab-pron">[pyo-hyeon-ha-da]</span>
+</div>
+<div class="vocab-meaning">Biểu đạt, thể hiện</div>
+<button class="vocab-audio" onclick="speakKorean('표현하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">표현해요 <button class="conjugation-audio" onclick="speakKorean('표현해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">표현했어요 <button class="conjugation-audio" onclick="speakKorean('표현했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">표현할 거예요 <button class="conjugation-audio" onclick="speakKorean('표현할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">표현하십니다 <button class="conjugation-audio" onclick="speakKorean('표현하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">감정을 표현해요. <button class="example-audio" onclick="speakKorean('감정을 표현해요')">🔊</button></div>
+<div class="example-meaning">Biểu đạt cảm xúc.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">22</span>
+<div class="vocab-main">
+<span class="vocab-korean">의사소통하다</span>
+<span class="vocab-pron">[ui-sa-so-tong-ha-da]</span>
+</div>
+<div class="vocab-meaning">Giao tiếp</div>
+<button class="vocab-audio" onclick="speakKorean('의사소통하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">의사소통해요 <button class="conjugation-audio" onclick="speakKorean('의사소통해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">의사소통했어요 <button class="conjugation-audio" onclick="speakKorean('의사소통했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">의사소통할 거예요 <button class="conjugation-audio" onclick="speakKorean('의사소통할 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">의사소통하십니다 <button class="conjugation-audio" onclick="speakKorean('의사소통하십니다')"></button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">서로 의사소통해요. <button class="example-audio" onclick="speakKorean('서로 의사소통해요')">🔊</button></div>
+<div class="example-meaning">Giao tiếp với nhau.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">23</span>
+<div class="vocab-main">
+<span class="vocab-korean">토론하다</span>
+<span class="vocab-pron">[to-ron-ha-da]</span>
+</div>
+<div class="vocab-meaning">Thảo luận</div>
+<button class="vocab-audio" onclick="speakKorean('토론하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">토론해요 <button class="conjugation-audio" onclick="speakKorean('토론해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">토론했어요 <button class="conjugation-audio" onclick="speakKorean('토론했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">토론할 거예요 <button class="conjugation-audio" onclick="speakKorean('토론할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">토론하십니다 <button class="conjugation-audio" onclick="speakKorean('토론하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문제를 토론해요. <button class="example-audio" onclick="speakKorean('문제를 토론해요')">🔊</button></div>
+<div class="example-meaning">Thảo luận vấn đề.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">24</span>
+<div class="vocab-main">
+<span class="vocab-korean">협상하다</span>
+<span class="vocab-pron">[hyeop-sang-ha-da]</span>
+</div>
+<div class="vocab-meaning">Thương lượng, đàm phán</div>
+<button class="vocab-audio" onclick="speakKorean('협상하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">협상해요 <button class="conjugation-audio" onclick="speakKorean('협상해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">협상했어요 <button class="conjugation-audio" onclick="speakKorean('협상했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">협상할 거예요 <button class="conjugation-audio" onclick="speakKorean('협상할 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">협상하십니다 <button class="conjugation-audio" onclick="speakKorean('협상하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">협상을 해요. <button class="example-audio" onclick="speakKorean('협상을 해요')">🔊</button></div>
+<div class="example-meaning">Thực hiện thương lượng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">25</span>
+<div class="vocab-main">
+<span class="vocab-korean">설득하다</span>
+<span class="vocab-pron">[seol-deuk-ha-da]</span>
+</div>
+<div class="vocab-meaning">Thuyết phục</div>
+<button class="vocab-audio" onclick="speakKorean('설득하다')"> Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">설득해요 <button class="conjugation-audio" onclick="speakKorean('설득해요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">설득했어요 <button class="conjugation-audio" onclick="speakKorean('설득했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">설득할 거예요 <button class="conjugation-audio" onclick="speakKorean('설득할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">설득하십니다 <button class="conjugation-audio" onclick="speakKorean('설득하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">사람을 설득해요. <button class="example-audio" onclick="speakKorean('사람을 설득해요')">🔊</button></div>
+<div class="example-meaning">Thuyết phục người khác.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">26</span>
+<div class="vocab-main">
+<span class="vocab-korean">비판하다</span>
+<span class="vocab-pron">[bi-pan-ha-da]</span>
+</div>
+<div class="vocab-meaning">Phê bình, chỉ trích</div>
+<button class="vocab-audio" onclick="speakKorean('비판하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">비판해요 <button class="conjugation-audio" onclick="speakKorean('비판해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">비판했어요 <button class="conjugation-audio" onclick="speakKorean('비판했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">비판할 거예요 <button class="conjugation-audio" onclick="speakKorean('비판할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">비판하십니다 <button class="conjugation-audio" onclick="speakKorean('비판하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문제를 비판해요. <button class="example-audio" onclick="speakKorean('문제를 비판해요')">🔊</button></div>
+<div class="example-meaning">Phê bình vấn đề.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">27</span>
+<div class="vocab-main">
+<span class="vocab-korean">평가하다</span>
+<span class="vocab-pron">[pyeong-ga-ha-da]</span>
+</div>
+<div class="vocab-meaning">Đánh giá</div>
+<button class="vocab-audio" onclick="speakKorean('평가하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">평가해요 <button class="conjugation-audio" onclick="speakKorean('평가해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">평가했어요 <button class="conjugation-audio" onclick="speakKorean('평가했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">평가할 거예요 <button class="conjugation-audio" onclick="speakKorean('평가할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">평가하십니다 <button class="conjugation-audio" onclick="speakKorean('평가하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">성과를 평가해요. <button class="example-audio" onclick="speakKorean('성과를 평가해요')">🔊</button></div>
+<div class="example-meaning">Đánh giá thành tích.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">28</span>
+<div class="vocab-main">
+<span class="vocab-korean">분석하다</span>
+<span class="vocab-pron">[bun-seok-ha-da]</span>
+</div>
+<div class="vocab-meaning">Phân tích</div>
+<button class="vocab-audio" onclick="speakKorean('분석하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">분석해요 <button class="conjugation-audio" onclick="speakKorean('분석해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">분석했어요 <button class="conjugation-audio" onclick="speakKorean('분석했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">분석할 거예요 <button class="conjugation-audio" onclick="speakKorean('분석할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">분석하십니다 <button class="conjugation-audio" onclick="speakKorean('분석하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">자료를 분석해요. <button class="example-audio" onclick="speakKorean('자료를 분석해요')">🔊</button></div>
+<div class="example-meaning">Phân tích tài liệu.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">29</span>
+<div class="vocab-main">
+<span class="vocab-korean">비교하다</span>
+<span class="vocab-pron">[bi-gyo-ha-da]</span>
+</div>
+<div class="vocab-meaning">So sánh</div>
+<button class="vocab-audio" onclick="speakKorean('비교하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">비교해요 <button class="conjugation-audio" onclick="speakKorean('비교해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">비교했어요 <button class="conjugation-audio" onclick="speakKorean('비교했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">비교할 거예요 <button class="conjugation-audio" onclick="speakKorean('비교할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">비교하십니다 <button class="conjugation-audio" onclick="speakKorean('비교하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">두 가지를 비교해요. <button class="example-audio" onclick="speakKorean('두 가지를 비교해요')">🔊</button></div>
+<div class="example-meaning">So sánh hai thứ.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card verb">
+<span class="vocab-number">30</span>
+<div class="vocab-main">
+<span class="vocab-korean">결론내리다</span>
+<span class="vocab-pron">[gyeol-lon-nae-ri-da]</span>
+</div>
+<div class="vocab-meaning">Kết luận</div>
+<button class="vocab-audio" onclick="speakKorean('결론내리다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">결론내려요 <button class="conjugation-audio" onclick="speakKorean('결론내려요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">결론내렸어요 <button class="conjugation-audio" onclick="speakKorean('결론내렸어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">결론내릴 거예요 <button class="conjugation-audio" onclick="speakKorean('결론내릴 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">결론내리십니다 <button class="conjugation-audio" onclick="speakKorean('결론내리십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title"> Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">결론을 내려요. <button class="example-audio" onclick="speakKorean('결론을 내려요')">🔊</button></div>
+<div class="example-meaning">Đưa ra kết luận.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- PHẦN 3: TÍNH TỪ (형용사) - 20 từ -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header adj">
+<h2>📙 Tính từ (형용사)</h2>
+<p>Từ chỉ tính chất văn hóa, giá trị và đạo đức</p>
+<span class="group-count">20 từ</span>
+</div>
+
+<div class="subgroup">
+<div class="subgroup-title">💎 Chủ đề 1: Giá trị & Đạo đức</div>
+<div class="vocab-grid">
+
+<div class="vocab-card adj">
+<span class="vocab-number">1</span>
+<div class="vocab-main">
+<span class="vocab-korean">중요하다</span>
+<span class="vocab-pron">[jung-yo-ha-da]</span>
+</div>
+<div class="vocab-meaning">Quan trọng</div>
+<button class="vocab-audio" onclick="speakKorean('중요하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">중요해요 <button class="conjugation-audio" onclick="speakKorean('중요해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">중요했어요 <button class="conjugation-audio" onclick="speakKorean('중요했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">중요할 거예요 <button class="conjugation-audio" onclick="speakKorean('중요할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">중요하십니다 <button class="conjugation-audio" onclick="speakKorean('중요하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화 보존이 중요해요. <button class="example-audio" onclick="speakKorean('문화 보존이 중요해요')">🔊</button></div>
+<div class="example-meaning">Bảo tồn văn hóa rất quan trọng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">2</span>
+<div class="vocab-main">
+<span class="vocab-korean">필요하다</span>
+<span class="vocab-pron">[pil-yo-ha-da]</span>
+</div>
+<div class="vocab-meaning">Cần thiết</div>
+<button class="vocab-audio" onclick="speakKorean('필요하다')"> Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title"> Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">필요해요 <button class="conjugation-audio" onclick="speakKorean('필요해요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">필요했어요 <button class="conjugation-audio" onclick="speakKorean('필요했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">필요할 거예요 <button class="conjugation-audio" onclick="speakKorean('필요할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">필요하십니다 <button class="conjugation-audio" onclick="speakKorean('필요하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">노력이 필요해요. <button class="example-audio" onclick="speakKorean('노력이 필요해요')">🔊</button></div>
+<div class="example-meaning">Cần có nỗ lực.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">3</span>
+<div class="vocab-main">
+<span class="vocab-korean">유용하다</span>
+<span class="vocab-pron">[yu-yong-ha-da]</span>
+</div>
+<div class="vocab-meaning">Hữu ích</div>
+<button class="vocab-audio" onclick="speakKorean('유용하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">유용해요 <button class="conjugation-audio" onclick="speakKorean('유용해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">유용했어요 <button class="conjugation-audio" onclick="speakKorean('유용했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">유용할 거예요 <button class="conjugation-audio" onclick="speakKorean('유용할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">유용하십니다 <button class="conjugation-audio" onclick="speakKorean('유용하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">이 정보가 유용해요. <button class="example-audio" onclick="speakKorean('이 정보가 유용해요')">🔊</button></div>
+<div class="example-meaning">Thông tin này hữu ích.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">4</span>
+<div class="vocab-main">
+<span class="vocab-korean">유익하다</span>
+<span class="vocab-pron">[yu-ik-ha-da]</span>
+</div>
+<div class="vocab-meaning">Bổ ích</div>
+<button class="vocab-audio" onclick="speakKorean('유익하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">유익해요 <button class="conjugation-audio" onclick="speakKorean('유익해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">유익했어요 <button class="conjugation-audio" onclick="speakKorean('유익했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">유익할 거예요 <button class="conjugation-audio" onclick="speakKorean('유익할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">유익하십니다 <button class="conjugation-audio" onclick="speakKorean('유익하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">책이 유익해요. <button class="example-audio" onclick="speakKorean('책이 유익해요')"></button></div>
+<div class="example-meaning">Sách bổ ích.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">5</span>
+<div class="vocab-main">
+<span class="vocab-korean">유명하다</span>
+<span class="vocab-pron">[yu-myeong-ha-da]</span>
+</div>
+<div class="vocab-meaning">Nổi tiếng</div>
+<button class="vocab-audio" onclick="speakKorean('유명하다')"> Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">유명해요 <button class="conjugation-audio" onclick="speakKorean('유명해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">유명했어요 <button class="conjugation-audio" onclick="speakKorean('유명했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">유명할 거예요 <button class="conjugation-audio" onclick="speakKorean('유명할 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">유명하십니다 <button class="conjugation-audio" onclick="speakKorean('유명하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국 음식이 유명해요. <button class="example-audio" onclick="speakKorean('한국 음식이 유명해요')">🔊</button></div>
+<div class="example-meaning">Đồ ăn Hàn Quốc nổi tiếng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">6</span>
+<div class="vocab-main">
+<span class="vocab-korean">독특하다</span>
+<span class="vocab-pron">[dok-teuk-ha-da]</span>
+</div>
+<div class="vocab-meaning">Độc đáo</div>
+<button class="vocab-audio" onclick="speakKorean('독특하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">독특해요 <button class="conjugation-audio" onclick="speakKorean('독특해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">독특했어요 <button class="conjugation-audio" onclick="speakKorean('독특했어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">독특할 거예요 <button class="conjugation-audio" onclick="speakKorean('독특할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">독특하십니다 <button class="conjugation-audio" onclick="speakKorean('독특하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한국의 풍습이 독특해요. <button class="example-audio" onclick="speakKorean('한국의 풍습이 독특해요')"></button></div>
+<div class="example-meaning">Phong tục Hàn Quốc độc đáo.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">7</span>
+<div class="vocab-main">
+<span class="vocab-korean">다양하다</span>
+<span class="vocab-pron">[da-yang-ha-da]</span>
+</div>
+<div class="vocab-meaning">Đa dạng</div>
+<button class="vocab-audio" onclick="speakKorean('다양하다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">다양해요 <button class="conjugation-audio" onclick="speakKorean('다양해요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">다양했어요 <button class="conjugation-audio" onclick="speakKorean('다양했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">다양할 거예요 <button class="conjugation-audio" onclick="speakKorean('다양할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">다양하십니다 <button class="conjugation-audio" onclick="speakKorean('다양하십니다')"></button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문화가 다양해요. <button class="example-audio" onclick="speakKorean('문화가 다양해요')">🔊</button></div>
+<div class="example-meaning">Văn hóa đa dạng.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">8</span>
+<div class="vocab-main">
+<span class="vocab-korean">특별하다</span>
+<span class="word-pron">[teuk-byeol-ha-da]</span>
+</div>
+<div class="word-meaning">Đặc biệt</div>
+<button class="word-audio" onclick="speakKorean('특별하다')"> Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title"> Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">특별해요 <button class="conjugation-audio" onclick="speakKorean('특별해요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">특별했어요 <button class="conjugation-audio" onclick="speakKorean('특별했어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">특별할 거예요 <button class="conjugation-audio" onclick="speakKorean('특별할 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">특별하십니다 <button class="conjugation-audio" onclick="speakKorean('특별하십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">명절이 특별해요. <button class="example-audio" onclick="speakKorean('명절이 특별해요')">🔊</button></div>
+<div class="example-meaning">Ngày lễ đặc biệt.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">9</span>
+<div class="vocab-main">
+<span class="vocab-korean">전통적이다</span>
+<span class="vocab-pron">[jeon-tong-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính truyền thống</div>
+<button class="vocab-audio" onclick="speakKorean('전통적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">전통적이에요 <button class="conjugation-audio" onclick="speakKorean('전통적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">전통적이었어요 <button class="conjugation-audio" onclick="speakKorean('전통적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">전통적일 거예요 <button class="conjugation-audio" onclick="speakKorean('전통적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">전통적이십니다 <button class="conjugation-audio" onclick="speakKorean('전통적이십니다')"></button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한복이 전통적이에요. <button class="example-audio" onclick="speakKorean('한복이 전통적이에요')">🔊</button></div>
+<div class="example-meaning">Hanbok mang tính truyền thống.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">10</span>
+<div class="vocab-main">
+<span class="vocab-korean">현대적이다</span>
+<span class="vocab-pron">[hyeon-dae-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính hiện đại</div>
+<button class="vocab-audio" onclick="speakKorean('현대적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">현대적이에요 <button class="conjugation-audio" onclick="speakKorean('현대적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">현대적이었어요 <button class="conjugation-audio" onclick="speakKorean('현대적이었어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">현대적일 거예요 <button class="conjugation-audio" onclick="speakKorean('현대적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">현대적이십니다 <button class="conjugation-audio" onclick="speakKorean('현대적이십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title"> Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">건물이 현대적이에요. <button class="example-audio" onclick="speakKorean('건물이 현대적이에요')">🔊</button></div>
+<div class="example-meaning">Tòa nhà mang tính hiện đại.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="subgroup">
+<div class="subgroup-title"> Chủ đề 2: Tính chất văn hóa</div>
+<div class="vocab-grid">
+
+<div class="vocab-card adj">
+<span class="vocab-number">11</span>
+<div class="vocab-main">
+<span class="vocab-korean">창의적이다</span>
+<span class="vocab-pron">[chang-ui-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Sáng tạo</div>
+<button class="vocab-audio" onclick="speakKorean('창의적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">창의적이에요 <button class="conjugation-audio" onclick="speakKorean('창의적이에요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">창의적이었어요 <button class="conjugation-audio" onclick="speakKorean('창의적이었어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">창의적일 거예요 <button class="conjugation-audio" onclick="speakKorean('창의적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">창의적이십니다 <button class="conjugation-audio" onclick="speakKorean('창의적이십니다')"></button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">예술이 창의적이에요. <button class="example-audio" onclick="speakKorean('예술이 창의적이에요')">🔊</button></div>
+<div class="example-meaning">Nghệ thuật sáng tạo.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">12</span>
+<div class="vocab-main">
+<span class="vocab-korean">과학적이다</span>
+<span class="vocab-pron">[gwa-hak-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính khoa học</div>
+<button class="vocab-audio" onclick="speakKorean('과학적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title"> Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">과학적이에요 <button class="conjugation-audio" onclick="speakKorean('과학적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">과학적이었어요 <button class="conjugation-audio" onclick="speakKorean('과학적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">과학적일 거예요 <button class="conjugation-audio" onclick="speakKorean('과학적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">과학적이십니다 <button class="conjugation-audio" onclick="speakKorean('과학적이십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">한글이 과학적이에요. <button class="example-audio" onclick="speakKorean('한글이 과학적이에요')"></button></div>
+<div class="example-meaning">Hangul mang tính khoa học.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">13</span>
+<div class="vocab-main">
+<span class="vocab-korean">예술적이다</span>
+<span class="vocab-pron">[ye-sul-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính nghệ thuật</div>
+<button class="vocab-audio" onclick="speakKorean('예술적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">예술적이에요 <button class="conjugation-audio" onclick="speakKorean('예술적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">예술적이었어요 <button class="conjugation-audio" onclick="speakKorean('예술적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">예술적일 거예요 <button class="conjugation-audio" onclick="speakKorean('예술적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">예술적이십니다 <button class="conjugation-audio" onclick="speakKorean('예술적이십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">작품이 예술적이에요. <button class="example-audio" onclick="speakKorean('작품이 예술적이에요')">🔊</button></div>
+<div class="example-meaning">Tác phẩm mang tính nghệ thuật.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">14</span>
+<div class="vocab-main">
+<span class="vocab-korean">역사적이다</span>
+<span class="vocab-pron">[yeok-sa-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính lịch sử</div>
+<button class="vocab-audio" onclick="speakKorean('역사적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">역사적이에요 <button class="conjugation-audio" onclick="speakKorean('역사적이에요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">역사적이었어요 <button class="conjugation-audio" onclick="speakKorean('역사적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">역사적일 거예요 <button class="conjugation-audio" onclick="speakKorean('역사적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">역사적이십니다 <button class="conjugation-audio" onclick="speakKorean('역사적이십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">장소가 역사적이에요. <button class="example-audio" onclick="speakKorean('장소가 역사적이에요')">🔊</button></div>
+<div class="example-meaning">Địa điểm mang tính lịch sử.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">15</span>
+<div class="vocab-main">
+<span class="vocab-korean">문화적이다</span>
+<span class="vocab-pron">[mun-hwa-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính văn hóa</div>
+<button class="vocab-audio" onclick="speakKorean('문화적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">문화적이에요 <button class="conjugation-audio" onclick="speakKorean('문화적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">문화적이었어요 <button class="conjugation-audio" onclick="speakKorean('문화적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">문화적일 거예요 <button class="conjugation-audio" onclick="speakKorean('문화적일 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">문화적이십니다 <button class="conjugation-audio" onclick="speakKorean('문화적이십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">행사가 문화적이에요. <button class="example-audio" onclick="speakKorean('행사가 문화적이에요')">🔊</button></div>
+<div class="example-meaning">Sự kiện mang tính văn hóa.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">16</span>
+<div class="vocab-main">
+<span class="vocab-korean">사회적이다</span>
+<span class="vocab-pron">[sa-hoe-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính xã hội</div>
+<button class="vocab-audio" onclick="speakKorean('사회적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">사회적이에요 <button class="conjugation-audio" onclick="speakKorean('사회적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">사회적이었어요 <button class="conjugation-audio" onclick="speakKorean('사회적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">사회적일 거예요 <button class="conjugation-audio" onclick="speakKorean('사회적일 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">사회적이십니다 <button class="conjugation-audio" onclick="speakKorean('사회적이십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">문제가 사회적이에요. <button class="example-audio" onclick="speakKorean('문제가 사회적이에요')">🔊</button></div>
+<div class="example-meaning">Vấn đề mang tính xã hội.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">17</span>
+<div class="vocab-main">
+<span class="vocab-korean">경제적이다</span>
+<span class="vocab-pron">[gyeong-je-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính kinh tế</div>
+<button class="vocab-audio" onclick="speakKorean('경제적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">경제적이에요 <button class="conjugation-audio" onclick="speakKorean('경제적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">경제적이었어요 <button class="conjugation-audio" onclick="speakKorean('경제적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">경제적일 거예요 <button class="conjugation-audio" onclick="speakKorean('경제적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">경제적이십니다 <button class="conjugation-audio" onclick="speakKorean('경제적이십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">정책이 경제적이에요. <button class="example-audio" onclick="speakKorean('정책이 경제적이에요')">🔊</button></div>
+<div class="example-meaning">Chính sách mang tính kinh tế.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">18</span>
+<div class="vocab-main">
+<span class="vocab-korean">정치적이다</span>
+<span class="vocab-pron">[jeong-chi-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính chính trị</div>
+<button class="vocab-audio" onclick="speakKorean('정치적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">정치적이에요 <button class="conjugation-audio" onclick="speakKorean('정치적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">정치적이었어요 <button class="conjugation-audio" onclick="speakKorean('정치적이었어요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">정치적일 거예요 <button class="conjugation-audio" onclick="speakKorean('정치적일 거예요')"></button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">정치적이십니다 <button class="conjugation-audio" onclick="speakKorean('정치적이십니다')">🔊</button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">상황이 정치적이에요. <button class="example-audio" onclick="speakKorean('상황이 정치적이에요')">🔊</button></div>
+<div class="example-meaning">Tình hình mang tính chính trị.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">19</span>
+<div class="vocab-main">
+<span class="vocab-korean">교육적이다</span>
+<span class="vocab-pron">[gyo-yuk-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính giáo dục</div>
+<button class="vocab-audio" onclick="speakKorean('교육적이다')">🔊 Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title">📝 Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">교육적이에요 <button class="conjugation-audio" onclick="speakKorean('교육적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">교육적이었어요 <button class="conjugation-audio" onclick="speakKorean('교육적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">교육적일 거예요 <button class="conjugation-audio" onclick="speakKorean('교육적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">교육적이십니다 <button class="conjugation-audio" onclick="speakKorean('교육적이십니다')"></button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">프로그램이 교육적이에요. <button class="example-audio" onclick="speakKorean('프로그램이 교육적이에요')">🔊</button></div>
+<div class="example-meaning">Chương trình mang tính giáo dục.</div>
+</div>
+</div>
+</div>
+
+<div class="vocab-card adj">
+<span class="vocab-number">20</span>
+<div class="vocab-main">
+<span class="vocab-korean">국제적이다</span>
+<span class="vocab-pron">[guk-je-jeok-i-da]</span>
+</div>
+<div class="vocab-meaning">Mang tính quốc tế</div>
+<button class="vocab-audio" onclick="speakKorean('국제적이다')"> Nghe</button>
+<div class="conjugation-box">
+<div class="conjugation-title"> Các thể</div>
+<div class="conjugation-grid">
+<div class="conjugation-item"><span class="conjugation-label">Hiện tại:</span><span class="conjugation-value">국제적이에요 <button class="conjugation-audio" onclick="speakKorean('국제적이에요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Quá khứ:</span><span class="conjugation-value">국제적이었어요 <button class="conjugation-audio" onclick="speakKorean('국제적이었어요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Tương lai:</span><span class="conjugation-value">국제적일 거예요 <button class="conjugation-audio" onclick="speakKorean('국제적일 거예요')">🔊</button></span></div>
+<div class="conjugation-item"><span class="conjugation-label">Kính ngữ:</span><span class="conjugation-value">국제적이십니다 <button class="conjugation-audio" onclick="speakKorean('국제적이십니다')"></button></span></div>
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">행사가 국제적이에요. <button class="example-audio" onclick="speakKorean('행사가 국제적이에요')">🔊</button></div>
+<div class="example-meaning">Sự kiện mang tính quốc tế.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="info-box">
+<div class="info-box-title">💡 Cách học từ vựng TOPIK 3-4 hiệu quả</div>
+<div class="info-box-content">
+<ul>
+<li><strong>Học theo nhóm:</strong> Mỗi ngày học 10-20 từ, chia thành danh từ, động từ, tính từ</li>
+<li><strong>Chia thể:</strong> Với động từ và tính từ, hãy học cả 4 thể (hiện tại, quá khứ, tương lai, kính ngữ)</li>
+<li><strong>Đặt câu:</strong> Mỗi từ đặt 1 câu ví dụ để nhớ ngữ cảnh</li>
+<li><strong>Nghe và lặp lại:</strong> Sử dụng audio để phát âm chuẩn</li>
+<li><strong>Ôn tập định kỳ:</strong> Ôn lại sau 1 ngày, 3 ngày, 1 tuần, 1 tháng</li>
+<li><strong>Ứng dụng thực tế:</strong> Sử dụng từ vựng khi nói về xã hội và văn hóa</li>
+</ul>
+</div>
+</div>
+
+<div class="flashcard-section">
+<h2> Flashcard ôn tập</h2>
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front"><div class="flashcard-char" id="flashcardChar">사회</div><div class="flashcard-hint">Click để xem nghĩa</div></div>
+<div class="flashcard-back"><div class="flashcard-meaning" id="flashcardMeaning">Xã hội</div><div class="flashcard-pron" id="flashcardPron">[sa-hoe]</div><button class="flashcard-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top:10px">🔊 Nghe</button></div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 80</div>
+</div>
+
+<div style="text-align:center;margin:40px 0">
+<a href="topics-vocabulary.html" class="back-btn">← Về danh sách từ vựng</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học từ vựng hiệu quả!</div>
+<div class="footer-quote">"Mỗi từ vựng mới là một cánh cửa mở ra thế giới mới"</div>
+</footer>
+
+<script>
+function createCherryBlossoms(){const c=document.getElementById('cherryContainer');const b=['🌸','','💮',''];setInterval(()=>{const b2=document.createElement('div');b2.className='cherry-blossom';b2.textContent=b[Math.floor(Math.random()*b.length)];b2.style.left=Math.random()*100+'vw';b2.style.animationDuration=(8+Math.random()*7)+'s';b2.style.fontSize=(15+Math.random()*15)+'px';c.appendChild(b2);setTimeout(()=>b2.remove(),15000)},2500)}
+createCherryBlossoms();
+function speakKorean(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ko-KR';u.rate=0.8;speechSynthesis.speak(u)}
+const flashcards=[
+{char:'사회',meaning:'Xã hội',pron:'[sa-hoe]'},{char:'공동체',meaning:'Cộng đồng',pron:'[gong-dong-che]'},{char:'계급',meaning:'Giai cấp',pron:'[gye-geup]'},{char:'계층',meaning:'Tầng lớp',pron:'[gye-cheung]'},{char:'민족',meaning:'Dân tộc',pron:'[min-jok]'},{char:'시민',meaning:'Công dân',pron:'[si-min]'},{char:'대중',meaning:'Đại chúng',pron:'[dae-jung]'},{char:'여론',meaning:'Dư luận',pron:'[yeo-ron]'},{char:'관습',meaning:'Tập quán',pron:'[gwan-seup]'},{char:'제도',meaning:'Thể chế',pron:'[je-do]'},{char:'문화',meaning:'Văn hóa',pron:'[mun-hwa]'},{char:'전통',meaning:'Truyền thống',pron:'[jeon-tong]'},{char:'풍습',meaning:'Phong tục',pron:'[pung-seup]'},{char:'예절',meaning:'Lễ nghi',pron:'[ye-jeol]'},{char:'관례',meaning:'Thông lệ',pron:'[gwan-rye]'},{char:'관행',meaning:'Thói quen',pron:'[gwan-haeng]'},{char:'문화유산',meaning:'Di sản văn hóa',pron:'[mun-hwa-yu-san]'},{char:'정체성',meaning:'Bản sắc',pron:'[jeong-che-seong]'},{char:'다양성',meaning:'Đa dạng',pron:'[da-yang-seong]'},{char:'명절',meaning:'Ngày lễ',pron:'[myeong-jeol]'},{char:'축제',meaning:'Lễ hội',pron:'[chuk-je]'},{char:'한복',meaning:'Hanbok',pron:'[han-bok]'},{char:'박물관',meaning:'Bảo tàng',pron:'[bang-mul-gwan]'},{char:'문화재',meaning:'Di tích',pron:'[mun-hwa-jae]'},{char:'유산',meaning:'Di sản',pron:'[yu-san]'},{char:'보존하다',meaning:'Bảo tồn',pron:'[bo-jon-ha-da]'},{char:'계승하다',meaning:'Kế thừa',pron:'[gye-seung-ha-da]'},{char:'발전하다',meaning:'Phát triển',pron:'[bal-jeon-ha-da]'},{char:'변화하다',meaning:'Thay đổi',pron:'[byeon-hwa-ha-da]'},{char:'참여하다',meaning:'Tham gia',pron:'[cham-yeo-ha-da]'},{char:'관람하다',meaning:'Tham quan',pron:'[gwan-ram-ha-da]'},{char:'공연하다',meaning:'Biểu diễn',pron:'[gong-yeon-ha-da]'},{char:'번역하다',meaning:'Dịch thuật',pron:'[beon-yeok-ha-da]'},{char:'연구하다',meaning:'Nghiên cứu',pron:'[yeon-gu-ha-da]'},{char:'발표하다',meaning:'Phát biểu',pron:'[bal-pyo-ha-da]'},{char:'보호하다',meaning:'Bảo vệ',pron:'[bo-ho-ha-da]'},{char:'지키다',meaning:'Giữ gìn',pron:'[ji-ki-da]'},{char:'전하다',meaning:'Truyền đạt',pron:'[jeon-ha-da]'},{char:'교육하다',meaning:'Giáo dục',pron:'[gyo-yuk-ha-da]'},{char:'학습하다',meaning:'Học tập',pron:'[hak-seup-ha-da]'},{char:'이해하다',meaning:'Hiểu',pron:'[i-hae-ha-da]'},{char:'존중하다',meaning:'Tôn trọng',pron:'[jon-jung-ha-da]'},{char:'실현하다',meaning:'Thực hiện',pron:'[sil-hyeon-ha-da]'},{char:'진행하다',meaning:'Tiến hành',pron:'[jin-haeng-ha-da]'},{char:'소개하다',meaning:'Giới thiệu',pron:'[so-gae-ha-da]'},{char:'표현하다',meaning:'Biểu đạt',pron:'[pyo-hyeon-ha-da]'},{char:'의사소통하다',meaning:'Giao tiếp',pron:'[ui-sa-so-tong-ha-da]'},{char:'토론하다',meaning:'Thảo luận',pron:'[to-ron-ha-da]'},{char:'협상하다',meaning:'Thương lượng',pron:'[hyeop-sang-ha-da]'},{char:'설득하다',meaning:'Thuyết phục',pron:'[seol-deuk-ha-da]'},{char:'비판하다',meaning:'Phê bình',pron:'[bi-pan-ha-da]'},{char:'평가하다',meaning:'Đánh giá',pron:'[pyeong-ga-ha-da]'},{char:'분석하다',meaning:'Phân tích',pron:'[bun-seok-ha-da]'},{char:'비교하다',meaning:'So sánh',pron:'[bi-gyo-ha-da]'},{char:'결론내리다',meaning:'Kết luận',pron:'[gyeol-lon-nae-ri-da]'},{char:'중요하다',meaning:'Quan trọng',pron:'[jung-yo-ha-da]'},{char:'필요하다',meaning:'Cần thiết',pron:'[pil-yo-ha-da]'},{char:'유용하다',meaning:'Hữu ích',pron:'[yu-yong-ha-da]'},{char:'유익하다',meaning:'Bổ ích',pron:'[yu-ik-ha-da]'},{char:'유명하다',meaning:'Nổi tiếng',pron:'[yu-myeong-ha-da]'},{char:'독특하다',meaning:'Độc đáo',pron:'[dok-teuk-ha-da]'},{char:'다양하다',meaning:'Đa dạng',pron:'[da-yang-ha-da]'},{char:'특별하다',meaning:'Đặc biệt',pron:'[teuk-byeol-ha-da]'},{char:'전통적이다',meaning:'Truyền thống',pron:'[jeon-tong-jeok-i-da]'},{char:'현대적이다',meaning:'Hiện đại',pron:'[hyeon-dae-jeok-i-da]'},{char:'창의적이다',meaning:'Sáng tạo',pron:'[chang-ui-jeok-i-da]'},{char:'과학적이다',meaning:'Khoa học',pron:'[gwa-hak-jeok-i-da]'},{char:'예술적이다',meaning:'Nghệ thuật',pron:'[ye-sul-jeok-i-da]'},{char:'역사적이다',meaning:'Lịch sử',pron:'[yeok-sa-jeok-i-da]'},{char:'문화적이다',meaning:'Văn hóa',pron:'[mun-hwa-jeok-i-da]'},{char:'사회적이다',meaning:'Xã hội',pron:'[sa-hoe-jeok-i-da]'},{char:'경제적이다',meaning:'Kinh tế',pron:'[gyeong-je-jeok-i-da]'},{char:'정치적이다',meaning:'Chính trị',pron:'[jeong-chi-jeok-i-da]'},{char:'교육적이다',meaning:'Giáo dục',pron:'[gyo-yuk-jeok-i-da]'},{char:'국제적이다',meaning:'Quốc tế',pron:'[guk-je-jeok-i-da]'}
+];
+let currentFlashcard=0;
+function updateFlashcard(){document.getElementById('flashcardChar').textContent=flashcards[currentFlashcard].char;document.getElementById('flashcardMeaning').textContent=flashcards[currentFlashcard].meaning;document.getElementById('flashcardPron').textContent=flashcards[currentFlashcard].pron;document.getElementById('flashcardCounter').textContent=(currentFlashcard+1)+' / '+flashcards.length;document.getElementById('flashcard').classList.remove('flipped')}
+function nextFlashcard(){currentFlashcard=(currentFlashcard+1)%flashcards.length;updateFlashcard()}
+function prevFlashcard(){currentFlashcard=(currentFlashcard-1+flashcards.length)%flashcards.length;updateFlashcard()}
+function shuffleFlashcards(){for(let i=flashcards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[flashcards[i],flashcards[j]]=[flashcards[j],flashcards[i]]}currentFlashcard=0;updateFlashcard()}
+</script>
+</body>
+</html>
