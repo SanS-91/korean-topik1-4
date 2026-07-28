@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ Nhóm 8: Trợ từ & Thán từ - TOPIK 1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand',sans-serif;background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 50%,#DDD6FE 100%);min-height:100vh;color:#4A5568;overflow-x:hidden}
+.cherry-blossom{position:fixed;top:-50px;font-size:20px;animation:fall linear infinite;pointer-events:none;z-index:1;opacity:.6}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}}
+.container{max-width:1400px;margin:0 auto;position:relative;z-index:2;padding:0 20px}
+.breadcrumb{padding:20px 0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-weight:600}
+.breadcrumb a{color:#7C3AED;text-decoration:none;transition:all .3s}
+.breadcrumb a:hover{color:#6D28D9}
+.breadcrumb-separator{color:#A78BFA}
+.breadcrumb-current{color:#4A5568;font-weight:700}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:white;color:#7C3AED;text-decoration:none;border-radius:25px;font-weight:700;box-shadow:0 4px 12px rgba(124,58,237,.12);transition:all .3s;margin-bottom:20px}
+.back-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(124,58,237,.2)}
+.hero{text-align:center;padding:60px 20px 70px;background:linear-gradient(135deg,rgba(124,58,237,.15) 0%,rgba(167,139,250,.1) 50%,rgba(221,214,254,.08) 100%);border-radius:30px;margin:20px 0 40px;position:relative;overflow:hidden}
+.hero::before{content:'✨';position:absolute;top:30px;left:5%;font-size:3em;animation:float 4s ease-in-out infinite}
+.hero::after{content:'💬';position:absolute;bottom:30px;right:5%;font-size:2.5em;animation:float 3.5s ease-in-out infinite}
+.badge{display:inline-block;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;padding:10px 30px;border-radius:50px;font-weight:700;margin-bottom:20px;font-size:1.05em;box-shadow:0 5px 15px rgba(124,58,237,.3)}
+.hero h1{font-family:'Baloo 2',cursive;font-size:3.2em;color:#6D28D9;margin-bottom:15px}
+.hero .subtitle{font-size:1.4em;color:#4A5568;font-weight:700;margin-bottom:15px}
+.hero .description{color:#718096;font-size:1.1em;max-width:800px;margin:0 auto;line-height:1.8}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin:-40px auto 40px;max-width:1000px;position:relative;z-index:3}
+.stat-card{background:white;border-radius:20px;padding:25px 15px;text-align:center;box-shadow:0 8px 25px rgba(124,58,237,.12);transition:all .3s}
+.stat-card:hover{transform:translateY(-8px);box-shadow:0 15px 35px rgba(124,58,237,.2)}
+.stat-icon{font-size:2.2em;margin-bottom:8px}
+.stat-value{font-family:'Baloo 2',cursive;font-size:2em;color:#7C3AED;font-weight:800}
+.stat-label{color:#718096;margin-top:5px;font-weight:600;font-size:.9em}
+.group-section{margin:60px 0}
+.group-header{padding:25px 30px;border-radius:20px;margin-bottom:30px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,.08);position:relative;background:linear-gradient(135deg,#E9D5FF 0%,#DDD6FE 100%);color:#5B21B6}
+.group-header h2{font-family:'Baloo 2',cursive;font-size:2em;margin-bottom:8px}
+.group-header p{font-size:1.05em;opacity:.9}
+.group-count{position:absolute;top:15px;right:20px;background:rgba(255,255,255,.5);padding:6px 16px;border-radius:20px;font-size:.9em;font-weight:700}
+.subgroup{margin:40px 0}
+.subgroup-title{font-family:'Baloo 2',cursive;font-size:1.5em;color:#6D28D9;margin-bottom:20px;padding:12px 20px;background:linear-gradient(90deg,#F3E8FF 0%,transparent 100%);border-left:5px solid #7C3AED;border-radius:10px}
+.grammar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:20px;margin:25px 0}
+.grammar-card{background:white;border-radius:20px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,.06);transition:all .3s;border:2px solid transparent;position:relative}
+.grammar-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(0,0,0,.1);border-color:#A78BFA}
+.grammar-number{position:absolute;top:12px;right:15px;background:linear-gradient(135deg,#7C3AED 0%,#8B5CF6 100%);color:white;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85em;box-shadow:0 2px 8px rgba(124,58,237,.3)}
+.grammar-main{display:flex;align-items:center;gap:12px;margin-bottom:15px;padding-right:45px}
+.grammar-name{font-family:'Baloo 2',cursive;font-size:1.6em;color:#6D28D9;font-weight:800}
+.grammar-level{color:#7C3AED;font-size:.85em;font-style:italic;background:#F3E8FF;padding:4px 12px;border-radius:8px;font-weight:600}
+.grammar-meaning{color:#4A5568;font-size:1.05em;font-weight:600;margin-bottom:15px;padding-bottom:12px;border-bottom:1px dashed #DDD6FE}
+.formula-box{background:linear-gradient(135deg,#F0F9FF 0%,#E0F2FE 100%);border-radius:12px;padding:15px;margin-bottom:15px;border:2px solid #7DD3FC}
+.formula-title{font-size:.85em;color:#0369A1;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.formula-content{background:white;padding:12px;border-radius:8px;font-family:'Courier New',monospace;font-size:1.05em;color:#0369A1;font-weight:700;text-align:center;line-height:1.6}
+.usage-box{background:linear-gradient(135deg,#FEF3C7 0%,#FDE68A 100%);border-radius:12px;padding:15px;margin-bottom:15px;border:2px solid #F59E0B}
+.usage-title{font-size:.85em;color:#92400E;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.usage-content{color:#78350F;line-height:1.6}
+.examples-box{margin-top:15px}
+.examples-title{font-size:.85em;color:#6D28D9;font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.example-item{background:linear-gradient(135deg,#ECFDF5 0%,#D1FAE5 100%);border-left:4px solid #10B981;padding:12px 15px;border-radius:10px;margin-bottom:10px}
+.example-korean{color:#065F46;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.example-meaning{color:#047857;font-style:italic;font-size:.95em}
+.example-audio{background:none;border:none;color:#10B981;cursor:pointer;font-size:1em;padding:2px;transition:all .2s}
+.example-audio:hover{color:#059669;transform:scale(1.2)}
+.info-box{background:linear-gradient(135deg,#F3E8FF 0%,#E9D5FF 100%);border-left:5px solid #7C3AED;padding:25px;border-radius:20px;margin:40px 0;box-shadow:0 5px 15px rgba(124,58,237,.1)}
+.info-box-title{font-family:'Baloo 2',cursive;color:#6D28D9;font-size:1.3em;margin-bottom:15px;display:flex;align-items:center;gap:10px}
+.info-box-content{color:#4A5568;line-height:1.8}
+footer{background:linear-gradient(135deg,#6C5B7B 0%,#C06C84 100%);color:white;text-align:center;padding:40px 20px;margin-top:60px;border-radius:30px 30px 0 0}
+.footer-text{font-size:1.2em;margin-bottom:10px}
+.footer-quote{font-style:italic;opacity:.9}
+@media(max-width:768px){
+.hero h1{font-size:2.2em}
+.grammar-grid{grid-template-columns:1fr}
+.group-header h2{font-size:1.5em}
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topics-grammar.html">📚 Ôn tập Ngữ pháp</a>
+<span class="breadcrumb-separator">›</span>
+<a href="grammar-topik1.html"> TOPIK 1</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">✨ Nhóm 8: Trợ từ & Thán từ</span>
+</nav>
+<a href="grammar-topik1.html" class="back-btn">← Về TOPIK 1</a>
+
+<div class="hero">
+<span class="badge">✨ NHÓM 8: TRỢ TỪ & THÁN TỪ</span>
+<h1>10 Mẫu Trợ Từ & Thán Từ Cơ Bản</h1>
+<div class="subtitle">Chủ ngữ, Tân ngữ, Đối tượng, Liên kết & Lời chào</div>
+<p class="description">
+Nắm vững các trợ từ cơ bản và thán từ thông dụng trong giao tiếp hàng ngày với <strong>10 mẫu ngữ pháp</strong> chi tiết.
+Đây là nhóm ngữ pháp nền tảng nhất, xuất hiện trong hầu hết mọi câu tiếng Hàn.
+Mỗi mẫu có <strong>công thức</strong>, <strong>cách dùng</strong>, <strong>ví dụ minh họa</strong> và
+<strong>audio</strong> phát âm chuẩn! ✨
+</p>
+</div>
+
+<div class="stats-grid">
+<div class="stat-card"><div class="stat-icon">📖</div><div class="stat-value">10</div><div class="stat-label">Mẫu ngữ pháp</div></div>
+<div class="stat-card"><div class="stat-icon">💬</div><div class="stat-value">20+</div><div class="stat-label">Ví dụ</div></div>
+<div class="stat-card"><div class="stat-icon">🎧</div><div class="stat-value">40+</div><div class="stat-label">Audio</div></div>
+<div class="stat-card"><div class="stat-icon">📦</div><div class="stat-value">3</div><div class="stat-label">Nhóm chức năng</div></div>
+</div>
+
+<!-- ============================================ -->
+<!-- TRỢ TỪ CHỦ NGỮ -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header">
+<h2>👤 Trợ từ chủ ngữ</h2>
+<p>2 trợ từ đánh dấu chủ ngữ của câu</p>
+<span class="group-count">2 mẫu</span>
+</div>
+
+<div class="grammar-grid">
+
+<div class="grammar-card">
+<span class="grammar-number">1</span>
+<div class="grammar-main">
+<span class="grammar-name">-이/가</span>
+<span class="grammar-level">Chủ ngữ xác định</span>
+</div>
+<div class="grammar-meaning">Đánh dấu chủ ngữ (nhấn mạnh chủ ngữ mới, chưa biết)</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 이 (có patchim)<br>
+Danh từ + 가 (không có patchim)
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title"> Cách dùng</div>
+<div class="usage-content">
+Đánh dấu chủ ngữ của câu, thường dùng khi giới thiệu thông tin mới hoặc nhấn mạnh chủ ngữ. Thường đi với các tính từ hoặc động từ chỉ trạng thái.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">사과가 맛있어요. <button class="example-audio" onclick="speakKorean('사과가 맛있어요')">🔊</button></div>
+<div class="example-meaning">Táo ngon.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">비가 와요. <button class="example-audio" onclick="speakKorean('비가 와요')">🔊</button></div>
+<div class="example-meaning">Trời mưa.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">2</span>
+<div class="grammar-main">
+<span class="grammar-name">-은/는</span>
+<span class="grammar-level">Chủ ngữ chủ đề</span>
+</div>
+<div class="grammar-meaning">Đánh dấu chủ đề của câu (thông tin đã biết)</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 은 (có patchim)<br>
+Danh từ + 는 (không có patchim)
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Đánh dấu chủ đề của câu, thường dùng khi nói về thông tin đã biết hoặc để so sánh, đối chiếu. Có thể dịch là "thì", "là", "còn".
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">저는 학생이에요. <button class="example-audio" onclick="speakKorean('저는 학생이에요')">🔊</button></div>
+<div class="example-meaning">Tôi là học sinh.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">사과는 맛있어요. <button class="example-audio" onclick="speakKorean('사과는 맛있어요')">🔊</button></div>
+<div class="example-meaning">Táo thì ngon.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- TRỢ TỪ TÂN NGỮ & ĐỐI TƯỢNG -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header">
+<h2>🎯 Trợ từ tân ngữ & đối tượng</h2>
+<p>3 trợ từ đánh dấu tân ngữ và đối tượng của hành động</p>
+<span class="group-count">3 mẫu</span>
+</div>
+
+<div class="grammar-grid">
+
+<div class="grammar-card">
+<span class="grammar-number">3</span>
+<div class="grammar-main">
+<span class="grammar-name">-을/를</span>
+<span class="grammar-level">Tân ngữ trực tiếp</span>
+</div>
+<div class="grammar-meaning">Đánh dấu tân ngữ trực tiếp của động từ</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 을 (có patchim)<br>
+Danh từ + 를 (không có patchim)
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title"> Cách dùng</div>
+<div class="usage-content">
+Đánh dấu tân ngữ trực tiếp (tân ngữ trực tiếp chịu tác động của động từ). Tương đương "cái gì", "ai" trong câu hỏi.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">밥을 먹어요. <button class="example-audio" onclick="speakKorean('밥을 먹어요')">🔊</button></div>
+<div class="example-meaning">Ăn cơm.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">물을 마셔요. <button class="example-audio" onclick="speakKorean('물을 마셔요')">🔊</button></div>
+<div class="example-meaning">Uống nước.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">4</span>
+<div class="grammar-main">
+<span class="grammar-name">-에게</span>
+<span class="grammar-level">Cho ai (trang trọng)</span>
+</div>
+<div class="grammar-meaning">Chỉ đối tượng nhận hành động (trang trọng)</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ (người) + 에게
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Chỉ đối tượng nhận hành động (cho ai, với ai). Dùng trong văn viết hoặc tình huống trang trọng. Chỉ dùng với người.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">친구에게 편지를 썼어요. <button class="example-audio" onclick="speakKorean('친구에게 편지를 썼어요')">🔊</button></div>
+<div class="example-meaning">Đã viết thư cho bạn.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">선생님께 질문했어요. <button class="example-audio" onclick="speakKorean('선생님께 질문했어요')"></button></div>
+<div class="example-meaning">Đã hỏi giáo viên.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">5</span>
+<div class="grammar-main">
+<span class="grammar-name">-한테</span>
+<span class="grammar-level">Cho ai (thân mật)</span>
+</div>
+<div class="grammar-meaning">Chỉ đối tượng nhận hành động (thân mật)</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ (người) + 한테
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Tương tự -에게 nhưng dùng trong văn nói thân mật, hàng ngày. Chỉ dùng với người.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">친구한테 전화했어요. <button class="example-audio" onclick="speakKorean('친구한테 전화했어요')"></button></div>
+<div class="example-meaning">Đã gọi điện cho bạn.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">동생한테 선물을 줬어요. <button class="example-audio" onclick="speakKorean('동생한테 선물을 줬어요')"></button></div>
+<div class="example-meaning">Đã tặng quà cho em.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- TRỢ TỪ LIÊN KẾT -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header">
+<h2>🔗 Trợ từ liên kết</h2>
+<p>2 trợ từ dùng để liệt kê, liên kết các danh từ</p>
+<span class="group-count">2 mẫu</span>
+</div>
+
+<div class="grammar-grid">
+
+<div class="grammar-card">
+<span class="grammar-number">6</span>
+<div class="grammar-main">
+<span class="grammar-name">-하고</span>
+<span class="grammar-level">Và, với (trang trọng)</span>
+</div>
+<div class="grammar-meaning">Liên kết danh từ (trang trọng hơn)</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 하고
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+Liên kết hai danh từ với nhau, tương đương "và", "với". Dùng trong cả văn nói và văn viết, mang tính trang trọng hơn -(이)랑.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">사과하고 바나나를 샀어요. <button class="example-audio" onclick="speakKorean('사과하고 바나나를 샀어요')">🔊</button></div>
+<div class="example-meaning">Đã mua táo và chuối.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">친구하고 영화를 봤어요. <button class="example-audio" onclick="speakKorean('친구하고 영화를 봤어요')"></button></div>
+<div class="example-meaning">Đã xem phim với bạn.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">7</span>
+<div class="grammar-main">
+<span class="grammar-name">-(이)랑</span>
+<span class="grammar-level">Và, với (thân mật)</span>
+</div>
+<div class="grammar-meaning">Liên kết danh từ (thân mật, văn nói)</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+Danh từ + 이랑 (có patchim)<br>
+Danh từ + 랑 (không có patchim)
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title"> Cách dùng</div>
+<div class="usage-content">
+Tương tự -하고 nhưng dùng trong văn nói thân mật, hàng ngày. Thường dùng khi nói chuyện với bạn bè, người thân.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">사과랑 바나나를 샀어요. <button class="example-audio" onclick="speakKorean('사과랑 바나나를 어요')">🔊</button></div>
+<div class="example-meaning">Đã mua táo và chuối.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">친구랑 영화를 봤어요. <button class="example-audio" onclick="speakKorean('친구랑 영화를 봤어요')">🔊</button></div>
+<div class="example-meaning">Đã xem phim với bạn.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- THÁN TỪ & LỜI CHÀO -->
+<!-- ============================================ -->
+<div class="group-section">
+<div class="group-header">
+<h2>💬 Thán từ & Lời chào</h2>
+<p>3 thán từ và lời chào cơ bản trong giao tiếp</p>
+<span class="group-count">3 mẫu</span>
+</div>
+
+<div class="grammar-grid">
+
+<div class="grammar-card">
+<span class="grammar-number">8</span>
+<div class="grammar-main">
+<span class="grammar-name">네 / 아니요</span>
+<span class="grammar-level">Vâng / Không</span>
+</div>
+<div class="grammar-meaning">Câu trả lời khẳng định và phủ định</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+네 = Vâng, đúng (khẳng định)<br>
+아니요 = Không, không phải (phủ định)<br>
+<br>
+• 네: Dùng để đồng ý, xác nhận<br>
+• 아니요: Dùng để từ chối, phủ định
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title"> Cách dùng</div>
+<div class="usage-content">
+• `네`: Trả lời khẳng định, đồng ý với câu hỏi hoặc yêu cầu.<br>
+• `아니요`: Trả lời phủ định, từ chối. Trong văn nói thân mật có thể nói ngắn gọn là "아니".
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">네, 맞아요. <button class="example-audio" onclick="speakKorean('네, 맞아요')">🔊</button></div>
+<div class="example-meaning">Vâng, đúng rồi.</div>
+</div>
+<div class="example-item">
+<div class="example-korean">아니요, 아니에요. <button class="example-audio" onclick="speakKorean('아니요, 아니에요')">🔊</button></div>
+<div class="example-meaning">Không, không phải.</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">9</span>
+<div class="grammar-main">
+<span class="grammar-name">안녕하세요 / 안녕히 가세요</span>
+<span class="grammar-level">Xin chào / Tạm biệt</span>
+</div>
+<div class="grammar-meaning">Lời chào hỏi và tạm biệt cơ bản</div>
+<div class="formula-box">
+<div class="formula-title">📐 Công thức</div>
+<div class="formula-content">
+안녕하세요 = Xin chào (khi gặp mặt)<br>
+안녕히 가세요 = Tạm biệt (nói với người ra đi)<br>
+안녕히 계세요 = Tạm biệt (nói với người ở lại)
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+• `안녕하세요`: Dùng khi gặp mặt, chào hỏi.<br>
+• `안녕히 가세요`: Nói với người RA ĐI (người đi nói với người ở lại).<br>
+• `안녕히 계세요`: Nói với người Ở LẠI (người ở lại nói với người đi).
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">안녕하세요, 선생님! <button class="example-audio" onclick="speakKorean('안녕하세요, 선생님!')">🔊</button></div>
+<div class="example-meaning">Xin chào thầy/cô!</div>
+</div>
+<div class="example-item">
+<div class="example-korean">안녕히 가세요! <button class="example-audio" onclick="speakKorean('안녕히 가세요!')">🔊</button></div>
+<div class="example-meaning">Tạm biệt! (chúc đi bình an)</div>
+</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<span class="grammar-number">10</span>
+<div class="grammar-main">
+<span class="grammar-name">감사합니다 / 죄송합니다</span>
+<span class="grammar-level">Cảm ơn / Xin lỗi</span>
+</div>
+<div class="grammar-meaning">Lời cảm ơn và xin lỗi trang trọng</div>
+<div class="formula-box">
+<div class="formula-title"> Công thức</div>
+<div class="formula-content">
+감사합니다 = Cảm ơn (trang trọng)<br>
+고마워요 = Cảm ơn (thân mật)<br>
+죄송합니다 = Xin lỗi (trang trọng)<br>
+미안해요 = Xin lỗi (thân mật)
+</div>
+</div>
+<div class="usage-box">
+<div class="usage-title">💡 Cách dùng</div>
+<div class="usage-content">
+• `감사합니다/고마워요`: Dùng để cảm ơn. `감사합니다` trang trọng hơn.<br>
+• `죄송합니다/미안해요`: Dùng để xin lỗi. `죄송합니다` trang trọng hơn, dùng khi mắc lỗi nghiêm trọng.
+</div>
+</div>
+<div class="examples-box">
+<div class="examples-title">💬 Ví dụ</div>
+<div class="example-item">
+<div class="example-korean">감사합니다! <button class="example-audio" onclick="speakKorean('감사합니다!')"></button></div>
+<div class="example-meaning">Cảm ơn ạ!</div>
+</div>
+<div class="example-item">
+<div class="example-korean">죄송합니다, 늦었어요. <button class="example-audio" onclick="speakKorean('죄송합니다, 늦었어요')">🔊</button></div>
+<div class="example-meaning">Xin lỗi, tôi đến muộn.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="info-box">
+<div class="info-box-title"> Tóm tắt Trợ từ & Thán từ</div>
+<div class="info-box-content">
+<strong>Trợ từ chủ ngữ:</strong><br>
+• -이/가: Chủ ngữ xác định (사과가 맛있어요 - Táo ngon)<br>
+• -은/는: Chủ ngữ chủ đề (저는 학생이에요 - Tôi là học sinh)<br><br>
+<strong>Trợ từ tân ngữ & đối tượng:</strong><br>
+• -을/를: Tân ngữ trực tiếp (밥을 먹어요 - Ăn cơm)<br>
+• -에게: Cho ai (trang trọng) (친구에게 편지를 썼어요 - Viết thư cho bạn)<br>
+• -한테: Cho ai (thân mật) (친구한테 전화했어요 - Gọi điện cho bạn)<br><br>
+<strong>Trợ từ liên kết:</strong><br>
+• -하고: Và, với (trang trọng) (사과하고 바나나 - Táo và chuối)<br>
+• -(이)랑: Và, với (thân mật) (친구랑 영화 - Phim với bạn)<br><br>
+<strong>Thán từ & Lời chào cơ bản:</strong><br>
+• 네 / 아니요: Vâng / Không<br>
+• 안녕하세요 / 안녕히 가세요 / 안녕히 계세요: Xin chào / Tạm biệt<br>
+• 감사합니다 / 죄송합니다: Cảm ơn / Xin lỗi (trang trọng)
+</div>
+</div>
+
+<div style="text-align:center;margin:40px 0">
+<a href="grammar-topik1.html" class="back-btn">← Về TOPIK 1</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰 Chúc bạn học ngữ pháp TOPIK 1 hiệu quả!</div>
+<div class="footer-quote">"Mỗi ngữ pháp mới là một bước tiến trên con đường chinh phục tiếng Hàn"</div>
+</footer>
+
+<script>
+function createCherryBlossoms(){const c=document.getElementById('cherryContainer');const b=['','','💮','🌼'];setInterval(()=>{const b2=document.createElement('div');b2.className='cherry-blossom';b2.textContent=b[Math.floor(Math.random()*b.length)];b2.style.left=Math.random()*100+'vw';b2.style.animationDuration=(8+Math.random()*7)+'s';b2.style.fontSize=(15+Math.random()*15)+'px';c.appendChild(b2);setTimeout(()=>b2.remove(),15000)},2500)}
+createCherryBlossoms();
+function speakKorean(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ko-KR';u.rate=0.8;speechSynthesis.speak(u)}
+</script>
+</body>
+</html>
