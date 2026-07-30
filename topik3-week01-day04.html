@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 4: Luyện viết câu & Tổng hợp ngữ pháp - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #E8F5E9 0%, #FFF5E4 50%, #E3F2FD 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #38A169; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #2F855A; }
+.breadcrumb-separator { color: #68D391; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #38A169; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(56,161,105,0.15); transition: all 0.3s; border: 2px solid #9AE6B4; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(56,161,105,0.25); background: #F0FFF4; }
+.nav-btn.primary { background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(168,230,207,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '✍️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #2F855A; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #38A169; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(56,161,105,0.15); }
+
+/* Section Styling */
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 25px; margin: 25px 0; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; box-shadow: 0 6px 20px rgba(59,130,246,0.1); }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example-box { background: white; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #10B981; }
+.grammar-example-korean { color: #065F46; font-weight: 700; font-size: 1.1em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.grammar-example-meaning { color: #718096; font-style: italic; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+/* Grammar Summary Box */
+.grammar-summary { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border: 2px solid #0EA5E9; border-radius: 20px; padding: 25px; margin-top: 30px; }
+.grammar-summary h3 { font-family: 'Baloo 2', cursive; color: #0369A1; font-size: 1.3em; margin-bottom: 15px; }
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+.summary-item { background: white; padding: 12px; border-radius: 10px; border-left: 4px solid #0EA5E9; }
+.summary-item strong { color: #0369A1; font-size: 1.05em; }
+.summary-item p { color: #4A5568; font-size: 0.95em; margin-top: 5px; }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 200px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 15px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.char-counter { text-align: right; color: #718096; font-size: 0.9em; margin-top: 10px; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #1E40AF; background: #EFF6FF; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+
+/* Pronunciation Section - Pink */
+.pronunciation-section .section-title { color: #BE185D; border-color: #EC4899; }
+.pronunciation-box { background: linear-gradient(135deg, #FDF2F8 0%, #FBCFE8 100%); border: 2px solid #EC4899; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.pronunciation-list { list-style: none; }
+.pronunciation-item { background: white; padding: 15px; border-radius: 12px; margin: 10px 0; display: flex; align-items: center; gap: 15px; cursor: pointer; transition: all 0.3s; border: 2px solid #FBCFE8; }
+.pronunciation-item:hover { transform: translateX(5px); border-color: #EC4899; }
+.pronunciation-item.checked { background: #F0FFF4; border-color: #10B981; }
+.pronunciation-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: #EC4899; cursor: pointer; }
+.pronunciation-item.checked input[type="checkbox"] { accent-color: #10B981; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #38A169; border: 2px solid #9AE6B4; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F0FFF4; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+.speak-btn { background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9em; transition: all 0.3s; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(56,161,105,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.summary-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week01.html">📖 Tuần 1</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 4: Viết câu & Tổng hợp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week01.html" class="nav-btn">← Về Tổng quan Tuần 1</a>
+<a href="topik3-week01-day05.html" class="nav-btn primary">Ngày 5 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">✍️ NGÀY 4 • 4일차</span>
+<h1>Luyện viết câu & Tổng hợp ngữ pháp</h1>
+<div class="subtitle">Nâng cao kỹ năng viết và tổng hợp 6 cấu trúc ngữ pháp</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp cuối cùng: <strong>-기 마련이다</strong> (chắc chắn) và <strong>-아/어 두다</strong> (làm sẵn). 
+Luyện viết 5-7 câu phức tạp kết hợp đa dạng ngữ pháp và đọc hiểu bài "Kế hoạch học tập". 
+</p>
+<div class="time-info">⏰ 60 phút • 📝 2 ngữ pháp • ✍️ Viết câu phức • 📖 Đọc hiểu</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ngữ pháp mới (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3 câu cho mỗi cấu trúc • So sánh với ngữ pháp đã học</p>
+
+<div class="grammar-grid">
+<!-- Grammar 1: -기 마련이다 -->
+<div class="grammar-card">
+<div class="grammar-title"> -기 마련이다 (Chắc chắn, thế nào cũng)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả một sự thật hiển nhiên, điều gì đó chắc chắn sẽ xảy ra theo quy luật tự nhiên hoặc lẽ thường. Mang nghĩa "thế nào cũng", "chắc chắn là".
+</div>
+<div class="grammar-formula">
+Động từ/Tính từ + -기 마련이다<br>
+• Động từ/Tính từ có patchim: + 기 마련이다<br>
+• Động từ/Tính từ không patchim: + 기 마련이다
+</div>
+<div class="grammar-example-box">
+<div class="grammar-example-korean">열심히 하면 성공하기 마련이에요. <button class="speak-btn" onclick="speakKorean('열심히 하면 성공하기 마련이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nếu cố gắng thì thế nào cũng thành công.</div>
+</div>
+<div class="grammar-example-box">
+<div class="grammar-example-korean">좋은 습관을 들이면 건강해지기 마련이에요. <button class="speak-btn" onclick="speakKorean('좋은 습관을 들이면 건강해지기 마련이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nếu tạo thói quen tốt thì chắc chắn sẽ khỏe mạnh.</div>
+</div>
+<div class="grammar-example-box">
+<div class="grammar-example-korean">시간이 지나면 잊기 마련이에요. <button class="speak-btn" onclick="speakKorean('시간이 지나면 잊기 마련이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Thời gian trôi qua thì thế nào cũng quên.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -기 마련이다 = "Theo quy luật thì chắc chắn..." → Dùng cho chân lý, lẽ thường.
+</div>
+</div>
+
+<!-- Grammar 2: -아/어 두다 -->
+<div class="grammar-card">
+<div class="grammar-title">📌 -아/어 두다 (Làm sẵn, giữ nguyên trạng thái)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả việc thực hiện một hành động trước và giữ nguyên kết quả đó để sử dụng sau này. Tương tự như "-아/어 놓다" nhưng mang sắc thái trang trọng hơn, thường dùng trong văn viết.
+</div>
+<div class="grammar-formula">
+Động từ + -아/어 두다<br>
+• Nguyên âm cuối là ㅏ, ㅗ: + -아 두다<br>
+• Các nguyên âm khác: + -어 두다
+</div>
+<div class="grammar-example-box">
+<div class="grammar-example-korean">티켓을 사 두었어요. <button class="speak-btn" onclick="speakKorean('티켓을 사 두었어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi đã mua sẵn vé rồi.</div>
+</div>
+<div class="grammar-example-box">
+<div class="grammar-example-korean">수업 자료를 준비해 두었어요. <button class="speak-btn" onclick="speakKorean('수업 자료를 준비해 두었어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi đã chuẩn bị sẵn tài liệu học.</div>
+</div>
+<div class="grammar-example-box">
+<div class="grammar-example-korean">비밀번호를 적어 두세요. <button class="speak-btn" onclick="speakKorean('비밀번호를 적어 두세요.', this)"></button></div>
+<div class="grammar-example-meaning">Hãy ghi sẵn mật khẩu ra nhé.</div>
+</div>
+<div class="grammar-note">
+<strong>⚠️ So sánh:</strong><br>
+• <strong>-아/어 놓다:</strong> Văn nói, thân mật (Tôi đã làm sẵn rồi).<br>
+• <strong>-아/어 두다:</strong> Văn viết, trang trọng hơn (Tôi đã chuẩn bị sẵn).<br>
+→ Cả hai đều có nghĩa "làm sẵn", có thể thay thế cho nhau trong nhiều trường hợp.
+</div>
+</div>
+</div>
+
+<!-- Grammar Summary -->
+<div class="grammar-summary">
+<h3>📚 Tổng hợp 6 cấu trúc ngữ pháp Tuần 1</h3>
+<div class="summary-grid">
+<div class="summary-item">
+<strong>1. -는 편이다</strong>
+<p>Có xu hướng, thường là<br><em>저는 일찍 일어나는 편이에요.</em></p>
+</div>
+<div class="summary-item">
+<strong>2. -는 중이다</strong>
+<p>Đang trong quá trình<br><em>지금 공부하는 중이에요.</em></p>
+</div>
+<div class="summary-item">
+<strong>3. -아/어 보이다</strong>
+<p>Có vẻ như, trông có vẻ<br><em>그 사람이 친절해 보여요.</em></p>
+</div>
+<div class="summary-item">
+<strong>4. -아/어 놓다</strong>
+<p>Làm sẵn (văn nói)<br><em>과제를 해 놓았어요.</em></p>
+</div>
+<div class="summary-item">
+<strong>5. -는 김에</strong>
+<p>Nhân tiện, tiện thể<br><em>도서관에 가는 김에 책을 빌렸어요.</em></p>
+</div>
+<div class="summary-item">
+<strong>6. -는 바람에</strong>
+<p>Do...nên (bất ngờ, tiêu cực)<br><em>비가 오는 바람에 못 갔어요.</em></p>
+</div>
+<div class="summary-item">
+<strong>7. -기 마련이다</strong>
+<p>Chắc chắn, thế nào cũng<br><em>열심히 하면 성공하기 마련이에요.</em></p>
+</div>
+<div class="summary-item">
+<strong>8. -아/어 두다</strong>
+<p>Làm sẵn (văn viết)<br><em>티켓을 사 두었어요.</em></p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 2. Luyện viết câu phức tạp (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5-7 câu phức tạp về chủ đề "Kế hoạch học tập của tôi". Mỗi câu phải kết hợp ít nhất 3 cấu trúc ngữ pháp và dài 15-20 từ.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Yêu cầu bài viết:</strong><br>
+• <strong>Số lượng:</strong> 5-7 câu phức tạp<br>
+• <strong>Độ dài:</strong> 15-20 từ/câu<br>
+• <strong>Ngữ pháp:</strong> Kết hợp ít nhất 3 cấu trúc/câu (trong 8 cấu trúc đã học)<br>
+• <strong>Chủ đề:</strong> Kế hoạch học tập, thói quen học tập, mục tiêu của bạn
+</div>
+
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #8B5CF6;">
+<strong style="color: #5B21B6;">💡 Ví dụ mẫu (Kết hợp 3 ngữ pháp):</strong>
+<p style="color: #4A5568; margin-top: 10px; line-height: 1.8;">
+<strong>Câu 1:</strong> 시간을 <span style="color: #1E40AF; font-weight: 700;">잘 관리해 두면</span> (-아/어 두다) 좋은 습관이 <span style="color: #1E40AF; font-weight: 700;">들기 마련이고</span> (-기 마련이다), 여유 있는 생활을 <span style="color: #1E40AF; font-weight: 700;">하는 편이에요</span> (-는 편이다).<br>
+<em style="color: #718096;">(Nếu quản lý thời gian tốt thì thế nào cũng tạo được thói quen tốt, và tôi thường có cuộc sống thư thái.)</em>
+</p>
+<p style="color: #4A5568; line-height: 1.8;">
+<strong>Câu 2:</strong> 친구와 같이 <span style="color: #1E40AF; font-weight: 700;">공부하는 김에</span> (-는 김에) 질문도 하고, 컴퓨터가 <span style="color: #1E40AF; font-weight: 700;">고장나는 바람에</span> (-는 바람에) 못 한 과제도 <span style="color: #1E40AF; font-weight: 700;">해 두었어요</span> (-아/어 두다).<br>
+<em style="color: #718096;">(Nhân tiện học cùng bạn, tôi đã hỏi luôn và làm sẵn bài tập chưa làm được do máy tính bị hỏng.)</em>
+</p>
+</div>
+
+<textarea class="writing-textarea" id="writingArea" placeholder="Viết 5-7 câu phức tạp của bạn vào đây...
+
+Gợi ý bắt đầu:
+1. 저는 매일 아침 일찍 일어나는 편이고, ...
+2. 도서관에 가는 김에 ...
+3. 계획을 세워 두면 ...
+4. ..."></textarea>
+<div class="char-counter" id="charCounter">0 ký tự</div>
+
+<div class="writing-tips">
+<strong> Mẹo viết câu phức tạp TOPIK 3:</strong><br>
+• Sử dụng từ nối: <strong>-고</strong> (và), <strong>-지만</strong> (nhưng), <strong>-아서/어서</strong> (vì...nên), <strong>-면</strong> (nếu)<br>
+• Kết hợp ngữ pháp chỉ thời gian/trạng thái: <strong>-는 중이다</strong>, <strong>-아/어 두다</strong><br>
+• Kết hợp ngữ pháp chỉ nguyên nhân/kết quả: <strong>-는 바람에</strong>, <strong>-기 마련이다</strong><br>
+• Kiểm tra lại: Mỗi câu đã đủ 15-20 từ chưa? Đã dùng 3 ngữ pháp chưa?
+</div>
+
+<button class="nav-btn primary" onclick="checkWriting()" style="margin-top: 15px;">✓ Kiểm tra bài viết</button>
+<div id="writing-feedback" style="margin-top: 15px; padding: 15px; border-radius: 12px; display: none;"></div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to 2 lần • Gạch chân từ vựng và ngữ pháp • Phân tích cấu trúc câu • Hiểu nội dung chính</p>
+
+<div class="reading-box">
+<h3 style="font-family: 'Baloo 2', cursive; color: #C05621; margin-bottom: 15px; font-size: 1.3em;">📚 학습 계획 (Kế hoạch học tập)</h3>
+
+<div class="reading-text">
+<p>저는 이번 학기에 한국어를 열심히 <span class="grammar-highlight">공부하는 중</span>이에요. 매일 아침 7시에 일어나는 <span class="grammar-highlight">편</span>이고, 도서관에서 <span class="strong">공부</span>해 <span class="grammar-highlight">두</span>어요. 시간이 없으면 스트레스를 받기 <span class="grammar-highlight">마련</span>이에요. 그래서 계획을 세워 <span class="grammar-highlight">놓</span>아요.</p>
+
+<p>친구와 같이 <span class="grammar-highlight">공부하는 김에</span> 질문도 해요. 컴퓨터가 고장나는 <span class="grammar-highlight">바람에</span> 과제를 못 할 때도 있지만, 미리 해 <span class="grammar-highlight">두</span>면 괜찮아요. 좋은 <span class="strong">습관</span>을 들이면 성적이 좋아지기 <span class="grammar-highlight">마련</span>이에요.</p>
+
+<p>저는 매일 단어를 10개씩 외워 <span class="grammar-highlight">두</span>어요. 시험 전에 복습하는 <span class="grammar-highlight">김에</span> 친구에게 퀴즈도 내요. 생활 <span class="strong">패턴</span>을 <span class="strong">규칙</span>적으로 유지하면 <span class="strong">여유</span> 있는 시간을 가질 수 있어요. <span class="strong">효율적</span>으로 공부하려면 계획을 잘 세워야 해요.</p>
+</div>
+
+<div style="margin-top: 20px;">
+<button class="nav-btn primary" onclick="speakKorean('저는 이번 학기에 한국어를 열심히 공부하는 중이에요. 매일 아침 7시에 일어나는 편이고, 도서관에서 공부해 두어요. 시간이 없으면 스트레스를 받기 마련이에요. 그래서 계획을 세워 놓아요. 친구와 같이 공부하는 김에 질문도 해요. 컴퓨터가 고장나는 바람에 과제를 못 할 때도 있지만, 미리 해 두면 괜찮아요. 좋은 습관을 들이면 성적이 좋아지기 마련이에요. 저는 매일 단어를 10개씩 외워 두어요. 시험 전에 복습하는 김에 친구에게 퀴즈도 내요. 생활 패턴을 규칙적으로 유지하면 여유 있는 시간을 가질 수 있어요. 효율적으로 공부하려면 계획을 잘 세워야 해요.', this)" style="width: 100%;">🔊 Nghe toàn bộ bài đọc</button>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng đã học xuất hiện:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+공부 (học tập), 습관 (thói quen), 패턴 (mô hình), 규칙 (quy tắc), 여유 (thư thái), 효율적 (hiệu quả), 계획 (kế hoạch), 성적 (thành tích), 단어 (từ vựng), 시험 (kỳ thi)
+</p>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng trong bài:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+• <strong>-는 중이다:</strong> 공부하는 중이에요 (đang học)<br>
+• <strong>-는 편이다:</strong> 일어나는 편이고 (thường dậy sớm)<br>
+• <strong>-아/어 두다:</strong> 공부해 두어요, 외워 두어요 (học sẵn, thuộc sẵn)<br>
+• <strong>-기 마련이다:</strong> 받기 마련이에요, 좋아지기 마련이에요 (chắc chắn sẽ)<br>
+• <strong>-아/어 놓다:</strong> 세워 놓아요 (lập sẵn)<br>
+• <strong>-는 김에:</strong> 공부하는 김에, 복습하는 김에 (nhân tiện)<br>
+• <strong>-는 바람에:</strong> 고장나는 바람에 (do...nên)
+</p>
+</div>
+
+<div class="analysis-item">
+<strong>💡 Cách đọc hiệu quả:</strong>
+<ol style="color: #78350F; margin-left: 20px; line-height: 1.8;">
+<li><strong>Đọc chậm, phát âm rõ:</strong> Đặc biệt chú ý các từ có patchim kép (읽다, 없으면)</li>
+<li><strong>Ngắt nghỉ đúng chỗ:</strong> Sau mỗi câu (.), nghỉ 1-2 giây; sau mỗi đoạn, nghỉ 3-4 giây</li>
+<li><strong>Nhấn mạnh ngữ pháp:</strong> Đọc rõ các đuôi ngữ pháp (-는 편이고, -아/어 두다)</li>
+<li><strong>Đọc lại 2-3 lần:</strong> Lần 1 đọc chậm, lần 2 đọc tự nhiên, lần 3 đọc với cảm xúc</li>
+</ol>
+</div>
+
+<div class="analysis-item">
+<strong>🎯 Tóm tắt nội dung:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>kế hoạch học tập tiếng Hàn</strong> của tác giả trong học kỳ này. Tác giả dậy sớm lúc 7h, học ở thư viện, lập kế hoạch sẵn sàng. Tác giả học cùng bạn, tận dụng thời gian để hỏi bài, và chuẩn bị trước bài tập để tránh rủi ro (máy tính hỏng). Tác giả tin rằng tạo thói quen tốt sẽ giúp thành tích cải thiện, và duy trì mô hình sinh hoạt quy tắc sẽ mang lại cuộc sống thư thái, hiệu quả.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Pronunciation Section -->
+<div class="section pronunciation-section">
+<h2 class="section-title">🗣️ 4. Tự sửa phát âm (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to bài viết của bạn và bài đọc "학습 계획". Kiểm tra phát âm theo checklist bên dưới.</p>
+
+<div class="pronunciation-box">
+<h3 style="font-family: 'Baloo 2', cursive; color: #BE185D; margin-bottom: 15px;"> Checklist tự sửa phát âm</h3>
+<p style="color: #718096; margin-bottom: 15px;">Đọc to từng mục và tự đánh dấu khi bạn phát âm chuẩn:</p>
+
+<ul class="pronunciation-list">
+<li class="pronunciation-item" onclick="togglePronunciation(this)">
+<input type="checkbox">
+<span><strong>1. Patchim kép:</strong> 읽다 [익다], 없으면 [업스면], 값 [갑]</span>
+</li>
+<li class="pronunciation-item" onclick="togglePronunciation(this)">
+<input type="checkbox">
+<span><strong>2. Nối âm (연음):</strong> 공부해 두어요 [공부해 두어요], 일어나는 편이고 [일어나는 편이고]</span>
+</li>
+<li class="pronunciation-item" onclick="togglePronunciation(this)">
+<input type="checkbox">
+<span><strong>3. Trọng âm câu:</strong> Nhấn mạnh vào động từ/tính từ ở cuối câu</span>
+</li>
+<li class="pronunciation-item" onclick="togglePronunciation(this)">
+<input type="checkbox">
+<span><strong>4. Ngữ điệu câu hỏi:</strong> Lên giọng ở cuối câu hỏi (ví dụ: 퀴즈도 내요?)</span>
+</li>
+<li class="pronunciation-item" onclick="togglePronunciation(this)">
+<input type="checkbox">
+<span><strong>5. Tốc độ đọc:</strong> Đọc với tốc độ vừa phải, không quá nhanh cũng không quá chậm</span>
+</li>
+<li class="pronunciation-item" onclick="togglePronunciation(this)">
+<input type="checkbox">
+<span><strong>6. Cảm xúc:</strong> Thể hiện sự tự tin và rõ ràng khi đọc</span>
+</li>
+</ul>
+
+<div style="background: white; padding: 15px; border-radius: 12px; margin-top: 20px; border-left: 4px solid #EC4899;">
+<strong style="color: #BE185D;">💡 Mẹo cải thiện phát âm:</strong>
+<p style="color: #718096; margin-top: 10px; line-height: 1.7;">
+• Ghi âm lại giọng đọc của bạn và nghe lại<br>
+• So sánh với audio mẫu để tìm điểm khác biệt<br>
+• Tập trung vào các từ khó phát âm (patchim kép, nối âm)<br>
+• Luyện đọc to ít nhất 3 lần mỗi ngày
+</p>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 4</h2>
+<ul class="goals-list">
+<li>Hiểu và sử dụng được 2 cấu trúc ngữ pháp cuối (-기 마련이다, -아/어 두다)</li>
+<li>Viết được 5-7 câu phức tạp (15-20 từ/câu) kết hợp 3+ cấu trúc ngữ pháp</li>
+<li>Sử dụng linh hoạt tất cả 6-8 cấu trúc ngữ pháp đã học trong tuần</li>
+<li>Đọc hiểu bài "학습 계획" và nắm được nội dung chính</li>
+<li>Tự sửa được phát âm khi đọc to bài viết và bài đọc</li>
+<li>Thuộc và vận dụng được 35 từ vựng trọng tâm của Tuần 1</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week01.html" class="day-nav-btn">← Về Hub Tuần 1</a>
+<a href="topik3-week01-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week01-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week01-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week01-day04.html" class="day-nav-btn active">Ngày 4 ✓</a>
+<a href="topik3-week01-day05.html" class="day-nav-btn">Ngày 5 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week01-day03.html" class="nav-btn">← Ngày 3</a>
+<a href="topik3-week01-day05.html" class="nav-btn primary">Tiếp: Ngày 5 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Học tập là hạt giống, kiến thức là cây, thành công là quả"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Character counter for writing
+const writingArea = document.getElementById('writingArea');
+const charCounter = document.getElementById('charCounter');
+
+writingArea.addEventListener('input', function() {
+    charCounter.textContent = this.value.length + ' ký tự';
+});
+
+function checkWriting() {
+    const text = writingArea.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    
+    if (text.length < 100) {
+        feedback.style.display = 'block';
+        feedback.style.background = '#FEF2F2';
+        feedback.style.color = '#991B1B';
+        feedback.style.border = '2px solid #FECACA';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn. Hãy viết ít nhất 5 câu phức tạp nhé! (tối thiểu 100 ký tự)';
+    } else {
+        feedback.style.display = 'block';
+        feedback.style.background = '#F0FFF4';
+        feedback.style.color = '#065F46';
+        feedback.style.border = '2px solid #6EE7B7';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài viết. Hãy kiểm tra lại:<br>• Mỗi câu đã đủ 15-20 từ chưa?<br>• Đã kết hợp ít nhất 3 cấu trúc ngữ pháp/câu chưa?<br>• Ngữ pháp và chính tả có đúng không?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week1_progress') || '[]');
+        if (!progress.includes(4)) {
+            progress.push(4);
+            localStorage.setItem('topik3_week1_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+function togglePronunciation(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('checked');
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingArea.value.trim().length > 0) {
+        localStorage.setItem('topik3_day4_writing', writingArea.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_day4_writing');
+    if (saved) {
+        writingArea.value = saved;
+        charCounter.textContent = saved.length + ' ký tự';
+    }
+};
+</script>
+</body>
+</html>
