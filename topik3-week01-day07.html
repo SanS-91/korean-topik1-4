@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 7: Ôn tập & Luyện đề TOPIK - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #E8F5E9 0%, #FFF5E4 50%, #E3F2FD 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #38A169; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #2F855A; }
+.breadcrumb-separator { color: #68D391; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #38A169; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(56,161,105,0.15); transition: all 0.3s; border: 2px solid #9AE6B4; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(56,161,105,0.25); background: #F0FFF4; }
+.nav-btn.primary { background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(168,230,207,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🎯'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🏆'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #2F855A; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #38A169; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(56,161,105,0.15); }
+
+/* Section Styling */
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Flashcard Section - Purple */
+.flashcard-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.flashcard-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.flashcard-tab { padding: 10px 20px; background: white; color: #5B21B6; border: 2px solid #C4B5FD; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; }
+.flashcard-tab.active { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border-color: transparent; }
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; }
+.flashcard-back { background: white; color: #2D3748; transform: rotateY(180deg); border: 3px solid #8B5CF6; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 3em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.4em; font-weight: 700; color: #5B21B6; margin-bottom: 10px; text-align: center; }
+.flashcard-pronunciation { color: #718096; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #718096; margin-top: 10px; font-weight: 600; }
+
+/* TOPIK Exam Section - Blue */
+.exam-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.exam-intro { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border: 2px solid #3B82F6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.exam-intro-title { font-family: 'Baloo 2', cursive; color: #1E40AF; font-size: 1.3em; margin-bottom: 15px; }
+.exam-structure { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
+.exam-part { background: white; padding: 15px; border-radius: 12px; border-left: 4px solid #3B82F6; }
+.exam-part-title { font-weight: 700; color: #1E40AF; margin-bottom: 8px; }
+.exam-part-info { color: #718096; font-size: 0.95em; }
+
+/* Reading Questions */
+.reading-questions { margin-top: 25px; }
+.question-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.question-number { background: #F59E0B; color: white; padding: 5px 15px; border-radius: 15px; font-weight: 700; }
+.question-type { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.question-text { background: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; line-height: 1.8; color: #2D3748; font-size: 1.05em; border: 2px dashed #F59E0B; }
+.question-text strong { color: #EA580C; }
+.options-grid { display: grid; gap: 12px; }
+.option-item { background: white; border: 2px solid #FED7AA; padding: 15px; border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 12px; font-weight: 600; }
+.option-item:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.option-item.selected { border-color: #F59E0B; background: #FEF3C7; }
+.option-item.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.option-item.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.option-label { font-weight: 700; color: #F59E0B; min-width: 30px; }
+
+.submit-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 15px 35px; border-radius: 30px; font-size: 1.1em; font-weight: 700; cursor: pointer; margin-top: 20px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.submit-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Listening Section - Green */
+.listening-questions { margin-top: 25px; }
+.listening-container { background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #10B981; }
+.listening-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.listening-number { background: #10B981; color: white; padding: 5px 15px; border-radius: 15px; font-weight: 700; }
+.listening-type { background: white; color: #065F46; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+
+.audio-player { background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #6EE7B7; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #10B981 0%, #34D399 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(16,185,129,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #065F46; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #10B981; display: none; }
+.transcript-box.show { display: block; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #065F46; font-size: 1.2em; margin-bottom: 15px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F0FFF4; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #065F46; min-width: 70px; background: #D1FAE5; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+
+/* Results Section - Gold */
+.results-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.results-section.show { display: block; }
+.results-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2.5em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.2em; color: #92400E; font-weight: 700; }
+
+/* Self-evaluation Section - Purple */
+.evaluation-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.evaluation-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.evaluation-title { font-family: 'Baloo 2', cursive; color: #5B21B6; font-size: 1.3em; margin-bottom: 15px; }
+.evaluation-textarea { width: 100%; min-height: 150px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; margin-bottom: 15px; }
+.evaluation-textarea:focus { outline: none; border-color: #8B5CF6; }
+
+.checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin: 20px 0; }
+.checklist-card { background: white; padding: 20px; border-radius: 15px; border: 2px solid #E2E8F0; }
+.checklist-card-title { font-family: 'Baloo 2', cursive; color: #2F855A; font-size: 1.2em; margin-bottom: 15px; }
+.checklist-item { padding: 10px; margin: 8px 0; background: #F0FFF4; border-radius: 10px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s; }
+.checklist-item:hover { background: #D1FAE5; }
+.checklist-item input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; accent-color: #10B981; }
+.checklist-item.checked { background: #D1FAE5; opacity: 0.7; }
+.checklist-item.checked span { text-decoration: line-through; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #38A169; border: 2px solid #9AE6B4; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F0FFF4; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+.speak-btn { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); color: white; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9em; transition: all 0.3s; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(16,185,129,0.4); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.exam-structure { grid-template-columns: 1fr; }
+.checklist-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week01.html">📖 Tuần 1</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 7: Ôn tập & Luyện đề</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week01.html" class="nav-btn">← Về Tổng quan Tuần 1</a>
+<a href="topik3-week02.html" class="nav-btn primary">Tuần 2 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge"> NGÀY 7 • 7일차</span>
+<h1>Ôn tập & Luyện đề TOPIK format</h1>
+<div class="subtitle">Tổng kết Tuần 1 và chuẩn bị cho Tuần 2</div>
+<p class="description">
+Ôn tập toàn bộ kiến thức Tuần 1 qua flashcard, luyện đề TOPIK format với 5 câu đọc và 3 câu nghe, 
+tự đánh giá và lên kế hoạch cho Tuần 2. 🏆
+</p>
+<div class="time-info">⏰ 60 phút •  Flashcard • 📝 Đề TOPIK • 📊 Tự đánh giá</div>
+</div>
+
+<!-- Flashcard Section -->
+<div class="section flashcard-section">
+<h2 class="section-title">🎴 1. Ôn tập Flashcard (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn tập 35 từ vựng và 6 cấu trúc ngữ pháp đã học trong tuần</p>
+
+<div class="flashcard-tabs">
+<button class="flashcard-tab active" onclick="switchTab('vocab', event)">📚 Từ vựng (35 từ)</button>
+<button class="flashcard-tab" onclick="switchTab('grammar', event)">📘 Ngữ pháp (6 cấu trúc)</button>
+</div>
+
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">일상</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">Đời sống hàng ngày</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[il-sang]</div>
+<button class="speak-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()"> Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 35</div>
+</div>
+
+<!-- TOPIK Exam Section -->
+<div class="section exam-section">
+<h2 class="section-title">📝 2. Luyện đề TOPIK format (30 phút)</h2>
+
+<div class="exam-intro">
+<div class="exam-intro-title"> Cấu trúc đề thi</div>
+<p style="color: #4A5568; margin-bottom: 15px;">Đề thi gồm 2 phần: Đọc hiểu (5 câu) và Nghe hiểu (3 câu). Tổng thời gian: 30 phút.</p>
+<div class="exam-structure">
+<div class="exam-part">
+<div class="exam-part-title">📖 Phần Đọc</div>
+<div class="exam-part-info">5 câu trắc nghiệm<br>⏱️ 20 phút<br>📊 50 điểm</div>
+</div>
+<div class="exam-part">
+<div class="exam-part-title">🎧 Phần Nghe</div>
+<div class="exam-part-info">3 câu hỏi<br>⏱️ 10 phút<br>📊 30 điểm</div>
+</div>
+</div>
+</div>
+
+<!-- Reading Questions -->
+<div class="reading-questions">
+<h3 style="font-family: 'Baloo 2', cursive; color: #C05621; margin-bottom: 20px; font-size: 1.4em;"> Phần Đọc hiểu (5 câu)</h3>
+
+<!-- Question 1 -->
+<div class="question-container">
+<div class="question-header">
+<span class="question-number">Câu 1</span>
+<span class="question-type">Điền từ phù hợp</span>
+</div>
+<div class="question-text">
+저는 매일 아침 7시에 _______ 편이에요. 일찍 일어나면 여유 있는 시간을 가질 수 있어요.
+</div>
+<div class="options-grid">
+<label class="option-item"><input type="radio" name="q1" value="a"><span class="option-label">①</span><span>일어나는</span></label>
+<label class="option-item"><input type="radio" name="q1" value="b"><span class="option-label">②</span><span>일어나고</span></label>
+<label class="option-item"><input type="radio" name="q1" value="c"><span class="option-label">③</span><span>일어나서</span></label>
+<label class="option-item"><input type="radio" name="q1" value="d"><span class="option-label">④</span><span>일어나면</span></label>
+</div>
+</div>
+
+<!-- Question 2 -->
+<div class="question-container">
+<div class="question-header">
+<span class="question-number">Câu 2</span>
+<span class="question-type">Điền từ phù hợp</span>
+</div>
+<div class="question-text">
+도서관에 가는 _______ 책도 빌려요. 수업 시간에 배운 내용은 복습해 놓아요.
+</div>
+<div class="options-grid">
+<label class="option-item"><input type="radio" name="q2" value="a"><span class="option-label">①</span><span>김에</span></label>
+<label class="option-item"><input type="radio" name="q2" value="b"><span class="option-label">②</span><span>바람에</span></label>
+<label class="option-item"><input type="radio" name="q2" value="c"><span class="option-label">③</span><span>때문에</span></label>
+<label class="option-item"><input type="radio" name="q2" value="d"><span class="option-label">④</span><span>덕분에</span></label>
+</div>
+</div>
+
+<!-- Question 3 -->
+<div class="question-container">
+<div class="question-header">
+<span class="question-number">Câu 3</span>
+<span class="question-type">Chọn câu phù hợp</span>
+</div>
+<div class="question-text">
+좋은 습관을 들이면 생활이 더 즐거워지기 마련이에요. _______
+</div>
+<div class="options-grid">
+<label class="option-item"><input type="radio" name="q3" value="a"><span class="option-label">①</span><span>그래서 매일 운동하고 독서를 해요.</span></label>
+<label class="option-item"><input type="radio" name="q3" value="b"><span class="option-label">②</span><span>하지만 시간이 없어요.</span></label>
+<label class="option-item"><input type="radio" name="q3" value="c"><span class="option-label">③</span><span>그런데 어렵어요.</span></label>
+<label class="option-item"><input type="radio" name="q3" value="d"><span class="option-label">④</span><span>그래도 힘들어요.</span></label>
+</div>
+</div>
+
+<!-- Question 4 -->
+<div class="question-container">
+<div class="question-header">
+<span class="question-number">Câu 4</span>
+<span class="question-type">Chọn câu phù hợp</span>
+</div>
+<div class="question-text">
+매일 같은 시간에 일어나고 자는 것이 중요해요. 이런 패턴을 만들어 두면 _______
+</div>
+<div class="options-grid">
+<label class="option-item"><input type="radio" name="q4" value="a"><span class="option-label">①</span><span>나중에 큰 도움이 돼요.</span></label>
+<label class="option-item"><input type="radio" name="q4" value="b"><span class="option-label">②</span><span>하지만 힘들어요.</span></label>
+<label class="option-item"><input type="radio" name="q4" value="c"><span class="option-label">③</span><span>그런데 어려워요.</span></label>
+<label class="option-item"><input type="radio" name="q4" value="d"><span class="option-label">④</span><span>그래도 좋아요.</span></label>
+</div>
+</div>
+
+<!-- Question 5 -->
+<div class="question-container">
+<div class="question-header">
+<span class="question-number">Câu 5</span>
+<span class="question-type">Đọc hiểu đoạn văn</span>
+</div>
+<div class="question-text">
+다음 글을 읽고 내용과 같은 것을 고르십시오.
+
+저는 매일 규칙적인 생활을 하는 편이에요. 좋은 습관을 들이면 생활이 더 즐거워지기 마련이에요. 그래서 저는 매일 아침 7시에 일어나서 운동하고 독서를 해요. 이런 루틴을 만든 덕분에 하루를 효율적으로 보낼 수 있어요.
+
+아침에는 운동하고 독서를 하는 중이에요. 일과 취미의 균형을 맞추려고 노력하고 있어요. 도서관에 가는 김에 책도 빌려요. 수업 시간에 배운 내용은 복습해 놓아요. 그래야 시험을 잘 볼 수 있어요.
+
+전공 수업을 듣는 중인데, 교수님이 강의를 잘 하시는 편이에요. 학점 관리를 잘하려면 계획을 세우는 것이 중요해요. 매일 공부할 시간을 정해 두면 좋아요. 이런 패턴을 만들어 두면 나중에 큰 도움이 돼요.
+</div>
+<div class="options-grid">
+<label class="option-item"><input type="radio" name="q5" value="a"><span class="option-label"></span><span>저는 매일 아침 8시에 일어나요.</span></label>
+<label class="option-item"><input type="radio" name="q5" value="b"><span class="option-label">②</span><span>저는 아침에 운동하고 독서를 해요.</span></label>
+<label class="option-item"><input type="radio" name="q5" value="c"><span class="option-label">③</span><span>저는 도서관에 안 가요.</span></label>
+<label class="option-item"><input type="radio" name="q5" value="d"><span class="option-label">④</span><span>저는 계획을 안 세요.</span></label>
+</div>
+</div>
+
+<button class="submit-btn" onclick="submitReading()">✓ Nộp bài Đọc</button>
+<div id="reading-feedback" style="margin-top: 20px; padding: 20px; border-radius: 15px; display: none; font-weight: 700; font-size: 1.1em;"></div>
+</div>
+
+<!-- Listening Questions -->
+<div class="listening-questions">
+<h3 style="font-family: 'Baloo 2', cursive; color: #065F46; margin-bottom: 20px; font-size: 1.4em;">🎧 Phần Nghe hiểu (3 câu)</h3>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại từ Ngày 3 và trả lời 3 câu hỏi bên dưới</p>
+
+<div class="audio-player">
+<button class="play-btn" id="listeningAudioBtn" onclick="speakListeningAudio(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label"> Nghe hội thoại "일상 생활에 대한 대화"</div>
+<div class="audio-sub">Nghe 2-3 lần trước khi trả lời câu hỏi</div>
+</div>
+</div>
+
+<button class="nav-btn" onclick="toggleTranscript()" style="margin: 15px 0;">📜 Xem Transcript</button>
+
+<div class="transcript-box" id="transcriptBox">
+<div class="transcript-title">📜 Transcript</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">지영 씨, 매일 일상 생활이 어떻게 돼요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">저는 매일 아침 7시에 일어나는 편이에요. 일찍 일어나면 여유 있는 시간을 가질 수 있어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">아침에 뭐 해요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">보통 운동하고 독서를 하는 중이에요. 일과 취미의 균형을 맞추려고 노력하고 있어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">저도 규칙적인 루틴을 만들고 싶어요. 어떻게 해요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">매일 같은 시간에 일어나고 자는 것이 중요해요. 이런 패턴을 만들어 두면 나중에 큰 도움이 돼요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">도서관에 자주 가요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">네, 매일 가요. 도서관에 가는 김에 책도 빌려요. 수업 시간에 배운 내용은 복습해 놓아요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">효율적이네요! 저도 시작해야겠어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">네, 습관을 들이면 생활이 더 즐거워지기 마련이에요. 같이 해요!</span>
+</div>
+</div>
+
+<!-- Listening Question 1 -->
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 6</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="question-text">
+지영 씨는 매일 아침에 뭐 해요?
+</div>
+<div class="options-grid">
+<label class="option-item"><input type="radio" name="q6" value="a"><span class="option-label">①</span><span>요리를 해요.</span></label>
+<label class="option-item"><input type="radio" name="q6" value="b"><span class="option-label">②</span><span>운동하고 독서를 해요.</span></label>
+<label class="option-item"><input type="radio" name="q6" value="c"><span class="option-label">③</span><span>쇼핑을 해요.</span></label>
+<label class="option-item"><input type="radio" name="q6" value="d"><span class="option-label">④</span><span>영화를 봐요.</span></label>
+</div>
+</div>
+
+<!-- Listening Question 2 -->
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 7</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="question-text">
+지영 씨는 도서관에 가면 뭐 해요?
+</div>
+<div class="options-grid">
+<label class="option-item"><input type="radio" name="q7" value="a"><span class="option-label">①</span><span>공부를 해요.</span></label>
+<label class="option-item"><input type="radio" name="q7" value="b"><span class="option-label">②</span><span>책을 빌려요.</span></label>
+<label class="option-item"><input type="radio" name="q7" value="c"><span class="option-label">③</span><span>친구를 만나요.</span></label>
+<label class="option-item"><input type="radio" name="q7" value="d"><span class="option-label">④</span><span>휴식을 해요.</span></label>
+</div>
+</div>
+
+<!-- Listening Question 3 -->
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 8</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="question-text">
+지영 씨는 뭐라고 해요?
+</div>
+<div class="options-grid">
+<label class="option-item"><input type="radio" name="q8" value="a"><span class="option-label">①</span><span>습관을 들이면 생활이 즐거워져요.</span></label>
+<label class="option-item"><input type="radio" name="q8" value="b"><span class="option-label">②</span><span>운동이 힘들어요.</span></label>
+<label class="option-item"><input type="radio" name="q8" value="c"><span class="option-label">③</span><span>도서관이 멀어요.</span></label>
+<label class="option-item"><input type="radio" name="q8" value="d"><span class="option-label">④</span><span>시간이 없어요.</span></label>
+</div>
+</div>
+
+<button class="submit-btn" onclick="submitListening()">✓ Nộp bài Nghe</button>
+<div id="listening-feedback" style="margin-top: 20px; padding: 20px; border-radius: 15px; display: none; font-weight: 700; font-size: 1.1em;"></div>
+</div>
+</div>
+
+<!-- Results Section -->
+<div class="results-section" id="resultsSection">
+<div class="results-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+<div style="margin-top: 20px; text-align: center;">
+<button class="nav-btn primary" onclick="showEvaluation()"> Xem phần tự đánh giá</button>
+</div>
+</div>
+
+<!-- Self-evaluation Section -->
+<div class="section evaluation-section" id="evaluationSection" style="display: none;">
+<h2 class="section-title">📊 3. Tự đánh giá (15 phút)</h2>
+
+<div class="evaluation-box">
+<div class="evaluation-title">📝 Ghi chú điểm yếu cần cải thiện</div>
+<textarea class="evaluation-textarea" id="evaluationNotes" placeholder="Viết về những điểm bạn còn yếu và cần cải thiện trong Tuần 2...
+
+Ví dụ:
+- Ngữ pháp -는 김에 còn chưa nhớ rõ
+- Từ vựng chủ đề cần ôn thêm
+- Nghe hiểu cần luyện thêm..."></textarea>
+
+<div class="evaluation-title"> Kế hoạch Tuần 2</div>
+<textarea class="evaluation-textarea" id="week2Plan" placeholder="Viết kế hoạch học tập cho Tuần 2...
+
+Ví dụ:
+- Mỗi ngày học 30 phút
+- Ôn từ vựng 15 phút
+- Luyện ngữ pháp 15 phút
+- Cuối tuần làm đề thi thử..."></textarea>
+
+<button class="check-btn" onclick="saveEvaluation()">💾 Lưu đánh giá</button>
+<div id="evaluation-feedback" style="margin-top: 15px; padding: 15px; border-radius: 12px; display: none;"></div>
+</div>
+
+<div class="checklist-grid">
+<div class="checklist-card">
+<div class="checklist-card-title">✅ Checklist Tuần 1</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thuộc 35 từ vựng cốt lõi</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu 6 cấu trúc ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu 2 bài 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết đoạn văn 250-300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu hội thoại 10 lượt</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thực hành Shadowing</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Ghi âm và tự đánh giá</span></div>
+</div>
+
+<div class="checklist-card">
+<div class="checklist-card-title">🎯 Mục tiêu Tuần 2</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Học 35 từ vựng mới (chủ đề trường học)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Học 6 cấu trúc ngữ pháp mới</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu 2 bài về trường học</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết đoạn văn về kế hoạch học tập</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Luyện nghe hội thoại về học tập</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hoàn thành 7 ngày học</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Điểm kiểm tra ≥ 80%</span></div>
+</div>
+</div>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week01.html" class="day-nav-btn">← Về Hub Tuần 1</a>
+<a href="topik3-week01-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week01-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week01-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week01-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week01-day05.html" class="day-nav-btn">Ngày 5</a>
+<a href="topik3-week01-day06.html" class="day-nav-btn">Ngày 6</a>
+<a href="topik3-week01-day07.html" class="day-nav-btn active">Ngày 7 ✓</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week01-day06.html" class="nav-btn">← Ngày 6</a>
+<a href="topik3-week02.html" class="nav-btn primary">Tiếp: Tuần 2 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Học tập là hạt giống, kiến thức là cây, thành công là quả"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakListeningAudio(btnElement) {
+    const fullText = '지영 씨, 매일 일상 생활이 어떻게 돼요? 저는 매일 아침 7시에 일어나는 편이에요. 일찍 일어나면 여유 있는 시간을 가질 수 있어요. 아침에 뭐 해요? 보통 운동하고 독서를 하는 중이에요. 일과 취미의 균형을 맞추려고 노력하고 있어요. 저도 규칙적인 루틴을 만들고 싶어요. 어떻게 해요? 매일 같은 시간에 일어나고 자는 것이 중요해요. 이런 패턴을 만들어 두면 나중에 큰 도움이 돼요. 도서관에 자주 가요? 네, 매일 가요. 도서관에 가는 김에 책도 빌려요. 수업 시간에 배운 내용은 복습해 놓아요. 효율적이네요! 저도 시작해야겠어요. 네, 습관을 들이면 생활이 더 즐거워지기 마련이에요. 같이 해요!';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Flashcard data
+const vocabFlashcards = [
+    { char: '일상', meaning: 'Đời sống hàng ngày', pron: '[il-sang]' },
+    { char: '습관', meaning: 'Thói quen', pron: '[seup-kwan]' },
+    { char: '규칙', meaning: 'Quy tắc', pron: '[gyu-chik]' },
+    { char: '여유', meaning: 'Sự thư thái', pron: '[yeo-yu]' },
+    { char: '균형', meaning: 'Cân bằng', pron: '[gyun-hyeong]' },
+    { char: '생활', meaning: 'Sinh hoạt', pron: '[saeng-hwal]' },
+    { char: '패턴', meaning: 'Mô hình', pron: '[pae-teon]' },
+    { char: '취미', meaning: 'Sở thích', pron: '[chwi-mi]' },
+    { char: '루틴', meaning: 'Routine', pron: '[ru-tin]' },
+    { char: '효율적', meaning: 'Hiệu quả', pron: '[hyo-yul-jeok]' },
+    { char: '수업', meaning: 'Giờ học', pron: '[su-eop]' },
+    { char: '강의', meaning: 'Bài giảng', pron: '[gang-ui]' },
+    { char: '과제', meaning: 'Bài tập', pron: '[gwa-je]' },
+    { char: '전공', meaning: 'Chuyên ngành', pron: '[jeon-gong]' },
+    { char: '학점', meaning: 'Học điểm', pron: '[hak-jeom]' },
+    { char: '시험', meaning: 'Kỳ thi', pron: '[si-heom]' },
+    { char: '도서관', meaning: 'Thư viện', pron: '[do-seo-gwan]' },
+    { char: '동아리', meaning: 'Câu lạc bộ', pron: '[dong-a-ri]' },
+    { char: '시간 관리', meaning: 'Quản lý thời gian', pron: '[si-gan-gwal-li]' },
+    { char: '계획', meaning: 'Kế hoạch', pron: '[gye-hoek]' },
+    { char: '목표', meaning: 'Mục tiêu', pron: '[mok-pyo]' },
+    { char: '노력', meaning: 'Nỗ lực', pron: '[no-ryeok]' },
+    { char: '결과', meaning: 'Kết quả', pron: '[gyeol-gwa]' },
+    { char: '경험', meaning: 'Kinh nghiệm', pron: '[gyeong-heom]' },
+    { char: '기회', meaning: 'Cơ hội', pron: '[gi-hoe]' },
+    { char: '문제', meaning: 'Vấn đề', pron: '[mun-je]' },
+    { char: '해결', meaning: 'Giải quyết', pron: '[hae-gyeol]' },
+    { char: '방법', meaning: 'Phương pháp', pron: '[bang-beop]' },
+    { char: '중요', meaning: 'Quan trọng', pron: '[jung-yo]' },
+    { char: '필요', meaning: 'Cần thiết', pron: '[pil-yo]' },
+    { char: '가능', meaning: 'Có thể', pron: '[ga-neung]' },
+    { char: '불가능', meaning: 'Không thể', pron: '[bul-ga-neung]' },
+    { char: '성공', meaning: 'Thành công', pron: '[seong-gong]' },
+    { char: '실', meaning: 'Thất bại', pron: '[sil-pae]' },
+    { char: '발전', meaning: 'Phát triển', pron: '[bal-jeon]' }
+];
+
+const grammarFlashcards = [
+    { char: '-는 편이다', meaning: 'Có xu hướng', pron: '[-neun pyeon-i-da]' },
+    { char: '-는 중이다', meaning: 'Đang trong quá trình', pron: '[-neun jung-i-da]' },
+    { char: '-는 김에', meaning: 'Nhân tiện', pron: '[-neun gim-e]' },
+    { char: '-아/어 놓다', meaning: 'Làm sẵn (văn nói)', pron: '[-a/eo noh-da]' },
+    { char: '-아/어 두다', meaning: 'Làm sẵn (văn viết)', pron: '[-a/eo du-da]' },
+    { char: '-기 마련이다', meaning: 'Chắc chắn sẽ', pron: '[-gi marim-i-da]' }
+];
+
+let currentFlashcards = vocabFlashcards;
+let currentFlashcard = 0;
+
+function switchTab(type, event) {
+    document.querySelectorAll('.flashcard-tab').forEach(tab => tab.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    if (type === 'vocab') {
+        currentFlashcards = vocabFlashcards;
+    } else {
+        currentFlashcards = grammarFlashcards;
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = currentFlashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = currentFlashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = currentFlashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + currentFlashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + currentFlashcards.length) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = currentFlashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [currentFlashcards[i], currentFlashcards[j]] = [currentFlashcards[j], currentFlashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+// Exam answers
+const readingAnswers = { q1: 'a', q2: 'a', q3: 'a', q4: 'a', q5: 'b' };
+const listeningAnswers = { q6: 'b', q7: 'b', q8: 'a' };
+
+let readingScore = 0;
+let listeningScore = 0;
+let totalScore = 0;
+
+function submitReading() {
+    readingScore = 0;
+    for (let i = 1; i <= 5; i++) {
+        const questionName = 'q' + i;
+        const options = document.querySelectorAll(`input[name="${questionName}"]`);
+        let selectedValue = null;
+        options.forEach(option => {
+            const parent = option.closest('.option-item');
+            parent.classList.remove('correct', 'incorrect', 'selected');
+            if (option.checked) {
+                selectedValue = option.value;
+                if (selectedValue === readingAnswers[questionName]) {
+                    parent.classList.add('correct');
+                    readingScore++;
+                } else {
+                    parent.classList.add('incorrect');
+                }
+            }
+        });
+    }
+    
+    const feedback = document.getElementById('reading-feedback');
+    feedback.style.display = 'block';
+    if (readingScore === 5) {
+        feedback.style.background = '#F0FFF4';
+        feedback.style.color = '#065F46';
+        feedback.style.border = '2px solid #10B981';
+        feedback.innerHTML = `✅ Xuất sắc! Bạn đúng ${readingScore}/5 câu Đọc!`;
+    } else if (readingScore >= 3) {
+        feedback.style.background = '#FEF3C7';
+        feedback.style.color = '#92400E';
+        feedback.style.border = '2px solid #F59E0B';
+        feedback.innerHTML = ` Khá tốt! Bạn đúng ${readingScore}/5 câu Đọc. Hãy ôn lại các câu sai!`;
+    } else {
+        feedback.style.background = '#FEF2F2';
+        feedback.style.color = '#991B1B';
+        feedback.style.border = '2px solid #EF4444';
+        feedback.innerHTML = `⚠️ Cần cố gắng hơn! Bạn đúng ${readingScore}/5 câu Đọc. Hãy xem lại bài học!`;
+    }
+    
+    updateTotalScore();
+}
+
+function submitListening() {
+    listeningScore = 0;
+    for (let i = 6; i <= 8; i++) {
+        const questionName = 'q' + i;
+        const options = document.querySelectorAll(`input[name="${questionName}"]`);
+        let selectedValue = null;
+        options.forEach(option => {
+            const parent = option.closest('.option-item');
+            parent.classList.remove('correct', 'incorrect', 'selected');
+            if (option.checked) {
+                selectedValue = option.value;
+                if (selectedValue === listeningAnswers[questionName]) {
+                    parent.classList.add('correct');
+                    listeningScore++;
+                } else {
+                    parent.classList.add('incorrect');
+                }
+            }
+        });
+    }
+    
+    const feedback = document.getElementById('listening-feedback');
+    feedback.style.display = 'block';
+    if (listeningScore === 3) {
+        feedback.style.background = '#F0FFF4';
+        feedback.style.color = '#065F46';
+        feedback.style.border = '2px solid #10B981';
+        feedback.innerHTML = `✅ Xuất sắc! Bạn đúng ${listeningScore}/3 câu Nghe!`;
+    } else if (listeningScore >= 2) {
+        feedback.style.background = '#FEF3C7';
+        feedback.style.color = '#92400E';
+        feedback.style.border = '2px solid #F59E0B';
+        feedback.innerHTML = `👍 Khá tốt! Bạn đúng ${listeningScore}/3 câu Nghe. Hãy luyện nghe thêm!`;
+    } else {
+        feedback.style.background = '#FEF2F2';
+        feedback.style.color = '#991B1B';
+        feedback.style.border = '2px solid #EF4444';
+        feedback.innerHTML = `⚠️ Cần cố gắng hơn! Bạn đúng ${listeningScore}/3 câu Nghe. Hãy nghe lại hội thoại!`;
+    }
+    
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    totalScore = readingScore + listeningScore;
+    const maxScore = 8;
+    const percentage = Math.round((totalScore / maxScore) * 100);
+    
+    document.getElementById('scoreCircle').textContent = `${totalScore}/${maxScore}`;
+    
+    let message = '';
+    if (percentage >= 80) {
+        message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Tuần 2!`;
+    } else if (percentage >= 60) {
+        message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm một số phần.`;
+    } else {
+        message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài học Tuần 1.`;
+    }
+    document.getElementById('scoreMessage').textContent = message;
+    
+    document.getElementById('resultsSection').classList.add('show');
+    
+    // Save progress
+    const progress = JSON.parse(localStorage.getItem('topik3_week1_progress') || '[]');
+    if (!progress.includes(7)) {
+        progress.push(7);
+        localStorage.setItem('topik3_week1_progress', JSON.stringify(progress));
+    }
+    localStorage.setItem('topik3_week1_score', totalScore);
+}
+
+function toggleTranscript() {
+    const transcriptBox = document.getElementById('transcriptBox');
+    transcriptBox.classList.toggle('show');
+}
+
+function showEvaluation() {
+    document.getElementById('evaluationSection').style.display = 'block';
+    document.getElementById('evaluationSection').scrollIntoView({ behavior: 'smooth' });
+}
+
+function saveEvaluation() {
+    const notes = document.getElementById('evaluationNotes').value;
+    const plan = document.getElementById('week2Plan').value;
+    
+    if (notes.trim() && plan.trim()) {
+        localStorage.setItem('topik3_week1_evaluation', notes);
+        localStorage.setItem('topik3_week2_plan', plan);
+        
+        const feedback = document.getElementById('evaluation-feedback');
+        feedback.style.display = 'block';
+        feedback.style.background = '#F0FFF4';
+        feedback.style.color = '#065F46';
+        feedback.style.border = '2px solid #10B981';
+        feedback.innerHTML = '✅ Đã lưu đánh giá và kế hoạch Tuần 2!';
+    } else {
+        const feedback = document.getElementById('evaluation-feedback');
+        feedback.style.display = 'block';
+        feedback.style.background = '#FEF3C7';
+        feedback.style.color = '#92400E';
+        feedback.style.border = '2px solid #F59E0B';
+        feedback.innerHTML = '⚠️ Vui lòng điền đầy đủ thông tin!';
+    }
+}
+
+function toggleChecklist(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('checked');
+}
+
+// Load saved data
+window.onload = function() {
+    const savedNotes = localStorage.getItem('topik3_week1_evaluation');
+    if (savedNotes) {
+        document.getElementById('evaluationNotes').value = savedNotes;
+    }
+    const savedPlan = localStorage.getItem('topik3_week2_plan');
+    if (savedPlan) {
+        document.getElementById('week2Plan').value = savedPlan;
+    }
+};
+</script>
+</body>
+</html>
