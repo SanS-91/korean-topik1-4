@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuần 1: Đời sống hàng ngày - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #E8F5E9 0%, #FFF5E4 50%, #E3F2FD 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #38A169; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #2F855A; }
+.breadcrumb-separator { color: #68D391; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.week-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #38A169; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(56,161,105,0.15); transition: all 0.3s; border: 2px solid #9AE6B4; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(56,161,105,0.25); background: #F0FFF4; }
+.nav-btn.primary { background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; border: none; }
+
+.week-hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, rgba(168,230,207,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.week-hero::before { content: '📖'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.week-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.week-badge { display: inline-block; background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.week-hero h1 { font-family: 'Baloo 2', cursive; font-size: 3em; color: #2F855A; margin-bottom: 10px; }
+.week-hero .subtitle { font-size: 1.3em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.week-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+/* Objectives Box */
+.objectives-box { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-left: 5px solid #ECC94B; padding: 25px; border-radius: 20px; margin: 30px 0; box-shadow: 0 5px 15px rgba(236,201,75,0.1); }
+.objectives-title { font-family: 'Baloo 2', cursive; color: #B7791F; font-size: 1.4em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.objectives-list { list-style: none; }
+.objectives-list li { padding: 8px 0; padding-left: 30px; position: relative; color: #2D3748; font-weight: 600; line-height: 1.6; }
+.objectives-list li::before { content: '🎯'; position: absolute; left: 0; }
+
+/* Stats Grid */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
+.stat-card { background: white; border-radius: 20px; padding: 25px 15px; text-align: center; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; transition: all 0.3s; }
+.stat-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(56,161,105,0.15); }
+.stat-icon { font-size: 2.5em; margin-bottom: 10px; }
+.stat-value { font-family: 'Baloo 2', cursive; font-size: 2em; color: #2F855A; font-weight: 800; }
+.stat-label { color: #718096; margin-top: 5px; font-weight: 600; font-size: 0.95em; }
+
+/* Days Grid */
+.days-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin: 40px 0; }
+.day-card { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; transition: all 0.3s; text-decoration: none; color: inherit; position: relative; overflow: hidden; }
+.day-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(56,161,105,0.2); border-color: #9AE6B4; }
+.day-card.completed { border-color: #38A169; background: linear-gradient(135deg, #F0FFF4 0%, #E6FFFA 100%); }
+.day-card.completed::after { content: '✅'; position: absolute; top: 15px; right: 15px; font-size: 1.5em; }
+
+.day-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.day-number { background: linear-gradient(135deg, #38A169 0%, #68D391 100%); color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3em; flex-shrink: 0; }
+.day-title { font-family: 'Baloo 2', cursive; color: #2F855A; font-size: 1.2em; line-height: 1.3; }
+.day-time { color: #718096; font-size: 0.9em; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; }
+
+/* Activity Tags with Different Colors */
+.day-content { margin-bottom: 15px; }
+.activity-item { padding: 8px 12px; margin: 6px 0; border-radius: 10px; font-size: 0.9em; line-height: 1.5; border-left: 4px solid; }
+.activity-vocab { background: #F0FFF4; border-color: #10B981; color: #065F46; }
+.activity-grammar { background: #EFF6FF; border-color: #3B82F6; color: #1E40AF; }
+.activity-reading { background: #FFF7ED; border-color: #F59E0B; color: #92400E; }
+.activity-writing { background: #FAF5FF; border-color: #8B5CF6; color: #5B21B6; }
+.activity-listening { background: #FDF2F8; border-color: #EC4899; color: #9D174D; }
+.activity-speaking { background: #FEF2F2; border-color: #EF4444; color: #991B1B; }
+.activity-practice { background: #FEFCE8; border-color: #EAB308; color: #854D0E; }
+.activity-review { background: #F3F4F6; border-color: #6B7280; color: #374151; }
+
+.day-goals { margin-top: 15px; padding-top: 15px; border-top: 2px dashed #E2E8F0; }
+.day-goals-title { font-weight: 700; color: #2F855A; font-size: 0.9em; margin-bottom: 8px; }
+.day-goal { color: #4A5568; font-size: 0.85em; padding: 4px 0; }
+.day-goal::before { content: '✅ '; }
+
+/* Progress Section */
+.progress-section { background: white; border-radius: 25px; padding: 30px; margin: 40px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.progress-title { font-family: 'Baloo 2', cursive; color: #2F855A; font-size: 1.5em; margin-bottom: 20px; text-align: center; }
+.progress-bar { background: #E2E8F0; border-radius: 20px; height: 30px; overflow: hidden; margin: 20px 0; }
+.progress-fill { background: linear-gradient(135deg, #38A169 0%, #68D391 100%); height: 100%; border-radius: 20px; transition: width 0.5s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
+
+.section-heading { font-family: 'Baloo 2', cursive; color: #2F855A; font-size: 1.5em; margin: 35px 0 20px; display: flex; align-items: center; gap: 10px; }
+.section-heading::after { content: ''; flex: 1; height: 2px; background: linear-gradient(90deg, #9AE6B4, transparent); }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@media (max-width: 768px) {
+.week-hero h1 { font-size: 2.2em; }
+.days-grid { grid-template-columns: 1fr; }
+.stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">📖 Tuần 1: Đời sống hàng ngày</span>
+</nav>
+
+<div class="week-nav">
+<a href="topik3.html" class="nav-btn">← Về Hub TOPIK 3</a>
+<a href="topik3-week02.html" class="nav-btn primary">Tuần 2: Trường học →</a>
+</div>
+
+<div class="week-hero">
+<span class="week-badge">📖 TUẦN 1 • 1주</span>
+<h1>Đời sống hàng ngày & Thói quen</h1>
+<div class="subtitle">Nền tảng đọc hiểu, viết đoạn văn và giao tiếp trung cấp</div>
+<p class="description">
+Làm quen với các đoạn văn 200-300 chữ về cuộc sống hàng ngày, sinh hoạt và thói quen. 
+Nắm vững các cấu trúc ngữ pháp trung cấp cơ bản để diễn tả xu hướng, trạng thái đang diễn ra và hành động nhân tiện. 🌿
+</p>
+</div>
+
+<!-- Stats Grid -->
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon">📅</div>
+<div class="stat-value">7</div>
+<div class="stat-label">Ngày học</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">⏰</div>
+<div class="stat-value">60</div>
+<div class="stat-label">Phút/ngày</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">📚</div>
+<div class="stat-value">35</div>
+<div class="stat-label">Từ vựng mới</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">📝</div>
+<div class="stat-value">6</div>
+<div class="stat-label">Cấu trúc ngữ pháp</div>
+</div>
+</div>
+
+<!-- Objectives Box -->
+<div class="objectives-box">
+<div class="objectives-title">🎯 Mục tiêu Tuần 1: Đời sống hàng ngày & Thói quen</div>
+<ul class="objectives-list">
+<li>Đọc hiểu thành thạo đoạn văn <strong>200-300 chữ</strong> về chủ đề đời sống, thói quen.</li>
+<li>Nắm vững 6 cấu trúc ngữ pháp trọng tâm: <strong>-는 편이다, -는 중이다, -는 김에, -아/어 두다, -기 마련이다, -아/어 놓다</strong>.</li>
+<li><strong>Luyện nghe:</strong> Nghe hiểu hội thoại ngắn về kế hoạch và thói quen.</li>
+<li><strong>Luyện nói:</strong> Thực hành Shadowing và đóng vai (Role-play) các đoạn hội thoại mẫu.</li>
+<li>Viết được đoạn văn ngắn (200-250 chữ) mô tả thói quen hoặc trải nghiệm cá nhân.</li>
+<li>Hoàn thành bài kiểm tra cuối tuần với điểm số ≥ 80%.</li>
+</ul>
+</div>
+
+<!-- Progress Section -->
+<div class="progress-section">
+<h2 class="progress-title">📊 Tiến độ học tập Tuần 1</h2>
+<div class="progress-bar">
+<div class="progress-fill" id="progressBar" style="width: 0%">0/7 ngày</div>
+</div>
+<p style="text-align: center; color: #718096; margin-top: 10px;">Hoàn thành 7 ngày để mở khóa Tuần 2</p>
+</div>
+
+<!-- Days Grid -->
+<h2 class="section-heading">📅 Lộ trình 7 ngày học</h2>
+<div class="days-grid">
+
+<!-- Day 1 -->
+<a href="topik3-week01-day01.html" class="day-card" data-day="1">
+<div class="day-header">
+<div class="day-number">1</div>
+<div class="day-title">Từ vựng nền tảng & Ngữ pháp cơ bản</div>
+</div>
+<div class="day-time">⏰ 60 phút</div>
+<div class="day-content">
+<div class="activity-item activity-vocab"><strong>Từ vựng (15p):</strong> 10 từ cốt lõi về đời sống (일상, 습관, 규칙, 여유, 균형, 생활, 패턴, 취미, 루틴, 효율적)</div>
+<div class="activity-item activity-grammar"><strong>Ngữ pháp (20p):</strong> 2 cấu trúc nền tảng (-는 편이다, -는 중이다)</div>
+<div class="activity-item activity-reading"><strong>Đọc hiểu (15p):</strong> Bài đọc ngắn 200 chữ "수업 시간"</div>
+<div class="activity-item activity-practice"><strong>Tự học (10p):</strong> Viết 5 câu tổng hợp + Flashcard</div>
+</div>
+<div class="day-goals">
+<div class="day-goals-title">Mục tiêu đạt được:</div>
+<div class="day-goal">Thuộc 10 từ vựng cốt lõi</div>
+<div class="day-goal">Hiểu và đặt câu với 2 ngữ pháp</div>
+<div class="day-goal">Đọc hiểu bài 200 chữ</div>
+</div>
+</a>
+
+<!-- Day 2 -->
+<a href="topik3-week01-day02.html" class="day-card" data-day="2">
+<div class="day-header">
+<div class="day-number">2</div>
+<div class="day-title">Ngữ pháp nâng cao & Luyện đọc</div>
+</div>
+<div class="day-time">⏰ 60 phút</div>
+<div class="day-content">
+<div class="activity-item activity-review"><strong>Ôn tập (10p):</strong> Từ vựng + ngữ pháp Ngày 1</div>
+<div class="activity-item activity-grammar"><strong>Ngữ pháp mới (20p):</strong> 2 cấu trúc (-아/어 보이다, -아/어 놓다)</div>
+<div class="activity-item activity-reading"><strong>Đọc hiểu (20p):</strong> Bài đọc 300 chữ "대학 생활" + Phân tích cấu trúc</div>
+<div class="activity-item activity-writing"><strong>Viết (10p):</strong> Tóm tắt bài đọc 3-4 câu</div>
+</div>
+<div class="day-goals">
+<div class="day-goals-title">Mục tiêu đạt được:</div>
+<div class="day-goal">Đọc hiểu bài 300 chữ</div>
+<div class="day-goal">Tóm tắt được nội dung chính</div>
+<div class="day-goal">Thuộc 4 cấu trúc ngữ pháp</div>
+</div>
+</a>
+
+<!-- Day 3 -->
+<a href="topik3-week01-day03.html" class="day-card" data-day="3">
+<div class="day-header">
+<div class="day-number">3</div>
+<div class="day-title">Ngữ pháp liên kết & Luyện nghe</div>
+</div>
+<div class="day-time">⏰ 60 phút</div>
+<div class="day-content">
+<div class="activity-item activity-grammar"><strong>Ngữ pháp (15p):</strong> 2 cấu trúc liên kết (-는 김에, -는 바람에)</div>
+<div class="activity-item activity-listening"><strong>Luyện nghe (20p):</strong> Hội thoại "수업 계획" (3 lần + Shadowing)</div>
+<div class="activity-item activity-practice"><strong>Bài tập nghe (15p):</strong> 3 câu hỏi hiểu ý</div>
+<div class="activity-item activity-speaking"><strong>Nói (10p):</strong> Shadowing + tự ghi âm</div>
+</div>
+<div class="day-goals">
+<div class="day-goals-title">Mục tiêu đạt được:</div>
+<div class="day-goal">Nghe hiểu hội thoại 7-8 lượt</div>
+<div class="day-goal">Trả lời đúng 3/3 câu hỏi</div>
+<div class="day-goal">Thực hành Shadowing</div>
+</div>
+</a>
+
+<!-- Day 4 -->
+<a href="topik3-week01-day04.html" class="day-card" data-day="4">
+<div class="day-header">
+<div class="day-number">4</div>
+<div class="day-title">Luyện viết câu & Tổng hợp ngữ pháp</div>
+</div>
+<div class="day-time">⏰ 60 phút</div>
+<div class="day-content">
+<div class="activity-item activity-grammar"><strong>Ngữ pháp mới (15p):</strong> 2 cấu trúc cuối (-기 마련이다, -아/어 두다)</div>
+<div class="activity-item activity-writing"><strong>Viết câu (20p):</strong> 5-7 câu phức tạp (kết hợp 3+ cấu trúc/câu)</div>
+<div class="activity-item activity-reading"><strong>Đọc hiểu (15p):</strong> Bài "Kế hoạch học tập"</div>
+<div class="activity-item activity-speaking"><strong>Tự sửa (10p):</strong> Đọc to + sửa phát âm</div>
+</div>
+<div class="day-goals">
+<div class="day-goals-title">Mục tiêu đạt được:</div>
+<div class="day-goal">Viết 5-7 câu phức tạp</div>
+<div class="day-goal">Sử dụng linh hoạt 6 cấu trúc ngữ pháp</div>
+<div class="day-goal">Thuộc 35 từ vựng</div>
+</div>
+</a>
+
+<!-- Day 5 -->
+<a href="topik3-week01-day05.html" class="day-card" data-day="5">
+<div class="day-header">
+<div class="day-number">5</div>
+<div class="day-title">Đọc hiểu chuyên sâu</div>
+</div>
+<div class="day-time"> 60 phút</div>
+<div class="day-content">
+<div class="activity-item activity-reading"><strong>Bài đọc 1 (20p):</strong> "학점 관리" (300 chữ) + 4 câu hỏi TOPIK</div>
+<div class="activity-item activity-reading"><strong>Bài đọc 2 (20p):</strong> "시간 관리" (300 chữ) + 4 câu hỏi TOPIK</div>
+<div class="activity-item activity-vocab"><strong>Tổng hợp (20p):</strong> Tra cứu 10 từ vựng mới + Đặt câu ví dụ</div>
+</div>
+<div class="day-goals">
+<div class="day-goals-title">Mục tiêu đạt được:</div>
+<div class="day-goal">Đọc hiểu 2 bài 300 chữ</div>
+<div class="day-goal">Trả lời đúng 6/8 câu hỏi TOPIK</div>
+<div class="day-goal">Mở rộng vốn từ +10 từ</div>
+</div>
+</a>
+
+<!-- Day 6 -->
+<a href="topik3-week01-day06.html" class="day-card" data-day="6">
+<div class="day-header">
+<div class="day-number">6</div>
+<div class="day-title">Viết đoạn văn & Luyện hội thoại</div>
+</div>
+<div class="day-time">⏰ 60 phút</div>
+<div class="day-content">
+<div class="activity-item activity-writing"><strong>Viết đoạn văn (30p):</strong> 250-300 chữ "Thói quen hàng ngày của tôi"</div>
+<div class="activity-item activity-listening"><strong>Luyện hội thoại (20p):</strong> "일상 생활에 대한 대화" + Shadowing + Role-play</div>
+<div class="activity-item activity-speaking"><strong>Ghi âm (10p):</strong> Tự ghi âm và nghe lại</div>
+</div>
+<div class="day-goals">
+<div class="day-goals-title">Mục tiêu đạt được:</div>
+<div class="day-goal">Viết đoạn văn 250-300 chữ</div>
+<div class="day-goal">Sử dụng 4+ cấu trúc ngữ pháp</div>
+<div class="day-goal">Thực hành nói tự nhiên</div>
+</div>
+</a>
+
+<!-- Day 7 -->
+<a href="topik3-week01-day07.html" class="day-card" data-day="7">
+<div class="day-header">
+<div class="day-number">7</div>
+<div class="day-title">Ôn tập & Luyện đề TOPIK format</div>
+</div>
+<div class="day-time">⏰ 60 phút</div>
+<div class="day-content">
+<div class="activity-item activity-review"><strong>Ôn tập Flashcard (15p):</strong> 35 từ vựng + 6 ngữ pháp</div>
+<div class="activity-item activity-practice"><strong>Luyện đề TOPIK (30p):</strong> 5 câu Đọc + 3 câu Nghe (format TOPIK)</div>
+<div class="activity-item activity-review"><strong>Tự đánh giá (15p):</strong> Chấm điểm + phân tích lỗi + Ghi chú</div>
+</div>
+<div class="day-goals">
+<div class="day-goals-title">Mục tiêu đạt được:</div>
+<div class="day-goal">Điểm kiểm tra ≥ 80% (4/5 câu)</div>
+<div class="day-goal">Hoàn thành checklist 7 ngày</div>
+<div class="day-goal">Sẵn sàng cho Tuần 2</div>
+</div>
+</a>
+
+</div>
+
+<div class="week-nav" style="margin-top: 40px;">
+<a href="topik3.html" class="nav-btn">← Về Hub TOPIK 3</a>
+<a href="topik3-week01-day01.html" class="nav-btn primary">Bắt đầu Ngày 1 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇰🇷 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Một ngôn ngữ mới là một cuộc sống mới" - Nelson Mandela</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+// Load progress
+function loadProgress() {
+    const progress = JSON.parse(localStorage.getItem('topik3_week1_progress') || '[]');
+    const completedDays = progress.length;
+    const percentage = (completedDays / 7) * 100;
+    
+    document.getElementById('progressBar').style.width = percentage + '%';
+    document.getElementById('progressBar').textContent = completedDays + '/7 ngày';
+    
+    // Mark completed days
+    document.querySelectorAll('.day-card').forEach(card => {
+        const dayNum = parseInt(card.getAttribute('data-day'));
+        if (progress.includes(dayNum)) {
+            card.classList.add('completed');
+        }
+    });
+}
+
+window.onload = loadProgress;
+</script>
+</body>
+</html>
