@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 2: Ngữ pháp nâng cao & Luyện đọc - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #E8F5E9 0%, #FFF5E4 50%, #E3F2FD 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #38A169; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #2F855A; }
+.breadcrumb-separator { color: #68D391; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #38A169; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(56,161,105,0.15); transition: all 0.3s; border: 2px solid #9AE6B4; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(56,161,105,0.25); background: #F0FFF4; }
+.nav-btn.primary { background: linear-gradient(135deg, #38A169 0%, #68D399 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(168,230,207,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '📚'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #38A169 0%, #68D399 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #2F855A; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #38A169; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(56,161,105,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Review Section - Yellow */
+.review-section .section-title { color: #B7791F; border-color: #ECC94B; }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+.review-card { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-radius: 15px; padding: 18px; border-left: 5px solid #ECC94B; box-shadow: 0 4px 15px rgba(236,201,75,0.1); }
+.review-card h4 { font-family: 'Baloo 2', cursive; color: #92400E; margin-bottom: 12px; font-size: 1.1em; }
+.review-item { padding: 8px 0; color: #78350F; font-size: 0.95em; border-bottom: 1px dashed #FDE68A; }
+.review-item:last-child { border-bottom: none; }
+.review-item strong { color: #92400E; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 25px; margin: 25px 0; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; box-shadow: 0 6px 20px rgba(59,130,246,0.1); }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9em; transition: all 0.3s; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(59,130,246,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #1E40AF; background: #EFF6FF; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #F0FFF4; color: #065F46; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #9AE6B4; }
+.grammar-tag { background: #EFF6FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 180px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #38A169; border: 2px solid #9AE6B4; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F0FFF4; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #38A169 0%, #68D399 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid, .review-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week02.html">📅 Tuần 2</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 2: Ngữ pháp & Đọc hiểu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week02.html" class="nav-btn">← Về Tổng quan Tuần 2</a>
+<a href="topik3-week02-day03.html" class="nav-btn primary">Ngày 3 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">📚 NGÀY 2 • 2일차</span>
+<h1>Ngữ pháp nâng cao & Luyện đọc</h1>
+<div class="subtitle">Mở rộng ngữ pháp và rèn kỹ năng đọc hiểu</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp mới: <strong>-게 하다</strong> (bắt/để cho) và <strong>-아/어 보다</strong> (thử làm gì). 
+Đọc hiểu bài "학교 생활" (Đời sống học đường) 300 chữ và luyện tóm tắt nội dung. 📚
+</p>
+<div class="time-info">⏰ 60 phút • 📝 2 ngữ pháp mới •  Bài đọc 300 chữ • ✍️ Tóm tắt</div>
+</div>
+
+<!-- Review Section -->
+<div class="section review-section">
+<h2 class="section-title"> 1. Ôn tập Ngày 1 (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc lại từ vựng và ngữ pháp đã học ngày hôm qua. Tự kiểm tra bằng cách đọc to và đặt câu.</p>
+
+<div class="review-grid">
+<div class="review-card">
+<h4> 10 Từ vựng đã học</h4>
+<div class="review-item"><strong>학교</strong> [hak-gyo] - Trường học</div>
+<div class="review-item"><strong>교실</strong> [gyo-sil] - Lớp học</div>
+<div class="review-item"><strong>선생님</strong> [seon-saeng-nim] - Giáo viên</div>
+<div class="review-item"><strong>학생</strong> [hak-saeng] - Học sinh</div>
+<div class="review-item"><strong>수업</strong> [su-eop] - Giờ học</div>
+<div class="review-item"><strong>교과서</strong> [gyo-gwa-seo] - Sách giáo khoa</div>
+<div class="review-item"><strong>판</strong> [chip-pan] - Bảng đen</div>
+<div class="review-item"><strong>책상</strong> [chaek-sang] - Bàn học</div>
+<div class="review-item"><strong>의자</strong> [ui-ja] - Ghế</div>
+<div class="review-item"><strong>학교생활</strong> [hak-gyo-saeng-hwal] - Đời sống học đường</div>
+</div>
+
+<div class="review-card">
+<h4>📘 2 Ngữ pháp đã học</h4>
+<div class="review-item">
+<strong>-기 위해(서)</strong> - Để làm gì (mục đích)<br>
+<em style="color: #78350F;">공부하기 위해 도서관에 가요. (Để học bài, tôi đến thư viện.)</em>
+</div>
+<div class="review-item" style="margin-top: 10px;">
+<strong>-도록 하다</strong> - Để, làm cho (yêu cầu)<br>
+<em style="color: #78350F;">선생님이 숙제를 하도록 했어요. (Giáo viên yêu cầu làm bài tập.)</em>
+</div>
+</div>
+</div>
+
+<div style="background: #FFF9E6; border-left: 4px solid #ECC94B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Bài tập nhanh:</strong>
+<p style="color: #78350F; margin-top: 8px;">Hãy đặt 2 câu sử dụng <strong>-기 위해(서)</strong> và 2 câu sử dụng <strong>-도록 하다</strong> với từ vựng đã học.</p>
+</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 2. Ngữ pháp mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc • So sánh sự khác nhau</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-게 하다</div>
+<div class="grammar-meaning">Bắt, để cho (bắt buộc làm gì)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả việc ai đó bắt buộc hoặc để cho người khác làm gì. Tương đương "bắt/để cho" trong tiếng Việt. Thường dùng trong ngữ cảnh giáo viên yêu cầu học sinh, bố mẹ yêu cầu con cái, hoặc cấp trên yêu cầu cấp dưới.
+</div>
+<div class="grammar-formula">
+Động từ + -게 하다<br>
+• Động từ có patchim: + 게 하다<br>
+• Động từ không patchim: + 게 하다<br>
+<br>
+⚠️ Chủ ngữ của -게 하다 là người yêu cầu/bắt buộc
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">선생님이 숙제를 하게 해요. <button class="speak-btn" onclick="speakKorean('선생님이 숙제를 하게 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Giáo viên bắt (học sinh) làm bài tập.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">부모님이 일찍 자게 해요. <button class="speak-btn" onclick="speakKorean('부모님이 일찍 자게 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Bố mẹ bắt tôi ngủ sớm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">회사에서 야근하게 해요. <button class="speak-btn" onclick="speakKorean('회사에서 야근하게 해요.', this)"></button></div>
+<div class="grammar-example-meaning">Công ty bắt làm thêm giờ.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -게 하다 = "bắt/để ai làm gì" → Chủ ngữ là người ra lệnh<br>
+<strong>⚠️ So sánh với -도록 하다:</strong> Cả hai đều có nghĩa "yêu cầu" nhưng -게 하다 mạnh hơn, mang tính bắt buộc rõ ràng hơn.
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-아/어 보다</div>
+<div class="grammar-meaning">Thử làm gì</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả việc thử làm một việc gì đó để xem kết quả như thế nào. Tương đương "thử làm gì" trong tiếng Việt. Thường dùng khi muốn khuyến khích ai đó thử một phương pháp mới hoặc trải nghiệm mới.
+</div>
+<div class="grammar-formula">
+Động từ + -아/어 보다<br>
+• Nguyên âm cuối là ㅏ, ㅗ: + -아 보다<br>
+• Các nguyên âm khác: + -어 보다<br>
+<br>
+⚠️ Khác với -아/어 두다 (làm sẵn)
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">새로운 공부 방법을 시도해 보세요. <button class="speak-btn" onclick="speakKorean('새로운 공부 방법을 시도해 보세요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Hãy thử phương pháp học mới xem.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이 책을 읽어 보세요. <button class="speak-btn" onclick="speakKorean('이 책을 읽어 보세요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Hãy thử đọc cuốn sách này xem.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국 음식을 먹어 보세요. <button class="speak-btn" onclick="speakKorean('한국 음식을 먹어 보세요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Hãy thử ăn đồ ăn Hàn Quốc xem.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어 보다 = "thử làm gì" → Dùng khi muốn khuyến khích thử nghiệm<br>
+<strong>⚠️ Lưu ý:</strong> Khác với -아/어 두다 (làm sẵn để dùng sau). Ví dụ: 책을 읽어 보세요 (thử đọc) vs 책을 읽어 두었어요 (đã đọc sẵn).
+</div>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 20px; border-radius: 15px; margin-top: 25px;">
+<h4 style="color: #92400E; font-family: 'Baloo 2', cursive; margin-bottom: 12px;"> Bài tập luyện tập</h4>
+<p style="color: #78350F; margin-bottom: 10px;"><strong>Hãy đặt câu với 2 cấu trúc mới:</strong></p>
+<div style="background: white; padding: 15px; border-radius: 10px; margin: 10px 0;">
+<p style="color: #4A5568; margin-bottom: 8px;"><strong>1. -게 하다:</strong> Miêu tả việc giáo viên/bố mẹ bắt ai đó làm gì.</p>
+<p style="color: #4A5568;"><strong>2. -아/어 보다:</strong> Khuyến khích ai đó thử làm một việc gì đó.</p>
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc ngữ pháp • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title"> 학교 생활 (Đời sống học đường)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">🎯 Ngày 2</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>저는 매일 아침 8시에 <strong>학교</strong>에 가요. <strong>교실</strong>에 들어가면 <strong>선생님</strong>이 인사해요. <strong>학생</strong>들은 자리에 앉아서 <strong>교과서</strong>를 펴요. 선생님이 <strong>칠판</strong>에 글을 써요.</p>
+
+<p>수업 시간에 질문을 하면 좋아요. 친구들과 토론도 해요. 수업이 끝나면 <strong>숙제</strong>를 해요. 매일 <strong>공부</strong>하는 것이 중요해요. 선생님이 매일 숙제를 <span class="grammar-highlight">하게 해요</span>. 그래서 우리는 매일 공부해요.</p>
+
+<p>저는 <strong>국어</strong>와 <strong>수학</strong>을 좋아해요. <strong>영어</strong>도 재미있어요. <strong>과학</strong> 시간에는 실험을 해요. 역사 시간에는 한국 역사를 배워요. 새로운 공부 방법을 <span class="grammar-highlight">시도해 보세요</span>. 재미있어요.</p>
+
+<p>수업 후에는 <strong>동아리</strong> 활동을 해요. 저는 사진 동아리에 있어요. 매주 모여서 사진을 찍어요. <strong>학교생활</strong>이 재미있어요. 새로운 친구도 사귀어요.</p>
+
+<p>선생님이 책을 많이 읽게 해요. 그래서 저는 매일 책을 읽어요. 새로운 책을 <span class="grammar-highlight">읽어 보세요</span>. 정말 재미있어요. 공부도 하고 친구도 사귀고 정말 좋은 <strong>학교생활</strong>이에요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích cách đọc & Lưu ý vận dụng</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng đã học xuất hiện trong bài:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">학교 (trường học)</span>
+<span class="vocab-tag">교실 (lớp học)</span>
+<span class="vocab-tag">선생님 (giáo viên)</span>
+<span class="vocab-tag">학생 (học sinh)</span>
+<span class="vocab-tag">수업 (giờ học)</span>
+<span class="vocab-tag">교과서 (sách giáo khoa)</span>
+<span class="vocab-tag">칠판 (bảng đen)</span>
+<span class="vocab-tag">학교생활 (đời sống học đường)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-게 하다 (bắt/để cho)</span>
+<span class="grammar-tag">-아/어 보다 (thử làm gì)</span>
+<span class="grammar-tag">-기 위해(서) (để làm gì)</span>
+<span class="grammar-tag">-도록 하다 (yêu cầu)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>💡 Cách đọc hiệu quả:</strong>
+<ol style="color: #78350F; margin-left: 20px; line-height: 1.8;">
+<li><strong>Đọc chậm, phát âm rõ từng từ</strong> - Đặc biệt chú ý các từ có patchim phức tạp</li>
+<li><strong>Ngắt nghỉ đúng chỗ</strong> - Sau mỗi câu (.), nghỉ 1-2 giây; sau mỗi đoạn, nghỉ 3-4 giây</li>
+<li><strong>Nhấn mạnh vào từ vựng quan trọng</strong> - Các từ được highlight trong bài</li>
+<li><strong>Chú ý ngữ điệu</strong> - Câu hỏi lên giọng ở cuối, câu khẳng định xuống giọng</li>
+<li><strong>Đọc lại 2-3 lần</strong> - Lần 1 đọc chậm, lần 2 đọc tự nhiên, lần 3 đọc với cảm xúc</li>
+</ol>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>đời sống học đường</strong> của tác giả. Mỗi sáng 8h đi học, vào lớp giáo viên chào hỏi, học sinh ngồi vào bàn và mở sách. Giáo viên bắt học sinh làm bài tập mỗi ngày. Tác giả thích nhiều môn học và tham gia câu lạc bộ chụp ảnh. Giáo viên khuyến khích đọc nhiều sách. Đời sống học đường rất vui vẻ và thú vị.
+</p>
+</div>
+
+<div class="analysis-item">
+<strong>🎯 Cấu trúc câu phức cần lưu ý:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+• <strong>-게 하다</strong> (bắt/để cho): 선생님이 숙제를 하게 해요. (Giáo viên bắt làm bài tập.)<br>
+• <strong>-아/어 보다</strong> (thử làm gì): 새로운 책을 읽어 보세요. (Hãy thử đọc sách mới xem.)<br>
+• <strong>-기 위해(서)</strong> (để làm gì): 공부하기 위해 도서관에 가요. (Để học bài, tôi đến thư viện.)<br>
+• <strong>-도록 하다</strong> (yêu cầu): 선생님이 책을 읽도록 해요. (Giáo viên yêu cầu đọc sách.)
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 4. Viết tóm tắt (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Tóm tắt bài đọc "학교 생활" bằng 3-4 câu tiếng Hàn. Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Yêu cầu:</strong> Tóm tắt bài đọc "학교 생활" bằng <strong>3-4 câu tiếng Hàn</strong>.<br><br>
+<strong>Quy tắc:</strong><br>
+• Độ dài: <strong>3-4 câu</strong> (khoảng 50-80 từ)<br>
+• Sử dụng ít nhất <strong>2 cấu trúc ngữ pháp</strong> đã học trong tuần:<br>
+  - <strong>-기 위해(서)</strong> (để làm gì)<br>
+  - <strong>-도록 하다</strong> (yêu cầu làm gì)<br>
+  - <strong>-게 하다</strong> (bắt/để cho)<br>
+  - <strong>-아/어 보다</strong> (thử làm gì)<br><br>
+• Nội dung: Tóm tắt ý chính của bài đọc về đời sống học đường
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example" style="background: white; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #8B5CF6;">
+<div class="writing-example-korean" style="color: #5B21B6; font-weight: 700; font-size: 1.05em; margin-bottom: 5px;">
+1. 저는 매일 학교에 가서 공부해요.
+</div>
+<div class="writing-example-meaning" style="color: #718096; font-style: italic; font-size: 0.95em;">
+Tôi đi học mỗi ngày và học bài.
+</div>
+</div>
+<div class="writing-example" style="background: white; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #8B5CF6;">
+<div class="writing-example-korean" style="color: #5B21B6; font-weight: 700; font-size: 1.05em; margin-bottom: 5px;">
+2. 선생님이 매일 숙제를 하게 해요.
+</div>
+<div class="writing-example-meaning" style="color: #718096; font-style: italic; font-size: 0.95em;">
+Giáo viên bắt chúng tôi làm bài tập mỗi ngày.
+</div>
+</div>
+<div class="writing-example" style="background: white; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #8B5CF6;">
+<div class="writing-example-korean" style="color: #5B21B6; font-weight: 700; font-size: 1.05em; margin-bottom: 5px;">
+3. 새로운 책을 읽어 보세요. 정말 재미있어요.
+</div>
+<div class="writing-example-meaning" style="color: #718096; font-style: italic; font-size: 0.95em;">
+Hãy thử đọc sách mới xem. Rất thú vị.
+</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="summaryText" placeholder="Viết tóm tắt của bạn vào đây...
+
+Gợi ý bắt đầu:
+1. 저는 매일 학교에 가서...
+2. 선생님이...
+3. ...
+
+Hãy viết 3-4 câu tóm tắt bài đọc!"></textarea>
+
+<button class="check-btn" onclick="checkSummary()">✓ Kiểm tra bài tóm tắt</button>
+
+<div id="summary-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết tóm tắt:</strong><br>
+• <strong>Câu 1:</strong> Giới thiệu chủ đề chính (đời sống học đường)<br>
+• <strong>Câu 2:</strong> Miêu tả hoạt động chính (học tập, bài tập)<br>
+• <strong>Câu 3:</strong> Hoạt động ngoại khóa (câu lạc bộ)<br>
+• <strong>Câu 4:</strong> Cảm nhận cá nhân<br>
+• Sử dụng từ nối: 그래서 (vì vậy), 그리고 (và), 하지만 (nhưng)
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 2</h2>
+<ul class="goals-list">
+<li>Đọc hiểu bài đọc 300 chữ "학교 생활" (Đời sống học đường)</li>
+<li>Tóm tắt được nội dung chính bằng 3-4 câu tiếng Hàn</li>
+<li>Hiểu và đặt câu với 2 cấu trúc ngữ pháp mới (-게 하다, -아/어 보다)</li>
+<li>Thuộc tổng cộng 4 cấu trúc ngữ pháp (bao gồm 2 cấu trúc từ Ngày 1)</li>
+<li>Phân tích được cấu trúc câu phức trong bài đọc</li>
+<li>Nắm vững từ vựng chủ đề trường học</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week02.html" class="day-nav-btn">← Về Hub Tuần 2</a>
+<a href="topik3-week02-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week02-day02.html" class="day-nav-btn active">Ngày 2 ✓</a>
+<a href="topik3-week02-day03.html" class="day-nav-btn">Ngày 3 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week02-day01.html" class="nav-btn">← Ngày 1</a>
+<a href="topik3-week02-day03.html" class="nav-btn primary">Tiếp: Ngày 3 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🇷 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Học tập là hạt giống, kiến thức là cây, thành công là quả"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌸', '', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '저는 매일 아침 8시에 학교에 가요. 교실에 들어가면 선생님이 인사해요. 학생들은 자리에 앉아서 교과서를 펴요. 선생님이 칠판에 글을 써요. 수업 시간에 질문을 하면 좋아요. 친구들과 토론도 해요. 수업이 끝나면 숙제를 해요. 매일 공부하는 것이 중요해요. 선생님이 매일 숙제를 하게 해요. 그래서 우리는 매일 공부해요. 저는 국어와 수학을 좋아해요. 영어도 재미있어요. 과학 시간에는 실을 해요. 역사 시간에는 한국 역사를 배워요. 새로운 공부 방법을 시도해 보세요. 재미있어요. 수업 후에는 동아리 활동을 해요. 저는 사진 동아리에 있어요. 매주 모여서 사진을 찍어요. 학교생활이 재미있어요. 새로운 친구도 사귀어요. 선생님이 책을 많이 읽게 해요. 그래서 저는 매일 책을 읽어요. 새로운 책을 읽어 보세요. 정말 재미있어요. 공부도 하고 친구도 사귀고 정말 좋은 학교생활이에요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function checkSummary() {
+    const textarea = document.getElementById('summaryText');
+    const feedback = document.getElementById('summary-feedback');
+    const text = textarea.value.trim();
+    
+    if (text.length < 50) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài tóm tắt của bạn còn ngắn. Hãy viết ít nhất 3-4 câu đầy đủ nhé! (tối thiểu 50 ký tự)';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài tóm tắt. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 2 cấu trúc ngữ pháp?<br>• Câu văn có mạch lạc không?<br>• Có tóm tắt đúng nội dung chính của bài đọc không?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week2_progress') || '[]');
+        if (!progress.includes(2)) {
+            progress.push(2);
+            localStorage.setItem('topik3_week2_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save summary when leaving page
+window.onbeforeunload = function() {
+    const textarea = document.getElementById('summaryText');
+    if (textarea.value.trim().length > 50) {
+        localStorage.setItem('topik3_week2_day2_summary', textarea.value);
+    }
+};
+
+// Load saved summary
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week2_day2_summary');
+    if (saved) {
+        document.getElementById('summaryText').value = saved;
+    }
+};
+</script>
+</body>
+</html>
