@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 3: Ngữ pháp liên kết & Luyện nghe - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 50%, #7DD3FC 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #0284C7; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #0369A1; }
+.breadcrumb-separator { color: #7DD3FC; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #0284C7; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(2,132,199,0.15); transition: all 0.3s; border: 2px solid #7DD3FC; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(2,132,199,0.25); background: #F0F9FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(14,165,233,0.3) 0%, rgba(56,189,248,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏨'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🎧'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #0369A1; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #0284C7; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(2,132,199,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(59,130,246,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Listening Section - Green */
+.listening-section .section-title { color: #065F46; border-color: #10B981; }
+.listening-box { background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border: 2px solid #10B981; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.listening-title { font-family: 'Baloo 2', cursive; color: #065F46; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.listening-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.listening-step { padding: 12px; margin: 8px 0; border-left: 4px solid #10B981; background: #F0FFF4; border-radius: 8px; }
+.listening-step strong { color: #065F46; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #10B981; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #065F46; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F0FFF4; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #065F46; min-width: 120px; background: #D1FAE5; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+.dialogue-text strong { color: #065F46; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #6EE7B7; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #10B981 0%, #34D399 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(16,185,129,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #065F46; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+/* Exercise Section - Orange */
+.exercise-section .section-title { color: #C05621; border-color: #F59E0B; }
+.exercise-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #C05621; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FED7AA; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Speaking Section - Purple */
+.speaking-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.speaking-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.speaking-title { font-family: 'Baloo 2', cursive; color: #5B21B6; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.shadowing-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.shadowing-step { padding: 12px; margin: 8px 0; border-left: 4px solid #8B5CF6; background: #FAF5FF; border-radius: 8px; }
+.shadowing-step strong { color: #5B21B6; }
+
+.role-selector { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+.role-btn { padding: 12px 25px; background: white; color: #5B21B6; border: 2px solid #C4B5FD; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.role-btn:hover { background: #FAF5FF; transform: translateY(-2px); }
+.role-btn.active { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border-color: transparent; }
+.role-script { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; color: #5B21B6; line-height: 1.8; min-height: 80px; }
+.record-btn { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; display: inline-flex; align-items: center; gap: 10px; }
+.record-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(239,68,68,0.4); }
+.record-btn.recording { animation: pulse 1s infinite; }
+.recording-status { margin-top: 15px; color: #718096; font-size: 0.95em; }
+.audio-playback { width: 100%; margin-top: 15px; display: none; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #0284C7; border: 2px solid #7DD3FC; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F0F9FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week05.html">✈️ Tuần 5</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 3: Ngữ pháp & Luyện nghe</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week05.html" class="nav-btn">← Về Tổng quan Tuần 5</a>
+<a href="topik3-week05-day04.html" class="nav-btn primary">Ngày 4 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏨 NGÀY 3 • 3일차</span>
+<h1>Ngữ pháp liên kết & Luyện nghe</h1>
+<div class="subtitle">Mở rộng ngữ pháp và rèn kỹ năng nghe hiểu</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp liên kết: <strong>-(으) 때</strong> (khi làm gì) và <strong>-아/어 본 적이 있다</strong> (đã từng). 
+Luyện nghe hội thoại "호텔 예약" (Đặt phòng khách sạn) và thực hành Shadowing. 🏨
+</p>
+<div class="time-info">⏰ 60 phút • 📝 2 ngữ pháp • 🎧 Hội thoại 10 lượt • 🗣️ Shadowing</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ngữ pháp liên kết (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-(으) 때</div>
+<div class="grammar-meaning">Khi làm gì (thời điểm)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả thời điểm một hành động xảy ra, tương đương "khi" trong tiếng Việt. Dùng khi muốn nói về thời gian hoặc tình huống xảy ra hành động. Có thể dùng với cả động từ và tính từ.
+</div>
+<div class="grammar-formula">
+Động từ/Tính từ + -(으) 때<br>
+• Không có patchim: + ㄹ 때<br>
+• Có patchim: + 을 때<br>
+• Động từ kết thúc bằng ㄹ: + 때 (bỏ ㄹ)<br>
+• Ví dụ: 호텔을 예약할 때 여권이 필요해요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">호텔을 예약할 때 여권이 필요해요. <button class="speak-btn" onclick="speakKorean('호텔을 예약할 때 여권이 필요해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Khi đặt khách sạn cần hộ chiếu.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국에 있을 때 경복궁에 갔어요. <button class="speak-btn" onclick="speakKorean('한국에 있을 때 경복궁에 갔어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Khi ở Hàn Quốc tôi đã đến Gyeongbokgung.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">여행 갈 때 짐을 싸요. <button class="speak-btn" onclick="speakKorean('여행 갈 때 짐을 싸요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Khi đi du lịch thì đóng gói hành lý.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">시간이 있을 때 책을 읽어요. <button class="speak-btn" onclick="speakKorean('시간이 있을 때 책을 읽어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Khi có thời gian thì đọc sách.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으) 때 = "khi" → Diễn tả thời điểm<br>
+<strong>⚠️ Lưu ý:</strong> Không dùng với thì quá khứ trong vế có -(으) 때 (chỉ dùng thì ở vế chính)
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-아/어 본 적이 있다</div>
+<div class="grammar-meaning">Đã từng trải nghiệm</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả việc đã từng có kinh nghiệm hoặc trải nghiệm làm gì đó trong quá khứ. Tương đương "đã từng" trong tiếng Việt. Dùng khi nói về những trải nghiệm đáng nhớ.
+</div>
+<div class="grammar-formula">
+Động từ + -아/어 본 적이 있다<br>
+• Nguyên âm cuối là ㅏ, ㅗ: + -아 본 적이 있다<br>
+• Các nguyên âm khác: + -어 본 적이 있다<br>
+• Động từ 하다: + -해 본 적이 있다<br>
+• Phủ định: -아/어 본 적이 없다 (chưa từng)<br>
+• Ví dụ: 한국에 가 본 적이 있어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국에 가 본 적이 있어요. <button class="speak-btn" onclick="speakKorean('한국에 가 본 적이 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi đã từng đến Hàn Quốc.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">김치를 먹어 본 적이 있어요. <button class="speak-btn" onclick="speakKorean('김치를 먹어 본 적이 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi đã từng ăn kim chi.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한복을 입어 본 적이 없어요. <button class="speak-btn" onclick="speakKorean('한복을 입어 본 적이 없어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi chưa từng mặc Hanbok.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">제주도에 가 본 적이 있어요? <button class="speak-btn" onclick="speakKorean('제주도에 가 본 적이 있어요?', this)">🔊</button></div>
+<div class="grammar-example-meaning">Bạn đã từng đến đảo Jeju chưa?</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어 본 적이 있다 = "đã từng" → Diễn tả trải nghiệm<br>
+<strong>⚠️ So sánh:</strong> Khác với -ㄴ/은 적이 있다 (cùng nghĩa nhưng dùng với tính từ)
+</div>
+</div>
+</div>
+</div>
+
+<!-- Listening Section -->
+<div class="section listening-section">
+<h2 class="section-title">🎧 2. Luyện nghe (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại 3 lần theo thứ tự • Lần 1 lấy ý chính • Lần 2 nghe chi tiết + transcript • Lần 3 Shadowing</p>
+
+<div class="listening-box">
+<div class="listening-title">🏨 Hội thoại: 호텔 예약 (Đặt phòng khách sạn)</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullDialogue(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ hội thoại</div>
+<div class="audio-sub">Nghe 3 lần: Ý chính → Chi tiết → Shadowing</div>
+</div>
+</div>
+
+<div class="listening-steps">
+<div class="listening-step">
+<strong>🎯 Lần 1 (5 phút):</strong> Nghe lấy ý chính - Không nhìn transcript, cố gắng hiểu nội dung chính về đặt phòng khách sạn
+</div>
+<div class="listening-step">
+<strong>📝 Lần 2 (7 phút):</strong> Nghe chi tiết + Đọc transcript - Vừa nghe vừa đọc, chú ý ngữ điệu và từ mới
+</div>
+<div class="listening-step">
+<strong>🗣️ Lần 3 (8 phút):</strong> Shadowing - Nghe và đọc đuổi theo, bắt chước ngữ điệu và tốc độ
+</div>
+</div>
+
+<div class="transcript-box">
+<div class="transcript-title">📜 Transcript (Bản ghi lời thoại)</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객 (Khách):</span>
+<span class="dialogue-text">안녕하세요. 호텔을 <strong>예약</strong>하고 싶은데요.</span>
+<button class="speak-btn" onclick="speakKorean('안녕하세요. 호텔을 예약하고 싶은데요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">직원 (Nhân viên):</span>
+<span class="dialogue-text">안녕하세요. 언제 <strong>체크인</strong>하실 거예요?</span>
+<button class="speak-btn" onclick="speakKorean('안녕하세요. 언제 체크인하실 거예요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">다음 주 금요일에 <strong>체크인</strong>할 거예요. <strong>2박</strong>이에요.</span>
+<button class="speak-btn" onclick="speakKorean('다음 주 금요일에 체크인할 거예요. 2박이에요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">직원:</span>
+<span class="dialogue-text">어떤 <strong>객실</strong>을 원하세요? <strong>싱글룸</strong>, <strong>더블룸</strong>, <strong>스위트룸</strong>이 있어요.</span>
+<button class="speak-btn" onclick="speakKorean('어떤 객실을 원하세요? 싱글룸, 더블룸, 스위트룸이 있어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text"><strong>더블룸</strong>으로 주세요. <strong>조식</strong>은 포함돼요?</span>
+<button class="speak-btn" onclick="speakKorean('더블룸으로 주세요. 조식은 포함돼요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">직원:</span>
+<span class="dialogue-text">네, <strong>조식</strong>이 포함돼요. <strong>가격</strong>은 1박에 15만 원이에요.</span>
+<button class="speak-btn" onclick="speakKorean('네, 조식이 포함돼요. 가격은 1박에 15만 원이에요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">좋아요. <strong>카드</strong>로 결제할 수 있어요?</span>
+<button class="speak-btn" onclick="speakKorean('좋아요. 카드로 결제할 수 있어요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">직원:</span>
+<span class="dialogue-text">네, <strong>카드</strong> 결제 가능해요. <strong>체크아웃</strong>은 몇 시에 하실 거예요?</span>
+<button class="speak-btn" onclick="speakKorean('네, 카드 결제 가능해요. 체크아웃은 몇 시에 하실 거예요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">일요일 오전 11시에 <strong>체크아웃</strong>할게요.</span>
+<button class="speak-btn" onclick="speakKorean('일요일 오전 11시에 체크아웃할게요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">직원:</span>
+<span class="dialogue-text">예약이 완료됐어요. 감사합니다!</span>
+<button class="speak-btn" onclick="speakKorean('예약이 완료됐어요. 감사합니다!', this)">🔊</button>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">📚 Từ vựng & Ngữ pháp trong hội thoại:</strong>
+<div style="margin-top: 10px; color: #78350F; line-height: 1.8;">
+• <strong>예약</strong> [ye-yak]: Đặt trước<br>
+• <strong>체크인</strong> [che-keu-in]: Nhận phòng<br>
+• <strong>체크아웃</strong> [che-keu-a ut]: Trả phòng<br>
+• <strong>객실</strong> [gaek-sil]: Phòng (khách sạn)<br>
+• <strong>싱글룸</strong> [sing-geul-lum]: Phòng đơn<br>
+• <strong>더블룸</strong> [deo-beul-lum]: Phòng đôi<br>
+• <strong>스위트룸</strong> [seu-wi-teu-lum]: Phòng suite<br>
+• <strong>조식</strong> [jo-sik]: Bữa sáng<br>
+• <strong>가격</strong> [ga-gyeok]: Giá cả<br>
+• <strong>1박</strong> [il-bak]: 1 đêm<br>
+• <strong>2박</strong> [i-bak]: 2 đêm<br>
+• <strong>카드</strong> [ka-deu]: Thẻ (tín dụng)<br>
+• <strong>결제</strong> [gyeol-je]: Thanh toán<br>
+• <strong>고객</strong> [go-gaek]: Khách hàng<br>
+• <strong>직원</strong> [jig-won]: Nhân viên<br>
+• <strong>-(으) 때</strong>: Khi (ngữ pháp mới)<br>
+• <strong>-아/어 본 적이 있다</strong>: Đã từng (ngữ pháp mới)
+</div>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 3. Bài tập nghe hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe lại hội thoại nếu cần • Chọn đáp án đúng • Kiểm tra kết quả</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 고객은 언제 체크인할 거예요?</div>
+<div class="exercise-question">Khách hàng sẽ nhận phòng khi nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 이번 주 목요일 (Thứ năm tuần này)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 다음 주 금요일 (Thứ sáu tuần sau)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 다음 주 토요일 (Thứ bảy tuần sau)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 이번 주 일요일 (Chủ nhật tuần này)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 어떤 객실을 예약했어요?</div>
+<div class="exercise-question">Đã đặt loại phòng nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 싱글룸 (Phòng đơn)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 더블룸 (Phòng đôi)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 스위트룸 (Phòng suite)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 패밀리룸 (Phòng gia đình)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 체크아웃은 언제 해요?</div>
+<div class="exercise-question">Trả phòng khi nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 토요일 오전 10시 (Thứ bảy 10h sáng)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 일요일 오전 11시 (Chủ nhật 11h sáng)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 일요일 오후 12시 (Chủ nhật 12h trưa)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 월요일 오전 11시 (Thứ hai 11h sáng)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div style="background: #F0FFF4; border-left: 4px solid #10B981; padding: 20px; border-radius: 15px; margin-top: 25px;">
+<h4 style="color: #065F46; font-family: 'Baloo 2', cursive; margin-bottom: 12px;">📊 Kết quả bài tập</h4>
+<div id="totalScore" style="font-size: 1.2em; color: #065F46; font-weight: 700;">Đã làm: 0/3 câu</div>
+<p style="color: #718096; margin-top: 10px;">Mục tiêu: Trả lời đúng 3/3 câu hỏi ✅</p>
+</div>
+</div>
+
+<!-- Speaking Section -->
+<div class="section speaking-section">
+<h2 class="section-title">🗣️ 4. Nói & Shadowing (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Thực hành Shadowing để cải thiện phát âm • Tự ghi âm và nghe lại • So sánh với bản gốc</p>
+
+<div class="speaking-box">
+<div class="speaking-title">🎯 Phương pháp Shadowing</div>
+<div class="shadowing-steps">
+<div class="shadowing-step">
+<strong>Bước 1 (3 phút):</strong> Nghe từng câu thoại và lặp lại ngay sau khi nghe. Cố gắng bắt chước ngữ điệu, tốc độ và cách ngắt nghỉ.
+</div>
+<div class="shadowing-step">
+<strong>Bước 2 (3 phút):</strong> Đọc đuổi theo (shadow) - Bấm play và nói cùng lúc với audio, không cần dừng.
+</div>
+<div class="shadowing-step">
+<strong>Bước 3 (4 phút):</strong> Tự ghi âm - Chọn 1 vai (고객 hoặc 직원) và ghi âm toàn bộ phần thoại của vai đó. Nghe lại và so sánh với bản gốc.
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">🎙️ Ghi âm thực hành</h4>
+<p style="color: #718096; margin-bottom: 15px;">Chọn vai bạn muốn đóng và bấm nút ghi âm:</p>
+<div class="role-selector">
+<button class="role-btn" onclick="selectRole('고객')" id="role-customer">👤 Vai 고객 (Khách hàng)</button>
+<button class="role-btn" onclick="selectRole('직원')" id="role-staff">👤 Vai 직원 (Nhân viên)</button>
+</div>
+<div id="selectedRole" style="background: #FAF5FF; padding: 12px; border-radius: 10px; margin-bottom: 15px; color: #5B21B6; font-weight: 600;">
+Chưa chọn vai
+</div>
+<div class="role-script" id="roleScript">
+Hãy chọn vai để xem thoại...
+</div>
+<button class="record-btn" id="recordBtn" onclick="toggleRecording()">
+<span id="recordIcon">🎙️</span>
+<span id="recordText">Bắt đầu ghi âm</span>
+</button>
+<div class="recording-status" id="recordingStatus"></div>
+<audio id="audioPlayback" controls class="audio-playback"></audio>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">🎯 Tiêu chí tự đánh giá:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li><strong>Phát âm:</strong> Phát âm rõ ràng, đúng patchim (phụ âm cuối)</li>
+<li><strong>Ngữ điệu:</strong> Lên giọng ở câu hỏi, xuống giọng ở câu khẳng định</li>
+<li><strong>Tốc độ:</strong> Tốc độ tự nhiên, không quá nhanh cũng không quá chậm</li>
+<li><strong>Ngắt nghỉ:</strong> Ngắt nghỉ đúng chỗ sau mỗi câu</li>
+<li><strong>Lịch sự:</strong> Sử dụng kính ngữ phù hợp (-세요, -ㅂ/습니다)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 3</h2>
+<ul class="goals-list">
+<li>Hiểu và sử dụng được 2 cấu trúc ngữ pháp liên kết (-(으) 때, -아/어 본 적이 있다)</li>
+<li>Nghe hiểu hội thoại 10 lượt về đặt phòng khách sạn</li>
+<li>Trả lời đúng 3/3 câu hỏi nghe hiểu</li>
+<li>Thực hành Shadowing ít nhất 3 lần</li>
+<li>Ghi âm và tự đánh giá phát âm theo 5 tiêu chí</li>
+<li>Nắm vững từ vựng chủ đề khách sạn và đặt phòng</li>
+<li>Thuộc tổng cộng 4 cấu trúc ngữ pháp (bao gồm 2 cấu trúc từ Ngày 1, 2)</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week05.html" class="day-nav-btn">← Về Hub Tuần 5</a>
+<a href="topik3-week05-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week05-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week05-day03.html" class="day-nav-btn active">Ngày 3 ✓</a>
+<a href="topik3-week05-day04.html" class="day-nav-btn">Ngày 4 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week05-day02.html" class="nav-btn">← Ngày 2</a>
+<a href="topik3-week05-day04.html" class="nav-btn primary">Tiếp: Ngày 4 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">✈️ Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Du lịch là cách tốt nhất để học ngôn ngữ và văn hóa"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['✈️', '🗺️', '🏨'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullDialogue(btnElement) {
+    const fullText = '안녕하세요. 호텔을 예약하고 싶은데요. 안녕하세요. 언제 체크인하실 거예요? 다음 주 금요일에 체크인할 거예요. 2박이에요. 어떤 객실을 원하세요? 싱글룸, 더블룸, 스위트룸이 있어요. 더블룸으로 주세요. 조식은 포함돼요? 네, 조식이 포함돼요. 가격은 1박에 15만 원이에요. 좋아요. 카드로 결제할 수 있어요? 네, 카드 결제 가능해요. 체크아웃은 몇 시에 하실 거예요? 일요일 오전 11시에 체크아웃할게요. 예약이 완료됐어요. 감사합니다!';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    document.getElementById('totalScore').textContent = `Đã làm: ${correctAnswers}/3 câu`;
+    if (correctAnswers === 3) {
+        const progress = JSON.parse(localStorage.getItem('topik3_week5_progress') || '[]');
+        if (!progress.includes(3)) {
+            progress.push(3);
+            localStorage.setItem('topik3_week5_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Recording functionality
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let selectedRole = null;
+
+const roleScripts = {
+    '고객': '안녕하세요. 호텔을 예약하고 싶은데요.\n\n다음 주 금요일에 체크인할 거예요. 2박이에요.\n\n더블룸으로 주세요. 조식은 포함돼요?\n\n좋아요. 카드로 결제할 수 있어요?\n\n일요일 오전 11시에 체크아웃할게요.',
+    '직원': '안녕하세요. 언제 체크인하실 거예요?\n\n어떤 객실을 원하세요? 싱글룸, 더블룸, 스위트룸이 있어요.\n\n네, 조식이 포함돼요. 가격은 1박에 15만 원이에요.\n\n네, 카드 결제 가능해요. 체크아웃은 몇 시에 하실 거예요?\n\n예약이 완료됐어요. 감사합니다!'
+};
+
+function selectRole(role) {
+    selectedRole = role;
+    document.getElementById('selectedRole').textContent = 'Đã chọn: Vai ' + role;
+    document.getElementById('roleScript').textContent = roleScripts[role];
+    document.getElementById('role-customer').classList.toggle('active', role === '고객');
+    document.getElementById('role-staff').classList.toggle('active', role === '직원');
+}
+
+async function toggleRecording() {
+    if (!selectedRole) {
+        alert('⚠️ Vui lòng chọn vai trước khi ghi âm!');
+        return;
+    }
+    
+    if (!isRecording) {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+            
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audioPlayback = document.getElementById('audioPlayback');
+                audioPlayback.src = audioUrl;
+                audioPlayback.style.display = 'block';
+                stream.getTracks().forEach(track => track.stop());
+            };
+            
+            mediaRecorder.start();
+            isRecording = true;
+            document.getElementById('recordIcon').textContent = '⏹️';
+            document.getElementById('recordText').textContent = 'Dừng ghi âm';
+            document.getElementById('recordBtn').classList.add('recording');
+            document.getElementById('recordingStatus').textContent = '🔴 Đang ghi âm...';
+        } catch (err) {
+            alert('⚠️ Không thể truy cập microphone. Vui lòng kiểm tra quyền truy cập.');
+        }
+    } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        document.getElementById('recordIcon').textContent = '🎙️';
+        document.getElementById('recordText').textContent = 'Bắt đầu ghi âm';
+        document.getElementById('recordBtn').classList.remove('recording');
+        document.getElementById('recordingStatus').textContent = '✅ Đã ghi âm xong! Hãy nghe lại và so sánh với bản gốc.';
+    }
+}
+</script>
+</body>
+</html>
