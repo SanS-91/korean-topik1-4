@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 1: Từ vựng & Ngữ pháp nền tảng - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 50%, #6EE7B7 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #059669; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #047857; }
+.breadcrumb-separator { color: #6EE7B7; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #059669; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(5,150,105,0.15); transition: all 0.3s; border: 2px solid #6EE7B7; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(5,150,105,0.25); background: #ECFDF5; }
+.nav-btn.primary { background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(110,231,183,0.3) 0%, rgba(167,243,208,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏥'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #047857; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #059669; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(5,150,105,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Vocabulary Section - Teal */
+.vocab-section .section-title { color: #047857; border-color: #10B981; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+.vocab-card { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border-radius: 15px; padding: 18px; border-left: 5px solid #10B981; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(16,185,129,0.2); }
+.vocab-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.vocab-number { background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85em; flex-shrink: 0; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #047857; font-weight: 800; }
+.vocab-pron { color: #718096; font-size: 0.85em; font-style: italic; background: white; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
+.vocab-meaning { color: #047857; font-size: 1em; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed #6EE7B7; }
+.vocab-example { background: white; padding: 10px; border-radius: 10px; margin: 6px 0; border-left: 4px solid #10B981; }
+.example-korean { color: #047857; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(16,185,129,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #ECFDF5; color: #065F46; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #6EE7B7; }
+.grammar-tag { background: #EFF6FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+
+/* Exercise Section - Orange */
+.exercise-section .section-title { color: #C05621; border-color: #F59E0B; }
+.exercise-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #C05621; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FED7AA; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Practice Section - Teal */
+.practice-section .section-title { color: #047857; border-color: #10B981; }
+.practice-box { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border: 2px solid #10B981; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.practice-textarea { width: 100%; min-height: 150px; padding: 15px; border: 2px solid #6EE7B7; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; }
+.practice-textarea:focus { outline: none; border-color: #10B981; }
+.practice-tips { background: #ECFDF5; padding: 12px; border-radius: 10px; margin-top: 15px; color: #065F46; font-size: 0.95em; }
+.practice-tips strong { color: #047857; }
+.check-btn { background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(16,185,129,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Flashcard Section */
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; }
+.flashcard-back { background: white; color: #2D3748; transform: rotateY(180deg); border: 3px solid #059669; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 3em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.4em; font-weight: 700; color: #047857; margin-bottom: 10px; text-align: center; }
+.flashcard-pronunciation { color: #718096; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #718096; margin-top: 10px; font-weight: 600; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #059669; border: 2px solid #6EE7B7; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #ECFDF5; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html"> TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week06.html">🏥 Tuần 6</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 1: Từ vựng & Ngữ pháp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week06.html" class="nav-btn">← Về Tổng quan Tuần 6</a>
+<a href="topik3-week06-day02.html" class="nav-btn primary">Ngày 2 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏥 NGÀY 1 • 1일차</span>
+<h1>Từ vựng nền tảng & Ngữ pháp cơ bản</h1>
+<div class="subtitle">Bước đầu tiên vào thế giới Y tế & Sức khỏe</div>
+<p class="description">
+Học 20 từ vựng cốt lõi về cơ thể & triệu chứng bệnh và 2 cấu trúc ngữ pháp nền tảng. 
+Đọc hiểu bài "하루 건강 습관" (Thói quen sức khỏe hàng ngày) và luyện viết câu tổng hợp. 
+</p>
+<div class="time-info">⏰ 60 phút • 📚 20 từ vựng • 📝 2 ngữ pháp • 📖 Bài đọc 200 chữ</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 1. Từ vựng nền tảng (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to mỗi từ 3 lần • Viết nghĩa tiếng Việt • Đặt 1 câu ví dụ cho mỗi từ • Nghe audio để phát âm chuẩn</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">머리</div>
+<div class="vocab-pron">[meo-ri]</div>
+<button class="speak-btn" onclick="speakKorean('머리', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Đầu</div>
+<div class="vocab-example">
+<div class="example-korean">머리가 아파요. <button class="speak-btn" onclick="speakKorean('머리가 아파요.', this)"></button></div>
+<div class="example-meaning">Đầu bị đau.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">배</div>
+<div class="vocab-pron">[bae]</div>
+<button class="speak-btn" onclick="speakKorean('배', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Bụng, dạ dày</div>
+<div class="vocab-example">
+<div class="example-korean">배가 아파요. <button class="speak-btn" onclick="speakKorean('배가 아파요.', this)">🔊</button></div>
+<div class="example-meaning">Bụng bị đau.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">눈</div>
+<div class="vocab-pron">[nun]</div>
+<button class="speak-btn" onclick="speakKorean('눈', this)"></button>
+</div>
+<div class="vocab-meaning">Mắt</div>
+<div class="vocab-example">
+<div class="example-korean">눈이 피곤해요. <button class="speak-btn" onclick="speakKorean('눈이 피곤해요.', this)">🔊</button></div>
+<div class="example-meaning">Mắt bị mệt.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">코</div>
+<div class="vocab-pron">[ko]</div>
+<button class="speak-btn" onclick="speakKorean('코', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Mũi</div>
+<div class="vocab-example">
+<div class="example-korean">코가 막혔어요. <button class="speak-btn" onclick="speakKorean('코가 막혔어요.', this)">🔊</button></div>
+<div class="example-meaning">Mũi bị nghẹt.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">목</div>
+<div class="vocab-pron">[mok]</div>
+<button class="speak-btn" onclick="speakKorean('목', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Cổ, họng</div>
+<div class="vocab-example">
+<div class="example-korean">목이 아파요. <button class="speak-btn" onclick="speakKorean('목이 아파요.', this)"></button></div>
+<div class="example-meaning">Cổ họng bị đau.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">손</div>
+<div class="vocab-pron">[son]</div>
+<button class="speak-btn" onclick="speakKorean('손', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Tay</div>
+<div class="vocab-example">
+<div class="example-korean">손을 씻어요. <button class="speak-btn" onclick="speakKorean('손을 씻어요.', this)">🔊</button></div>
+<div class="example-meaning">Rửa tay.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">발</div>
+<div class="vocab-pron">[bal]</div>
+<button class="speak-btn" onclick="speakKorean('발', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Chân</div>
+<div class="vocab-example">
+<div class="example-korean">발이 아파요. <button class="speak-btn" onclick="speakKorean('발이 아파요.', this)"></button></div>
+<div class="example-meaning">Chân bị đau.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">등</div>
+<div class="vocab-pron">[deung]</div>
+<button class="speak-btn" onclick="speakKorean('등', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Lưng</div>
+<div class="vocab-example">
+<div class="example-korean">등이 아파요. <button class="speak-btn" onclick="speakKorean('등이 아파요.', this)"></button></div>
+<div class="example-meaning">Lưng bị đau.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">심장</div>
+<div class="vocab-pron">[sim-jang]</div>
+<button class="speak-btn" onclick="speakKorean('심장', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Tim</div>
+<div class="vocab-example">
+<div class="example-korean">심장이 건강해요. <button class="speak-btn" onclick="speakKorean('심장이 건강해요.', this)">🔊</button></div>
+<div class="example-meaning">Tim khỏe mạnh.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">폐</div>
+<div class="vocab-pron">[pye]</div>
+<button class="speak-btn" onclick="speakKorean('폐', this)"></button>
+</div>
+<div class="vocab-meaning">Phổi</div>
+<div class="vocab-example">
+<div class="example-korean">폐가 중요해요. <button class="speak-btn" onclick="speakKorean('폐가 중요해요.', this)">🔊</button></div>
+<div class="example-meaning">Phổi rất quan trọng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">11</div>
+<div class="vocab-korean">열</div>
+<div class="vocab-pron">[yeol]</div>
+<button class="speak-btn" onclick="speakKorean('열', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Sốt</div>
+<div class="vocab-example">
+<div class="example-korean">열이 나요. <button class="speak-btn" onclick="speakKorean('열이 나요.', this)">🔊</button></div>
+<div class="example-meaning">Bị sốt.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">12</div>
+<div class="vocab-korean">기침</div>
+<div class="vocab-pron">[gi-chim]</div>
+<button class="speak-btn" onclick="speakKorean('기침', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Ho</div>
+<div class="vocab-example">
+<div class="example-korean">기침을 해요. <button class="speak-btn" onclick="speakKorean('기침을 해요.', this)"></button></div>
+<div class="example-meaning">Bị ho.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">13</div>
+<div class="vocab-korean">두통</div>
+<div class="vocab-pron">[du-tong]</div>
+<button class="speak-btn" onclick="speakKorean('두통', this)"></button>
+</div>
+<div class="vocab-meaning">Đau đầu</div>
+<div class="vocab-example">
+<div class="example-korean">두통이 있어요. <button class="speak-btn" onclick="speakKorean('두통이 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Bị đau đầu.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">14</div>
+<div class="vocab-korean">감기</div>
+<div class="vocab-pron">[gam-gi]</div>
+<button class="speak-btn" onclick="speakKorean('감기', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Cảm cúm</div>
+<div class="vocab-example">
+<div class="example-korean">감기에 걸렸어요. <button class="speak-btn" onclick="speakKorean('감기에 걸렸어요.', this)">🔊</button></div>
+<div class="example-meaning">Bị cảm cúm.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">15</div>
+<div class="vocab-korean">알레르기</div>
+<div class="vocab-pron">[al-le-reu-gi]</div>
+<button class="speak-btn" onclick="speakKorean('알레르기', this)"></button>
+</div>
+<div class="vocab-meaning">Dị ứng</div>
+<div class="vocab-example">
+<div class="example-korean">알레르기가 있어요. <button class="speak-btn" onclick="speakKorean('알레르기가 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Bị dị ứng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">16</div>
+<div class="vocab-korean">염증</div>
+<div class="vocab-pron">[yeom-jeung]</div>
+<button class="speak-btn" onclick="speakKorean('염증', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Viêm</div>
+<div class="vocab-example">
+<div class="example-korean">염증이 있어요. <button class="speak-btn" onclick="speakKorean('염증이 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Bị viêm.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">17</div>
+<div class="vocab-korean">어지러움</div>
+<div class="vocab-pron">[eo-ji-reo-um]</div>
+<button class="speak-btn" onclick="speakKorean('어지러움', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Chóng mặt</div>
+<div class="vocab-example">
+<div class="example-korean">어지러워요. <button class="speak-btn" onclick="speakKorean('어지러워요.', this)">🔊</button></div>
+<div class="example-meaning">Bị chóng mặt.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">18</div>
+<div class="vocab-korean">메스꺼움</div>
+<div class="vocab-pron">[me-seu-kkeo-um]</div>
+<button class="speak-btn" onclick="speakKorean('메스꺼움', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Buồn nôn</div>
+<div class="vocab-example">
+<div class="example-korean">메스꺼워요. <button class="speak-btn" onclick="speakKorean('메스꺼워요.', this)">🔊</button></div>
+<div class="example-meaning">Cảm thấy buồn nôn.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">19</div>
+<div class="vocab-korean">피로</div>
+<div class="vocab-pron">[pi-ro]</div>
+<button class="speak-btn" onclick="speakKorean('피로', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Mệt mỏi</div>
+<div class="vocab-example">
+<div class="example-korean">피로가 쌓여요. <button class="speak-btn" onclick="speakKorean('피로가 쌓여요.', this)">🔊</button></div>
+<div class="example-meaning">Mệt mỏi tích tụ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">20</div>
+<div class="vocab-korean">증상</div>
+<div class="vocab-pron">[jeung-sang]</div>
+<button class="speak-btn" onclick="speakKorean('증상', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Triệu chứng</div>
+<div class="vocab-example">
+<div class="example-korean">증상이 있어요. <button class="speak-btn" onclick="speakKorean('증상이 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Có triệu chứng.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 2. Ngữ pháp nền tảng (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-(으)면 좋다</div>
+<div class="grammar-meaning">Nên làm gì (Lời khuyên)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả lời khuyên, gợi ý nên làm điều gì đó. Tương đương "nên làm gì" trong tiếng Việt. Dùng khi muốn đưa ra lời khuyên về sức khỏe, thói quen tốt.
+</div>
+<div class="grammar-formula">
+Động từ/Tính từ + -(으)면 좋다<br>
+• Không có patchim: + 면 좋다<br>
+• Có patchim: + 으면 좋다<br>
+• Ví dụ: 물을 많이 마시면 좋아요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">물을 많이 마시면 좋아요. <button class="speak-btn" onclick="speakKorean('물을 많이 마시면 좋아요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nên uống nhiều nước.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">일찍 자면 좋아요. <button class="speak-btn" onclick="speakKorean('일찍 자면 좋아요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nên ngủ sớm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">운동을 자주 하면 좋아요. <button class="speak-btn" onclick="speakKorean('운동을 자주 하면 좋아요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nên tập thể dục thường xuyên.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)면 좋다 = "nên làm gì" → Đưa ra lời khuyên<br>
+<strong>️ Lưu ý:</strong> Khác với -아/어야 하다 (phải làm) - -(으)면 좋다 mang tính gợi ý nhẹ nhàng hơn
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-기 쉽다</div>
+<div class="grammar-meaning">Dễ bị / Dễ xảy ra</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả việc dễ xảy ra điều gì đó, dễ bị ảnh hưởng bởi điều gì. Tương đương "dễ bị" trong tiếng Việt. Thường dùng trong ngữ cảnh sức khỏe, thời tiết, tình huống.
+</div>
+<div class="grammar-formula">
+Động từ + -기 쉽다<br>
+• Ví dụ: 감기에 걸리기 쉬워요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">겨울에는 감기에 걸리기 쉬워요. <button class="speak-btn" onclick="speakKorean('겨울에는 감기에 걸리기 쉬워요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Mùa đông dễ bị cảm cúm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">피곤하면 병에 걸리기 쉬워요. <button class="speak-btn" onclick="speakKorean('피곤하면 병에 걸리기 쉬워요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Khi mệt mỏi dễ bị bệnh.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">노인들은 넘어지기 쉬워요. <button class="speak-btn" onclick="speakKorean('노인들은 넘어지기 쉬워요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Người già dễ bị ngã.</div>
+</div>
+<div class="grammar-note">
+<strong> Mẹo nhớ:</strong> -기 쉽다 = "dễ bị" → Diễn tả khả năng xảy ra cao<br>
+<strong>️ So sánh:</strong> Khác với -기 어렵다 (khó làm) - -기 쉽다 mang nghĩa ngược lại
+</div>
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Trả lời 3 câu hỏi đọc hiểu</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🏥 하루 건강 습관 (Thói quen sức khỏe hàng ngày)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 200 chữ</span>
+<span class="reading-tag">⏱️ 15 phút</span>
+<span class="reading-tag">❓ 3 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>건강은 정말 중요해요. 매일 <strong>건강</strong>한 <strong>습관</strong>을 들이면 <strong>병</strong>에 <strong>걸리기</strong> <strong>쉬워요</strong>. 아침에 일어나면 <strong>물</strong>을 많이 <strong>마시면 좋아요</strong>.</p>
+
+<p><strong>아침</strong> <strong>식사</strong>를 꼭 <strong>먹어야 해요</strong>. <strong>식사</strong>를 안 <strong>먹으면</strong> <strong>배</strong>가 <strong>아파요</strong>. <strong>점심</strong>에는 <strong>채소</strong>와 <strong>과일</strong>을 <strong>먹으면 좋아요</strong>.</p>
+
+<p>매일 <strong>운동</strong>을 <strong>하면 좋아요</strong>. <strong>운동</strong>을 안 <strong>하면</strong> <strong>피로</strong>가 <strong>쌓여요</strong>. <strong>밤</strong>에는 <strong>일찍</strong> <strong>자면 좋아요</strong>. <strong>늦게</strong> <strong>자면</strong> <strong>피곤해요</strong>.</p>
+
+<p><strong>감기</strong>에 <strong>걸리면</strong> <strong>약</strong>을 <strong>먹어야 해요</strong>. <strong>열</strong>이 <strong>나면</strong> <strong>병원</strong>에 <strong>가야 해요</strong>. <strong>건강</strong>이 <strong>제일</strong> <strong>중요해요</strong>!</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label"> Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong> Từ vựng đã học xuất hiện trong bài:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">머리 (đầu)</span>
+<span class="vocab-tag">배 (bụng)</span>
+<span class="vocab-tag">열 (sốt)</span>
+<span class="vocab-tag">기침 (ho)</span>
+<span class="vocab-tag">두통 (đau đầu)</span>
+<span class="vocab-tag">감기 (cảm cúm)</span>
+<span class="vocab-tag">알레르기 (dị ứng)</span>
+<span class="vocab-tag">피로 (mệt mỏi)</span>
+<span class="vocab-tag">증상 (triệu chứng)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong> Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-(으)면 좋다 (nên làm gì)</span>
+<span class="grammar-tag">-기 쉽다 (dễ bị)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>thói quen sức khỏe hàng ngày</strong>. Nên uống nhiều nước buổi sáng, ăn sáng đầy đủ, ăn rau và trái cây buổi trưa. Nên tập thể dục mỗi ngày và ngủ sớm. Nếu bị cảm cúm phải uống thuốc, nếu sốt phải đi bệnh viện. Sức khỏe là quan trọng nhất.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title"> Câu hỏi đọc hiểu</h2>
+
+<div class="exercise-container">
+<div class="exercise-title"> Câu 1: 아침에 일어나면 무엇을 마시면 좋아요?</div>
+<div class="exercise-question">Sáng ngủ dậy nên uống gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 커피 (Cà phê)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 물 (Nước)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 우유 (Sữa)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 주스 (Nước ép)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 식사를 안 먹으면 어떻게 돼요?</div>
+<div class="exercise-question">Nếu không ăn thì sao?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 머리가 아파요 (Đau đầu)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 배가 아파요 (Đau bụng)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 목이 아파요 (Đau họng)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 눈이 아파요 (Đau mắt)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 열이 나면 어디에 가야 해요?</div>
+<div class="exercise-question">Nếu bị sốt thì phải đi đâu?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 학교에 가야 해요 (Đi học)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 회사에 가야 해요 (Đi làm)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 병원에 가야 해요 (Đi bệnh viện)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 시장에 가야 해요 (Đi chợ)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'c', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Practice Section -->
+<div class="section practice-section">
+<h2 class="section-title">✍️ 4. Tự học (5 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5 câu tổng hợp sử dụng từ vựng và ngữ pháp đã học hôm nay</p>
+
+<div class="practice-box">
+<div class="practice-textarea" id="practiceText" placeholder="Viết 5 câu của bạn vào đây...
+
+Ví dụ:
+1. 물을 많이 마시면 좋아요.
+2. 겨울에는 감기에 걸리기 쉬워요.
+3. 배가 아파요.
+4. ...
+5. ..."></div>
+
+<button class="check-btn" onclick="checkPractice()">✓ Kiểm tra bài tập</button>
+
+<div id="practice-feedback" class="feedback"></div>
+
+<div class="practice-tips">
+<strong>💡 Mẹo viết câu:</strong><br>
+• Sử dụng từ vựng: 머리, 배, 눈, 코, 목, 손, 발, 등, 심장, 폐, 열, 기침, 두통, 감기, 알레르기, 염증, 어지러움, 메스꺼움, 피로, 증상<br>
+• Sử dụng ngữ pháp: -(으)면 좋다, -기 쉽다<br>
+• Cấu trúc câu: Chủ ngữ + Tân ngữ + Động từ + Ngữ pháp
+</div>
+</div>
+
+<!-- Flashcard Section -->
+<div style="background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); border: 2px solid #10B981; border-radius: 20px; padding: 25px; margin-top: 20px;">
+<h3 style="font-family: 'Baloo 2', cursive; color: #047857; margin-bottom: 15px;">🎴 Flashcard ôn tập từ vựng</h3>
+<p style="color: #718096; margin-bottom: 15px;">Ôn lại 20 từ vựng về cơ thể & triệu chứng:</p>
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">머리</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">Đầu</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[meo-ri]</div>
+<button class="speak-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()"> Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 20</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 1</h2>
+<ul class="goals-list">
+<li>Thuộc 20 từ vựng cốt lõi về cơ thể & triệu chứng bệnh</li>
+<li>Hiểu và đặt câu với 2 cấu trúc ngữ pháp (-(으)면 좋다, -기 쉽다)</li>
+<li>Đọc hiểu bài đọc 200 chữ "하루 건강 습관" (Thói quen sức khỏe hàng ngày)</li>
+<li>Trả lời đúng 3/3 câu hỏi đọc hiểu</li>
+<li>Viết được 5 câu tổng hợp sử dụng từ vựng và ngữ pháp đã học</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week06.html" class="day-nav-btn">← Về Hub Tuần 6</a>
+<a href="topik3-week06-day01.html" class="day-nav-btn active">Ngày 1 ✓</a>
+<a href="topik3-week06-day02.html" class="day-nav-btn">Ngày 2 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week06.html" class="nav-btn">← Về Tổng quan Tuần 6</a>
+<a href="topik3-week06-day02.html" class="nav-btn primary">Tiếp: Ngày 2 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🏥 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Sức khỏe là vàng, ngôn ngữ là chìa khóa mở ra thế giới mới"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🏥', '💊', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '건강은 정말 중요해요. 매일 건강한 습관을 들이면 병에 걸리기 쉬워요. 아침에 일어나면 물을 많이 마시면 좋아요. 아침 식사를 꼭 먹어야 해요. 식사를 안 먹으면 배가 아파요. 점심에는 채소와 과일을 먹으면 좋아요. 매일 운동을 하면 좋아요. 운동을 안 하면 피로가 쌓여요. 밤에는 일찍 자면 좋아요. 늦게 자면 피곤해요. 감기에 걸리면 약을 먹어야 해요. 열이 나면 병원에 가야 해요. 건강이 제일 중요해요!';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Flashcard data
+const flashcards = [
+    { char: '머리', meaning: 'Đầu', pron: '[meo-ri]' },
+    { char: '배', meaning: 'Bụng, dạ dày', pron: '[bae]' },
+    { char: '눈', meaning: 'Mắt', pron: '[nun]' },
+    { char: '코', meaning: 'Mũi', pron: '[ko]' },
+    { char: '목', meaning: 'Cổ, họng', pron: '[mok]' },
+    { char: '손', meaning: 'Tay', pron: '[son]' },
+    { char: '발', meaning: 'Chân', pron: '[bal]' },
+    { char: '등', meaning: 'Lưng', pron: '[deung]' },
+    { char: '심장', meaning: 'Tim', pron: '[sim-jang]' },
+    { char: '폐', meaning: 'Phổi', pron: '[pye]' },
+    { char: '열', meaning: 'Sốt', pron: '[yeol]' },
+    { char: '기침', meaning: 'Ho', pron: '[gi-chim]' },
+    { char: '두통', meaning: 'Đau đầu', pron: '[du-tong]' },
+    { char: '감기', meaning: 'Cảm cúm', pron: '[gam-gi]' },
+    { char: '알레르기', meaning: 'Dị ứng', pron: '[al-le-reu-gi]' },
+    { char: '염증', meaning: 'Viêm', pron: '[yeom-jeung]' },
+    { char: '어지러움', meaning: 'Chóng mặt', pron: '[eo-ji-reo-um]' },
+    { char: '메스꺼움', meaning: 'Buồn nôn', pron: '[me-seu-kkeo-um]' },
+    { char: '피로', meaning: 'Mệt mỏi', pron: '[pi-ro]' },
+    { char: '증상', meaning: 'Triệu chứng', pron: '[jeung-sang]' }
+];
+let currentFlashcard = 0;
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = flashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = flashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = flashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + flashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % flashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + flashcards.length) % flashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! ';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 3;
+    if (answeredQuestions.size === total && correctAnswers === total) {
+        const progress = JSON.parse(localStorage.getItem('topik3_week6_progress') || '[]');
+        if (!progress.includes(1)) {
+            progress.push(1);
+            localStorage.setItem('topik3_week6_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+function checkPractice() {
+    const textarea = document.getElementById('practiceText');
+    const feedback = document.getElementById('practice-feedback');
+    const text = textarea.value.trim();
+    
+    if (text.length < 50) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '️ Bài viết của bạn còn ngắn. Hãy viết ít nhất 5 câu đầy đủ nhé! (tối thiểu 50 ký tự)';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài tập. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 1 từ vựng trong mỗi câu?<br>• Đã sử dụng ngữ pháp -(으)면 좋다 hoặc -기 쉽다?<br>• Câu văn có mạch lạc không?';
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week6_progress') || '[]');
+        if (!progress.includes(1)) {
+            progress.push(1);
+            localStorage.setItem('topik3_week6_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+window.onbeforeunload = function() {
+    const textarea = document.getElementById('practiceText');
+    if (textarea.value.trim().length > 50) {
+        localStorage.setItem('topik3_week6_day1_practice', textarea.value);
+    }
+};
+
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week6_day1_practice');
+    if (saved) {
+        document.getElementById('practiceText').value = saved;
+    }
+};
+</script>
+</body>
+</html>
