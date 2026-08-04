@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 5: Đọc hiểu chuyên sâu - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #EDE9FE 0%, #FFF5E4 50%, #DBEAFE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #6D28D9; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #5B21B6; }
+.breadcrumb-separator { color: #A78BFA; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #6D28D9; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(109,40,217,0.15); transition: all 0.3s; border: 2px solid #C4B5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(109,40,217,0.25); background: #FAF5FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(196,181,253,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: ''; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #5B21B6; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #6D28D9; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(109,40,217,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #F0FFF4; color: #065F46; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #9AE6B4; }
+
+/* Exercise Section - Blue */
+.exercise-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.exercise-container { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #3B82F6; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #1E40AF; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #DBEAFE; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #3B82F6; background: #EFF6FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(59,130,246,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Vocabulary Section - Green */
+.vocab-section .section-title { color: #065F46; border-color: #10B981; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.vocab-card { background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 20px; padding: 22px; border: 2px solid #10B981; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(16,185,129,0.2); }
+.vocab-number { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #065F46; font-weight: 800; margin-bottom: 5px; }
+.vocab-pron { color: #718096; font-size: 0.9em; font-style: italic; margin-bottom: 8px; }
+.vocab-meaning { color: #065F46; font-size: 1.05em; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #A7F3D0; }
+.vocab-example { background: white; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 4px solid #10B981; }
+.example-korean { color: #065F46; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(16,185,129,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #6D28D9; border: 2px solid #C4B5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FAF5FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week04.html">🎎 Tuần 4</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 5: Đọc hiểu chuyên sâu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week04.html" class="nav-btn">← Về Tổng quan Tuần 4</a>
+<a href="topik3-week04-day06.html" class="nav-btn primary">Ngày 6 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🎎 NGÀY 5 • 5일차</span>
+<h1>Đọc hiểu chuyên sâu</h1>
+<div class="subtitle">Luyện đọc 2 bài 300 chữ và trả lời câu hỏi TOPIK</div>
+<p class="description">
+Đọc hiểu 2 bài đọc về <strong>"한국의 축제"</strong> (Lễ hội Hàn Quốc) và <strong>"한국 전통 음식"</strong> (Ẩm thực truyền thống). 
+Trả lời 8 câu hỏi TOPIK format và mở rộng vốn từ vựng với 10 từ mới. 🎎
+</p>
+<div class="time-info">⏰ 60 phút • 📖 2 bài đọc 300 chữ • ❓ 8 câu hỏi TOPIK • 📚 10 từ mới</div>
+</div>
+
+<!-- Reading 1 -->
+<div class="section reading-section">
+<h2 class="section-title">📖 1. Bài đọc 1: 한국의 축제 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Phân tích từ vựng</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🎎 한국의 축제 (Lễ hội Hàn Quốc)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국에는 다양한 <strong>축제</strong>가 있어요. 봄에는 <strong>벚꽃 축제</strong>가 열려요. 사람들은 벚꽃을 구경하고 사진을 찍어요. 꽃 축제는 서울, 진해, 여의도에서 유명해요.</p>
+
+<p>여름에는 <strong>바다 축제</strong>가 있어요. 해운대, 경포대, 속초에서 바다 축제를 해요. 사람들은 바다에서 수영하고 서핑을 해요. 밤에는 불꽃놀이를 해요.</p>
+
+<p>가을에는 <strong>추석</strong>이 있어요. 추석은 한국에서 가장 중요한 명절이에요. 사람들은 고향에 가서 <strong>차례</strong>를 지내요. <strong>송편</strong>을 만들고 가족과 함께 먹어요.</p>
+
+<p>겨울에는 <strong>눈 축제</strong>가 있어요. 화천 산천어 축제가 유명해요. 사람들은 얼음 위에서 낚시를 해요. 눈 조각을 구경해요.</p>
+
+<p>한국 축제는 계절마다 달라요. 봄에는 꽃, 여름에는 바다, 가을에는 추수, 겨울에는 눈 축제예요. 한국에 오면 다양한 축제를 경험할 수 있어요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio1Btn" onclick="speakReading1(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 1</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 1</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng quan trọng:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">축제 (lễ hội)</span>
+<span class="vocab-tag">벚꽃 (hoa anh đào)</span>
+<span class="vocab-tag">바다 (biển)</span>
+<span class="vocab-tag">추석 (Chuseok)</span>
+<span class="vocab-tag">차례 (lễ cúng)</span>
+<span class="vocab-tag">송편 (bánh songpyeon)</span>
+<span class="vocab-tag">눈 (tuyết)</span>
+<span class="vocab-tag">낚시 (câu cá)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong> Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>các lễ hội Hàn Quốc theo mùa</strong>. Mùa xuân có lễ hội hoa anh đào, mùa hè có lễ hội biển, mùa thu có Chuseok, mùa đông có lễ hội tuyết. Mỗi mùa có lễ hội đặc trưng riêng.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 1 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 1</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 봄에 어떤 축제가 열려요?</div>
+<div class="exercise-question">Mùa xuân có lễ hội gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 바다 축제 (Lễ hội biển)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 벚꽃 축제 (Lễ hội hoa anh đào)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 눈 축제 (Lễ hội tuyết)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 추석 (Chuseok)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title"> Câu 2: 해운대에서 어떤 축제를 해요?</div>
+<div class="exercise-question">Ở Haeundae có lễ hội gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span> 벚꽃 축제 (Lễ hội hoa anh đào)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 바다 축제 (Lễ hội biển)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span> 눈 축제 (Lễ hội tuyết)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 산천어 축제 (Lễ hội cá sơn xuyên)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 추석에 무엇을 만들어요?</div>
+<div class="exercise-question">Chuseok làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 김치를 만들어요 (Làm kim chi)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 송편을 만들어요 (Làm bánh songpyeon)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 비밥을 만들어요 (Làm bibimbap)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 떡국을 만들어요 (Làm canh bánh gạo)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 화천 산천어 축제에서 무엇을 해요?</div>
+<div class="exercise-question">Ở lễ hội cá sơn xuyên Hwacheon làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 수영을 해요 (Bơi lội)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 서핑을 해요 (Lướt ván)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 얼음 위에서 낚시를 해요 (Câu cá trên băng)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 불꽃놀이를 해요 (Pháo hoa)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'c', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Reading 2 -->
+<div class="section reading-section">
+<h2 class="section-title">📖 2. Bài đọc 2: 한국 전통 음식 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Ghi chú từ vựng mới</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🍜 한국 전통 음식 (Ẩm thực truyền thống Hàn Quốc)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국 음식은 세계적으로 유명해요. <strong>김치</strong>, <strong>비빔밥</strong>, <strong>불고기</strong> 등이 대표적이에요. 한국 음식은 매운 맛이 특징이에요.</p>
+
+<p><strong>김치</strong>는 한국에서 가장 유명한 음식이에요. 김치는 배추로 만들어요. 김치는 매워서 맛있어요. 한국 사람들은 김치를 매일 먹어요. 김치는 건강에 좋아요.</p>
+
+<p><strong>비빔밥</strong>은 여러 가지 나물과 밥을 비벼서 먹어요. 비빔밥은 건강하고 맛있어요. 외국 사람들도 비빔밥을 좋아해요. 비빔밥은 <strong>전주</strong>가 유명해요.</p>
+
+<p><strong>불고기</strong>는 소고기를 양념에 재워서 구워요. 불고기는 달고 맛있어요. 가족과 함께 불고기를 먹어요. 불고기는 한국에서 인기 있는 음식이에요.</p>
+
+<p><strong>떡볶이</strong>는 떡과 고추장을 넣어서 만들어요. 떡볶이는 매워요. 젊은 사람들이 떡볶이를 좋아해요. 떡볶이는 길거리 음식이에요.</p>
+
+<p><strong>삼계탕</strong>은 삼복더위에 먹어요. 삼계탕은 닭과 인삼으로 만들어요. 삼계탕은 건강에 좋아요. 여름에 삼계탕을 먹어요.</p>
+
+<p>한국 음식은 건강하고 맛있어요. 한국에 가서 한국 음식을 먹어 보세요. 맛있어서 계속 먹고 싶어요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio2Btn" onclick="speakReading2(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 2</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 2</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng mới:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">김치 (kim chi)</span>
+<span class="vocab-tag">비밥 (bibimbap)</span>
+<span class="vocab-tag">불고기 (bulgogi)</span>
+<span class="vocab-tag">떡볶이 (tteokbokki)</span>
+<span class="vocab-tag">삼계탕 (samgyetang)</span>
+<span class="vocab-tag">배추 (bắp cải)</span>
+<span class="vocab-tag">고추장 (tương ớt)</span>
+<span class="vocab-tag">인삼 (nhân sâm)</span>
+<span class="vocab-tag">전주 (Jeonju)</span>
+<span class="vocab-tag">삼복더위 (ngày nóng nhất)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong> Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>ẩm thực truyền thống Hàn Quốc</strong>. Giới thiệu các món ăn nổi tiếng: kimchi, bibimbap, bulgogi, tteokbokki, samgyetang. Mỗi món có đặc điểm và nguyên liệu riêng.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 2 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 2</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 한국에서 가장 유명한 음식은 뭐예요?</div>
+<div class="exercise-question">Món ăn nổi tiếng nhất ở Hàn Quốc là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 비밥 (Bibimbap)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 김치 (Kim chi)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 불고기 (Bulgogi)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 떡볶이 (Tteokbokki)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 6: 비빔밥은 어디가 유명해요?</div>
+<div class="exercise-question">Bibimbap nổi tiếng ở đâu?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 서울 (Seoul)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 부산 (Busan)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 전주 (Jeonju)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 인천 (Incheon)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'c', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 7: 떡볶이는 누가 좋아해요?</div>
+<div class="exercise-question">Ai thích tteokbokki?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 노인들 (Người già)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 어린이들 (Trẻ em)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 젊은 사람들 (Người trẻ)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 외국인들 (Người nước ngoài)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'c', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 8: 삼계탕은 언제 먹어요?</div>
+<div class="exercise-question">Samgyetang ăn khi nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 겨울에 (Mùa đông)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 봄에 (Mùa xuân)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 가을에 (Mùa thu)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 여름에 (Mùa hè)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'd', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection" style="display: none;">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 3. Tổng hợp 10 từ vựng mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Học 10 từ vựng mới • Đọc to mỗi từ 3 lần • Đặt câu ví dụ cho mỗi từ</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">축제</div>
+<div class="vocab-pron">[chuk-je]</div>
+<div class="vocab-meaning">Lễ hội, festival</div>
+<div class="vocab-example">
+<div class="example-korean">벚꽃 축제가 있어요. <button class="speak-btn" onclick="speakKorean('벚꽃 축제가 있어요.', this)"></button></div>
+<div class="example-meaning">Có lễ hội hoa anh đào.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">축제에 가요. <button class="speak-btn" onclick="speakKorean('축제에 가요.', this)">🔊</button></div>
+<div class="example-meaning">Đi lễ hội.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">꽃</div>
+<div class="vocab-pron">[beot-kkot]</div>
+<div class="vocab-meaning">Hoa anh đào</div>
+<div class="vocab-example">
+<div class="example-korean">벚꽃이 예요. <button class="speak-btn" onclick="speakKorean('벚꽃이 예요.', this)">🔊</button></div>
+<div class="example-meaning">Hoa anh đào đẹp.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">벚꽃을 구경해요. <button class="speak-btn" onclick="speakKorean('벚꽃을 구경해요.', this)"></button></div>
+<div class="example-meaning">Ngắm hoa anh đào.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">불꽃놀이</div>
+<div class="vocab-pron">[bul-kkot-no-ri]</div>
+<div class="vocab-meaning">Pháo hoa</div>
+<div class="vocab-example">
+<div class="example-korean">불꽃놀이를 봐요. <button class="speak-btn" onclick="speakKorean('불꽃놀이를 봐요.', this)">🔊</button></div>
+<div class="example-meaning">Xem pháo hoa.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">불꽃놀이가 아름다워요. <button class="speak-btn" onclick="speakKorean('불꽃놀이가 아름다워요.', this)">🔊</button></div>
+<div class="example-meaning">Pháo hoa đẹp.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">낚시</div>
+<div class="vocab-pron">[nak-si]</div>
+<div class="vocab-meaning">Câu cá</div>
+<div class="vocab-example">
+<div class="example-korean">시를 해요. <button class="speak-btn" onclick="speakKorean('낚시를 해요.', this)">🔊</button></div>
+<div class="example-meaning">Đi câu cá.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">낚시가 재미있어요. <button class="speak-btn" onclick="speakKorean('낚시가 재미있어요.', this)">🔊</button></div>
+<div class="example-meaning">Câu cá thú vị.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">양념</div>
+<div class="vocab-pron">[yang-nyeom]</div>
+<div class="vocab-meaning">Gia vị, ướp</div>
+<div class="vocab-example">
+<div class="example-korean">양념을 해요. <button class="speak-btn" onclick="speakKorean('양념을 해요.', this)"></button></div>
+<div class="example-meaning">Ướp gia vị.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">양념이 맛있어요. <button class="speak-btn" onclick="speakKorean('양념이 맛있어요.', this)">🔊</button></div>
+<div class="example-meaning">Gia vị ngon.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">인삼</div>
+<div class="vocab-pron">[in-sam]</div>
+<div class="vocab-meaning">Nhân sâm</div>
+<div class="vocab-example">
+<div class="example-korean">인삼이 건강에 좋아요. <button class="speak-btn" onclick="speakKorean('인삼이 건강에 좋아요.', this)">🔊</button></div>
+<div class="example-meaning">Nhân sâm tốt cho sức khỏe.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">인삼차를 마셔요. <button class="speak-btn" onclick="speakKorean('인삼차를 마셔요.', this)">🔊</button></div>
+<div class="example-meaning">Uống trà nhân sâm.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">전주</div>
+<div class="vocab-pron">[jeon-ju]</div>
+<div class="vocab-meaning">Jeonju (thành phố)</div>
+<div class="vocab-example">
+<div class="example-korean">전주 비빔밥이 유명해요. <button class="speak-btn" onclick="speakKorean('전주 비빔밥이 유명해요.', this)"></button></div>
+<div class="example-meaning">Bibimbap Jeonju nổi tiếng.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">전주에 가요. <button class="speak-btn" onclick="speakKorean('전주에 가요.', this)">🔊</button></div>
+<div class="example-meaning">Đi Jeonju.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">삼복더위</div>
+<div class="vocab-pron">[sam-bok-deo-wi]</div>
+<div class="vocab-meaning">Ngày nóng nhất (tam phục)</div>
+<div class="vocab-example">
+<div class="example-korean">삼복더위에 삼계탕을 먹어요. <button class="speak-btn" onclick="speakKorean('삼복더위에 삼계탕을 먹어요.', this)">🔊</button></div>
+<div class="example-meaning">Ăn samgyetang vào ngày nóng nhất.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">삼복더위가 더워요. <button class="speak-btn" onclick="speakKorean('삼복더위가 더워요.', this)">🔊</button></div>
+<div class="example-meaning">Ngày tam phục nóng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">고추장</div>
+<div class="vocab-pron">[go-chu-jang]</div>
+<div class="vocab-meaning">Tương ớt Hàn Quốc</div>
+<div class="vocab-example">
+<div class="example-korean">고추장이 매워요. <button class="speak-btn" onclick="speakKorean('고추장이 매워요.', this)">🔊</button></div>
+<div class="example-meaning">Tương ớt cay.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">고추장을 넣어요. <button class="speak-btn" onclick="speakKorean('고추장을 넣어요.', this)">🔊</button></div>
+<div class="example-meaning">Cho tương ớt vào.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">배추</div>
+<div class="vocab-pron">[bae-chu]</div>
+<div class="vocab-meaning">Bắp cải (cải thảo)</div>
+<div class="vocab-example">
+<div class="example-korean">배추로 김치를 만들어요. <button class="speak-btn" onclick="speakKorean('배추로 김치를 만들어요.', this)">🔊</button></div>
+<div class="example-meaning">Làm kim chi từ bắp cải.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">배추가新鲜해요. <button class="speak-btn" onclick="speakKorean('배추가 신선해요.', this)">🔊</button></div>
+<div class="example-meaning">Bắp cải tươi.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 4. Mục tiêu đạt được sau Ngày 5</h2>
+<ul class="goals-list">
+<li>Đọc hiểu 2 bài đọc 300 chữ ("한국의 축제" và "한국 전통 음식")</li>
+<li>Trả lời đúng 6/8 câu hỏi TOPIK format</li>
+<li>Mở rộng vốn từ vựng với 10 từ mới về lễ hội và ẩm thực</li>
+<li>Phân tích được cấu trúc câu trong bài đọc</li>
+<li>Đặt câu ví dụ cho mỗi từ vựng mới</li>
+<li>Nắm vững cách sử dụng từ vựng trong ngữ cảnh</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week04.html" class="day-nav-btn">← Về Hub Tuần 4</a>
+<a href="topik3-week04-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week04-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week04-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week04-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week04-day05.html" class="day-nav-btn active">Ngày 5 ✓</a>
+<a href="topik3-week04-day06.html" class="day-nav-btn">Ngày 6 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week04-day04.html" class="nav-btn">← Ngày 4</a>
+<a href="topik3-week04-day06.html" class="nav-btn primary">Tiếp: Ngày 6 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text"> Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Văn hóa là cầu nối, ngôn ngữ là chìa khóa"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['', '🍜', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading1(btnElement) {
+    const fullText = '한국에는 다양한 축제가 있어요. 봄에는 벚꽃 축제가 열려요. 사람들은 벚꽃을 구경하고 사진을 찍어요. 벚꽃 축제는 서울, 진해, 여의도에서 유명해요. 여름에는 바다 축제가 있어요. 해운대, 경포대, 속초에서 바다 축제를 해요. 사람들은 바다에서 수영하고 서핑을 해요. 밤에는 불꽃놀이를 해요. 가을에는 추석이 있어요. 추석은 한국에서 가장 중요한 명절이에요. 사람들은 고향에 가서 차례를 지내요. 송편을 만들고 가족과 함께 먹어요. 겨울에는 눈 축제가 있어요. 화천 산천어 축제가 유명해요. 사람들은 얼음 위에서 시를 해요. 눈 조각을 구경해요. 한국 축제는 계절마다 달라요. 봄에는 꽃, 여름에는 바다, 가을에는 추수, 겨울에는 눈 축제예요. 한국에 오면 다양한 축제를 경험할 수 있어요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading2(btnElement) {
+    const fullText = '한국 음식은 세계적으로 유명해요. 김치, 비빔밥, 불고기 등이 대표적이에요. 한국 음식은 매운 맛이 특징이에요. 김치는 한국에서 가장 유명한 음식이에요. 김치는 배추로 만들어요. 김치는 매워서 맛있어요. 한국 사람들은 김치를 매일 먹어요. 김치는 건강에 좋아요. 비빔밥은 여러 가지 나물과 밥을 비벼서 먹어요. 비빔밥은 건강하고 맛있어요. 외국 사람들도 비밥을 좋아해요. 비빔밥은 전주가 유명해요. 불고기는 소고기를 양념에 재워서 구워요. 불고기는 달고 맛있어요. 가족과 함께 불고기를 먹어요. 불고기는 한국에서 인기 있는 음식이에요. 떡볶이는 떡과 고추장을 넣어서 만들어요. 떡볶이는 매워요. 젊은 사람들이 떡볶이를 좋아해요. 떡볶이는 길거리 음식이에요. 삼계탕은 삼복더위에 먹어요. 삼계탕은 닭과 인삼으로 만들어요. 삼계탕은 건강에 좋아요. 여름에 삼계탕을 먹어요. 한국 음식은 건강하고 맛있어요. 한국에 가서 한국 음식을 먹어 보세요. 맛있어서 계속 먹고 싶어요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').style.display = 'block';
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 75) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Ngày 6!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài đọc.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week4_progress') || '[]');
+        if (!progress.includes(5)) {
+            progress.push(5);
+            localStorage.setItem('topik3_week4_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>
+</body>
+</html>
