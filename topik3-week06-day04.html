@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 4: Luyện viết câu & Tổng hợp ngữ pháp - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 50%, #7DD3FC 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #0284C7; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #0369A1; }
+.breadcrumb-separator { color: #7DD3FC; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #0284C7; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(2,132,199,0.15); transition: all 0.3s; border: 2px solid #7DD3FC; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(2,132,199,0.25); background: #F0F9FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(125,211,252,0.3) 0%, rgba(186,230,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '✍️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #0369A1; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #0284C7; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(2,132,199,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Review Section - Cyan */
+.grammar-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 22px; border: 2px solid #0EA5E9; transition: all 0.3s; }
+.grammar-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(14,165,233,0.2); }
+.grammar-number { background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 8px; }
+.grammar-meaning { color: #4A5568; font-size: 0.95em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed #7DD3FC; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 12px; border-radius: 10px; margin: 10px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 0.95em; }
+.grammar-example { background: white; padding: 10px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #0EA5E9; }
+.grammar-example-korean { color: #0369A1; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 10px; border-radius: 8px; margin-top: 12px; color: #92400E; font-size: 0.9em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(14,165,233,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 220px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #0369A1; background: #E0F2FE; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #F0F9FF; color: #0369A1; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #7DD3FC; }
+.grammar-tag { background: #E0F2FE; color: #0369A1; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #0EA5E9; }
+
+/* Pronunciation Section - Red */
+.pronunciation-section .section-title { color: #991B1B; border-color: #EF4444; }
+.pronunciation-box { background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%); border: 2px solid #EF4444; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.pronunciation-tips { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+.pronunciation-tip { padding: 12px; margin: 8px 0; border-left: 4px solid #EF4444; background: #FEF2F2; border-radius: 8px; }
+.pronunciation-tip strong { color: #991B1B; }
+.pronunciation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.pronunciation-card { background: white; padding: 15px; border-radius: 12px; border: 2px solid #EF4444; }
+.pronunciation-korean { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #991B1B; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.pronunciation-pron { color: #718096; font-size: 0.9em; margin-bottom: 10px; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #0284C7; border: 2px solid #7DD3FC; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F0F9FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.pronunciation-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week06.html">🏥 Tuần 6</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 4: Viết câu & Tổng hợp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week06.html" class="nav-btn">← Về Tổng quan Tuần 6</a>
+<a href="topik3-week06-day05.html" class="nav-btn primary">Ngày 5 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">✍️ NGÀY 4 • 4일차</span>
+<h1>Luyện viết câu & Tổng hợp ngữ pháp</h1>
+<div class="subtitle">Tổng hợp 6 cấu trúc ngữ pháp và luyện viết câu phức tạp</div>
+<p class="description">
+Ôn tập 6 cấu trúc ngữ pháp đã học và luyện viết 5-7 câu phức tạp về chủ đề "건강한 식단" (Chế độ ăn lành mạnh). 
+Đọc hiểu bài "건강한 식단" và luyện phát âm. 🥗
+</p>
+<div class="time-info">⏰ 60 phút • 📝 6 ngữ pháp • ✍️ Viết 5-7 câu • 📖 Bài đọc 280 chữ</div>
+</div>
+
+<!-- Grammar Review Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ôn tập 6 cấu trúc ngữ pháp (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại 6 cấu trúc ngữ pháp đã học trong tuần. Đọc to các ví dụ và tự đặt câu mới về chủ đề sức khỏe.</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-(으)면 좋다</div>
+<div class="grammar-meaning">Nên làm gì (Lời khuyên)</div>
+<div class="grammar-formula">Động từ/Tính từ + -(으)면 좋다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">물을 많이 마시면 좋아요. <button class="speak-btn" onclick="speakKorean('물을 많이 마시면 좋아요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nên uống nhiều nước.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">채소를 많이 먹으면 좋아요. <button class="speak-btn" onclick="speakKorean('채소를 많이 먹으면 좋아요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nên ăn nhiều rau.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)면 좋다 = "nên làm gì" → Đưa ra lời khuyên
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-기 쉽다</div>
+<div class="grammar-meaning">Dễ bị / Dễ xảy ra</div>
+<div class="grammar-formula">Động từ + -기 쉽다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">겨울에는 감기에 걸리기 쉬워요. <button class="speak-btn" onclick="speakKorean('겨울에는 감기에 걸리기 쉬워요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Mùa đông dễ bị cảm cúm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">야채를 안 먹으면 병에 걸리기 쉬워요. <button class="speak-btn" onclick="speakKorean('야채를 안 먹으면 병에 걸리기 쉬워요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Không ăn rau dễ bị bệnh.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -기 쉽다 = "dễ bị" → Diễn tả khả năng xảy ra cao
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">3</div>
+<div class="grammar-title">-게 되다</div>
+<div class="grammar-meaning">Trở nên / Kết quả (động từ)</div>
+<div class="grammar-formula">Động từ + -게 되다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">운동을 해서 건강하게 됐어요. <button class="speak-btn" onclick="speakKorean('운동을 해서 건강하게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tập thể dục nên đã trở nên khỏe mạnh.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">채소를 많이 먹어서 살이 빠지게 됐어요. <button class="speak-btn" onclick="speakKorean('채소를 많이 먹어서 살이 빠지게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Ăn nhiều rau nên đã giảm cân.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -게 되다 = "trở nên" → Dùng với động từ, diễn tả kết quả
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">4</div>
+<div class="grammar-title">-(으)까 봐</div>
+<div class="grammar-meaning">E rằng / Sợ rằng</div>
+<div class="grammar-formula">Động từ/Tính từ + -(으)까 봐</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">아플까 봐 비타민을 먹어요. <button class="speak-btn" onclick="speakKorean('아플까 봐 비타민을 먹어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Sợ bị ốm nên uống vitamin.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">살찔까 봐 간식을 안 먹어요. <button class="speak-btn" onclick="speakKorean('살찔까 봐 간식을 안 먹어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Sợ tăng cân nên không ăn đồ ăn nhẹ.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)까 봐 = "sợ rằng" → Nỗi lo là nguyên nhân hành động
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">5</div>
+<div class="grammar-title">-아/어지다</div>
+<div class="grammar-meaning">Trở nên (tính từ)</div>
+<div class="grammar-formula">Tính từ + -아/어지다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">건강이 좋아졌어요. <button class="speak-btn" onclick="speakKorean('건강이 좋아졌어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Sức khỏe trở nên tốt hơn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">피부가 하얘졌어요. <button class="speak-btn" onclick="speakKorean('피부가 하얘졌어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Da trở nên trắng hơn.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어지다 = "trở nên" → Dùng với tính từ
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">6</div>
+<div class="grammar-title">-는 편이 좋다</div>
+<div class="grammar-meaning">Thì tốt hơn (so sánh lời khuyên)</div>
+<div class="grammar-formula">Động từ + -는 편이 좋다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">일찍 자는 편이 좋아요. <button class="speak-btn" onclick="speakKorean('일찍 자는 편이 좋아요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nên ngủ sớm thì tốt hơn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">과일을 먹는 편이 좋아요. <button class="speak-btn" onclick="speakKorean('과일을 먹는 편이 좋아요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nên ăn trái cây thì tốt hơn.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -는 편이 좋다 = "thì tốt hơn" → So sánh lời khuyên
+</div>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 2. Luyện viết câu phức tạp (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5-7 câu phức tạp về chủ đề "건강한 식단" (Chế độ ăn lành mạnh). Mỗi câu kết hợp ít nhất 1 cấu trúc ngữ pháp.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Đề bài:</strong> Viết đoạn văn về <strong>"건강한 식단" (Chế độ ăn lành mạnh)</strong><br><br>
+<strong>Yêu cầu:</strong><br>
+• Độ dài: <strong>5-7 câu</strong> (mỗi câu 15-20 từ)<br>
+• Mỗi câu kết hợp ít nhất <strong>1 cấu trúc ngữ pháp</strong> đã học:<br>
+  - <strong>-(으)면 좋다</strong> (nên làm gì)<br>
+  - <strong>-기 쉽다</strong> (dễ bị)<br>
+  - <strong>-게 되다</strong> (trở nên)<br>
+  - <strong>-(으)까 봐</strong> (sợ rằng)<br>
+  - <strong>-아/어지다</strong> (trở nên - tính từ)<br>
+  - <strong>-는 편이 좋다</strong> (thì tốt hơn)<br><br>
+• Sử dụng từ vựng: 채소, 과일, 단백질, 비타민, 섬유질, 칼로리, 유기농, 영양제, 다이어트, 균형, 물, 식사, 간식
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 건강한 식단을 위해 채소와 과일을 많이 먹으면 좋아요.</div>
+<div class="writing-example-meaning">Để có chế độ ăn lành mạnh nên ăn nhiều rau và trái cây.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)면 좋다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 야채를 안 먹으면 병에 걸리기 쉬워요.</div>
+<div class="writing-example-meaning">Không ăn rau dễ bị bệnh.</div>
+<div class="writing-example-grammar">Ngữ pháp: -기 쉽다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 균형 잡힌 식사를 해서 건강해졌어요.</div>
+<div class="writing-example-meaning">Ăn uống cân bằng nên đã trở nên khỏe mạnh.</div>
+<div class="writing-example-grammar">Ngữ pháp: -게 되다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 살찔까 봐 간식을 안 먹어요.</div>
+<div class="writing-example-meaning">Sợ tăng cân nên không ăn đồ ăn nhẹ.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)까 봐</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">5. 물을 많이 마셔서 피부가 좋아졌어요.</div>
+<div class="writing-example-meaning">Uống nhiều nước nên da đã trở nên đẹp hơn.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어지다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">6. 유기농 음식을 먹는 편이 좋아요.</div>
+<div class="writing-example-meaning">Ăn thực phẩm hữu cơ thì tốt hơn.</div>
+<div class="writing-example-grammar">Ngữ pháp: -는 편이 좋다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="writingText" placeholder="Viết 5-7 câu về chế độ ăn lành mạnh...
+
+Gợi ý bắt đầu:
+1. 건강한 식단을 위해...
+2. 채소를 많이 먹으면...
+3. 야채를 안 먹으면...
+4. 균형 잡힌 식사를 해서...
+5. ...
+
+Hãy kết hợp ít nhất 1 cấu trúc ngữ pháp trong mỗi câu!"></textarea>
+
+<div style="background: white; padding: 10px 15px; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #5B21B6;">
+<span>📝 Số câu đã viết:</span>
+<span id="sentenceCount" style="font-size: 1.2em;">0 / 5-7 câu</span>
+</div>
+
+<button class="check-btn" onclick="checkWriting()">✓ Kiểm tra bài viết</button>
+
+<div id="writing-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết câu phức tạp:</strong><br>
+• <strong>Kết hợp ngữ pháp:</strong> Sử dụng 1-2 cấu trúc trong một câu<br>
+• <strong>Độ dài câu:</strong> 15-20 từ mỗi câu<br>
+• <strong>Chủ đề:</strong> Tập trung vào chế độ ăn lành mạnh<br>
+• <strong>Từ vựng:</strong> Sử dụng từ vựng về dinh dưỡng đã học<br>
+• <strong>Cấu trúc:</strong> Chủ ngữ + Tân ngữ + Động từ + Ngữ pháp
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc ngữ pháp • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🥗 건강한 식단 (Chế độ ăn lành mạnh)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 280 chữ</span>
+<span class="reading-tag">⏱️ 15 phút</span>
+<span class="reading-tag">🎯 Ngày 4</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p><strong>건강한 식단</strong>은 정말 중요해요. 매일 <strong>균형</strong> 잡힌 <strong>식사</strong>를 하면 <strong>건강</strong>해져요. <strong>채소</strong>와 <strong>과일</strong>을 많이 <strong>먹으면 좋아요</strong>.</p>
+
+<p><strong>단백질</strong>도 중요해요. <strong>고기</strong>, <strong>생선</strong>, <strong>두부</strong>를 먹어야 해요. <strong>비타민</strong>과 <strong>섬유질</strong>도 필요해요. <strong>야채</strong>를 안 먹으면 <strong>병에 걸리기 쉬워요</strong>.</p>
+
+<p><strong>물</strong>을 많이 마셔야 해요. 하루에 8잔 정도 마시면 좋아요. <strong>탄산음료</strong>를 많이 마시면 <strong>살이 찌게 돼요</strong>. <strong>살찔까 봐</strong> <strong>탄산음료</strong>를 안 마셔요.</p>
+
+<p><strong>유기농</strong> 음식을 <strong>먹는 편이 좋아요</strong>. <strong>화학물질</strong>이 없어서 <strong>건강에 좋아요</strong>. <strong>영양제</strong>도 먹으면 좋아요. 하지만 <strong>의사</strong>와 상담해야 해요.</p>
+
+<p><strong>다이어트</strong>를 할 때 <strong>칼로리</strong>를 확인해야 해요. <strong>간식</strong>을 많이 먹으면 <strong>살이 찌기 쉬워요</strong>. <strong>과일</strong>을 <strong>간식</strong>으로 먹으면 좋아요.</p>
+
+<p><strong>건강한 식단</strong>을 유지하면 <strong>건강이 좋아져요</strong>. <strong>피부</strong>도 좋아지고 <strong>에너지</strong>도 생겨요. <strong>일찍 자는 편이 좋아요</strong>. <strong>충분한 수면</strong>도 중요해요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng mới về dinh dưỡng:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">채소 (rau)</span>
+<span class="vocab-tag">과일 (trái cây)</span>
+<span class="vocab-tag">단백질 (protein)</span>
+<span class="vocab-tag">비타민 (vitamin)</span>
+<span class="vocab-tag">섬유질 (chất xơ)</span>
+<span class="vocab-tag">칼로리 (calo)</span>
+<span class="vocab-tag">유기농 (hữu cơ)</span>
+<span class="vocab-tag">영양제 (thực phẩm chức năng)</span>
+<span class="vocab-tag">다이어트 (ăn kiêng)</span>
+<span class="vocab-tag">균형 (cân bằng)</span>
+<span class="vocab-tag">탄산음료 (nước ngọt có ga)</span>
+<span class="vocab-tag">간식 (đồ ăn nhẹ)</span>
+<span class="vocab-tag">두부 (đậu phụ)</span>
+<span class="vocab-tag">생선 (cá)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-(으)면 좋다 (nên)</span>
+<span class="grammar-tag">-기 쉽다 (dễ bị)</span>
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+<span class="grammar-tag">-(으)까 봐 (sợ rằng)</span>
+<span class="grammar-tag">-아/어지다 (trở nên)</span>
+<span class="grammar-tag">-는 편이 좋다 (thì tốt hơn)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>chế độ ăn lành mạnh</strong>. Nên ăn nhiều rau, trái cây, protein (thịt, cá, đậu phụ). Cần vitamin và chất xơ. Uống nhiều nước (8 ly/ngày), tránh nước ngọt có ga vì dễ tăng cân. Nên ăn thực phẩm hữu cơ vì tốt cho sức khỏe. Khi ăn kiêng cần kiểm tra calo, tránh ăn vặt nhiều. Có thể dùng thực phẩm chức năng nhưng cần tư vấn bác sĩ. Duy trì chế độ ăn lành mạnh sẽ cải thiện sức khỏe, da đẹp và có nhiều năng lượng.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Pronunciation Section -->
+<div class="section pronunciation-section">
+<h2 class="section-title">🗣️ 4. Tự sửa phát âm (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to bài viết của bạn • Tự ghi âm và nghe lại • So sánh với audio mẫu • Sửa lỗi phát âm</p>
+
+<div class="pronunciation-box">
+<div class="pronunciation-tips">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">🎯 Phương pháp tự sửa phát âm</h4>
+<div class="pronunciation-tip">
+<strong>Bước 1 (3 phút):</strong> Đọc to bài viết của bạn 2-3 lần. Chú ý phát âm rõ từng từ, đặc biệt là các từ có patchim phức tạp.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 2 (3 phút):</strong> Tự ghi âm bằng điện thoại hoặc máy tính. Đọc với tốc độ tự nhiên, không quá nhanh cũng không quá chậm.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 3 (4 phút):</strong> Nghe lại bản ghi âm và so sánh với audio mẫu. Ghi chú những từ phát âm chưa chuẩn để luyện tập thêm.
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📚 Các từ cần chú ý phát âm:</h4>
+<div class="pronunciation-grid">
+<div class="pronunciation-card">
+<div class="pronunciation-korean">채소 <button class="speak-btn" onclick="speakKorean('채소', this)">🔊</button></div>
+<div class="pronunciation-pron">[chae-so]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅐ" và "ㅐ"</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">단백질 <button class="speak-btn" onclick="speakKorean('단백질', this)">🔊</button></div>
+<div class="pronunciation-pron">[dan-baek-jil]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ 3 âm tiết</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">비타민 <button class="speak-btn" onclick="speakKorean('비타민', this)">🔊</button></div>
+<div class="pronunciation-pron">[bi-ta-min]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Từ mượn tiếng Anh "vitamin"</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">유기농 <button class="speak-btn" onclick="speakKorean('유기농', this)">🔊</button></div>
+<div class="pronunciation-pron">[yu-gi-nong]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅇ" cuối</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">탄산음료 <button class="speak-btn" onclick="speakKorean('탄산음료', this)">🔊</button></div>
+<div class="pronunciation-pron">[tan-san-eum-nyo]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ 4 âm tiết</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">섬유질 <button class="speak-btn" onclick="speakKorean('섬유질', this)">🔊</button></div>
+<div class="pronunciation-pron">[seom-yu-jil]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅁ" patchim</div>
+</div>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Lưu ý quan trọng:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li>Phát âm đúng patchim (phụ âm cuối) là rất quan trọng trong tiếng Hàn</li>
+<li>Các từ có patchim "ㄹ" thường khó phát âm - hãy luyện tập nhiều</li>
+<li>Từ mượn tiếng Anh (비타민, 유기농) cần chú ý cách đọc Hàn hóa</li>
+<li>Ngữ điệu cũng quan trọng không kém phát âm - chú ý lên xuống giọng</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 4</h2>
+<ul class="goals-list">
+<li>Ôn tập và nắm vững 6 cấu trúc ngữ pháp đã học</li>
+<li>Viết được 5-7 câu phức tạp về chế độ ăn lành mạnh</li>
+<li>Sử dụng linh hoạt ít nhất 1 cấu trúc ngữ pháp trong mỗi câu</li>
+<li>Đọc hiểu bài đọc 280 chữ "건강한 식단"</li>
+<li>Phân tích được cấu trúc ngữ pháp trong bài đọc</li>
+<li>Phát âm chuẩn các từ vựng khó về dinh dưỡng</li>
+<li>Tự ghi âm và tự đánh giá phát âm của bản thân</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week06.html" class="day-nav-btn">← Về Hub Tuần 6</a>
+<a href="topik3-week06-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week06-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week06-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week06-day04.html" class="day-nav-btn active">Ngày 4 ✓</a>
+<a href="topik3-week06-day05.html" class="day-nav-btn">Ngày 5 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week06-day03.html" class="nav-btn">← Ngày 3</a>
+<a href="topik3-week06-day05.html" class="nav-btn primary">Tiếp: Ngày 5 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🏥 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Sức khỏe là vàng, ngôn ngữ là chìa khóa mở ra thế giới mới"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🏥', '💊', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '건강한 식단은 정말 중요해요. 매일 균형 잡힌 식사를 하면 건강해져요. 채소와 과일을 많이 먹으면 좋아요. 단백질도 중요해요. 고기, 생선, 두부를 먹어야 해요. 비타민과 섬유질도 필요해요. 야채를 안 먹으면 병에 걸리기 쉬워요. 물을 많이 마셔야 해요. 하루에 8잔 정도 마시면 좋아요. 탄산음료를 많이 마시면 살이 찌게 돼요. 살찔까 봐 탄산음료를 안 마셔요. 유기농 음식을 먹는 편이 좋아요. 화학물질이 없어서 건강에 좋아요. 영양제도 먹으면 좋아요. 하지만 의사와 상담해야 해요. 다이어트를 할 때 칼로리를 확인해야 해요. 간식을 많이 먹으면 살이 찌기 쉬워요. 과일을 간식으로 먹으면 좋아요. 건강한 식단을 유지하면 건강이 좋아져요. 피부도 좋아지고 에너지도 생겨요. 일찍 자는 편이 좋아요. 충분한 수면도 중요해요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Sentence counter
+const writingText = document.getElementById('writingText');
+const sentenceCount = document.getElementById('sentenceCount');
+
+writingText.addEventListener('input', function() {
+    const text = this.value.trim();
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    sentenceCount.textContent = count + ' / 5-7 câu';
+    if (count >= 5 && count <= 7) {
+        sentenceCount.style.color = '#10B981';
+    } else {
+        sentenceCount.style.color = '#5B21B6';
+    }
+});
+
+function checkWriting() {
+    const text = writingText.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    
+    if (count < 5) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn (' + count + ' câu). Hãy viết ít nhất 5 câu nhé!';
+    } else if (count > 7) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết hơi dài (' + count + ' câu). Hãy viết trong khoảng 5-7 câu!';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Xuất sắc! Bài viết của bạn có ' + count + ' câu. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 1 cấu trúc ngữ pháp trong mỗi câu?<br>• Câu văn có mạch lạc không?<br>• Sử dụng đa dạng từ vựng chủ đề dinh dưỡng?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week6_progress') || '[]');
+        if (!progress.includes(4)) {
+            progress.push(4);
+            localStorage.setItem('topik3_week6_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingText.value.trim().length > 0) {
+        localStorage.setItem('topik3_week6_day4_writing', writingText.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week6_day4_writing');
+    if (saved) {
+        writingText.value = saved;
+        const sentences = saved.split(/[.!?]+/).filter(s => s.trim().length > 0);
+        sentenceCount.textContent = sentences.length + ' / 5-7 câu';
+    }
+};
+</script>
+</body>
+</html>

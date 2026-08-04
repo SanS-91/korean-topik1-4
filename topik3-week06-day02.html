@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 2: Ngữ pháp nâng cao & Luyện đọc - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 50%, #6EE7B7 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #059669; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #047857; }
+.breadcrumb-separator { color: #6EE7B7; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #059669; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(5,150,105,0.15); transition: all 0.3s; border: 2px solid #6EE7B7; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(5,150,105,0.25); background: #ECFDF5; }
+.nav-btn.primary { background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(110,231,183,0.3) 0%, rgba(167,243,208,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '💊'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #047857; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #059669; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(5,150,105,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Review Section - Yellow */
+.review-section .section-title { color: #B7791F; border-color: #ECC94B; }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.review-card { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-radius: 20px; padding: 22px; border-left: 5px solid #ECC94B; }
+.review-card h4 { font-family: 'Baloo 2', cursive; color: #92400E; margin-bottom: 12px; font-size: 1.2em; display: flex; align-items: center; gap: 8px; }
+.review-item { padding: 8px 0; color: #78350F; font-size: 0.95em; border-bottom: 1px dashed #FDE68A; }
+.review-item:last-child { border-bottom: none; }
+.review-item strong { color: #92400E; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(59,130,246,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #1E40AF; background: #EFF6FF; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #ECFDF5; color: #065F46; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #6EE7B7; }
+.grammar-tag { background: #EFF6FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 180px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #059669; border: 2px solid #6EE7B7; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #ECFDF5; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #059669 0%, #10B981 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.review-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week06.html">🏥 Tuần 6</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 2: Ngữ pháp & Đọc hiểu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week06.html" class="nav-btn">← Về Tổng quan Tuần 6</a>
+<a href="topik3-week06-day03.html" class="nav-btn primary">Ngày 3 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">💊 NGÀY 2 • 2일차</span>
+<h1>Ngữ pháp nâng cao & Luyện đọc</h1>
+<div class="subtitle">Mở rộng ngữ pháp và rèn kỹ năng đọc hiểu về y tế</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp mới: <strong>-게 되다</strong> (trở nên/kết quả) và <strong>-(으)까 봐</strong> (e rằng/sợ rằng). 
+Đọc hiểu bài "한국 병원 이용하기" (Sử dụng bệnh viện Hàn Quốc) 300 chữ và luyện tóm tắt nội dung. 🏥
+</p>
+<div class="time-info">⏰ 60 phút • 📝 2 ngữ pháp mới • 📖 Bài đọc 300 chữ • ✍️ Tóm tắt</div>
+</div>
+
+<!-- Review Section -->
+<div class="section review-section">
+<h2 class="section-title">🔄 1. Ôn tập Ngày 1 (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc lại từ vựng và ngữ pháp đã học ngày hôm qua. Tự kiểm tra bằng cách đọc to và đặt câu.</p>
+
+<div class="review-grid">
+<div class="review-card">
+<h4>📚 20 Từ vựng đã học</h4>
+<div class="review-item"><strong>Bộ phận cơ thể:</strong> 머리, 배, 눈, 코, 목, 손, 발, 등, 심장, 폐</div>
+<div class="review-item" style="margin-top: 10px;"><strong>Triệu chứng:</strong> 열, 기침, 두통, 감기, 알레르기, 염증, 어지러움, 메스꺼움, 피로, 증상</div>
+</div>
+
+<div class="review-card">
+<h4>📘 2 Ngữ pháp đã học</h4>
+<div class="review-item">
+<strong>-(으)면 좋다</strong> - Nên làm gì (Lời khuyên)<br>
+<em style="color: #78350F;">물을 많이 마시면 좋아요. (Nên uống nhiều nước.)</em>
+</div>
+<div class="review-item" style="margin-top: 10px;">
+<strong>-기 쉽다</strong> - Dễ bị / Dễ xảy ra<br>
+<em style="color: #78350F;">겨울에는 감기에 걸리기 쉬워요. (Mùa đông dễ bị cảm cúm.)</em>
+</div>
+</div>
+</div>
+
+<div style="background: #FFF9E6; border-left: 4px solid #ECC94B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Bài tập nhanh:</strong>
+<p style="color: #78350F; margin-top: 8px;">Hãy đặt 2 câu sử dụng <strong>-(으)면 좋다</strong> và 2 câu sử dụng <strong>-기 쉽다</strong> với từ vựng về sức khỏe đã học.</p>
+</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 2. Ngữ pháp mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-게 되다</div>
+<div class="grammar-meaning">Trở nên / Kết quả (Sự thay đổi trạng thái)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả sự thay đổi trạng thái hoặc kết quả của một quá trình. Tương đương "trở nên", "đã trở thành", "dần dần" trong tiếng Việt. Dùng khi muốn nói về kết quả của một quá trình thay đổi.
+</div>
+<div class="grammar-formula">
+Động từ + -게 되다<br>
+• Ví dụ: 건강하게 됐어요. (Đã trở nên khỏe mạnh.)<br>
+• Thường dùng ở thì quá khứ: -게 됐어요
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">운동을 시작해서 건강하게 됐어요. <button class="speak-btn" onclick="speakKorean('운동을 시작해서 건강하게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Bắt đầu tập thể dục nên đã trở nên khỏe mạnh.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국에 와서 한국어를 잘하게 됐어요. <button class="speak-btn" onclick="speakKorean('한국에 와서 한국어를 잘하게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Đến Hàn Quốc nên đã trở nên giỏi tiếng Hàn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">매일 물을 마셔서 피부가 좋아지게 됐어요. <button class="speak-btn" onclick="speakKorean('매일 물을 마셔서 피부가 좋아지게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Uống nước mỗi ngày nên da đã trở nên đẹp hơn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">약국에서 약을 먹어서 빨리 나았어요. <button class="speak-btn" onclick="speakKorean('약국에서 약을 먹어서 빨리 나았어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Uống thuốc ở nhà thuốc nên đã nhanh chóng khỏi bệnh.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -게 되다 = "trở nên/dần trở thành" → Diễn tả sự thay đổi<br>
+<strong>⚠️ Lưu ý:</strong> Thường dùng ở thì quá khứ (-게 됐어요) để diễn tả kết quả đã xảy ra<br>
+<strong>🔄 So sánh:</strong> Khác với -아/어지다 (cũng có nghĩa "trở nên" nhưng dùng với tính từ)
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-(으)까 봐</div>
+<div class="grammar-meaning">E rằng / Sợ rằng (Nỗi lo sợ là nguyên nhân)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả nỗi lo sợ, e ngại là nguyên nhân dẫn đến hành động ở vế sau. Tương đương "sợ rằng", "e rằng", "lo là" trong tiếng Việt. Hành động ở vế sau thường là hành động phòng ngừa.
+</div>
+<div class="grammar-formula">
+Động từ/Tính từ + -(으)까 봐<br>
+• Không có patchim: + ㄹ까 봐<br>
+• Có patchim: + 을까 봐<br>
+• Ví dụ: 감기에 걸릴까 봐 마스크를 썼어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">감기에 걸릴까 봐 마스크를 썼어요. <button class="speak-btn" onclick="speakKorean('감기에 걸릴까 봐 마스크를 썼어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Sợ bị cảm cúm nên đã đeo khẩu trang.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">늦을까 봐 일찍 일어났어요. <button class="speak-btn" onclick="speakKorean('늦을까 봐 일찍 일어났어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Sợ muộn nên đã dậy sớm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">배가 아플까 봐 찬 음식을 안 먹었어요. <button class="speak-btn" onclick="speakKorean('배가 아플까 봐 찬 음식을 안 먹었어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Sợ đau bụng nên đã không ăn đồ lạnh.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">병이 심해질까 봐 병원에 갔어요. <button class="speak-btn" onclick="speakKorean('병이 심해질까 봐 병원에 갔어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Sợ bệnh trở nặng nên đã đi bệnh viện.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)까 봐 = "sợ rằng/e rằng" → Nỗi lo là nguyên nhân hành động<br>
+<strong>⚠️ Lưu ý:</strong> Vế sau thường là hành động phòng ngừa (đeo khẩu trang, đi khám, uống thuốc...)<br>
+<strong>🔄 So sánh:</strong> Khác với -아서/어서 (chỉ nguyên nhân thông thường) - -(으)까 봐 nhấn mạnh nỗi lo sợ
+</div>
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc câu phức • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🏥 한국 병원 이용하기 (Sử dụng bệnh viện Hàn Quốc)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">📝 Tóm tắt</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국에서 <strong>아플 때</strong> <strong>병원</strong>에 가야 해요. 먼저 <strong>예약</strong>을 해야 해요. <strong>인터넷</strong>이나 <strong>전화</strong>로 <strong>예약</strong>할 수 있어요. <strong>예약</strong>을 안 하면 오래 기다려야 해요.</p>
+
+<p><strong>병원</strong>에 가면 <strong>접수대</strong>에서 <strong>진료카드</strong>를 만들어요. <strong>보험증</strong>을 보여줘야 해요. <strong>건강보험</strong>이 있으면 <strong>비용</strong>이 <strong>싸져요</strong>.</p>
+
+<p><strong>진료실</strong>에서 <strong>의사</strong>를 만나요. <strong>증상</strong>을 말해야 해요. "머리가 아파요", "배가 아파요", "열이 나요"라고 말해요. <strong>의사</strong>가 <strong>진찰</strong>을 해요.</p>
+
+<p><strong>의사</strong>가 <strong>약</strong>을 <strong>처방</strong>해요. <strong>처방전</strong>을 받아서 <strong>약국</strong>에 가요. <strong>약사</strong>가 <strong>약</strong>을 줘요. <strong>약</strong>을 어떻게 먹는지 설명을 들어야 해요.</p>
+
+<p>아플 때 <strong>쉬는 게 중요해요</strong>. <strong>물을 많이 마시면 좋아요</strong>. <strong>감기에 걸릴까 봐</strong> <strong>마스크</strong>를 써야 해요. <strong>병이 심해질까 봐</strong> <strong>일찍</strong> <strong>병원</strong>에 가는 <strong>편이 좋아요</strong>.</p>
+
+<p>한국에서는 <strong>건강보험</strong>이 잘 되어 있어요. <strong>병원</strong> <strong>비용</strong>이 <strong>비싸지 않게 됐어요</strong>. <strong>아플 때</strong> <strong>병원</strong>에 <strong>쉽게</strong> 갈 수 있어요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng mới về bệnh viện:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">병원 (bệnh viện)</span>
+<span class="vocab-tag">예약 (đặt lịch)</span>
+<span class="vocab-tag">접수대 (quầy tiếp nhận)</span>
+<span class="vocab-tag">진료카드 (thẻ khám bệnh)</span>
+<span class="vocab-tag">보험증 (thẻ bảo hiểm)</span>
+<span class="vocab-tag">건강보험 (bảo hiểm y tế)</span>
+<span class="vocab-tag">비용 (chi phí)</span>
+<span class="vocab-tag">진료실 (phòng khám)</span>
+<span class="vocab-tag">의사 (bác sĩ)</span>
+<span class="vocab-tag">진찰 (khám bệnh)</span>
+<span class="vocab-tag">처방 (kê đơn)</span>
+<span class="vocab-tag">처방전 (đơn thuốc)</span>
+<span class="vocab-tag">약국 (nhà thuốc)</span>
+<span class="vocab-tag">약사 (dược sĩ)</span>
+<span class="vocab-tag">마스크 (khẩu trang)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+<span class="grammar-tag">-(으)까 봐 (sợ rằng)</span>
+<span class="grammar-tag">-(으)면 좋다 (nên)</span>
+<span class="grammar-tag">-는 편이 좋다 (thì tốt hơn)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc hướng dẫn <strong>cách sử dụng bệnh viện tại Hàn Quốc</strong>. Khi bị ốm, cần đặt lịch hẹn trước qua internet hoặc điện thoại. Đến bệnh viện, làm thẻ khám tại quầy tiếp nhận và xuất trình thẻ bảo hiểm. Trong phòng khám, mô tả triệu chứng với bác sĩ để được khám và kê đơn. Nhận đơn thuốc rồi đến nhà thuốc để lấy thuốc và nghe hướng dẫn sử dụng. Khi bị ốm cần nghỉ ngơi, uống nhiều nước, đeo khẩu trang để phòng bệnh. Hệ thống bảo hiểm y tế Hàn Quốc rất tốt nên chi phí khám bệnh không quá đắt.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 4. Tóm tắt bài đọc (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Tóm tắt bài đọc "한국 병원 이용하기" bằng 3-4 câu tiếng Hàn. Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Yêu cầu:</strong> Tóm tắt bài đọc "한국 병원 이용하기" bằng <strong>3-4 câu tiếng Hàn</strong>.<br><br>
+<strong>Quy tắc:</strong><br>
+• Độ dài: <strong>3-4 câu</strong> (khoảng 50-80 từ)<br>
+• Sử dụng ít nhất <strong>2 cấu trúc ngữ pháp</strong> đã học trong tuần:<br>
+  - <strong>-(으)면 좋다</strong> (nên làm gì)<br>
+  - <strong>-기 쉽다</strong> (dễ bị)<br>
+  - <strong>-게 되다</strong> (trở nên)<br>
+  - <strong>-(으)까 봐</strong> (sợ rằng)<br><br>
+• Nội dung: Tóm tắt quy trình khám bệnh tại Hàn Quốc
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 한국에서 아플 때 병원에 가야 해요.</div>
+<div class="writing-example-meaning">Khi bị ốm ở Hàn Quốc phải đi bệnh viện.</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 먼저 예약을 하고 접수대에서 진료카드를 만들어야 해요.</div>
+<div class="writing-example-meaning">Trước tiên phải đặt lịch và làm thẻ khám ở quầy tiếp nhận.</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 의사에게 증상을 말하고 처방전을 받아야 해요.</div>
+<div class="writing-example-meaning">Phải nói triệu chứng với bác sĩ và nhận đơn thuốc.</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 감기에 걸릴까 봐 마스크를 쓰는 편이 좋아요.</div>
+<div class="example-meaning">Sợ bị cảm cúm nên đeo khẩu trang thì tốt hơn.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)까 봐, -는 편이 좋다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="summaryText" placeholder="Viết tóm tắt của bạn vào đây...
+
+Gợi ý bắt đầu:
+1. 한국에서 아플 때...
+2. 병원에 가면...
+3. 의사에게...
+4. ...
+
+Hãy viết 3-4 câu tóm tắt bài đọc!
+Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học."></textarea>
+
+<button class="check-btn" onclick="checkSummary()">✓ Kiểm tra bài tóm tắt</button>
+
+<div id="summary-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết tóm tắt:</strong><br>
+• <strong>Câu 1:</strong> Giới thiệu chủ đề (khi bị ốm ở Hàn Quốc)<br>
+• <strong>Câu 2:</strong> Quy trình đặt lịch và làm thẻ<br>
+• <strong>Câu 3:</strong> Khám bệnh và nhận đơn thuốc<br>
+• <strong>Câu 4:</strong> Lời khuyên về phòng bệnh<br>
+• Sử dụng từ nối: 먼저 (trước tiên), 그리고 (và), 그래서 (vì vậy), 그 다음에 (sau đó)
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 2</h2>
+<ul class="goals-list">
+<li>Đọc hiểu bài đọc 300 chữ "한국 병원 이용하기" (Sử dụng bệnh viện Hàn Quốc)</li>
+<li>Tóm tắt được nội dung chính bằng 3-4 câu tiếng Hàn</li>
+<li>Hiểu và đặt câu với 2 cấu trúc ngữ pháp mới (-게 되다, -(으)까 봐)</li>
+<li>Thuộc tổng cộng 4 cấu trúc ngữ pháp (bao gồm 2 cấu trúc từ Ngày 1)</li>
+<li>Phân tích được cấu trúc câu phức trong bài đọc</li>
+<li>Nắm vững từ vựng chủ đề bệnh viện và khám chữa bệnh</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week06.html" class="day-nav-btn">← Về Hub Tuần 6</a>
+<a href="topik3-week06-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week06-day02.html" class="day-nav-btn active">Ngày 2 ✓</a>
+<a href="topik3-week06-day03.html" class="day-nav-btn">Ngày 3 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week06-day01.html" class="nav-btn">← Ngày 1</a>
+<a href="topik3-week06-day03.html" class="nav-btn primary">Tiếp: Ngày 3 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🏥 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Sức khỏe là vàng, ngôn ngữ là chìa khóa mở ra thế giới mới"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🏥', '💊', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '한국에서 아플 때 병원에 가야 해요. 먼저 예약을 해야 해요. 인터넷이나 전화로 예약할 수 있어요. 예약을 안 하면 오래 기다려야 해요. 병원에 가면 접수대에서 진료카드를 만들어요. 보험증을 보여줘야 해요. 건강보험이 있으면 비용이 싸져요. 진료실에서 의사를 만나요. 증상을 말해야 해요. 머리가 아파요, 배가 아파요, 열이 나요라고 말해요. 의사가 진찰을 해요. 의사가 약을 처방해요. 처방전을 받아서 약국에 가요. 약사가 약을 줘요. 약을 어떻게 먹는지 설명을 들어야 해요. 아플 때 쉬는 게 중요해요. 물을 많이 마시면 좋아요. 감기에 걸릴까 봐 마스크를 써야 해요. 병이 심해질까 봐 일찍 병원에 가는 편이 좋아요. 한국에서는 건강보험이 잘 되어 있어요. 병원 비용이 비싸지 않게 됐어요. 아플 때 병원에 쉽게 갈 수 있어요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function checkSummary() {
+    const textarea = document.getElementById('summaryText');
+    const feedback = document.getElementById('summary-feedback');
+    const text = textarea.value.trim();
+    
+    if (text.length < 50) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài tóm tắt của bạn còn ngắn. Hãy viết ít nhất 3-4 câu đầy đủ nhé! (tối thiểu 50 ký tự)';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài tóm tắt. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 2 cấu trúc ngữ pháp?<br>• Câu văn có mạch lạc không?<br>• Có tóm tắt đúng quy trình khám bệnh không?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week6_progress') || '[]');
+        if (!progress.includes(2)) {
+            progress.push(2);
+            localStorage.setItem('topik3_week6_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save summary when leaving page
+window.onbeforeunload = function() {
+    const textarea = document.getElementById('summaryText');
+    if (textarea.value.trim().length > 50) {
+        localStorage.setItem('topik3_week6_day2_summary', textarea.value);
+    }
+};
+
+// Load saved summary
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week6_day2_summary');
+    if (saved) {
+        document.getElementById('summaryText').value = saved;
+    }
+};
+</script>
+</body>
+</html>
