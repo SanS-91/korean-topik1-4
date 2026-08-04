@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 6: Viết đoạn văn & Luyện hội thoại - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #EDE9FE 0%, #FFF5E4 50%, #DBEAFE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #6D28D9; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #5B21B6; }
+.breadcrumb-separator { color: #A78BFA; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #6D28D9; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(109,40,217,0.15); transition: all 0.3s; border: 2px solid #C4B5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(109,40,217,0.25); background: #FAF5FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(196,181,253,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '✍️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🗣️'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #5B21B6; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #6D28D9; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(109,40,217,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 300px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 5px; line-height: 1.6; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 5px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Conversation Section - Green */
+.conversation-section .section-title { color: #065F46; border-color: #10B981; }
+.conversation-box { background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border: 2px solid #10B981; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.conversation-title { font-family: 'Baloo 2', cursive; color: #065F46; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.shadowing-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.shadowing-step { padding: 12px; margin: 8px 0; border-left: 4px solid #10B981; background: #F0FFF4; border-radius: 8px; }
+.shadowing-step strong { color: #065F46; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #10B981; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #065F46; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F0FFF4; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #065F46; min-width: 100px; background: #D1FAE5; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+.dialogue-text strong { color: #065F46; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #6EE7B7; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #10B981 0%, #34D399 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(16,185,129,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #065F46; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.speak-btn { background: linear-gradient(135deg, #10B981 0%, #34D399 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(16,185,129,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Recording Section - Red */
+.recording-section .section-title { color: #991B1B; border-color: #EF4444; }
+.recording-box { background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%); border: 2px solid #EF4444; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.recording-title { font-family: 'Baloo 2', cursive; color: #991B1B; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.role-selector { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+.role-btn { padding: 12px 25px; background: white; color: #991B1B; border: 2px solid #FECACA; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.role-btn:hover { background: #FEF2F2; transform: translateY(-2px); }
+.role-btn.active { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border-color: transparent; }
+.role-script { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; color: #991B1B; line-height: 1.8; min-height: 80px; }
+.record-btn { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; display: inline-flex; align-items: center; gap: 10px; }
+.record-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(239,68,68,0.4); }
+.record-btn.recording { animation: pulse 1s infinite; }
+.recording-status { margin-top: 15px; color: #718096; font-size: 0.95em; }
+.audio-playback { width: 100%; margin-top: 15px; display: none; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #6D28D9; border: 2px solid #C4B5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FAF5FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html"> TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week03.html"> Tuần 3</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 6: Viết & Hội thoại</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week03.html" class="nav-btn">← Về Tổng quan Tuần 3</a>
+<a href="topik3-week03-day07.html" class="nav-btn primary">Ngày 7 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">✍️ NGÀY 6 • 6일차</span>
+<h1>Viết đoạn văn & Luyện hội thoại</h1>
+<div class="subtitle">Tổng hợp kỹ năng viết và nói</div>
+<p class="description">
+Viết đoạn văn 300-400 chữ về <strong>"직장 생활"</strong> (Đời sống công sở) và luyện hội thoại 
+với phương pháp Shadowing và Role-play. Ghi âm và tự đánh giá phát âm. 
+</p>
+<div class="time-info">⏰ 60 phút • ✍️ Viết 300-400 chữ • 🗣️ Hội thoại 10 lượt • 🎙️ Ghi âm</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 1. Viết đoạn văn (30 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết đoạn văn 300-400 chữ về chủ đề "직장 생활" (Đời sống công sở của tôi). Sử dụng cấu trúc Mở bài + Thân bài + Kết bài và ít nhất 4 cấu trúc ngữ pháp đã học.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Đề bài:</strong> Viết đoạn văn về <strong>"직장 생활" (Đời sống công sở của tôi)</strong><br><br>
+<strong>Yêu cầu:</strong><br>
+• Độ dài: <strong>300-400 chữ</strong> (khoảng 15-20 câu)<br>
+• Cấu trúc: <strong>Mở bài (2-3 câu) + Thân bài (2-3 kinh nghiệm) + Kết bài (2-3 câu)</strong><br>
+• Sử dụng ít nhất <strong>4 cấu trúc ngữ pháp</strong> đã học trong tuần:<br>
+  - <strong>-기 위해(서)</strong> (để làm gì)<br>
+  - <strong>-도록 하다</strong> (yêu cầu làm gì)<br>
+  - <strong>-게 하다</strong> (bắt/để cho)<br>
+  - <strong>-아/어 보다</strong> (thử làm gì)<br>
+  - <strong>-ㄹ/을 수 있다</strong> (có thể)<br>
+  - <strong>-아/어야 하다</strong> (phải)<br><br>
+• Sử dụng từ vựng: 회사, 업무, 출근, 회의, 프로젝트, 발표, 보고서, 상사, 동료, 퇴근, 야근, 승진, 연봉, 직장, 목표, 팀워크, 휴가, 경력, 책임감, 발전
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;"> Dàn ý gợi ý</h4>
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+<strong style="color: #8B5CF6;">📌 Mở bài (2-3 câu):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Giới thiệu bản thân và công ty. Nói chung về đời sống công sở.</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 저는 3년간 회사에서 일하고 있어요. 매일 아침 9시에 출근해요.</p>
+</div>
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+<strong style="color: #8B5CF6;">📌 Thân bài (2-3 kinh nghiệm):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Miêu tả 2-3 kinh nghiệm làm việc: công việc hàng ngày, đồng nghiệp, mục tiêu</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 오전에 회의가 있어요. 회의에서 프로젝트를 발표해요.</p>
+</div>
+<div style="background: white; padding: 15px; border-radius: 12px;">
+<strong style="color: #8B5CF6;">📌 Kết bài (2-3 câu):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Cảm nhận về đời sống công sở và kế hoạch tương lai</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 회사 생활이 바빠요. 하지만 재미있어요. 승진하고 싶어요.</p>
+</div>
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📝 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">저는 3년간 회사에서 일한 경험이 있어요. 매일 아침 9시에 출근해요. 오전에 회의가 있어요. 회의에서 프로젝트 진행 상황을 발표해요. 보고서도 작성해요. 상사가 보고서를 작성하도록 해요.</div>
+<div class="writing-example-meaning">Tôi có 3 năm kinh nghiệm làm việc ở công ty. Mỗi sáng 9h đi làm. Buổi sáng có cuộc họp. Trong cuộc họp, tôi thuyết trình về tiến độ dự án. Tôi cũng viết báo cáo. Sếp yêu cầu tôi viết báo cáo.</div>
+<div class="writing-example-grammar">Ngữ pháp: -도록 하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">점심 시간에 동료들과 식당에서 밥을 먹어요. 오후에는 업무를 처리해요. 이메일을 확인하고 전화를 해요. 새로운 업무를 해 보세요. 재미있어요.</div>
+<div class="writing-example-meaning">Giờ trưa, tôi ăn cơm với đồng nghiệp ở nhà hàng. Buổi chiều, tôi xử lý công việc. Tôi kiểm tra email và gọi điện. Hãy thử công việc mới xem. Thú vị đấy.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어 보다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">6시에 퇴근해요. 가끔 야근을 해요. 승진하기 위해 열심히 일해요. 연봉도 높아요. 직장 생활이 바빠요. 하지만 재미있어요. 목표를 이루기 위해 노력해요.</div>
+<div class="writing-example-meaning">6h tan làm. Thỉnh thoảng làm thêm giờ. Để thăng chức, tôi làm việc chăm chỉ. Lương năm cũng cao. Đời sống công sở bận rộn. Nhưng thú vị. Tôi nỗ lực để đạt mục tiêu.</div>
+<div class="writing-example-grammar">Ngữ pháp: -기 위해(서)</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">회사에서 일하는 것이 좋아요. 동료들이 친절해요. 상사도 좋아요. 상사가 직원을 잘 대해줘요. 매주 월요일에 회의가 있어요. 회의에서 주간 계획을 발표해요. 프로젝트를 함께 해요.</div>
+<div class="writing-example-meaning">Tôi thích làm việc ở công ty. Đồng nghiệp thân thiện. Sếp cũng tốt. Sếp đối xử tốt với nhân viên. Mỗi thứ Hai có cuộc họp. Trong cuộc họp, tôi thuyết trình kế hoạch tuần. Chúng tôi cùng làm dự án.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어야 하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">팀워크가 중요해요. 회사 복지가 좋아요. 휴가도 많아요. 연봉도 괜찮아요. 보너스도 있어요. 회사 분위기가 좋아요. 동료 관계도 좋아요. 매일 출근하는 것이 즐거워요. 승진하고 싶어요. 그래서 열심히 일해요. 새로운 업무를 배우고 싶어요. 발전하고 싶어요. 승진할 수 있어요.</div>
+<div class="writing-example-meaning">Làm việc nhóm quan trọng. Phúc lợi công ty tốt. Nghỉ phép cũng nhiều. Lương năm cũng ổn. Cũng có thưởng. Bầu không khí công ty tốt. Quan hệ đồng nghiệp cũng tốt. Mỗi ngày đi làm vui vẻ. Tôi muốn thăng chức. Vì vậy tôi làm việc chăm chỉ. Tôi muốn học công việc mới. Tôi muốn phát triển. Tôi có thể thăng chức.</div>
+<div class="writing-example-grammar">Ngữ pháp: -ㄹ/을 수 있다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="writingText" placeholder="Viết đoạn văn của bạn về đời sống công sở...
+
+Gợi ý bắt đầu:
+저는 3년간 회사에서 일한 경험이 있어요...
+매일 아침 9시에 출근해요...
+오전에 회의가 있어요...
+
+Hãy viết 15-20 câu (300-400 chữ)!
+Sử dụng ít nhất 4 cấu trúc ngữ pháp đã học."></textarea>
+
+<div style="background: white; padding: 10px 15px; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #5B21B6;">
+<span> Số chữ đã viết:</span>
+<span id="wordCount" style="font-size: 1.2em;">0 / 300-400 chữ</span>
+</div>
+
+<button class="check-btn" onclick="checkWriting()">✓ Kiểm tra bài viết</button>
+
+<div id="writing-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết đoạn văn TOPIK 3:</strong><br>
+• <strong>Độ dài:</strong> 300-400 chữ (khoảng 15-20 câu)<br>
+• <strong>Cấu trúc:</strong> Mở bài giới thiệu → Thân bài miêu tả chi tiết → Kết bài cảm nhận<br>
+• <strong>Ngữ pháp:</strong> Sử dụng đa dạng 4+ cấu trúc đã học<br>
+• <strong>Từ vựng:</strong> Sử dụng từ vựng chủ đề công việc đã học trong tuần<br>
+• <strong>Liên kết:</strong> Sử dụng từ nối: 그래서 (vì vậy), 하지만 (nhưng), 그리고 (và), 그래서 (do đó), 또한 (ngoài ra)<br>
+• <strong>Thời gian:</strong> 30 phút (10 phút lập dàn ý + 15 phút viết + 5 phút kiểm tra)
+</div>
+</div>
+</div>
+
+<!-- Conversation Section -->
+<div class="section conversation-section">
+<h2 class="section-title">🗣️ 2. Luyện hội thoại (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại 3 lần theo thứ tự • Lần 1 lấy ý chính • Lần 2 nghe chi tiết + transcript • Lần 3 Shadowing</p>
+
+<div class="conversation-box">
+<div class="conversation-title">🎯 Hội thoại: 승진에 대한 대화 (Nói chuyện về thăng chức)</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullDialogue(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ hội thoại</div>
+<div class="audio-sub">Nghe 3 lần: Ý chính → Chi tiết → Shadowing</div>
+</div>
+</div>
+
+<div class="shadowing-steps">
+<div class="shadowing-step">
+<strong>🎯 Lần 1 (5 phút):</strong> Nghe lấy ý chính - Không nhìn transcript, cố gắng hiểu nội dung chính về thăng chức
+</div>
+<div class="shadowing-step">
+<strong>📝 Lần 2 (7 phút):</strong> Nghe chi tiết + Đọc transcript - Vừa nghe vừa đọc, chú ý ngữ điệu và từ mới
+</div>
+<div class="shadowing-step">
+<strong>️ Lần 3 (8 phút):</strong> Shadowing - Nghe và đọc đuổi theo, bắt chước ngữ điệu và tốc độ
+</div>
+</div>
+
+<div class="transcript-box">
+<div class="transcript-title">📜 Transcript (Bản ghi lời thoại)</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">지영 씨, 요즘 어때요?</span>
+<button class="speak-btn" onclick="speakKorean('지영 씨, 요즘 어때요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">바빠요. <strong>프로젝트</strong>가 많아요.</span>
+<button class="speak-btn" onclick="speakKorean('바빠요. 프로젝트가 많아요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text"><strong>승진</strong>했어요? 축하해요!</span>
+<button class="speak-btn" onclick="speakKorean('승진했어요? 축하해요!', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">감사합니다. 열심히 일했어요.</span>
+<button class="speak-btn" onclick="speakKorean('감사합니다. 열심히 일했어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text"><strong>연봉</strong>도 올랐어요?</span>
+<button class="speak-btn" onclick="speakKorean('연봉도 올랐어요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">네, 10% 올랐어요. 보너스도 있어요.</span>
+<button class="speak-btn" onclick="speakKorean('네, 10% 올랐어요. 보너스도 있어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">대단해요. 어떻게 했어요?</span>
+<button class="speak-btn" onclick="speakKorean('대단해요. 어떻게 했어요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text"><strong>성과</strong>가 좋았어요. <strong>목표</strong>를 달성했어요.</span>
+<button class="speak-btn" onclick="speakKorean('성과가 좋았어요. 목표를 달성했어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">저도 <strong>승진</strong>하고 싶어요.</span>
+<button class="speak-btn" onclick="speakKorean('저도 승진하고 싶어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">열심히 하면 될 거예요. 화이팅!</span>
+<button class="speak-btn" onclick="speakKorean('열심히 하면 될 거예요. 화이팅!', this)">🔊</button>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">📚 Từ vựng & Ngữ pháp trong hội thoại:</strong>
+<div style="margin-top: 10px; color: #78350F; line-height: 1.8;">
+• <strong>승진</strong> [seung-jin]: Thăng chức<br>
+• <strong>연봉</strong> [yeon-bong]: Lương năm<br>
+• <strong>프로젝트</strong> [peu-ro-jek-teu]: Dự án<br>
+• <strong>성과</strong> [seong-gwa]: Thành tích<br>
+• <strong>목표</strong> [mok-pyo]: Mục tiêu<br>
+• <strong>보너스</strong> [bo-neo-seu]: Thưởng<br>
+• <strong>-아/어 보다</strong>: Thử làm gì (올랐어요 - đã tăng)<br>
+• <strong>-/을 수 있다</strong>: Có thể (될 거예요 - sẽ có thể)<br>
+• <strong>-아/어야 하다</strong>: Phải (해야 해요 - phải làm)
+</div>
+</div>
+
+<div style="background: #FAF5FF; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #5B21B6;"> Role-play (Đóng vai):</strong>
+<p style="color: #6B21A8; margin-top: 10px;">Chọn vai <strong>민수</strong> hoặc <strong>지영</strong> và thực hành hội thoại. Đọc to phần thoại của vai mình, dừng lại để đối tác đọc phần còn lại.</p>
+</div>
+</div>
+</div>
+
+<!-- Recording Section -->
+<div class="section recording-section">
+<h2 class="section-title">🎙️ 3. Ghi âm & Tự đánh giá (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Chọn vai • Ghi âm hội thoại • Nghe lại và so sánh với bản gốc • Tự đánh giá phát âm</p>
+
+<div class="recording-box">
+<div class="recording-title">🎙️ Ghi âm thực hành</div>
+<p style="color: #718096; margin-bottom: 15px;">Chọn vai bạn muốn đóng và bấm nút ghi âm:</p>
+
+<div class="role-selector">
+<button class="role-btn" onclick="selectRole('민수')" id="role-minsu">👤 Vai 민수 (Min-su)</button>
+<button class="role-btn" onclick="selectRole('지영')" id="role-jiyoung">👤 Vai 지영 (Ji-yeong)</button>
+</div>
+
+<div id="selectedRole" style="background: white; padding: 12px; border-radius: 10px; margin-bottom: 15px; color: #991B1B; font-weight: 600;">
+Chưa chọn vai
+</div>
+
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+<strong style="color: #991B1B;">📜 Thoại của vai bạn:</strong>
+<div id="roleScript" style="margin-top: 10px; color: #718096; line-height: 1.8; min-height: 80px;">
+Hãy chọn vai để xem thoại...
+</div>
+</div>
+
+<button class="record-btn" id="recordBtn" onclick="toggleRecording()">
+<span id="recordIcon">️</span>
+<span id="recordText">Bắt đầu ghi âm</span>
+</button>
+
+<div class="recording-status" id="recordingStatus"></div>
+<audio id="audioPlayback" controls class="audio-playback"></audio>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Tiêu chí tự đánh giá:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li><strong>Phát âm:</strong> Phát âm rõ ràng, đúng patchim (phụ âm cuối)</li>
+<li><strong>Ngữ điệu:</strong> Lên giọng ở câu hỏi, xuống giọng ở câu khẳng định</li>
+<li><strong>Tốc độ:</strong> Tốc độ tự nhiên, không quá nhanh cũng không quá chậm</li>
+<li><strong>Ngắt nghỉ:</strong> Ngắt nghỉ đúng chỗ sau mỗi câu</li>
+<li><strong>Cảm xúc:</strong> Thể hiện cảm xúc tự nhiên trong hội thoại</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 4. Mục tiêu đạt được sau Ngày 6</h2>
+<ul class="goals-list">
+<li>Viết đoạn văn 300-400 chữ về "직장 생활" (Đời sống công sở)</li>
+<li>Sử dụng ít nhất 4 cấu trúc ngữ pháp đã học trong tuần</li>
+<li>Sử dụng đa dạng từ vựng chủ đề công việc</li>
+<li>Nghe hiểu hội thoại 10 lượt về thăng chức</li>
+<li>Thực hành Shadowing và Role-play hội thoại</li>
+<li>Ghi âm và tự đánh giá phát âm theo 5 tiêu chí</li>
+<li>Hoàn thành checklist 6 ngày đầu tuần</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week03.html" class="day-nav-btn">← Về Hub Tuần 3</a>
+<a href="topik3-week03-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week03-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week03-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week03-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week03-day05.html" class="day-nav-btn">Ngày 5</a>
+<a href="topik3-week03-day06.html" class="day-nav-btn active">Ngày 6 ✓</a>
+<a href="topik3-week03-day07.html" class="day-nav-btn">Ngày 7 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week03-day05.html" class="nav-btn">← Ngày 5</a>
+<a href="topik3-week03-day07.html" class="nav-btn primary">Tiếp: Ngày 7 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">💼 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Công việc là niềm vui, thành công là phần thưởng"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['💼', '📊', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullDialogue(btnElement) {
+    const fullText = '지영 씨, 요즘 어때요? 바빠요. 프로젝트가 많아요. 승진했어요? 축하해요! 감사합니다. 열심히 일했어요. 연봉도 올랐어요? 네, 10% 올랐어요. 보너스도 있어요. 대단해요. 어떻게 했어요? 성과가 좋았어요. 목표를 달성했어요. 저도 승진하고 싶어요. 열심히 하면 될 거예요. 화이팅!';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Word counter
+const writingText = document.getElementById('writingText');
+const wordCount = document.getElementById('wordCount');
+
+writingText.addEventListener('input', function() {
+    const text = this.value.trim();
+    const count = text.length;
+    wordCount.textContent = count + ' / 300-400 chữ';
+    if (count >= 300 && count <= 400) {
+        wordCount.style.color = '#10B981';
+    } else {
+        wordCount.style.color = '#5B21B6';
+    }
+});
+
+function checkWriting() {
+    const text = writingText.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    const count = text.length;
+    
+    if (count < 300) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn (' + count + ' chữ). Hãy viết ít nhất 300 chữ nhé!';
+    } else if (count > 450) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '️ Bài viết hơi dài (' + count + ' chữ). Hãy viết trong khoảng 300-400 chữ!';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Xuất sắc! Bài viết của bạn đạt ' + count + ' chữ. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 4 cấu trúc ngữ pháp?<br>• Có cấu trúc Mở bài + Thân bài + Kết bài?<br>• Sử dụng đa dạng từ vựng chủ đề?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week3_progress') || '[]');
+        if (!progress.includes(6)) {
+            progress.push(6);
+            localStorage.setItem('topik3_week3_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Recording functionality
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let selectedRole = null;
+
+const roleScripts = {
+    '민수': '지영 씨, 요즘 어때요?\n\n승진했어요? 축하해요!\n\n연봉도 올랐어요?\n\n대단해요. 어떻게 했어요?\n\n저도 승진하고 싶어요.',
+    '지영': '바빠요. 프로젝트가 많아요.\n\n감사합니다. 열심히 일했어요.\n\n네, 10% 올랐어요. 보너스도 있어요.\n\n성과가 좋았어요. 목표를 달성했어요.\n\n열심히 하면 될 거예요. 화이팅!'
+};
+
+function selectRole(role) {
+    selectedRole = role;
+    document.getElementById('selectedRole').textContent = 'Đã chọn: Vai ' + role;
+    document.getElementById('roleScript').textContent = roleScripts[role];
+    document.getElementById('role-minsu').classList.toggle('active', role === '민수');
+    document.getElementById('role-jiyoung').classList.toggle('active', role === '지영');
+}
+
+async function toggleRecording() {
+    if (!selectedRole) {
+        alert('⚠️ Vui lòng chọn vai trước khi ghi âm!');
+        return;
+    }
+    
+    if (!isRecording) {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+            
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audioPlayback = document.getElementById('audioPlayback');
+                audioPlayback.src = audioUrl;
+                audioPlayback.style.display = 'block';
+                stream.getTracks().forEach(track => track.stop());
+            };
+            
+            mediaRecorder.start();
+            isRecording = true;
+            document.getElementById('recordIcon').textContent = '⏹️';
+            document.getElementById('recordText').textContent = 'Dừng ghi âm';
+            document.getElementById('recordBtn').classList.add('recording');
+            document.getElementById('recordingStatus').textContent = '🔴 Đang ghi âm...';
+        } catch (err) {
+            alert('⚠️ Không thể truy cập microphone. Vui lòng kiểm tra quyền truy cập.');
+        }
+    } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        document.getElementById('recordIcon').textContent = '🎙️';
+        document.getElementById('recordText').textContent = 'Bắt đầu ghi âm';
+        document.getElementById('recordBtn').classList.remove('recording');
+        document.getElementById('recordingStatus').textContent = '✅ Đã ghi âm xong! Hãy nghe lại và so sánh với bản gốc.';
+    }
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingText.value.trim().length > 0) {
+        localStorage.setItem('topik3_week3_day6_writing', writingText.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week3_day6_writing');
+    if (saved) {
+        writingText.value = saved;
+        wordCount.textContent = saved.trim().length + ' / 300-400 chữ';
+    }
+};
+</script>
+</body>
+</html>

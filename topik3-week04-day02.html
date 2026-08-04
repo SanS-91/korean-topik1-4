@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 2: Ngữ pháp nâng cao & Luyện đọc - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #EDE9FE 0%, #FFF5E4 50%, #DBEAFE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #6D28D9; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #5B21B6; }
+.breadcrumb-separator { color: #A78BFA; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #6D28D9; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(109,40,217,0.15); transition: all 0.3s; border: 2px solid #C4B5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(109,40,217,0.25); background: #FAF5FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(196,181,253,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: ''; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #5B21B6; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #6D28D9; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(109,40,217,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Review Section - Yellow */
+.review-section .section-title { color: #B7791F; border-color: #ECC94B; }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.review-card { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-radius: 20px; padding: 22px; border-left: 5px solid #ECC94B; }
+.review-card h4 { font-family: 'Baloo 2', cursive; color: #92400E; margin-bottom: 12px; font-size: 1.2em; display: flex; align-items: center; gap: 8px; }
+.review-item { padding: 8px 0; color: #78350F; font-size: 0.95em; border-bottom: 1px dashed #FDE68A; }
+.review-item:last-child { border-bottom: none; }
+.review-item strong { color: #92400E; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(59,130,246,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #1E40AF; background: #EFF6FF; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #F0FFF4; color: #065F46; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #9AE6B4; }
+.grammar-tag { background: #EFF6FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 180px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #6D28D9; border: 2px solid #C4B5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FAF5FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.review-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html"> Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week04.html">🎎 Tuần 4</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 2: Ngữ pháp & Đọc hiểu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week04.html" class="nav-btn">← Về Tổng quan Tuần 4</a>
+<a href="topik3-week04-day03.html" class="nav-btn primary">Ngày 3 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🍜 NGÀY 2 • 2일차</span>
+<h1>Ngữ pháp nâng cao & Luyện đọc</h1>
+<div class="subtitle">Mở rộng ngữ pháp và rèn kỹ năng đọc hiểu</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp mới: <strong>-아/어서</strong> (vì...nên) và <strong>-지만</strong> (nhưng). 
+Đọc hiểu bài "한국 음식" (Ẩm thực Hàn Quốc) 300 chữ và luyện tóm tắt nội dung. 🍜
+</p>
+<div class="time-info"> 60 phút • 📝 2 ngữ pháp mới • 📖 Bài đọc 300 chữ • ✍️ Tóm tắt</div>
+</div>
+
+<!-- Review Section -->
+<div class="section review-section">
+<h2 class="section-title">🔄 1. Ôn tập Ngày 1 (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc lại từ vựng và ngữ pháp đã học ngày hôm qua. Tự kiểm tra bằng cách đọc to và đặt câu.</p>
+
+<div class="review-grid">
+<div class="review-card">
+<h4>📚 20 Từ vựng đã học</h4>
+<div class="review-item"><strong>Danh từ:</strong> 명절, 설날, 추석, 세배, 세뱃돈, 송편, 떡국, 차례, 성묘, 한복, 연휴, 귀성, 벌초, 차례상, 조상, 가족, 친척, 고향, 선물, 인사</div>
+</div>
+
+<div class="review-card">
+<h4>📘 2 Ngữ pháp đã học</h4>
+<div class="review-item">
+<strong>-기 때문에</strong> - Vì (nguyên nhân)<br>
+<em style="color: #78350F;">고향에 가기 때문에 기뻐요. (Vì về quê nên vui.)</em>
+</div>
+<div class="review-item" style="margin-top: 10px;">
+<strong>-는데/은데</strong> - Nhưng mà (tương phản)<br>
+<em style="color: #78350F;">명절인데 고에 안 가요. (Là ngày lễ nhưng mà không về quê.)</em>
+</div>
+</div>
+</div>
+
+<div style="background: #FFF9E6; border-left: 4px solid #ECC94B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Bài tập nhanh:</strong>
+<p style="color: #78350F; margin-top: 8px;">Hãy đặt 2 câu sử dụng <strong>-기 때문에</strong> và 2 câu sử dụng <strong>-는데/은데</strong> với từ vựng đã học.</p>
+</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 2. Ngữ pháp mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-아/어서</div>
+<div class="grammar-meaning">Vì...nên (nguyên nhân-kết quả)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả mối quan hệ nguyên nhân - kết quả giữa hai vế câu. Vế trước là nguyên nhân, vế sau là kết quả. Tương đương "vì...nên" trong tiếng Việt. Dùng khi kết quả là sự thật hiển nhiên hoặc đã xảy ra.
+</div>
+<div class="grammar-formula">
+Động từ/Tính từ + -아/어서<br>
+• Nguyên âm cuối là ㅏ, ㅗ: + -아서<br>
+• Các nguyên âm khác: + -어서<br>
+• Động từ 하다: + -해서<br>
+• Ví dụ: 고향에 가서 가족을 만나요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">고향에 가서 가족을 만나요. <button class="speak-btn" onclick="speakKorean('고향에 가서 가족을 만나요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Vì về quê nên gặp gia đình.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국 음식이 맛있어서 자주 먹어요. <button class="speak-btn" onclick="speakKorean('한국 음식이 맛있어서 자주 먹어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Vì đồ ăn Hàn ngon nên thường xuyên ăn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">비가 와서 집에 있어요. <button class="speak-btn" onclick="speakKorean('비가 와서 집에 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Vì trời mưa nên ở nhà.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어서 = "vì...nên" → Diễn tả nguyên nhân-kết quả<br>
+<strong>⚠️ Lưu ý:</strong> Khác với -기 때문에 (trang trọng hơn) và -는데 (tương phản)
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-지만</div>
+<div class="grammar-meaning">Nhưng (tương phản)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả sự tương phản giữa hai vế câu, tương đương "nhưng" trong tiếng Việt. Dùng khi có sự đối lập giữa hai thông tin. Trang trọng hơn -는데/은데.
+</div>
+<div class="grammar-formula">
+Động từ/Tính từ + -지만<br>
+• Danh từ + 이지만<br>
+• Ví dụ: 한국 음식은 매지만 맛있어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국 음식은 매지만 맛있어요. <button class="speak-btn" onclick="speakKorean('한국 음식은 매지만 맛있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Đồ ăn Hàn cay nhưng ngon.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국어는 어렵지만 재미있어요. <button class="speak-btn" onclick="speakKorean('한국어는 어렵지만 재미있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tiếng Hàn khó nhưng thú vị.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">날씨가 춥지만 경치가 아름다워요. <button class="speak-btn" onclick="speakKorean('날씨가 춥지만 경치가 아름다워요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Thời tiết lạnh nhưng phong cảnh đẹp.</div>
+</div>
+<div class="grammar-note">
+<strong> Mẹo nhớ:</strong> -지만 = "nhưng" → Diễn tả sự tương phản<br>
+<strong>⚠️ So sánh:</strong> -지만 (trang trọng) vs -는데/은데 (thân mật hơn)
+</div>
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc câu phức • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🍜 한국 음식 (Ẩm thực Hàn Quốc)</div>
+<div class="reading-meta">
+<span class="reading-tag"> 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">️ Tóm tắt</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국 음식은 세계적으로 유명해요. 김치, 비빔밥, 불고기 등이 대표적이에요. 한국 음식은 매운 맛이 특징이에요. 매워서 처음에는 힘들지만 <strong>먹다 보면</strong> 맛있어요.</p>
+
+<p><strong>김치</strong>는 한국에서 가장 유명한 음식이에요. 김치는 배추로 만들어요. 김치는 매워서 맛있어요. 한국 사람들은 김치를 매일 먹어요. 김치는 건강에 좋아요.</p>
+
+<p><strong>비빔밥</strong>은 여러 가지 나물과 밥을 비벼서 먹어요. 비빔밥은 건강하고 맛있어요. 외국 사람들도 비빔밥을 좋아해요. 비빔밥은 <strong>전주</strong>가 유명해요.</p>
+
+<p><strong>불고기</strong>는 소고기를 양념에 재워서 구워요. 불고기는 달고 맛있어요. 가족과 함께 불고기를 먹어요. 불고기는 한국에서 인기 있는 음식이에요.</p>
+
+<p><strong>떡볶이</strong>는 떡과 고추장을 넣어서 만들어요. 떡볶이는 매워요. 젊은 사람들이 떡볶이를 좋아해요. 떡볶이는 길거리 음식이에요.</p>
+
+<p><strong>삼계탕</strong>은 삼복더위에 먹어요. 삼계탕은 닭과 인삼으로 만들어요. 삼계탕은 건강에 좋아요. 여름에 삼계탕을 먹어요.</p>
+
+<p>한국 음식은 건강하고 맛있어요. 한국에 <strong>가서</strong> 한국 음식을 먹어 보세요. 맛있어서 계속 먹고 싶어요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label"> Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong> Từ vựng đã học xuất hiện trong bài:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">김치 (kim chi)</span>
+<span class="vocab-tag">비밥 (bibimbap)</span>
+<span class="vocab-tag">불고기 (bulgogi)</span>
+<span class="vocab-tag">떡볶이 (tteokbokki)</span>
+<span class="vocab-tag">삼계탕 (samgyetang)</span>
+<span class="vocab-tag">배추 (bắp cải)</span>
+<span class="vocab-tag">고추장 (tương ớt)</span>
+<span class="vocab-tag">인삼 (nhân sâm)</span>
+<span class="vocab-tag">전주 (Jeonju)</span>
+<span class="vocab-tag">삼복더위 (ngày nóng nhất)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong> Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-아/어서 (vì...nên)</span>
+<span class="grammar-tag">-지만 (nhưng)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>ẩm thực Hàn Quốc</strong>. Hàn Quốc có nhiều món ăn nổi tiếng như kimchi, bibimbap, bulgogi, tteokbokki, samgyetang. Kimchi là món ăn nổi tiếng nhất, làm từ bắp cải, cay và tốt cho sức khỏe. Bibimbap trộn nhiều loại rau với cơm, nổi tiếng ở Jeonju. Bulgogi là thịt bò ướp gia vị nướng, ngọt và ngon. Tteokbokki là món đường phố cay, được giới trẻ yêu thích. Samgyetang ăn vào ngày nóng nhất, làm từ gà và nhân sâm, tốt cho sức khỏe.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 4. Tóm tắt bài đọc (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Tóm tắt bài đọc "한국 음식" bằng 3-4 câu tiếng Hàn. Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Yêu cầu:</strong> Tóm tắt bài đọc "한국 음식" bằng <strong>3-4 câu tiếng Hàn</strong>.<br><br>
+<strong>Quy tắc:</strong><br>
+• Độ dài: <strong>3-4 câu</strong> (khoảng 50-80 từ)<br>
+• Sử dụng ít nhất <strong>2 cấu trúc ngữ pháp</strong> đã học trong tuần:<br>
+  - <strong>-기 때문에</strong> (vì)<br>
+  - <strong>-는데/은데</strong> (nhưng mà)<br>
+  - <strong>-아/어서</strong> (vì...nên)<br>
+  - <strong>-지만</strong> (nhưng)<br><br>
+• Nội dung: Tóm tắt ý chính của bài đọc về ẩm thực Hàn Quốc
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 한국 음식은 세계적으로 유명해요.</div>
+<div class="writing-example-meaning">Đồ ăn Hàn Quốc nổi tiếng trên thế giới.</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 김치는 매워서 맛있어요.</div>
+<div class="example-meaning">Kim chi cay nên ngon.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어서</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 비빔밥은 건강하지만 맛있어요.</div>
+<div class="example-meaning">Bibimbap tốt cho sức khỏe nhưng ngon.</div>
+<div class="writing-example-grammar">Ngữ pháp: -지만</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 한국에 가서 한국 음식을 먹어 보세요.</div>
+<div class="example-meaning">Hãy đến Hàn Quốc và thử đồ ăn Hàn.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어서</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="summaryText" placeholder="Viết tóm tắt của bạn vào đây...
+
+Gợi ý bắt đầu:
+1. 한국 음식은...
+2. 김치는...
+3. 비빔밥은...
+4. ...
+
+Hãy viết 3-4 câu tóm tắt bài đọc!
+Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học."></textarea>
+
+<button class="check-btn" onclick="checkSummary()">✓ Kiểm tra bài tóm tắt</button>
+
+<div id="summary-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết tóm tắt:</strong><br>
+• <strong>Câu 1:</strong> Giới thiệu chủ đề chính (ẩm thực Hàn Quốc)<br>
+• <strong>Câu 2:</strong> Miêu tả món ăn đặc trưng (kimchi, bibimbap...)<br>
+• <strong>Câu 3:</strong> Đặc điểm của món ăn (vị, nguyên liệu...)<br>
+• <strong>Câu 4:</strong> Cảm nhận hoặc lời khuyên<br>
+• Sử dụng từ nối: 그리고 (và), 그래서 (vì vậy), 하지만 (nhưng)
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 2</h2>
+<ul class="goals-list">
+<li>Đọc hiểu bài đọc 300 chữ "한국 음식" (Ẩm thực Hàn Quốc)</li>
+<li>Tóm tắt được nội dung chính bằng 3-4 câu tiếng Hàn</li>
+<li>Hiểu và đặt câu với 2 cấu trúc ngữ pháp mới (-아/어서, -지만)</li>
+<li>Thuộc tổng cộng 4 cấu trúc ngữ pháp (bao gồm 2 cấu trúc từ Ngày 1)</li>
+<li>Phân tích được cấu trúc câu phức trong bài đọc</li>
+<li>Nắm vững từ vựng chủ đề ẩm thực Hàn Quốc</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week04.html" class="day-nav-btn">← Về Hub Tuần 4</a>
+<a href="topik3-week04-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week04-day02.html" class="day-nav-btn active">Ngày 2 ✓</a>
+<a href="topik3-week04-day03.html" class="day-nav-btn">Ngày 3 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week04-day01.html" class="nav-btn">← Ngày 1</a>
+<a href="topik3-week04-day03.html" class="nav-btn primary">Tiếp: Ngày 3 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🎎 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Văn hóa là cầu nối, ngôn ngữ là chìa khóa"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['', '🍜', ''];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '한국 음식은 세계적으로 유명해요. 김치, 비빔밥, 불고기 등이 대표적이에요. 한국 음식은 매운 맛이 특징이에요. 매워서 처음에는 힘들지만 먹다 보면 맛있어요. 김치는 한국에서 가장 유명한 음식이에요. 김치는 배추로 만들어요. 김치는 매워서 맛있어요. 한국 사람들은 김치를 매일 먹어요. 김치는 건강에 좋아요. 비빔밥은 여러 가지 나물과 밥을 비벼서 먹어요. 비빔밥은 건강하고 맛있어요. 외국 사람들도 비빔밥을 좋아해요. 비빔밥은 전주가 유명해요. 불고기는 소고기를 양념에 재워서 구워요. 불고기는 달고 맛있어요. 가족과 함께 불고기를 먹어요. 불고기는 한국에서 인기 있는 음식이에요. 떡볶이는 떡과 고추장을 넣어서 만들어요. 떡볶이는 매워요. 젊은 사람들이 떡볶이를 좋아해요. 떡볶이는 길거리 음식이에요. 삼계탕은 삼복더위에 먹어요. 삼계탕은 닭과 인삼으로 만들어요. 삼계탕은 건강에 좋아요. 여름에 삼계탕을 먹어요. 한국 음식은 건강하고 맛있어요. 한국에 가서 한국 음식을 먹어 보세요. 맛있어서 계속 먹고 싶어요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function checkSummary() {
+    const textarea = document.getElementById('summaryText');
+    const feedback = document.getElementById('summary-feedback');
+    const text = textarea.value.trim();
+    
+    if (text.length < 50) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài tóm tắt của bạn còn ngắn. Hãy viết ít nhất 3-4 câu đầy đủ nhé! (tối thiểu 50 ký tự)';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài tóm tắt. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 2 cấu trúc ngữ pháp?<br>• Câu văn có mạch lạc không?<br>• Có tóm tắt đúng nội dung chính của bài đọc không?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week4_progress') || '[]');
+        if (!progress.includes(2)) {
+            progress.push(2);
+            localStorage.setItem('topik3_week4_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save summary when leaving page
+window.onbeforeunload = function() {
+    const textarea = document.getElementById('summaryText');
+    if (textarea.value.trim().length > 50) {
+        localStorage.setItem('topik3_week4_day2_summary', textarea.value);
+    }
+};
+
+// Load saved summary
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week4_day2_summary');
+    if (saved) {
+        document.getElementById('summaryText').value = saved;
+    }
+};
+</script>
+</body>
+</html>
