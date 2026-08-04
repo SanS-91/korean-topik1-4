@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 4: Luyện viết câu & Tổng hợp ngữ pháp - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #EDE9FE 0%, #FFF5E4 50%, #DBEAFE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #6D28D9; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #5B21B6; }
+.breadcrumb-separator { color: #A78BFA; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #6D28D9; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(109,40,217,0.15); transition: all 0.3s; border: 2px solid #C4B5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(109,40,217,0.25); background: #FAF5FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(196,181,253,0.3) 0%, rgba(255,217,61,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🎎'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #5B21B6; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #6D28D9; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(109,40,217,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 22px; border: 2px solid #3B82F6; transition: all 0.3s; }
+.grammar-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(59,130,246,0.2); }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #1E40AF; margin-bottom: 8px; }
+.grammar-meaning { color: #4A5568; font-size: 0.95em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed #93C5FD; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 12px; border-radius: 10px; margin: 10px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 0.95em; }
+.grammar-example { background: white; padding: 10px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 10px; border-radius: 8px; margin-top: 12px; color: #92400E; font-size: 0.9em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(59,130,246,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 200px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #F0FFF4; color: #065F46; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #9AE6B4; }
+
+/* Pronunciation Section - Red */
+.pronunciation-section .section-title { color: #991B1B; border-color: #EF4444; }
+.pronunciation-box { background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%); border: 2px solid #EF4444; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.pronunciation-tips { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+.pronunciation-tip { padding: 12px; margin: 8px 0; border-left: 4px solid #EF4444; background: #FEF2F2; border-radius: 8px; }
+.pronunciation-tip strong { color: #991B1B; }
+.record-btn { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; display: inline-flex; align-items: center; gap: 10px; }
+.record-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(239,68,68,0.4); }
+.record-btn.recording { animation: pulse 1s infinite; }
+.recording-status { margin-top: 15px; color: #718096; font-size: 0.95em; }
+.audio-playback { width: 100%; margin-top: 15px; display: none; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #6D28D9; border: 2px solid #C4B5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FAF5FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #6D28D9 0%, #A78BFA 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week04.html"> Tuần 4</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 4: Viết câu & Tổng hợp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week04.html" class="nav-btn">← Về Tổng quan Tuần 4</a>
+<a href="topik3-week04-day05.html" class="nav-btn primary">Ngày 5 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🎎 NGÀY 4 • 4일차</span>
+<h1>Luyện viết câu & Tổng hợp ngữ pháp</h1>
+<div class="subtitle">Tổng hợp 6 cấu trúc ngữ pháp và luyện viết câu phức tạp</div>
+<p class="description">
+Ôn tập 6 cấu trúc ngữ pháp đã học và luyện viết 5-7 câu phức tạp về chủ đề "한복과 전통" (Hanbok và Truyền thống). 
+Đọc hiểu bài "한복과 전통" và luyện phát âm. ✍️
+</p>
+<div class="time-info">⏰ 60 phút • 📝 6 ngữ pháp • ✍️ Viết 5-7 câu • 📖 Bài đọc 200 chữ</div>
+</div>
+
+<!-- Grammar Review Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ôn tập 6 cấu trúc ngữ pháp (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại 6 cấu trúc ngữ pháp đã học trong tuần. Đọc to các ví dụ và tự đặt câu mới.</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-기 위해(서)</div>
+<div class="grammar-meaning">Để làm gì (mục đích)</div>
+<div class="grammar-formula">Động từ + -기 위해(서)</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">전통을 지키기 위해 한복을 입어요. <button class="speak-btn" onclick="speakKorean('전통을 지키기 위해 한복을 입어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Để giữ gìn truyền thống, tôi mặc Hanbok.</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-도록 하다</div>
+<div class="grammar-meaning">Yêu cầu làm gì</div>
+<div class="grammar-formula">Động từ + -도록 하다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">선생님이 학생들에게 한복을 입도록 해요. <button class="speak-btn" onclick="speakKorean('선생님이 학생들에게 한복을 입도록 해요.', this)"></button></div>
+<div class="grammar-example-meaning">Thầy giáo yêu cầu học sinh mặc Hanbok.</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">3</div>
+<div class="grammar-title">-게 하다</div>
+<div class="grammar-meaning">Bắt/để cho làm gì</div>
+<div class="grammar-formula">Động từ + -게 하다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">엄마가 저에게 한복을 입게 했어요. <button class="speak-btn" onclick="speakKorean('엄마가 저에게 한복을 입게 했어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Mẹ bắt tôi mặc Hanbok.</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">4</div>
+<div class="grammar-title">-아/어 보다</div>
+<div class="grammar-meaning">Thử làm gì</div>
+<div class="grammar-formula">Động từ + -아/어 보다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국에서 한복을 입어 봤어요. <button class="speak-btn" onclick="speakKorean('한국에서 한복을 입어 봤어요.', this)"></button></div>
+<div class="grammar-example-meaning">Đã thử mặc Hanbok ở Hàn Quốc.</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">5</div>
+<div class="grammar-title">-ㄹ/을 수 있다</div>
+<div class="grammar-meaning">Có thể làm gì</div>
+<div class="grammar-formula">Động từ + -ㄹ/을 수 있다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">전통 문화 체험을 할 수 있어요. <button class="speak-btn" onclick="speakKorean('전통 문화 체험을 할 수 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Có thể trải nghiệm văn hóa truyền thống.</div>
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">6</div>
+<div class="grammar-title">-아/어야 하다</div>
+<div class="grammar-meaning">Phải làm gì</div>
+<div class="grammar-formula">Động từ + -아/어야 하다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">명절에는 고향에 가야 해요. <button class="speak-btn" onclick="speakKorean('명절에는 고향에 가야 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Ngày lễ phải về quê.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 2. Luyện viết câu phức tạp (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5-7 câu phức tạp về chủ đề "한복과 전통" (Hanbok và Truyền thống). Mỗi câu kết hợp ít nhất 1 cấu trúc ngữ pháp.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Đề bài:</strong> Viết đoạn văn về <strong>"한복과 전통" (Hanbok và Truyền thống)</strong><br><br>
+<strong>Yêu cầu:</strong><br>
+• Độ dài: <strong>5-7 câu</strong> (mỗi câu 15-20 từ)<br>
+• Mỗi câu kết hợp ít nhất <strong>1 cấu trúc ngữ pháp</strong> đã học:<br>
+  - <strong>-기 위해(서)</strong> (để làm gì)<br>
+  - <strong>-도록 하다</strong> (yêu cầu làm gì)<br>
+  - <strong>-게 하다</strong> (bắt/để cho)<br>
+  - <strong>-아/어 보다</strong> (thử làm gì)<br>
+  - <strong>-ㄹ/을 수 있다</strong> (có thể)<br>
+  - <strong>-아/어야 하다</strong> (phải)<br><br>
+• Sử dụng từ vựng: 한복, 전통, 명절, 결혼식, 개량 한복, 경복궁, 체험, 문화
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 한국에 가면 한복을 입어 볼 수 있어요.</div>
+<div class="writing-example-meaning">Nếu đi Hàn Quốc, bạn có thể thử mặc Hanbok.</div>
+<div class="writing-example-grammar">Ngữ pháp: -면, -아/어 보다, -ㄹ/을 수 있다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 부모님이 명절에 한복을 입도록 해요.</div>
+<div class="example-meaning">Bố mẹ yêu cầu mặc Hanbok vào ngày lễ.</div>
+<div class="writing-example-grammar">Ngữ pháp: -도록 하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 전통을 지키기 위해 노력해야 해요.</div>
+<div class="example-meaning">Phải nỗ lực để giữ gìn truyền thống.</div>
+<div class="writing-example-grammar">Ngữ pháp: -기 위해(서), -아/어야 하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 경복궁에서 사진을 찍어 봤어요.</div>
+<div class="example-meaning">Đã thử chụp ảnh ở Gyeongbokgung.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어 보다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">5. 한국 문화를 이해할 수 있어요.</div>
+<div class="example-meaning">Có thể hiểu văn hóa Hàn Quốc.</div>
+<div class="writing-example-grammar">Ngữ pháp: -ㄹ/을 수 있다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="writingText" placeholder="Viết 5-7 câu về Hanbok và Truyền thống...
+
+Gợi ý bắt đầu:
+1. 한국에 가면...
+2. 부모님이...
+3. 전통을 지키기 위해...
+4. 경복궁에서...
+5. 한국 문화를...
+
+Hãy kết hợp ít nhất 1 cấu trúc ngữ pháp trong mỗi câu!"></textarea>
+
+<div style="background: white; padding: 10px 15px; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #5B21B6;">
+<span>📝 Số câu đã viết:</span>
+<span id="sentenceCount" style="font-size: 1.2em;">0 / 5-7 câu</span>
+</div>
+
+<button class="check-btn" onclick="checkWriting()">✓ Kiểm tra bài viết</button>
+
+<div id="writing-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết câu phức tạp:</strong><br>
+• <strong>Kết hợp ngữ pháp:</strong> Sử dụng 1-2 cấu trúc trong một câu<br>
+• <strong>Độ dài câu:</strong> 15-20 từ mỗi câu<br>
+• <strong>Chủ đề:</strong> Tập trung vào Hanbok và truyền thống<br>
+• <strong>Từ vựng:</strong> Sử dụng từ vựng đã học về văn hóa<br>
+• <strong>Cấu trúc:</strong> Chủ ngữ + Tân ngữ + Động từ + Ngữ pháp
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title"> 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc ngữ pháp • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title"> 한복과 전통 (Hanbok và Truyền thống)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 200 chữ</span>
+<span class="reading-tag">⏱️ 15 phút</span>
+<span class="reading-tag">🎯 Ngày 4</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p><strong>한복</strong>은 한국의 전통 옷이에요. 예전에는 사람들이 매일 한복을 입었지만 지금은 <strong>명절</strong>이나 <strong>결혼식</strong> 같은 특별한 날에 입어요. 한복은 색깔이 예쁘고 디자인이 아름다워요.</p>
+
+<p>최근에는 한복을 <strong>개량</strong>해서 일상생활에서도 편하게 입을 수 있어요. 많은 젊은 사람들이 <strong>개량 한복</strong>을 좋아해요. 한국에 여행을 오면 한복 <strong>체험</strong>을 할 수 있어요.</p>
+
+<p>한복을 입고 <strong>경복궁</strong> 같은 고궁을 걸으면 아주 멋있어요. 외국인들도 한복을 많이 입어요. 한복은 한국의 아름다운 <strong>문화</strong>를 보여주는 중요한 것이에요. 전통을 지키기 위해 노력해야 해요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng đã học xuất hiện trong bài:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">한복 (Hanbok)</span>
+<span class="vocab-tag">전통 (truyền thống)</span>
+<span class="vocab-tag">명절 (ngày lễ)</span>
+<span class="vocab-tag">결혼식 (đám cưới)</span>
+<span class="vocab-tag">개량 (cải tiến)</span>
+<span class="vocab-tag">체험 (trải nghiệm)</span>
+<span class="vocab-tag">경복궁 (Gyeongbokgung)</span>
+<span class="vocab-tag">문화 (văn hóa)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">-기 위해(서) (để làm gì)</span>
+<span class="vocab-tag">-ㄹ/을 수 있다 (có thể)</span>
+<span class="vocab-tag">-아/어야 하다 (phải)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>Hanbok và truyền thống Hàn Quốc</strong>. Hanbok là trang phục truyền thống, ngày nay chỉ mặc vào ngày lễ hoặc đám cưới. Gần đây, Hanbok cải tiến được giới trẻ yêu thích. Du khách có thể trải nghiệm mặc Hanbok và chụp ảnh ở cung điện. Hanbok là biểu tượng văn hóa quan trọng, cần nỗ lực giữ gìn truyền thống.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Pronunciation Section -->
+<div class="section pronunciation-section">
+<h2 class="section-title">🗣️ 4. Tự sửa phát âm (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to bài viết của bạn • Tự ghi âm và nghe lại • So sánh với audio mẫu • Sửa lỗi phát âm</p>
+
+<div class="pronunciation-box">
+<div class="pronunciation-tips">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">🎯 Phương pháp tự sửa phát âm</h4>
+<div class="pronunciation-tip">
+<strong>Bước 1 (3 phút):</strong> Đọc to bài viết của bạn 2-3 lần. Chú ý phát âm rõ từng từ, đặc biệt là các từ có patchim phức tạp.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 2 (3 phút):</strong> Tự ghi âm bằng điện thoại hoặc máy tính. Đọc với tốc độ tự nhiên, không quá nhanh cũng không quá chậm.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 3 (4 phút):</strong> Nghe lại bản ghi âm và so sánh với audio mẫu. Ghi chú những từ phát âm chưa chuẩn để luyện tập thêm.
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📚 Các từ cần chú ý phát âm:</h4>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+<div style="background: #FEF2F2; padding: 15px; border-radius: 12px; border: 2px solid #EF4444;">
+<div style="font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #991B1B; font-weight: 700; margin-bottom: 5px;">한복 <button class="speak-btn" onclick="speakKorean('한복', this)">🔊</button></div>
+<div style="color: #718096; font-size: 0.9em; margin-bottom: 10px;">[han-bok]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㄱ" cuối</div>
+</div>
+<div style="background: #FEF2F2; padding: 15px; border-radius: 12px; border: 2px solid #EF4444;">
+<div style="font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #991B1B; font-weight: 700; margin-bottom: 5px;">전통 <button class="speak-btn" onclick="speakKorean('전통', this)">🔊</button></div>
+<div style="color: #718096; font-size: 0.9em; margin-bottom: 10px;">[jeon-tong]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅇ" cuối</div>
+</div>
+<div style="background: #FEF2F2; padding: 15px; border-radius: 12px; border: 2px solid #EF4444;">
+<div style="font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #991B1B; font-weight: 700; margin-bottom: 5px;">결혼식 <button class="speak-btn" onclick="speakKorean('결혼식', this)">🔊</button></div>
+<div style="color: #718096; font-size: 0.9em; margin-bottom: 10px;">[gyeol-hon-sik]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㄱ" cuối</div>
+</div>
+<div style="background: #FEF2F2; padding: 15px; border-radius: 12px; border: 2px solid #EF4444;">
+<div style="font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #991B1B; font-weight: 700; margin-bottom: 5px;">개량 <button class="speak-btn" onclick="speakKorean('개량', this)">🔊</button></div>
+<div style="color: #718096; font-size: 0.9em; margin-bottom: 10px;">[gae-ryang]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅇ" cuối</div>
+</div>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Lưu ý quan trọng:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li>Phát âm đúng patchim (phụ âm cuối) là rất quan trọng trong tiếng Hàn</li>
+<li>Các từ có patchim "ㄹ" thường khó phát âm - hãy luyện tập nhiều</li>
+<li>Ngữ điệu cũng quan trọng không kém phát âm - chú ý lên xuống giọng</li>
+<li>Đừng ngại ghi âm và nghe lại - đây là cách tốt nhất để tự sửa lỗi</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 4</h2>
+<ul class="goals-list">
+<li>Ôn tập và nắm vững 6 cấu trúc ngữ pháp đã học</li>
+<li>Viết được 5-7 câu phức tạp về Hanbok và Truyền thống</li>
+<li>Sử dụng linh hoạt ít nhất 1 cấu trúc ngữ pháp trong mỗi câu</li>
+<li>Đọc hiểu bài đọc 200 chữ "한복과 전통"</li>
+<li>Phân tích được cấu trúc ngữ pháp trong bài đọc</li>
+<li>Phát âm chuẩn các từ vựng khó</li>
+<li>Tự ghi âm và tự đánh giá phát âm của bản thân</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week04.html" class="day-nav-btn">← Về Hub Tuần 4</a>
+<a href="topik3-week04-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week04-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week04-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week04-day04.html" class="day-nav-btn active">Ngày 4 ✓</a>
+<a href="topik3-week04-day05.html" class="day-nav-btn">Ngày 5 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week04-day03.html" class="nav-btn">← Ngày 3</a>
+<a href="topik3-week04-day05.html" class="nav-btn primary">Tiếp: Ngày 5 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🎎 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Văn hóa là cầu nối, ngôn ngữ là chìa khóa"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🎎', '', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '한복은 한국의 전통 옷이에요. 예전에는 사람들이 매일 한복을 입었지만 지금은 명절이나 결혼식 같은 특별한 날에 입어요. 한복은 색깔이 예쁘고 디자인이 아름다워요. 최근에는 한복을 개량해서 일상생활에서도 편하게 입을 수 있어요. 많은 젊은 사람들이 개량 한복을 좋아해요. 한국에 여행을 오면 한복 체험을 할 수 있어요. 한복을 입고 경복궁 같은 고궁을 걸으면 아주 멋있어요. 외국인들도 한복을 많이 입어요. 한복은 한국의 아름다운 문화를 보여주는 중요한 것이에요. 전통을 지키기 위해 노력해야 해요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Sentence counter
+const writingText = document.getElementById('writingText');
+const sentenceCount = document.getElementById('sentenceCount');
+
+writingText.addEventListener('input', function() {
+    const text = this.value.trim();
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    sentenceCount.textContent = count + ' / 5-7 câu';
+    if (count >= 5 && count <= 7) {
+        sentenceCount.style.color = '#10B981';
+    } else {
+        sentenceCount.style.color = '#5B21B6';
+    }
+});
+
+function checkWriting() {
+    const text = writingText.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    
+    if (count < 5) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '️ Bài viết của bạn còn ngắn (' + count + ' câu). Hãy viết ít nhất 5 câu nhé!';
+    } else if (count > 7) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết hơi dài (' + count + ' câu). Hãy viết trong khoảng 5-7 câu!';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Xuất sắc! Bài viết của bạn có ' + count + ' câu. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 1 cấu trúc ngữ pháp trong mỗi câu?<br>• Câu văn có mạch lạc không?<br>• Sử dụng đa dạng từ vựng chủ đề?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week4_progress') || '[]');
+        if (!progress.includes(4)) {
+            progress.push(4);
+            localStorage.setItem('topik3_week4_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingText.value.trim().length > 0) {
+        localStorage.setItem('topik3_week4_day4_writing', writingText.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week4_day4_writing');
+    if (saved) {
+        writingText.value = saved;
+        const sentences = saved.split(/[.!?]+/).filter(s => s.trim().length > 0);
+        sentenceCount.textContent = sentences.length + ' / 5-7 câu';
+    }
+};
+</script>
+</body>
+</html>
