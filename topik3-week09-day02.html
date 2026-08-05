@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 2: Ngữ pháp nâng cao & Luyện đọc - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #1E3A8A; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #1E40AF; }
+.breadcrumb-separator { color: #93C5FD; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #1E3A8A; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(30,58,138,0.15); transition: all 0.3s; border: 2px solid #93C5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(30,58,138,0.25); background: #EFF6FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(59,130,246,0.3) 0%, rgba(147,197,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏛️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #1E40AF; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #1E3A8A; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(30,58,138,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Review Section - Yellow */
+.review-section .section-title { color: #B7791F; border-color: #ECC94B; }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.review-card { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-radius: 20px; padding: 22px; border-left: 5px solid #ECC94B; }
+.review-card h4 { font-family: 'Baloo 2', cursive; color: #92400E; margin-bottom: 12px; font-size: 1.2em; display: flex; align-items: center; gap: 8px; }
+.review-item { padding: 8px 0; color: #78350F; font-size: 0.95em; border-bottom: 1px dashed #FDE68A; }
+.review-item:last-child { border-bottom: none; }
+.review-item strong { color: #92400E; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(30,58,138,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #1E40AF; background: #EFF6FF; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #EFF6FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+.grammar-tag { background: #F0F9FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+
+/* Writing Section - Violet */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 180px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #1E3A8A; border: 2px solid #93C5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #EFF6FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.review-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week09.html">📰 Tuần 9</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 2: Ngữ pháp & Đọc hiểu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week09.html" class="nav-btn">← Về Tổng quan Tuần 9</a>
+<a href="topik3-week09-day03.html" class="nav-btn primary">Ngày 3 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏛️ NGÀY 2 • 2일차</span>
+<h1>Ngữ pháp nâng cao & Luyện đọc</h1>
+<div class="subtitle">Mở rộng ngữ pháp và rèn kỹ năng đọc tin chính trị</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp mới: <strong>-(으)ㄹ 것으로 보인다</strong> (có vẻ như sẽ - dự đoán) và <strong>-는 것으로 알려졌다</strong> (được biết là). 
+Đọc hiểu bài "정치 뉴스" (Tin chính trị) 300 chữ và luyện tóm tắt nội dung. 🏛️
+</p>
+<div class="time-info">⏰ 60 phút • 📝 2 ngữ pháp mới • 📖 Bài đọc 300 chữ • ✍️ Tóm tắt</div>
+</div>
+
+<!-- Review Section -->
+<div class="section review-section">
+<h2 class="section-title">🔄 1. Ôn tập Ngày 1 (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc lại từ vựng và ngữ pháp đã học ngày hôm qua. Tự kiểm tra bằng cách đọc to và đặt câu.</p>
+
+<div class="review-grid">
+<div class="review-card">
+<h4>📰 20 Từ vựng đã học</h4>
+<div class="review-item"><strong>Báo chí & Truyền thông:</strong> 신문, 기자, 기사, 방송, 뉴스, 매체, 헤드라인</div>
+<div class="review-item" style="margin-top: 10px;"><strong>Nghề nghiệp báo chí:</strong> 인터뷰, 취재, 보도, 속보, 칼럼, 사설</div>
+<div class="review-item" style="margin-top: 10px;"><strong>Hoạt động xuất bản:</strong> 구독, 발행, 기자회견, 언론, 통신사, 편집, 출판</div>
+</div>
+
+<div class="review-card">
+<h4>📝 2 Ngữ pháp đã học</h4>
+<div class="review-item">
+<strong>-에 따르면</strong> - Theo (nguồn tin)<br>
+<em style="color: #78350F;">신문에 따르면 경기가 좋아질 거예요. (Theo báo, kinh tế sẽ tốt lên.)</em>
+</div>
+<div class="review-item" style="margin-top: 10px;">
+<strong>-다고 하다</strong> - Nói rằng (trích dẫn gián tiếp)<br>
+<em style="color: #78350F;">기자가 대통령이 참석한다고 했어요. (Nhà báo nói rằng tổng thống sẽ tham dự.)</em>
+</div>
+</div>
+</div>
+
+<div style="background: #FFF9E6; border-left: 4px solid #ECC94B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Bài tập nhanh:</strong>
+<p style="color: #78350F; margin-top: 8px;">Hãy đặt 2 câu sử dụng <strong>-에 따르면</strong> và 2 câu sử dụng <strong>-다고 하다</strong> với từ vựng về báo chí đã học.</p>
+</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 2. Ngữ pháp mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-(으)ㄹ 것으로 보인다</div>
+<div class="grammar-meaning">Có vẻ như sẽ (dự đoán)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả sự dự đoán, phán đoán về điều gì đó sẽ xảy ra trong tương lai dựa trên cơ sở hoặc bằng chứng nào đó. Tương đương "có vẻ như sẽ", "dường như sẽ" trong tiếng Việt. Thường dùng trong tin tức, báo cáo, phân tích.
+</div>
+<div class="grammar-formula">
+Động từ/Tính từ + -(으)ㄹ 것으로 보인다<br>
+• Không có patchim: + ㄹ 것으로 보인다<br>
+• Có patchim: + 을 것으로 보인다<br>
+• Văn nói: -(으)ㄹ 것으로 보여요<br>
+• Ví dụ: 내일 비가 올 것으로 보여요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">내일 비가 올 것으로 보여요. <button class="speak-btn" onclick="speakKorean('내일 비가 올 것으로 보여요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Có vẻ như ngày mai sẽ có mưa.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">경제가 회복될 것으로 보입니다. <button class="speak-btn" onclick="speakKorean('경제가 회복될 것으로 보입니다.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Có vẻ như kinh tế sẽ phục hồi.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이번 정책이 효과적일 것으로 보여요. <button class="speak-btn" onclick="speakKorean('이번 정책이 효과적일 것으로 보여요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Có vẻ như chính sách lần này sẽ hiệu quả.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">전문가에 따르면 물가가 안정될 것으로 보여요. <button class="speak-btn" onclick="speakKorean('전문가에 따르면 물가가 안정될 것으로 보여요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Theo chuyên gia, có vẻ như vật giá sẽ ổn định.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)ㄹ 것으로 보인다 = "có vẻ như sẽ" → Dự đoán dựa trên cơ sở<br>
+<strong>⚠️ Lưu ý:</strong> Thường dùng trong báo chí, tin tức, phân tích chuyên môn<br>
+<strong>🔄 So sánh:</strong> Khác với -ㄹ/을 것이다 (sẽ) - -(으)ㄹ 것으로 보인다 nhấn mạnh sự dự đoán có căn cứ
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-는 것으로 알려졌다</div>
+<div class="grammar-meaning">Được biết là</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả thông tin đã được xác nhận hoặc được biết đến từ một nguồn nào đó. Tương đương "được biết là", "được cho là" trong tiếng Việt. Thường dùng trong tin tức để trích dẫn thông tin từ nguồn tin không rõ ràng hoặc gián tiếp.
+</div>
+<div class="grammar-formula">
+Động từ + -는 것으로 알려졌다<br>
+• Tính từ + -ㄴ/은 것으로 알려졌다<br>
+• Văn nói: -는 것으로 알려졌어요<br>
+• Ví dụ: 사고 원인은 과속인 것으로 알려졌어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">사고 원인은 과속인 것으로 알려졌어요. <button class="speak-btn" onclick="speakKorean('사고 원인은 과속인 것으로 알려졌어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nguyên nhân vụ tai nạn được biết là do chạy quá tốc độ.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">그 영화가 인기 있는 것으로 알려졌어요. <button class="speak-btn" onclick="speakKorean('그 영화가 인기 있는 것으로 알려졌어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Bộ phim đó được biết là nổi tiếng.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">정부가 새로운 정책을 준비하는 것으로 알려졌어요. <button class="speak-btn" onclick="speakKorean('정부가 새로운 정책을 준비하는 것으로 알려졌어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Chính phủ được biết là đang chuẩn bị chính sách mới.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">범인이 도망친 것으로 알려졌어요. <button class="speak-btn" onclick="speakKorean('범인이 도망친 것으로 알려졌어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nghi phạm được biết là đã bỏ trốn.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -는 것으로 알려졌다 = "được biết là" → Thông tin từ nguồn gián tiếp<br>
+<strong>⚠️ Lưu ý:</strong> Thường dùng trong tin tức, báo chí khi nguồn tin không rõ ràng<br>
+<strong>🔄 So sánh:</strong> Khác với -다고 하다 (ai đó nói rằng) - -는 것으로 알려졌다 nhấn mạnh thông tin được biết
+</div>
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc ngữ pháp • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🏛️ 정치 뉴스 (Tin chính trị)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">📝 Tóm tắt</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>오늘 <strong>정치 뉴스</strong>를 전해드립니다.</p>
+
+<p><strong>대통령</strong>이 오늘 오전에 <strong>기자회견</strong>을 열었어요. <strong>정부</strong>는 새로운 <strong>경제 정책</strong>을 발표할 예정이라고 했어요. <strong>신문</strong>에 따르면 이 정책은 <strong>중소기업</strong> 지원에 중점을 둘 거예요.</p>
+
+<p><strong>국회</strong>에서는 새로운 <strong>법률</strong>이 통과됐어요. <strong>야당</strong>이 반대했지만 <strong>여당</strong>의 찬성으로 통과됐어요. 이 법률은 <strong>환경 보호</strong>를 강화하는 내용이에요. <strong>전문가</strong>들은 이 법이 환경 문제에 도움이 될 것으로 보여요.</p>
+
+<p><strong>시위</strong>도 있었어요. <strong>시민</strong>들이 <strong>물가 상승</strong>에 반대해서 시위를 했어요. 정부는 물가 안정을 위해 노력하겠다고 발표했어요. 물가가 올랐기 때문에 시민들의 불만이 커졌어요.</p>
+
+<p><strong>외교</strong> 소식도 있어요. 대통령이 다음 주에 <strong>미국</strong>을 방문할 예정이에요. 양국 간에 <strong>무역 협상</strong>이 있을 거예요. 전문가들은 이번 방문이 한미 관계에 도움이 될 것으로 예상했어요.</p>
+
+<p>한편, <strong>선거</strong> 소식도 있어요. 내년에는 <strong>지방 선거</strong>가 있을 예정이에요. 여러 <strong>후보</strong>들이 <strong>출마</strong>를 준비하고 있어요. <strong>여론 조사</strong>에 따르면 특정 후보가 앞서고 있는 것으로 알려졌어요.</p>
+
+<p>오늘의 정치 뉴스였습니다.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng mới về chính trị:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">대통령 (tổng thống)</span>
+<span class="vocab-tag">정부 (chính phủ)</span>
+<span class="vocab-tag">국회 (quốc hội)</span>
+<span class="vocab-tag">법률 (pháp luật)</span>
+<span class="vocab-tag">야당 (đảng đối lập)</span>
+<span class="vocab-tag">여당 (đảng cầm quyền)</span>
+<span class="vocab-tag">시위 (biểu tình)</span>
+<span class="vocab-tag">시민 (công dân)</span>
+<span class="vocab-tag">물가 (vật giá)</span>
+<span class="vocab-tag">외교 (ngoại giao)</span>
+<span class="vocab-tag">무역 협상 (đàm phán thương mại)</span>
+<span class="vocab-tag">선거 (bầu cử)</span>
+<span class="vocab-tag">지방 선거 (bầu cử địa phương)</span>
+<span class="vocab-tag">후보 (ứng cử viên)</span>
+<span class="vocab-tag">출마 (ra tranh cử)</span>
+<span class="vocab-tag">여론 조사 (khảo sát dư luận)</span>
+<span class="vocab-tag">중소기업 (doanh nghiệp vừa và nhỏ)</span>
+<span class="vocab-tag">경제 정책 (chính sách kinh tế)</span>
+<span class="vocab-tag">환경 보호 (bảo vệ môi trường)</span>
+<span class="vocab-tag">물가 상승 (tăng vật giá)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-에 따르면 (theo nguồn tin)</span>
+<span class="grammar-tag">-다고 하다 (nói rằng)</span>
+<span class="grammar-tag">-(으)ㄹ 것으로 보인다 (có vẻ như sẽ)</span>
+<span class="grammar-tag">-는 것으로 알려졌다 (được biết là)</span>
+<span class="grammar-tag">-기 때문이다 (bởi vì)</span>
+<span class="grammar-tag">-(으)ㄹ 예정이다 (có kế hoạch)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc là bản tin chính trị gồm nhiều tin chính: (1) Tổng thống tổ chức họp báo công bố chính sách kinh tế mới tập trung hỗ trợ doanh nghiệp vừa và nhỏ; (2) Quốc hội thông qua luật bảo vệ môi trường dù đảng đối lập phản đối; (3) Công dân biểu tình phản đối vật giá tăng, chính phủ cam kết ổn định vật giá; (4) Tổng thống sẽ thăm Mỹ tuần tới để đàm phán thương mại; (5) Bầu cử địa phương năm tới, theo khảo sát dư luận một ứng cử viên đang dẫn đầu.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 4. Tóm tắt bài đọc (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Tóm tắt bài đọc "정치 뉴스" bằng 3-4 câu tiếng Hàn. Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Yêu cầu:</strong> Tóm tắt bài đọc "정치 뉴스" bằng <strong>3-4 câu tiếng Hàn</strong>.<br><br>
+<strong>Quy tắc:</strong><br>
+• Độ dài: <strong>3-4 câu</strong> (khoảng 50-80 từ)<br>
+• Sử dụng ít nhất <strong>2 cấu trúc ngữ pháp</strong> đã học trong tuần:<br>
+  - <strong>-에 따르면</strong> (theo nguồn tin)<br>
+  - <strong>-다고 하다</strong> (nói rằng)<br>
+  - <strong>-(으)ㄹ 것으로 보인다</strong> (có vẻ như sẽ)<br>
+  - <strong>-는 것으로 알려졌다</strong> (được biết là)<br><br>
+• Nội dung: Tóm tắt ý chính của bản tin chính trị
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 신문에 따르면 정부가 새로운 경제 정책을 발표할 예정이에요.</div>
+<div class="writing-example-meaning">Theo báo, chính phủ dự định công bố chính sách kinh tế mới.</div>
+<div class="writing-example-grammar">Ngữ pháp: -에 따르면</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 전문가들에 따르면 이 정책이 중소기업에 도움이 될 것으로 보여요.</div>
+<div class="writing-example-meaning">Theo các chuyên gia, có vẻ như chính sách này sẽ giúp ích cho doanh nghiệp vừa và nhỏ.</div>
+<div class="writing-example-grammar">Ngữ pháp: -에 따르면, -(으)ㄹ 것으로 보인다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 국회가 환경 보호 법률을 통과시켰다고 했어요.</div>
+<div class="example-meaning">Quốc hội đã thông qua luật bảo vệ môi trường.</div>
+<div class="writing-example-grammar">Ngữ pháp: -다고 하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 여론 조사에 따르면 특정 후보가 앞서고 있는 것으로 알려졌어요.</div>
+<div class="example-meaning">Theo khảo sát dư luận, được biết là một ứng cử viên cụ thể đang dẫn đầu.</div>
+<div class="writing-example-grammar">Ngữ pháp: -에 따르면, -는 것으로 알려졌다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="summaryText" placeholder="Viết tóm tắt của bạn vào đây...
+
+Gợi ý bắt đầu:
+1. 신문에 따르면...
+2. 전문가들에 따르면...
+3. 정부가 ...다고 했어요.
+4. ...
+
+Hãy viết 3-4 câu tóm tắt bản tin chính trị!
+Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học."></textarea>
+
+<button class="check-btn" onclick="checkSummary()">✓ Kiểm tra bài tóm tắt</button>
+
+<div id="summary-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết tóm tắt tin tức:</strong><br>
+• <strong>Câu 1:</strong> Giới thiệu tin chính (ai, cái gì, khi nào)<br>
+• <strong>Câu 2:</strong> Chi tiết quan trọng hoặc dự đoán<br>
+• <strong>Câu 3:</strong> Phản ứng hoặc ảnh hưởng<br>
+• <strong>Câu 4:</strong> Thông tin bổ sung hoặc dự kiến<br>
+• Sử dụng từ nối: 한편 (mặt khác), 한편으로 (một mặt), 한편 (trong khi đó)
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 2</h2>
+<ul class="goals-list">
+<li>Đọc hiểu bài đọc 300 chữ "정치 뉴스" (Tin chính trị)</li>
+<li>Tóm tắt được nội dung chính bằng 3-4 câu tiếng Hàn</li>
+<li>Hiểu và đặt câu với 2 cấu trúc ngữ pháp mới (-(으)ㄹ 것으로 보인다, -는 것으로 알려졌다)</li>
+<li>Thuộc tổng cộng 4 cấu trúc ngữ pháp (bao gồm 2 cấu trúc từ Ngày 1)</li>
+<li>Phân tích được cấu trúc câu phức trong bản tin chính trị</li>
+<li>Nắm vững từ vựng chủ đề chính trị và xã hội</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week09.html" class="day-nav-btn">← Về Hub Tuần 9</a>
+<a href="topik3-week09-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week09-day02.html" class="day-nav-btn active">Ngày 2 ✓</a>
+<a href="topik3-week09-day03.html" class="day-nav-btn">Ngày 3 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week09-day01.html" class="nav-btn">← Ngày 1</a>
+<a href="topik3-week09-day03.html" class="nav-btn primary">Tiếp: Ngày 3 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">📰 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Tin tức là cửa sổ nhìn ra thế giới, ngôn ngữ là chìa khóa mở cửa"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['📰', '📺', '🎤', '📻', '📡', '🗞️'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '오늘 정치 뉴스를 전해드립니다. 대통령이 오늘 오전에 기자회견을 열었어요. 정부는 새로운 경제 정책을 발표할 예정이라고 했어요. 신문에 따르면 이 정책은 중소기업 지원에 중점을 둘 거예요. 국회에서는 새로운 법률이 통과됐어요. 야당이 반대했지만 여당의 찬성으로 통과됐어요. 이 법률은 환경 보호를 강화하는 내용이에요. 전문가들은 이 법이 환경 문제에 도움이 될 것으로 보여요. 시위도 있었어요. 시민들이 물가 상승에 반대해서 시위를 했어요. 정부는 물가 안정을 위해 노력하겠다고 발표했어요. 물가가 올랐기 때문에 시민들의 불만이 커졌어요. 외교 소식도 있어요. 대통령이 다음 주에 미국을 방문할 예정이에요. 양국 간에 무역 협상이 있을 거예요. 전문가들은 이번 방문이 한미 관계에 도움이 될 것으로 예상했어요. 한편, 선거 소식도 있어요. 내년에는 지방 선거가 있을 예정이에요. 여러 후보들이 출마를 준비하고 있어요. 여론 조사에 따르면 특정 후보가 앞서고 있는 것으로 알려졌어요. 오늘의 정치 뉴스였습니다.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function checkSummary() {
+    const textarea = document.getElementById('summaryText');
+    const feedback = document.getElementById('summary-feedback');
+    const text = textarea.value.trim();
+    
+    if (text.length < 50) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài tóm tắt của bạn còn ngắn. Hãy viết ít nhất 3-4 câu đầy đủ nhé! (tối thiểu 50 ký tự)';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài tóm tắt. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 2 cấu trúc ngữ pháp?<br>• Câu văn có mạch lạc không?<br>• Có tóm tắt đúng nội dung bản tin chính trị không?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week9_progress') || '[]');
+        if (!progress.includes(2)) {
+            progress.push(2);
+            localStorage.setItem('topik3_week9_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save summary when leaving page
+window.onbeforeunload = function() {
+    const textarea = document.getElementById('summaryText');
+    if (textarea.value.trim().length > 50) {
+        localStorage.setItem('topik3_week9_day2_summary', textarea.value);
+    }
+};
+
+// Load saved summary
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week9_day2_summary');
+    if (saved) {
+        document.getElementById('summaryText').value = saved;
+    }
+};
+</script>
+</body>
+</html>
