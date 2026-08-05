@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 7: Ôn tập & Luyện đề TOPIK - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 50%, #FBCFE8 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #DB2777; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #BE185D; }
+.breadcrumb-separator { color: #F9A8D4; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #DB2777; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(219,39,119,0.15); transition: all 0.3s; border: 2px solid #F9A8D4; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(219,39,119,0.25); background: #FDF2F8; }
+.nav-btn.primary { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(244,114,182,0.3) 0%, rgba(251,207,232,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏆'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '💝'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #BE185D; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #DB2777; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(219,39,119,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Flashcard Section - Rose */
+.flashcard-section .section-title { color: #BE185D; border-color: #F472B6; }
+.flashcard-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.flashcard-tab { padding: 10px 20px; background: white; color: #BE185D; border: 2px solid #F9A8D4; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-tab.active { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border-color: transparent; }
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; }
+.flashcard-back { background: white; color: #2D3748; transform: rotateY(180deg); border: 3px solid #DB2777; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 3em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.4em; font-weight: 700; color: #BE185D; margin-bottom: 10px; text-align: center; }
+.flashcard-pronunciation { color: #718096; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #718096; margin-top: 10px; font-weight: 600; }
+
+.speak-btn { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(219,39,119,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Listening Exercise - Rose */
+.listening-exercise .section-title { color: #BE185D; border-color: #F472B6; }
+.listening-container { background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F472B6; }
+.listening-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.listening-number { background: #F472B6; color: white; padding: 5px 15px; border-radius: 15px; font-weight: 700; }
+.listening-type { background: white; color: #BE185D; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+
+.audio-player { background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #F9A8D4; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(219,39,119,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #BE185D; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #F472B6; display: none; }
+.transcript-box.show { display: block; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #BE185D; font-size: 1.2em; margin-bottom: 15px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #FDF2F8; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #BE185D; min-width: 100px; background: #FCE7F3; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.score-section.show { display: block; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Evaluation Section - Violet */
+.evaluation-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.evaluation-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.evaluation-title { font-family: 'Baloo 2', cursive; color: #5B21B6; font-size: 1.3em; margin-bottom: 15px; }
+.evaluation-textarea { width: 100%; min-height: 150px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; margin-bottom: 15px; }
+.evaluation-textarea:focus { outline: none; border-color: #8B5CF6; }
+.save-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.save-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(139,92,246,0.4); }
+
+/* Checklist Section - Green */
+.checklist-section .section-title { color: #065F46; border-color: #10B981; }
+.checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.checklist-card { background: white; padding: 20px; border-radius: 15px; border: 2px solid #E2E8F0; }
+.checklist-card-title { font-family: 'Baloo 2', cursive; color: #BE185D; font-size: 1.2em; margin-bottom: 15px; }
+.checklist-item { padding: 10px; margin: 8px 0; background: #FDF2F8; border-radius: 10px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s; }
+.checklist-item:hover { background: #FCE7F3; }
+.checklist-item input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; accent-color: #DB2777; }
+.checklist-item.checked { background: #FBCFE8; opacity: 0.7; }
+.checklist-item.checked span { text-decoration: line-through; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #DB2777; border: 2px solid #F9A8D4; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FDF2F8; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.checklist-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week10.html">👥 Tuần 10</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 7: Ôn tập & Luyện đề</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week10.html" class="nav-btn">← Về Tổng quan Tuần 10</a>
+<a href="topik3-week11.html" class="nav-btn primary">Tuần 11 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏆 NGÀY 7 • 7일차</span>
+<h1>Ôn tập & Luyện đề TOPIK format</h1>
+<div class="subtitle">Tổng kết Tuần 10 và chuẩn bị cho Tuần 11</div>
+<p class="description">
+Ôn tập toàn bộ kiến thức Tuần 10 về Xã hội & Quan hệ qua flashcard, luyện đề TOPIK format với 5 câu đọc và 3 câu nghe, 
+tự đánh giá và lên kế hoạch cho Tuần 11 (Giáo dục & Trường học). 💝
+</p>
+<div class="time-info">⏰ 60 phút • 🎴 Flashcard • 📝 Đề TOPIK • 📊 Tự đánh giá</div>
+</div>
+
+<!-- Flashcard Section -->
+<div class="section flashcard-section">
+<h2 class="section-title">🎴 1. Ôn tập Flashcard (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại từ vựng và ngữ pháp đã học trong tuần. Click vào thẻ để lật và xem nghĩa.</p>
+
+<div class="flashcard-tabs">
+<button class="flashcard-tab active" onclick="switchTab('vocab', event)">📚 Từ vựng (100 từ)</button>
+<button class="flashcard-tab" onclick="switchTab('grammar', event)">📘 Ngữ pháp (6 cấu trúc)</button>
+</div>
+
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">부모님</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">Cha mẹ (kính ngữ)</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[bu-mo-nim]</div>
+<button class="speak-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 100</div>
+</div>
+
+<!-- Reading Exercise -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 2. Luyện đề TOPIK - Phần Đọc (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc kỹ đoạn văn và chọn đáp án đúng. Tổng cộng 5 câu hỏi.</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 세대 차이가 있어도 무엇을 해야 해요?</div>
+<div class="exercise-question">Dù có khác biệt thế hệ thì phải làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 싸워야 해요 (Phải cãi nhau)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 서로 존중해야 해요 (Phải tôn trọng lẫn nhau)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 만나지 말아야 해요 (Không nên gặp nhau)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 무시해야 해요 (Phải phớt lờ)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 젊은 세대는 무엇을 추구해요?</div>
+<div class="exercise-question">Thế hệ trẻ theo đuổi điều gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 효도 (Hiếu thảo)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 안정 (Ổn định)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 자기 행복 (Hạnh phúc của bản thân)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 전통 (Truyền thống)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'c', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 요즘 도시에서 이웃과의 관계는 어때요?</div>
+<div class="exercise-question">Ngày nay ở thành phố quan hệ hàng xóm như thế nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 더 깊어졌어요 (Trở nên sâu sắc hơn)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 얕아진 편이에요 (Có xu hướng nhạt đi)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 변하지 않았어요 (Không thay đổi)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 없어졌어요 (Biến mất)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">
+<div style="background: #F0F9FF; padding: 15px; border-radius: 10px; margin-bottom: 15px; line-height: 1.8;">
+<strong>이웃과의 관계</strong><br><br>
+한국에는 "이웃사촌"이라는 말이 있어요. 이웃이 사촌처럼 가깝다는 뜻이에요. 
+옛날에는 이웃과의 정이 깊었어요. 음식을 나눠 먹고 일을 도와줬어요. 
+요즘은 도시에서 이웃과의 관계가 얕아진 편이에요. 
+하지만 이웃과의 정은 아직 중요해요. 독거노인을 돌봐 드리고 아이를 돌봐 줘요. 
+이웃에게 인사부터 시작하세요. 작은 관심이 큰 변화를 만들어요.
+</div>
+</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 요즘은 이웃의 필요가 없어요 (Ngày nay không cần hàng xóm)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 작은 관심은 변화가 없어요 (Sự quan tâm nhỏ không tạo ra thay đổi)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 이웃과 친해질 수 없어요 (Không thể thân thiết với hàng xóm)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 이웃과의 정은 아직 중요해요 (Tình hàng xóm vẫn còn quan trọng)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'd', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 다음 글을 읽고 알맞은 것을 고르십시오.</div>
+<div class="exercise-question">
+<div style="background: #F0F9FF; padding: 15px; border-radius: 10px; margin-bottom: 15px; line-height: 1.8;">
+좋은 이웃이 되기 위해서는 노력이 필요해요. 
+먼저 인사를 해야 해요. 그리고 서로 도와야 해요. 
+어려운 일이 있으면 함께 해결해야 해요. 
+_____________________.
+</div>
+</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 이웃을 무시해야 해요 (Phải phớt lờ hàng xóm)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 노력하면 좋은 이웃이 되기 마련이에요 (Nỗ lực thì chắc chắn sẽ trở thành hàng xóm tốt)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 이웃과 만나지 말아야 해요 (Không nên gặp hàng xóm)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 이웃을 싫어해야 해요 (Phải ghét hàng xóm)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Listening Exercise -->
+<div class="section listening-exercise">
+<h2 class="section-title">🎧 3. Luyện đề TOPIK - Phần Nghe (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại "가족 모임" từ Ngày 6 và trả lời 3 câu hỏi.</p>
+
+<div class="listening-container">
+<div class="audio-player">
+<button class="play-btn" id="listeningAudioBtn" onclick="speakListeningAudio(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe hội thoại "가족 모임" (Buổi họp mặt gia đình)</div>
+<div class="audio-sub">Nghe 2-3 lần trước khi trả lời câu hỏi</div>
+</div>
+</div>
+
+<button class="nav-btn" onclick="toggleTranscript()" style="margin: 15px 0; display: inline-block;">📜 Xem Transcript</button>
+
+<div class="transcript-box" id="transcriptBox">
+<div class="transcript-title">📜 Transcript</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">지영 씨, 주말에 뭐 했어요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">가족 모임에 갔어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">어디에서 모였어요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">할머니 댁에서 모였어요. 친척들이 다 왔어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">무엇을 했어요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">음식을 같이 만들고 이야기했어요. 할머니가 전통 음식을 가르쳐 주셨어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">정말 좋았겠어요. 조카들도 왔어요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">네, 조카들이 왔어요. 정말 귀여워요. 만날수록 정이 들어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">가족이 모이면 항상 행복해요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">네, 정말 그래요. 가족은 소중한 존재예요. 배려하고 사랑해야 해요.</span>
+</div>
+</div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 6</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">지영 씨는 주말에 누구를 만났어요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 친구들 (Bạn bè)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 동료들 (Đồng nghiệp)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 친척들 (Họ hàng)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 이웃들 (Hàng xóm)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'c', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 7</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">무엇을 했어요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 영화를 봤어요 (Xem phim)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 음식을 같이 만들고 이야기했어요 (Cùng nấu ăn và trò chuyện)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 쇼핑을 했어요 (Mua sắm)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 여행을 갔어요 (Đi du lịch)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'b', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 8</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">어디에서 모였어요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 할머니 댁 (Nhà bà)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 식당 (Nhà hàng)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 회사 (Công ty)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 학교 (Trường học)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'a', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Evaluation Section -->
+<div class="section evaluation-section">
+<h2 class="section-title">📊 4. Tự đánh giá (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ghi chú điểm yếu cần cải thiện và lên kế hoạch cho Tuần 11.</p>
+
+<div class="evaluation-box">
+<div class="evaluation-title">📝 Ghi chú điểm yếu cần cải thiện</div>
+<textarea class="evaluation-textarea" id="evaluationNotes" placeholder="Viết về những điểm bạn còn yếu và cần cải thiện trong Tuần 11...
+
+Ví dụ:
+- Ngữ pháp -기 마련이다 còn chưa nhớ rõ
+- Từ vựng về tình cảm và cảm xúc cần ôn thêm
+- Nghe hiểu hội thoại gia đình cần luyện thêm
+- Phát âm các từ về quan hệ xã hội..."></textarea>
+
+<div class="evaluation-title">📋 Kế hoạch Tuần 11 (Chủ đề: Giáo dục & Trường học)</div>
+<textarea class="evaluation-textarea" id="week11Plan" placeholder="Viết kế hoạch học tập cho Tuần 11...
+
+Ví dụ:
+- Mỗi ngày học 60 phút
+- Ôn từ vựng 15 phút mỗi sáng về trường học
+- Luyện ngữ pháp 15 phút
+- Đọc 1 bài đọc 300 chữ về giáo dục mỗi ngày
+- Cuối tuần làm đề thi thử TOPIK
+- Luyện nghe hội thoại trường học, lớp học..."></textarea>
+
+<button class="save-btn" onclick="saveEvaluation()">💾 Lưu đánh giá</button>
+<div id="evaluation-feedback" style="margin-top: 15px; padding: 15px; border-radius: 12px; display: none;"></div>
+</div>
+</div>
+
+<!-- Checklist Section -->
+<div class="section checklist-section">
+<h2 class="section-title">✅ 5. Checklist hoàn thành Tuần 10</h2>
+<div class="checklist-grid">
+<div class="checklist-card">
+<div class="checklist-card-title">👨‍👩‍👧‍👦 Ngày 1-2</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thuộc 20 từ vựng về gia đình & họ hàng</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -아/어야 하다 và -는 편이다</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "우리 가족" 200 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -게 되다 và -에 따라(서)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "친구 관계" 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Tóm tắt bài đọc 3-4 câu</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">🏘️ Ngày 3-4</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -(으)ㄹ수록 và -기 마련이다</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu hội thoại "이웃과의 관계"</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Trả lời đúng 3/3 câu hỏi nghe</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thực hành Shadowing</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết 5-7 câu phức tạp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "사회 봉사"</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">📖 Ngày 5-6</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu 2 bài 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Trả lời đúng 6/8 câu TOPIK</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Học 10 từ vựng mới</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết đoạn văn 300-400 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Sử dụng 4+ cấu trúc ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu "가족 모임"</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">🏆 Ngày 7</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Ôn tập 100 từ vựng + 6 ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Làm đề TOPIK (5 Đọc + 3 Nghe)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đạt điểm ≥ 80% (4/5 câu)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Tự đánh giá và ghi chú</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Lên kế hoạch Tuần 11</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hoàn thành checklist 7 ngày</span></div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">🎯 Mục tiêu đạt được sau Ngày 7</h2>
+<ul class="goals-list">
+<li>Điểm kiểm tra ≥ 80% (4/5 câu Đọc + 3/3 câu Nghe)</li>
+<li>Hoàn thành checklist 7 ngày của Tuần 10</li>
+<li>Ôn tập và nắm vững 100 từ vựng chủ đề xã hội & quan hệ</li>
+<li>Hiểu và sử dụng linh hoạt 6 cấu trúc ngữ pháp về quan hệ</li>
+<li>Viết được đoạn văn 300-400 chữ về mối quan hệ quý giá</li>
+<li>Nghe hiểu hội thoại 10 lượt về buổi họp mặt gia đình</li>
+<li>Sẵn sàng chuyển sang Tuần 11 (Giáo dục & Trường học)</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week10.html" class="day-nav-btn">← Về Hub Tuần 10</a>
+<a href="topik3-week10-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week10-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week10-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week10-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week10-day05.html" class="day-nav-btn">Ngày 5</a>
+<a href="topik3-week10-day06.html" class="day-nav-btn">Ngày 6</a>
+<a href="topik3-week10-day07.html" class="day-nav-btn active">Ngày 7 ✓</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week10-day06.html" class="nav-btn">← Ngày 6</a>
+<a href="topik3-week11.html" class="nav-btn primary">Tiếp: Tuần 11 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">👥 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Quan hệ là cầu nối, tình cảm là nền tảng của cuộc sống"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['👥', '💝', '🏠', '🤝', '💬', '🎭'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakListeningAudio(btnElement) {
+    const fullText = '지영 씨, 주말에 뭐 했어요? 가족 모임에 갔어요. 어디에서 모였어요? 할머니 댁에서 모였어요. 친척들이 다 왔어요. 무엇을 했어요? 음식을 같이 만들고 이야기했어요. 할머니가 전통 음식을 가르쳐 주셨어요. 정말 좋았겠어요. 조카들도 왔어요? 네, 조카들이 왔어요. 정말 귀여워요. 만날수록 정이 들어요. 가족이 모이면 항상 행복해요. 네, 정말 그래요. 가족은 소중한 존재예요. 배려하고 사랑해야 해요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Flashcard data - 100 từ vựng Tuần 10
+const vocabFlashcards = [
+    // Nhóm 1: Gia đình & Họ hàng
+    { char: '부모님', meaning: 'Cha mẹ (kính ngữ)', pron: '[bu-mo-nim]' },
+    { char: '아버지', meaning: 'Bố', pron: '[a-beo-ji]' },
+    { char: '어머니', meaning: 'Mẹ', pron: '[eo-meo-ni]' },
+    { char: '형제', meaning: 'Anh chị em', pron: '[hyeong-je]' },
+    { char: '자매', meaning: 'Chị em gái', pron: '[ja-mae]' },
+    { char: '조부모', meaning: 'Ông bà', pron: '[jo-bu-mo]' },
+    { char: '친척', meaning: 'Họ hàng', pron: '[chin-cheok]' },
+    { char: '시어머니', meaning: 'Mẹ chồng', pron: '[si-eo-meo-ni]' },
+    { char: '시아버지', meaning: 'Bố chồng', pron: '[si-a-beo-ji]' },
+    { char: '사위', meaning: 'Con rể', pron: '[sa-wi]' },
+    { char: '며느리', meaning: 'Con dâu', pron: '[myeo-neu-ri]' },
+    { char: '조카', meaning: 'Cháu', pron: '[jo-ka]' },
+    { char: '친가', meaning: 'Họ nội', pron: '[chin-ga]' },
+    { char: '외가', meaning: 'Họ ngoại', pron: '[oe-ga]' },
+    { char: '대가족', meaning: 'Đại gia đình', pron: '[dae-ga-jok]' },
+    { char: '핵가족', meaning: 'Gia đình hạt nhân', pron: '[haek-ga-jok]' },
+    { char: '가정', meaning: 'Gia đình (tổ ấm)', pron: '[ga-jeong]' },
+    { char: '가족관계', meaning: 'Quan hệ gia đình', pron: '[ga-jok-gwan-gye]' },
+    { char: '혈연', meaning: 'Huyết thống', pron: '[hyeol-yeon]' },
+    { char: '가정사', meaning: 'Chuyện gia đình', pron: '[ga-jeong-sa]' },
+    // Nhóm 2: Bạn bè & Mối quan hệ
+    { char: '친구', meaning: 'Bạn bè', pron: '[chin-gu]' },
+    { char: '동료', meaning: 'Đồng nghiệp', pron: '[dong-ryo]' },
+    { char: '선배', meaning: 'Tiền bối', pron: '[seon-bae]' },
+    { char: '후배', meaning: 'Hậu bối', pron: '[hu-bae]' },
+    { char: '지인', meaning: 'Người quen', pron: '[ji-in]' },
+    { char: '애인', meaning: 'Người yêu', pron: '[ae-in]' },
+    { char: '부부', meaning: 'Vợ chồng', pron: '[bu-bu]' },
+    { char: '연인', meaning: 'Người yêu (lãng mạn)', pron: '[yeo-nin]' },
+    { char: '소울메이트', meaning: 'Bạn tâm giao', pron: '[so-ul-me-i-teu]' },
+    { char: '인간관계', meaning: 'Quan hệ con người', pron: '[in-gan-gwan-gye]' },
+    { char: '우정', meaning: 'Tình bạn', pron: '[u-jeong]' },
+    { char: '사랑', meaning: 'Tình yêu', pron: '[sa-rang]' },
+    { char: '신뢰', meaning: 'Niềm tin', pron: '[sin-roe]' },
+    { char: '배려', meaning: 'Sự quan tâm', pron: '[bae-ryeo]' },
+    { char: '존경', meaning: 'Sự kính trọng', pron: '[jon-gyeong]' },
+    { char: '갈등', meaning: 'Mâu thuẫn', pron: '[gal-deung]' },
+    { char: '화해', meaning: 'Hòa giải', pron: '[hwa-hae]' },
+    { char: '오해', meaning: 'Hiểu lầm', pron: '[o-hae]' },
+    { char: '소통', meaning: 'Giao tiếp', pron: '[so-tong]' },
+    { char: '공감', meaning: 'Đồng cảm', pron: '[gong-gam]' },
+    // Nhóm 3: Hàng xóm & Cộng đồng
+    { char: '이웃', meaning: 'Hàng xóm', pron: '[i-ut]' },
+    { char: '동네', meaning: 'Khu phố', pron: '[dong-ne]' },
+    { char: '마을', meaning: 'Làng', pron: '[ma-eul]' },
+    { char: '지역', meaning: 'Khu vực', pron: '[ji-yeok]' },
+    { char: '공동체', meaning: 'Cộng đồng', pron: '[gong-dong-che]' },
+    { char: '사회', meaning: 'Xã hội', pron: '[sa-hoe]' },
+    { char: '봉사', meaning: 'Tình nguyện', pron: '[bong-sa]' },
+    { char: '기부', meaning: 'Quyên góp', pron: '[gi-bu]' },
+    { char: '나눔', meaning: 'Chia sẻ', pron: '[na-num]' },
+    { char: '협력', meaning: 'Hợp tác', pron: '[hyeop-ryeok]' },
+    { char: '참여', meaning: 'Tham gia', pron: '[cham-yeo]' },
+    { char: '모임', meaning: 'Cuộc họp mặt', pron: '[mo-im]' },
+    { char: '동창회', meaning: 'Hội đồng hương', pron: '[dong-chang-hoe]' },
+    { char: '계모임', meaning: 'Hội nhóm', pron: '[gye-mo-im]' },
+    { char: '반상회', meaning: 'Họp khu phố', pron: '[ban-sang-hoe]' },
+    { char: '주민', meaning: 'Cư dân', pron: '[ju-min]' },
+    { char: '시민', meaning: 'Công dân', pron: '[si-min]' },
+    { char: '이웃사촌', meaning: 'Hàng xóm như anh em', pron: '[i-ut-sa-chon]' },
+    { char: '온정', meaning: 'Tình người', pron: '[on-jeong]' },
+    { char: '사촌', meaning: 'Anh chị em họ', pron: '[sa-chon]' },
+    // Nhóm 4: Tình cảm & Cảm xúc
+    { char: '감정', meaning: 'Cảm xúc', pron: '[gam-jeong]' },
+    { char: '기분', meaning: 'Tâm trạng', pron: '[gi-bun]' },
+    { char: '행복', meaning: 'Hạnh phúc', pron: '[haeng-bok]' },
+    { char: '기쁨', meaning: 'Niềm vui', pron: '[gi-ppum]' },
+    { char: '슬픔', meaning: 'Nỗi buồn', pron: '[seul-peum]' },
+    { char: '분노', meaning: 'Sự giận dữ', pron: '[bun-no]' },
+    { char: '두려움', meaning: 'Nỗi sợ', pron: '[du-ryeo-um]' },
+    { char: '외로움', meaning: 'Cô đơn', pron: '[oe-ro-um]' },
+    { char: '부끄러움', meaning: 'Xấu hổ', pron: '[bu-kkeu-reo-um]' },
+    { char: '자랑', meaning: 'Tự hào', pron: '[ja-rang]' },
+    { char: '감사', meaning: 'Biết ơn', pron: '[gam-sa]' },
+    { char: '미안', meaning: 'Xin lỗi', pron: '[mi-an]' },
+    { char: '실망', meaning: 'Thất vọng', pron: '[sil-mang]' },
+    { char: '감동', meaning: 'Cảm động', pron: '[gam-dong]' },
+    { char: '애정', meaning: 'Tình cảm', pron: '[ae-jeong]' },
+    { char: '정', meaning: 'Tình (tình cảm đặc biệt)', pron: '[jeong]' },
+    { char: '그리움', meaning: 'Nhớ nhung', pron: '[geu-ri-um]' },
+    { char: '반가움', meaning: 'Vui mừng (khi gặp lại)', pron: '[ban-ga-um]' },
+    { char: '서운함', meaning: 'Buồn lòng', pron: '[seo-un-ham]' },
+    { char: '즐거움', meaning: 'Niềm vui thích', pron: '[jeul-geo-um]' },
+    // Nhóm 5: Giao tiếp xã hội & Ứng xử
+    { char: '인사', meaning: 'Lời chào', pron: '[in-sa]' },
+    { char: '예의', meaning: 'Lễ phép', pron: '[ye-ui]' },
+    { char: '매너', meaning: 'Cách cư xử', pron: '[mae-neo]' },
+    { char: '존댓말', meaning: 'Kính ngữ', pron: '[jon-daen-mal]' },
+    { char: '반말', meaning: 'Thân mật', pron: '[ban-mal]' },
+    { char: '칭찬', meaning: 'Lời khen', pron: '[ching-chan]' },
+    { char: '격려', meaning: 'Lời khích lệ', pron: '[gyeong-ryeo]' },
+    { char: '사과', meaning: 'Lời xin lỗi', pron: '[sa-gwa]' },
+    { char: '용서', meaning: 'Sự tha thứ', pron: '[yong-seo]' },
+    { char: '이해', meaning: 'Sự thấu hiểu', pron: '[i-hae]' },
+    { char: '존중', meaning: 'Tôn trọng', pron: '[jon-jung]' },
+    { char: '공경', meaning: 'Kính trọng (người lớn tuổi)', pron: '[gong-gyeong]' },
+    { char: '예절', meaning: 'Lễ nghi', pron: '[ye-jeol]' },
+    { char: '문화차이', meaning: 'Khác biệt văn hóa', pron: '[mun-hwa-cha-i]' },
+    { char: '세대차이', meaning: 'Khác biệt thế hệ', pron: '[se-dae-cha-i]' },
+    { char: '인간미', meaning: 'Tình người', pron: '[in-gan-mi]' },
+    { char: '사회적', meaning: 'Thuộc về xã hội', pron: '[sa-hoe-jeok]' },
+    { char: '관계', meaning: 'Mối quan hệ', pron: '[gwan-gye]' },
+    { char: '유대감', meaning: 'Gắn kết', pron: '[yu-dae-gam]' },
+    { char: '돌보다', meaning: 'Chăm sóc', pron: '[dol-bo-da]' }
+];
+
+const grammarFlashcards = [
+    { char: '-아/어야 하다', meaning: 'Phải (nghĩa vụ)', pron: '[-a/eo-ya ha-da]' },
+    { char: '-는 편이다', meaning: 'Có xu hướng', pron: '[-neun pyeo-ni-da]' },
+    { char: '-게 되다', meaning: 'Trở nên (kết quả)', pron: '[-ge doe-da]' },
+    { char: '-에 따라(서)', meaning: 'Tùy theo', pron: '[-e tta-ra(seo)]' },
+    { char: '-(으)ㄹ수록', meaning: 'Càng...càng', pron: '[-(eu)l-su-rok]' },
+    { char: '-기 마련이다', meaning: 'Chắc chắn sẽ', pron: '[-gi ma-rem-i-da]' }
+];
+
+let currentFlashcards = vocabFlashcards;
+let currentFlashcard = 0;
+
+function switchTab(type, event) {
+    document.querySelectorAll('.flashcard-tab').forEach(tab => tab.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    if (type === 'vocab') {
+        currentFlashcards = vocabFlashcards;
+    } else {
+        currentFlashcards = grammarFlashcards;
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = currentFlashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = currentFlashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = currentFlashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + currentFlashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + currentFlashcards.length) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = currentFlashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [currentFlashcards[i], currentFlashcards[j]] = [currentFlashcards[j], currentFlashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').classList.add('show');
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 80) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Tuần 11!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài học.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week10_progress') || '[]');
+        if (!progress.includes(7)) {
+            progress.push(7);
+            localStorage.setItem('topik3_week10_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function toggleTranscript() {
+    const transcriptBox = document.getElementById('transcriptBox');
+    transcriptBox.classList.toggle('show');
+}
+
+function saveEvaluation() {
+    const notes = document.getElementById('evaluationNotes').value.trim();
+    const plan = document.getElementById('week11Plan').value.trim();
+    const feedback = document.getElementById('evaluation-feedback');
+    
+    if (notes && plan) {
+        localStorage.setItem('topik3_week10_evaluation', notes);
+        localStorage.setItem('topik3_week11_plan', plan);
+        feedback.style.display = 'block';
+        feedback.style.background = '#F0FFF4';
+        feedback.style.color = '#065F46';
+        feedback.style.border = '2px solid #10B981';
+        feedback.innerHTML = '✅ Đã lưu đánh giá và kế hoạch Tuần 11!';
+    } else {
+        feedback.style.display = 'block';
+        feedback.style.background = '#FEF3C7';
+        feedback.style.color = '#92400E';
+        feedback.style.border = '2px solid #F59E0B';
+        feedback.innerHTML = '⚠️ Vui lòng điền đầy đủ thông tin!';
+    }
+}
+
+function toggleChecklist(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('checked');
+}
+
+// Load saved data
+window.onload = function() {
+    const savedNotes = localStorage.getItem('topik3_week10_evaluation');
+    if (savedNotes) {
+        document.getElementById('evaluationNotes').value = savedNotes;
+    }
+    const savedPlan = localStorage.getItem('topik3_week11_plan');
+    if (savedPlan) {
+        document.getElementById('week11Plan').value = savedPlan;
+    }
+};
+</script>
+</body>
+</html>

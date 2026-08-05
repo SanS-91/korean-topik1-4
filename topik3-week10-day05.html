@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 5: Đọc hiểu chuyên sâu - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 50%, #FBCFE8 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #DB2777; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #BE185D; }
+.breadcrumb-separator { color: #F9A8D4; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #DB2777; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(219,39,119,0.15); transition: all 0.3s; border: 2px solid #F9A8D4; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(219,39,119,0.25); background: #FDF2F8; }
+.nav-btn.primary { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(244,114,182,0.3) 0%, rgba(251,207,232,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '📖'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '💝'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #BE185D; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #DB2777; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(219,39,119,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #BE185D; background: #FCE7F3; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #FDF2F8; color: #BE185D; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F9A8D4; }
+.grammar-tag { background: #FCE7F3; color: #BE185D; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F472B6; }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Vocabulary Section - Rose */
+.vocab-section .section-title { color: #BE185D; border-color: #F472B6; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.vocab-card { background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); border-radius: 20px; padding: 22px; border: 2px solid #F472B6; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(244,114,182,0.2); }
+.vocab-number { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #BE185D; font-weight: 800; margin-bottom: 5px; }
+.vocab-pron { color: #718096; font-size: 0.9em; font-style: italic; margin-bottom: 8px; }
+.vocab-meaning { color: #BE185D; font-size: 1.05em; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #F9A8D4; }
+.vocab-example { background: white; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 4px solid #F472B6; }
+.example-korean { color: #BE185D; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(219,39,119,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.score-section.show { display: block; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #DB2777; border: 2px solid #F9A8D4; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FDF2F8; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week10.html">👥 Tuần 10</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 5: Đọc hiểu chuyên sâu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week10.html" class="nav-btn">← Về Tổng quan Tuần 10</a>
+<a href="topik3-week10-day06.html" class="nav-btn primary">Ngày 6 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">📖 NGÀY 5 • 5일차</span>
+<h1>Đọc hiểu chuyên sâu</h1>
+<div class="subtitle">Luyện đọc 2 bài 300 chữ về khác biệt thế hệ và tình làng nghĩa xóm</div>
+<p class="description">
+Đọc hiểu 2 bài đọc về <strong>"세대 차이"</strong> (Khác biệt thế hệ) và <strong>"이웃의 정"</strong> (Tình làng nghĩa xóm). 
+Trả lời 8 câu hỏi TOPIK format và mở rộng vốn từ vựng với 10 từ mới. 💝
+</p>
+<div class="time-info">⏰ 60 phút • 📖 2 bài đọc 300 chữ • ❓ 8 câu hỏi TOPIK • 📚 10 từ mới</div>
+</div>
+
+<!-- Reading 1: 세대 차이 -->
+<div class="section reading-section">
+<h2 class="section-title">👴👵 1. Bài đọc 1: 세대 차이 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Phân tích từ vựng</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">👴👵 세대 차이 (Khác biệt thế hệ)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>요즘 <strong>세대 차이</strong>가 커지고 있어요. <strong>나이</strong>에 <strong>따라</strong> <strong>가치관</strong>이 달라요.</p>
+
+<p><strong>할아버지</strong>와 <strong>할머니</strong> 세대는 <strong>전통</strong>을 중요하게 생각하세요. <strong>예의</strong>와 <strong>효도</strong>를 <strong>아/어야 해요</strong>. <strong>조상</strong>님을 <strong>존경</strong>하고 <strong>가족</strong>을 <strong>배려</strong>해야 해요.</p>
+
+<p><strong>부모님</strong> 세대는 <strong>안정</strong>을 중요하게 생각하세요. <strong>직장</strong>과 <strong>가정</strong>의 <strong>균형</strong>을 찾으려고 해요. <strong>자녀</strong>의 <strong>교육</strong>에 관심이 많아요.</p>
+
+<p><strong>젊은</strong> 세대는 <strong>자유</strong>와 <strong>개성</strong>을 중요하게 생각해요. <strong>자기</strong>의 <strong>행복</strong>을 <strong>추구</strong>해요. <strong>디지털</strong> 기술에 익숙해요. <strong>소통</strong>을 좋아하고 <strong>이해</strong>를 원해요.</p>
+
+<p><strong>세대 차이</strong>가 있어도 <strong>서로 존중</strong>해야 해요. <strong>대화</strong>하면 <strong>이해</strong>하게 돼요. <strong>만날수록</strong> <strong>정</strong>이 들어요. <strong>서로 배우는</strong> 것이 많아요.</p>
+
+<p><strong>어른</strong>은 <strong>경험</strong>을 알려주고 <strong>젊은이</strong>는 <strong>새로운</strong> 것을 알려줘요. <strong>소통</strong>하면 <strong>가족</strong>이 더 <strong>행복</strong>해져요. <strong>서로 이해</strong>하면 <strong>좋은 관계</strong>가 <strong>되기 마련이에요</strong>.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio1Btn" onclick="speakReading1(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 1</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 1</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về thế hệ & giá trị:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">세대 (thế hệ)</span>
+<span class="vocab-tag">차이 (khác biệt)</span>
+<span class="vocab-tag">가치관 (giá trị quan)</span>
+<span class="vocab-tag">할아버지 (ông)</span>
+<span class="vocab-tag">할머니 (bà)</span>
+<span class="vocab-tag">전통 (truyền thống)</span>
+<span class="vocab-tag">예의 (lễ phép)</span>
+<span class="vocab-tag">효도 (hiếu thảo)</span>
+<span class="vocab-tag">조상 (tổ tiên)</span>
+<span class="vocab-tag">존경 (kính trọng)</span>
+<span class="vocab-tag">안정 (ổn định)</span>
+<span class="vocab-tag">균형 (cân bằng)</span>
+<span class="vocab-tag">자녀 (con cái)</span>
+<span class="vocab-tag">교육 (giáo dục)</span>
+<span class="vocab-tag">자유 (tự do)</span>
+<span class="vocab-tag">개성 (cá tính)</span>
+<span class="vocab-tag">행복 (hạnh phúc)</span>
+<span class="vocab-tag">추구 (theo đuổi)</span>
+<span class="vocab-tag">디지털 (kỹ thuật số)</span>
+<span class="vocab-tag">경험 (kinh nghiệm)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-에 따라(서) (tùy theo)</span>
+<span class="grammar-tag">-아/어야 하다 (phải)</span>
+<span class="grammar-tag">-(으)ㄹ수록 (càng...càng)</span>
+<span class="grammar-tag">-기 마련이다 (chắc chắn sẽ)</span>
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>khác biệt thế hệ</strong> trong xã hội Hàn Quốc. Mỗi thế hệ có giá trị quan khác nhau: thế hệ ông bà coi trọng truyền thống và hiếu thảo, thế hệ cha mẹ coi trọng ổn định và giáo dục con cái, thế hệ trẻ coi trọng tự do và cá tính. Tuy có khác biệt nhưng phải tôn trọng lẫn nhau. Giao tiếp sẽ giúp thấu hiểu, càng gặp càng thêm tình cảm. Người lớn chia sẻ kinh nghiệm, người trẻ chia sẻ điều mới. Nếu hiểu nhau, gia đình sẽ hạnh phúc.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 1 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 1</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 할아버지와 할머니 세대는 무엇을 중요하게 생각해요?</div>
+<div class="exercise-question">Thế hệ ông bà coi trọng điều gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 자유와 개성 (Tự do và cá tính)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 전통과 예의 (Truyền thống và lễ phép)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 안정과 교육 (Ổn định và giáo dục)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 디지털 기술 (Công nghệ số)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 젊은 세대는 무엇을 추구해요?</div>
+<div class="exercise-question">Thế hệ trẻ theo đuổi điều gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 효도 (Hiếu thảo)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 안정 (Ổn định)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 자기 행복 (Hạnh phúc của bản thân)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 전통 (Truyền thống)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'c', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 세대 차이가 있어도 무엇을 해야 해요?</div>
+<div class="exercise-question">Dù có khác biệt thế hệ thì phải làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 싸워야 해요 (Phải cãi nhau)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 서로 존중해야 해요 (Phải tôn trọng lẫn nhau)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 만나지 말아야 해요 (Không nên gặp nhau)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 무시해야 해요 (Phải phớt lờ)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 젊은 세대는 전통을 중요하게 생각해요 (Thế hệ trẻ coi trọng truyền thống)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 할아버지 세대는 디지털에 익숙해요 (Thế hệ ông bà quen với kỹ thuật số)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 서로 이해하면 좋은 관계가 돼요 (Nếu hiểu nhau sẽ có quan hệ tốt)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 세대 차이는 해결할 수 없어요 (Khác biệt thế hệ không thể giải quyết)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'c', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Reading 2: 이웃의 정 -->
+<div class="section reading-section">
+<h2 class="section-title">🏘️💝 2. Bài đọc 2: 이웃의 정 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Ghi chú từ vựng mới</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🏘️💝 이웃의 정 (Tình làng nghĩa xóm)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국에는 "<strong>이웃사촌</strong>"이라는 말이 있어요. <strong>이웃</strong>이 <strong>사촌</strong>처럼 <strong>가깝다</strong>는 뜻이에요.</p>
+
+<p>옛날에는 <strong>이웃</strong>과의 <strong>정</strong>이 깊었어요. <strong>음식</strong>을 <strong>나눠</strong> 먹고 <strong>일</strong>을 <strong>도와줬어요</strong>. <strong>어려운 일</strong>이 있으면 <strong>이웃</strong>이 <strong>도와줬어요</strong>. <strong>기쁜 일</strong>이 있으면 함께 <strong>기뻐했어요</strong>.</p>
+
+<p>요즘은 <strong>도시</strong>에서 <strong>이웃</strong>과의 <strong>관계</strong>가 <strong>얕아진 편</strong>이에요. <strong>아파트</strong>에 <strong>살아도</strong> <strong>이웃</strong>을 잘 <strong>몰라요</strong>. <strong>바빠서</strong> <strong>소통</strong>할 시간이 없어요.</p>
+
+<p>하지만 <strong>이웃</strong>과의 <strong>정</strong>은 아직 <strong>중요해요</strong>. <strong>독거노인</strong>을 <strong>돌봐</strong> 드리고 <strong>아이</strong>를 <strong>돌봐</strong> 줘요. <strong>작은 도움</strong>이 <strong>큰 힘</strong>이 돼요.</p>
+
+<p><strong>동네</strong>에서 <strong>봉사</strong>를 하면 <strong>이웃</strong>과 <strong>친해져요</strong>. <strong>만날수록 정</strong>이 들어요. <strong>나눔</strong>의 <strong>기쁨</strong>을 알아요. <strong>온정</strong>이 있는 <strong>사회</strong>가 <strong>좋은 사회</strong>예요.</p>
+
+<p><strong>이웃</strong>에게 <strong>인사</strong>부터 시작하세요. <strong>작은 관심</strong>이 <strong>큰 변화</strong>를 만들어요. <strong>함께 살아가는</strong> <strong>방법</strong>을 <strong>배워</strong>요. <strong>노력</strong>하면 <strong>좋은 이웃</strong>이 <strong>되기 마련이에요</strong>.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio2Btn" onclick="speakReading2(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 2</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 2</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về hàng xóm & cộng đồng:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">이웃사촌 (hàng xóm như anh em)</span>
+<span class="vocab-tag">사촌 (anh em họ)</span>
+<span class="vocab-tag">정 (tình cảm)</span>
+<span class="vocab-tag">나누다 (chia sẻ)</span>
+<span class="vocab-tag">도시 (thành phố)</span>
+<span class="vocab-tag">아파트 (căn hộ)</span>
+<span class="vocab-tag">독거노인 (người già sống một mình)</span>
+<span class="vocab-tag">돌보다 (chăm sóc)</span>
+<span class="vocab-tag">봉사 (tình nguyện)</span>
+<span class="vocab-tag">온정 (tình người)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-는 편이다 (có xu hướng)</span>
+<span class="grammar-tag">-(으)ㄹ수록 (càng...càng)</span>
+<span class="grammar-tag">-기 마련이다 (chắc chắn sẽ)</span>
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>tình làng nghĩa xóm</strong> trong văn hóa Hàn Quốc. "이웃사촌" có nghĩa là hàng xóm thân như anh em họ. Ngày xưa hàng xóm chia sẻ thức ăn và giúp đỡ nhau. Ngày nay ở thành phố quan hệ hàng xóm có xu hướng nhạt đi. Tuy nhiên, tình hàng xóm vẫn quan trọng: chăm sóc người già sống một mình, trông nom trẻ em. Sự giúp đỡ nhỏ trở thành sức mạnh lớn. Tham gia tình nguyện ở khu phố giúp thân thiết với hàng xóm. Bắt đầu từ lời chào, sự quan tâm nhỏ tạo ra thay đổi lớn. Nỗ lực thì chắc chắn sẽ trở thành hàng xóm tốt.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 2 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 2</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: "이웃사촌"이라는 말의 뜻은 뭐예요?</div>
+<div class="exercise-question">Ý nghĩa của từ "이웃사촌" là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 이웃이 먼 존재 (Hàng xóm là người xa lạ)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 이웃이 사촌처럼 가깝다 (Hàng xóm thân như anh em họ)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 이웃이 가족이에요 (Hàng xóm là gia đình)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 이웃이 친구예요 (Hàng xóm là bạn bè)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 6: 요즘 도시에서 이웃과의 관계는 어때요?</div>
+<div class="exercise-question">Ngày nay ở thành phố quan hệ hàng xóm như thế nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 더 깊어졌어요 (Trở nên sâu sắc hơn)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 얕아진 편이에요 (Có xu hướng nhạt đi)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 변하지 않았어요 (Không thay đổi)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 없어졌어요 (Biến mất)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'b', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 7: 이웃과 친해지려면 무엇을 해야 해요?</div>
+<div class="exercise-question">Để thân thiết với hàng xóm thì phải làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 선물을 줘야 해요 (Phải tặng quà)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 봉사를 해야 해요 (Phải làm tình nguyện)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 인사부터 시작해야 해요 (Phải bắt đầu từ lời chào)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 돈을 빌려줘야 해요 (Phải cho mượn tiền)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'c', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 8: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 옛날에는 이웃과 정이 깊었어요 (Ngày xưa tình hàng xóm sâu đậm)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 요즘은 이웃의 필요가 없어요 (Ngày nay không cần hàng xóm)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 작은 관심은 변화가 없어요 (Sự quan tâm nhỏ không tạo ra thay đổi)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 이웃과 친해질 수 없어요 (Không thể thân thiết với hàng xóm)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'a', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 3. Tổng hợp 10 từ vựng mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Học 10 từ vựng mới • Đọc to mỗi từ 3 lần • Đặt câu ví dụ cho mỗi từ</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">세대</div>
+<div class="vocab-pron">[se-dae]</div>
+<div class="vocab-meaning">Thế hệ</div>
+<div class="vocab-example">
+<div class="example-korean">세대 차이가 커요. <button class="speak-btn" onclick="speakKorean('세대 차이가 커요.', this)">🔊</button></div>
+<div class="example-meaning">Khác biệt thế hệ lớn.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">젊은 세대가 많아요. <button class="speak-btn" onclick="speakKorean('젊은 세대가 많아요.', this)">🔊</button></div>
+<div class="example-meaning">Có nhiều thế hệ trẻ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">차이</div>
+<div class="vocab-pron">[cha-i]</div>
+<div class="vocab-meaning">Khác biệt</div>
+<div class="vocab-example">
+<div class="example-korean">나이 차이가 커요. <button class="speak-btn" onclick="speakKorean('나이 차이가 커요.', this)">🔊</button></div>
+<div class="example-meaning">Khác biệt tuổi tác lớn.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">의견 차이가 있어요. <button class="speak-btn" onclick="speakKorean('의견 차이가 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Có sự khác biệt ý kiến.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">가치관</div>
+<div class="vocab-pron">[ga-chi-gwan]</div>
+<div class="vocab-meaning">Giá trị quan</div>
+<div class="vocab-example">
+<div class="example-korean">가치관이 달라요. <button class="speak-btn" onclick="speakKorean('가치관이 달라요.', this)">🔊</button></div>
+<div class="example-meaning">Giá trị quan khác nhau.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">가치관이 중요해요. <button class="speak-btn" onclick="speakKorean('가치관이 중요해요.', this)">🔊</button></div>
+<div class="example-meaning">Giá trị quan quan trọng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">존중</div>
+<div class="vocab-pron">[jon-jung]</div>
+<div class="vocab-meaning">Tôn trọng</div>
+<div class="vocab-example">
+<div class="example-korean">서로 존중해야 해요. <button class="speak-btn" onclick="speakKorean('서로 존중해야 해요.', this)">🔊</button></div>
+<div class="example-meaning">Phải tôn trọng lẫn nhau.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">어른을 존중해요. <button class="speak-btn" onclick="speakKorean('어른을 존중해요.', this)">🔊</button></div>
+<div class="example-meaning">Tôn trọng người lớn.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">이해</div>
+<div class="vocab-pron">[i-hae]</div>
+<div class="vocab-meaning">Thấu hiểu</div>
+<div class="vocab-example">
+<div class="example-korean">서로 이해해야 해요. <button class="speak-btn" onclick="speakKorean('서로 이해해야 해요.', this)">🔊</button></div>
+<div class="example-meaning">Phải thấu hiểu lẫn nhau.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">이해가 필요해요. <button class="speak-btn" onclick="speakKorean('이해가 필요해요.', this)">🔊</button></div>
+<div class="example-meaning">Cần sự thấu hiểu.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">독거노인</div>
+<div class="vocab-pron">[dok-geo-no-in]</div>
+<div class="vocab-meaning">Người già sống một mình</div>
+<div class="vocab-example">
+<div class="example-korean">독거노인을 도와줘요. <button class="speak-btn" onclick="speakKorean('독거노인을 도와줘요.', this)">🔊</button></div>
+<div class="example-meaning">Giúp đỡ người già sống một mình.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">독거노인이 많아요. <button class="speak-btn" onclick="speakKorean('독거노인이 많아요.', this)">🔊</button></div>
+<div class="example-meaning">Có nhiều người già sống một mình.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">돌보다</div>
+<div class="vocab-pron">[dol-bo-da]</div>
+<div class="vocab-meaning">Chăm sóc</div>
+<div class="vocab-example">
+<div class="example-korean">아이들을 돌봐요. <button class="speak-btn" onclick="speakKorean('아이들을 돌봐요.', this)">🔊</button></div>
+<div class="example-meaning">Chăm sóc trẻ em.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">할머니를 돌봐드려요. <button class="speak-btn" onclick="speakKorean('할머니를 돌봐드려요.', this)">🔊</button></div>
+<div class="example-meaning">Chăm sóc bà.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">온정</div>
+<div class="vocab-pron">[on-jeong]</div>
+<div class="vocab-meaning">Tình người, sự ấm áp</div>
+<div class="vocab-example">
+<div class="example-korean">온정이 있는 사회예요. <button class="speak-btn" onclick="speakKorean('온정이 있는 사회예요.', this)">🔊</button></div>
+<div class="example-meaning">Là xã hội có tình người.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">온정이 필요해요. <button class="speak-btn" onclick="speakKorean('온정이 필요해요.', this)">🔊</button></div>
+<div class="example-meaning">Cần tình người.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">나눔</div>
+<div class="vocab-pron">[na-num]</div>
+<div class="vocab-meaning">Sự chia sẻ</div>
+<div class="vocab-example">
+<div class="example-korean">나눔의 기쁨을 알아요. <button class="speak-btn" onclick="speakKorean('나눔의 기쁨을 알아요.', this)">🔊</button></div>
+<div class="example-meaning">Biết niềm vui của sự chia sẻ.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">나눔이 중요해요. <button class="speak-btn" onclick="speakKorean('나눔이 중요해요.', this)">🔊</button></div>
+<div class="example-meaning">Sự chia sẻ quan trọng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">사촌</div>
+<div class="vocab-pron">[sa-chon]</div>
+<div class="vocab-meaning">Anh chị em họ</div>
+<div class="vocab-example">
+<div class="example-korean">사촌이 많아요. <button class="speak-btn" onclick="speakKorean('사촌이 많아요.', this)">🔊</button></div>
+<div class="example-meaning">Có nhiều anh chị em họ.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">사촌과 친해요. <button class="speak-btn" onclick="speakKorean('사촌과 친해요.', this)">🔊</button></div>
+<div class="example-meaning">Thân thiết với anh chị em họ.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 4. Mục tiêu đạt được sau Ngày 5</h2>
+<ul class="goals-list">
+<li>Đọc hiểu 2 bài đọc 300 chữ ("세대 차이" và "이웃의 정")</li>
+<li>Trả lời đúng 6/8 câu hỏi TOPIK format</li>
+<li>Mở rộng vốn từ vựng với 10 từ mới về thế hệ và hàng xóm</li>
+<li>Phân tích được cấu trúc câu trong bài đọc</li>
+<li>Đặt câu ví dụ cho mỗi từ vựng mới</li>
+<li>Nắm vững cách sử dụng từ vựng trong ngữ cảnh quan hệ xã hội</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week10.html" class="day-nav-btn">← Về Hub Tuần 10</a>
+<a href="topik3-week10-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week10-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week10-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week10-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week10-day05.html" class="day-nav-btn active">Ngày 5 ✓</a>
+<a href="topik3-week10-day06.html" class="day-nav-btn">Ngày 6 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week10-day04.html" class="nav-btn">← Ngày 4</a>
+<a href="topik3-week10-day06.html" class="nav-btn primary">Tiếp: Ngày 6 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">👥 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Quan hệ là cầu nối, tình cảm là nền tảng của cuộc sống"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['👥', '💝', '🏠', '🤝', '💬', '🎭'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading1(btnElement) {
+    const fullText = '요즘 세대 차이가 커지고 있어요. 나이에 따라 가치관이 달라요. 할아버지와 할머니 세대는 전통을 중요하게 생각하세요. 예의와 효도를 아/어야 해요. 조상님을 존경하고 가족을 배려해야 해요. 부모님 세대는 안정을 중요하게 생각하세요. 직장과 가정의 균형을 찾으려고 해요. 자녀의 교육에 관심이 많아요. 젊은 세대는 자유와 개성을 중요하게 생각해요. 자기 행복을 추구해요. 디지털 기술에 익숙해요. 소통을 좋아하고 이해를 원해요. 세대 차이가 있어도 서로 존중해야 해요. 대화하면 이해하게 돼요. 만날수록 정이 들어요. 서로 배우는 것이 많아요. 어른은 경험을 알려주고 젊은이는 새로운 것을 알려줘요. 소통하면 가족이 더 행복해져요. 서로 이해하면 좋은 관계가 되기 마련이에요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading2(btnElement) {
+    const fullText = '한국에는 이웃사촌이라는 말이 있어요. 이웃이 사촌처럼 가깝다는 뜻이에요. 옛날에는 이웃과의 정이 깊었어요. 음식을 나눠 먹고 일을 도와줬어요. 어려운 일이 있으면 이웃이 도와줬어요. 기쁜 일이 있으면 함께 기뻐했어요. 요즘은 도시에서 이웃과의 관계가 얕아진 편이에요. 아파트에 살아도 이웃을 잘 몰라요. 바빠서 소통할 시간이 없어요. 하지만 이웃과의 정은 아직 중요해요. 독거노인을 돌봐 드리고 아이를 돌봐 줘요. 작은 도움이 큰 힘이 돼요. 동네에서 봉사를 하면 이웃과 친해져요. 만날수록 정이 들어요. 나눔의 기쁨을 알아요. 온정이 있는 사회가 좋은 사회예요. 이웃에게 인사부터 시작하세요. 작은 관심이 큰 변화를 만들어요. 함께 살아가는 방법을 배워요. 노력하면 좋은 이웃이 되기 마련이에요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').classList.add('show');
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 75) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Ngày 6!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài đọc.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week10_progress') || '[]');
+        if (!progress.includes(5)) {
+            progress.push(5);
+            localStorage.setItem('topik3_week10_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>
+</body>
+</html>
