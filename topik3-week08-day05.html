@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 5: Đọc hiểu chuyên sâu - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 50%, #DDD6FE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #7C3AED; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #6D28D9; }
+.breadcrumb-separator { color: #C4B5FD; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #7C3AED; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(124,58,237,0.15); transition: all 0.3s; border: 2px solid #C4B5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(124,58,237,0.25); background: #F5F3FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(167,139,250,0.3) 0%, rgba(196,181,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '📖'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🤖'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #6D28D9; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #7C3AED; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(124,58,237,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #6D28D9; background: #F5F3FF; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #F5F3FF; color: #6D28D9; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #C4B5FD; }
+.grammar-tag { background: #EFF6FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Vocabulary Section - Violet */
+.vocab-section .section-title { color: #6D28D9; border-color: #A78BFA; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.vocab-card { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border-radius: 20px; padding: 22px; border: 2px solid #A78BFA; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(167,139,250,0.2); }
+.vocab-number { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #6D28D9; font-weight: 800; margin-bottom: 5px; }
+.vocab-pron { color: #718096; font-size: 0.9em; font-style: italic; margin-bottom: 8px; }
+.vocab-meaning { color: #6D28D9; font-size: 1.05em; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #C4B5FD; }
+.vocab-example { background: white; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 4px solid #A78BFA; }
+.example-korean { color: #6D28D9; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(124,58,237,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.score-section.show { display: block; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #7C3AED; border: 2px solid #C4B5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F5F3FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week08.html">💻 Tuần 8</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 5: Đọc hiểu chuyên sâu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week08.html" class="nav-btn">← Về Tổng quan Tuần 8</a>
+<a href="topik3-week08-day06.html" class="nav-btn primary">Ngày 6 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">📖 NGÀY 5 • 5일차</span>
+<h1>Đọc hiểu chuyên sâu</h1>
+<div class="subtitle">Luyện đọc 2 bài 300 chữ về tội phạm mạng và AI</div>
+<p class="description">
+Đọc hiểu 2 bài đọc về <strong>"사이버 범죄"</strong> (Tội phạm mạng) và <strong>"인공지능의 미래"</strong> (Tương lai của AI). 
+Trả lời 8 câu hỏi TOPIK format và mở rộng vốn từ vựng với 10 từ mới. 🤖
+</p>
+<div class="time-info">⏰ 60 phút • 📖 2 bài đọc 300 chữ • ❓ 8 câu hỏi TOPIK • 📚 10 từ mới</div>
+</div>
+
+<!-- Reading 1: 사이버 범죄 -->
+<div class="section reading-section">
+<h2 class="section-title">🔒 1. Bài đọc 1: 사이버 범죄 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Phân tích từ vựng</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🔒 사이버 범죄 (Tội phạm mạng)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>요즘 <strong>사이버 범죄</strong>가 늘어나고 있어요. <strong>사이버 범죄</strong>는 <strong>인터넷</strong>이나 <strong>컴퓨터</strong>를 이용해서 범죄를 저지르는 거예요. 여러 가지 <strong>사이버 범죄</strong>가 있어요.</p>
+
+<p>첫째, <strong>해킹</strong>이 있어요. <strong>해커</strong>가 <strong>컴퓨터</strong>나 <strong>스마트폰</strong>에 침입해서 <strong>개인정보</strong>를 훔쳐요. <strong>비밀번호</strong>가 약하면 <strong>해킹</strong>당하기 <span class="grammar-highlight">쉬워요</span>.</p>
+
+<p>둘째, <strong>피싱</strong>이 있어요. <strong>피싱</strong>은 가짜 이메일이나 웹사이트로 <strong>개인정보</strong>를 빼앗는 거예요. <strong>은행</strong>이나 <strong>쇼핑몰</strong>을 사칭하는 경우가 많아요. <strong>피싱</strong>에 당하면 <strong>금전적 피해</strong>를 봐요.</p>
+
+<p>셋째, <strong>멀웨어</strong>가 있어요. <strong>멀웨어</strong>는 <strong>바이러스</strong>나 악성 프로그램을 말해요. <strong>멀웨어</strong>에 감염되면 <strong>컴퓨터</strong>가 고장 나거나 <strong>개인정보</strong>가 <strong>유출</strong>돼요.</p>
+
+<p><strong>사이버 범죄</strong>를 예방하려면 <strong>보안</strong>을 강화해야 돼요. <strong>비밀번호</strong>를 자주 바꾸고 <strong>백신 프로그램</strong>을 설치해야 돼요. 의심스러운 이메일은 열면 안 돼요. <strong>공공장소</strong>에서 무료 <strong>와이파이</strong>를 사용하면 안 돼요.</p>
+
+<p><strong>사이버 범죄</strong>는 우리 모두에게 위험해요. <strong>개인정보</strong>를 <strong>보호</strong>하기 위해 항상 조심해야 돼요. <strong>사이버 범죄</strong>를 당하면 바로 경찰에 신고해야 돼요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio1Btn" onclick="speakReading1(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 1</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 1</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về tội phạm mạng:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">사이버 범죄 (tội phạm mạng)</span>
+<span class="vocab-tag">해킹 (hack)</span>
+<span class="vocab-tag">해커 (hacker)</span>
+<span class="vocab-tag">피싱 (phishing)</span>
+<span class="vocab-tag">멀웨어 (malware)</span>
+<span class="vocab-tag">개인정보 (thông tin cá nhân)</span>
+<span class="vocab-tag">유출 (rò rỉ)</span>
+<span class="vocab-tag">금전적 피해 (thiệt hại tài chính)</span>
+<span class="vocab-tag">보안 (bảo mật)</span>
+<span class="vocab-tag">백신 프로그램 (phần mềm diệt virus)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+<span class="grammar-tag">-거나 (hoặc)</span>
+<span class="grammar-tag">-는 동안 (trong khi)</span>
+<span class="grammar-tag">-(으)면 안 되다 (không được)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>tội phạm mạng</strong> đang gia tăng. Có 3 loại chính: (1) Hacking - hacker xâm nhập máy tính để lấy thông tin cá nhân; (2) Phishing - lừa đảo qua email giả mạo để lấy thông tin; (3) Malware - virus và phần mềm độc hại. Để phòng chống, cần tăng cường bảo mật, đổi mật khẩu thường xuyên, cài phần mềm diệt virus, không mở email đáng ngờ và không dùng wifi miễn phí nơi công cộng. Khi bị tấn công mạng phải báo cảnh sát ngay.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 1 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 1</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 사이버 범죄의 예가 아닌 것은?</div>
+<div class="exercise-question">Đâu KHÔNG phải là ví dụ về tội phạm mạng?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 해킹 (Hack)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 피싱 (Phishing)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 멀웨어 (Malware)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 쇼핑 (Mua sắm)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'd', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 개인정보가 유출되면 어떻게 돼요?</div>
+<div class="exercise-question">Nếu thông tin cá nhân bị rò rỉ thì sao?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 컴퓨터가 빨라져요 (Máy tính nhanh hơn)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 금전적 피해를 봐요 (Bị thiệt hại tài chính)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 인터넷이 빨라져요 (Internet nhanh hơn)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 스마트폰이 좋아져요 (Smartphone tốt hơn)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 보안을 위해 무엇을 해야 돼요?</div>
+<div class="exercise-question">Để bảo mật thì phải làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 비밀번호를 자주 바꿔야 돼요 (Phải đổi mật khẩu thường xuyên)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 무료 와이파이를 사용해야 돼요 (Phải dùng wifi miễn phí)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 의심스러운 이메일을 열어야 돼요 (Phải mở email đáng ngờ)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 백신 프로그램을 삭제해야 돼요 (Phải xóa phần mềm diệt virus)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'a', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 사이버 범죄는 줄어들고 있어요 (Tội phạm mạng đang giảm)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 해커는 개인정보를 훔쳐요 (Hacker lấy trộm thông tin cá nhân)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 피싱은 안전한 방법이에요 (Phishing là phương pháp an toàn)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 멀웨어는 컴퓨터에 도움이 돼요 (Malware giúp ích cho máy tính)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'b', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Reading 2: 인공지능의 미래 -->
+<div class="section reading-section">
+<h2 class="section-title">🤖 2. Bài đọc 2: 인공지능의 미래 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Ghi chú từ vựng mới</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🤖 인공지능의 미래 (Tương lai của AI)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p><strong>인공지능</strong>(AI) 기술이 빠르게 발전하고 있어요. <strong>인공지능</strong>은 사람의 생각과 학습 능력을 가진 <strong>컴퓨터</strong> 프로그램이에요. 이미 우리 생활에 많이 사용되고 있어요.</p>
+
+<p><strong>인공지능</strong>은 여러 분야에서 사용돼요. <strong>자율주행차</strong>는 <strong>인공지능</strong> 기술로 움직여요. <strong>스마트홈</strong>도 <strong>인공지능</strong>으로 제어해요. <strong>의료</strong> 분야에서도 <strong>인공지능</strong>이 <strong>질병</strong>을 진단해요.</p>
+
+<p><strong>인공지능</strong>의 장점은 <strong>편리함</strong>과 <strong>효율성</strong>이에요. <strong>인공지능</strong>은 사람보다 빨리 일하고 실수가 적어요. 24시간 일할 수 <span class="grammar-highlight">있어요</span>. 그래서 많은 회사에서 <strong>인공지능</strong>을 사용해요.</p>
+
+<p>하지만 <strong>인공지능</strong>에도 문제점이 있어요. 첫째, <strong>일자리</strong>가 줄어들 수 있어요. <strong>인공지능</strong>이 사람의 일을 대신하면 많은 사람들이 <strong>실직</strong>할 수 있어요.</p>
+
+<p>둘째, <strong>윤리적 문제</strong>가 있어요. <strong>인공지능</strong>이 잘못된 결정을 내리면 큰 문제가 생길 수 있어요. <strong>인공지능</strong>이 사람을 통제하면 위험해요.</p>
+
+<p>미래에는 <strong>인공지능</strong>이 더 발전할 거예요. <strong>로봇</strong>과 <strong>인공지능</strong>이 함께 일하는 세상이 올 거예요. 우리는 <strong>인공지능</strong>을 잘 활용해야 돼요. <strong>인공지능</strong>과 사람이 함께 공존하는 방법을 찾아야 돼요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio2Btn" onclick="speakReading2(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 2</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 2</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về AI và tương lai:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">인공지능 (trí tuệ nhân tạo)</span>
+<span class="vocab-tag">자율주행차 (xe tự lái)</span>
+<span class="vocab-tag">스마트홈 (nhà thông minh)</span>
+<span class="vocab-tag">의료 (y tế)</span>
+<span class="vocab-tag">질병 (bệnh tật)</span>
+<span class="vocab-tag">편리함 (sự tiện lợi)</span>
+<span class="vocab-tag">효율성 (hiệu quả)</span>
+<span class="vocab-tag">일자리 (việc làm)</span>
+<span class="vocab-tag">실직 (thất nghiệp)</span>
+<span class="vocab-tag">윤리적 문제 (vấn đề đạo đức)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+<span class="grammar-tag">-(으)ㄹ 수 있다 (có thể)</span>
+<span class="grammar-tag">-거나 (hoặc)</span>
+<span class="grammar-tag">-는 동안 (trong khi)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>tương lai của trí tuệ nhân tạo (AI)</strong>. AI là chương trình máy tính có khả năng suy nghĩ và học hỏi như con người. AI được sử dụng trong nhiều lĩnh vực: xe tự lái, nhà thông minh, y tế (chẩn đoán bệnh). Ưu điểm của AI là tiện lợi và hiệu quả, có thể làm việc 24 giờ. Tuy nhiên, AI cũng có vấn đề: (1) Giảm việc làm - AI thay thế con người; (2) Vấn đề đạo đức - AI có thể đưa ra quyết định sai. Tương lai, AI sẽ phát triển hơn nữa, robot và AI sẽ làm việc cùng nhau. Chúng ta phải tìm cách để AI và con người cùng tồn tại.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 2 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 2</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 인공지능이 사용되는 분야는?</div>
+<div class="exercise-question">AI được sử dụng trong lĩnh vực nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 자율주행차 (Xe tự lái)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 스마트홈 (Nhà thông minh)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 의료 (Y tế)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 모두 정답 (Tất cả đều đúng)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'd', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 6: 인공지능의 장점은?</div>
+<div class="exercise-question">Ưu điểm của AI là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 편리함과 효율성 (Sự tiện lợi và hiệu quả)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 비용이 비쌈 (Chi phí đắt)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 실수가 많음 (Nhiều sai sót)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 느린 속도 (Tốc độ chậm)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'a', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 7: 인공지능의 문제점은?</div>
+<div class="exercise-question">Vấn đề của AI là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 일자리가 늘어남 (Việc làm tăng)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 일자리가 줄어들 수 있음 (Việc làm có thể giảm)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 사람이 더 필요함 (Cần nhiều người hơn)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 기술이 느려짐 (Công nghệ chậm lại)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'b', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 8: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 인공지능은 사람의 생각을 못해요 (AI không thể suy nghĩ như người)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 인공지능은 24시간 일할 수 있어요 (AI có thể làm việc 24 giờ)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 인공지능은 윤리적 문제가 없어요 (AI không có vấn đề đạo đức)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 미래에 인공지능이 사라질 거예요 (Tương lai AI sẽ biến mất)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'b', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 3. Tổng hợp 10 từ vựng mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Học 10 từ vựng mới • Đọc to mỗi từ 3 lần • Đặt câu ví dụ cho mỗi từ</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">해킹</div>
+<div class="vocab-pron">[hae-king]</div>
+<div class="vocab-meaning">Hack, xâm nhập</div>
+<div class="vocab-example">
+<div class="example-korean">해킹을 당했어요. <button class="speak-btn" onclick="speakKorean('해킹을 당했어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã bị hack.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">해킹을 조심해야 돼요. <button class="speak-btn" onclick="speakKorean('해킹을 조심해야 돼요.', this)">🔊</button></div>
+<div class="example-meaning">Phải cẩn thận với hack.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">피싱</div>
+<div class="vocab-pron">[pi-sing]</div>
+<div class="vocab-meaning">Phishing (lừa đảo qua mạng)</div>
+<div class="vocab-example">
+<div class="example-korean">피싱 이메일이 왔어요. <button class="speak-btn" onclick="speakKorean('피싱 이메일이 왔어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã nhận email phishing.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">피싱에 당하지 마세요. <button class="speak-btn" onclick="speakKorean('피싱에 당하지 마세요.', this)">🔊</button></div>
+<div class="example-meaning">Đừng bị lừa bởi phishing.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">멀웨어</div>
+<div class="vocab-pron">[meol-we-eo]</div>
+<div class="vocab-meaning">Malware (phần mềm độc hại)</div>
+<div class="vocab-example">
+<div class="example-korean">멀웨어에 감염됐어요. <button class="speak-btn" onclick="speakKorean('멀웨어에 감염됐어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã bị nhiễm malware.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">멀웨어를 삭제해야 돼요. <button class="speak-btn" onclick="speakKorean('멀웨어를 삭제해야 돼요.', this)">🔊</button></div>
+<div class="example-meaning">Phải xóa malware.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">개인정보</div>
+<div class="vocab-pron">[gae-in-jeong-bo]</div>
+<div class="vocab-meaning">Thông tin cá nhân</div>
+<div class="vocab-example">
+<div class="example-korean">개인정보를 보호해야 돼요. <button class="speak-btn" onclick="speakKorean('개인정보를 보호해야 돼요.', this)">🔊</button></div>
+<div class="example-meaning">Phải bảo vệ thông tin cá nhân.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">개인정보가 유출됐어요. <button class="speak-btn" onclick="speakKorean('개인정보가 유출됐어요.', this)">🔊</button></div>
+<div class="example-meaning">Thông tin cá nhân đã bị rò rỉ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">유출</div>
+<div class="vocab-pron">[yu-chul]</div>
+<div class="vocab-meaning">Rò rỉ, lộ ra</div>
+<div class="vocab-example">
+<div class="example-korean">정보가 유출됐어요. <button class="speak-btn" onclick="speakKorean('정보가 유출됐어요.', this)">🔊</button></div>
+<div class="example-meaning">Thông tin đã bị rò rỉ.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">유출을 막아야 돼요. <button class="speak-btn" onclick="speakKorean('유출을 막아야 돼요.', this)">🔊</button></div>
+<div class="example-meaning">Phải ngăn chặn rò rỉ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">금전적</div>
+<div class="vocab-pron">[geum-jeon-jeok]</div>
+<div class="vocab-meaning">Thuộc về tài chính</div>
+<div class="vocab-example">
+<div class="example-korean">금전적 피해가 커요. <button class="speak-btn" onclick="speakKorean('금전적 피해가 커요.', this)">🔊</button></div>
+<div class="example-meaning">Thiệt hại tài chính lớn.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">금전적 손실이 있어요. <button class="speak-btn" onclick="speakKorean('금전적 손실이 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Có tổn thất tài chính.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">피해</div>
+<div class="vocab-pron">[pi-hae]</div>
+<div class="vocab-meaning">Thiệt hại, tổn hại</div>
+<div class="vocab-example">
+<div class="example-korean">피해를 봤어요. <button class="speak-btn" onclick="speakKorean('피해를 봤어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã bị thiệt hại.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">피해를 입었어요. <button class="speak-btn" onclick="speakKorean('피해를 입었어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã chịu thiệt hại.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">자율주행차</div>
+<div class="vocab-pron">[ja-yul-ju-haeng-cha]</div>
+<div class="vocab-meaning">Xe tự lái</div>
+<div class="vocab-example">
+<div class="example-korean">자율주행차가 개발되고 있어요. <button class="speak-btn" onclick="speakKorean('자율주행차가 개발되고 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Xe tự lái đang được phát triển.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">자율주행차를 타 봤어요. <button class="speak-btn" onclick="speakKorean('자율주행차를 타 봤어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã thử đi xe tự lái.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">윤리적</div>
+<div class="vocab-pron">[yul-li-jeok]</div>
+<div class="vocab-meaning">Thuộc về đạo đức</div>
+<div class="vocab-example">
+<div class="example-korean">윤리적 문제가 있어요. <button class="speak-btn" onclick="speakKorean('윤리적 문제가 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Có vấn đề đạo đức.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">윤리적으로 생각해야 돼요. <button class="speak-btn" onclick="speakKorean('윤리적으로 생각해야 돼요.', this)">🔊</button></div>
+<div class="example-meaning">Phải suy nghĩ về mặt đạo đức.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">일자리</div>
+<div class="vocab-pron">[il-ja-ri]</div>
+<div class="vocab-meaning">Việc làm, công việc</div>
+<div class="vocab-example">
+<div class="example-korean">일자리가 줄어들고 있어요. <button class="speak-btn" onclick="speakKorean('일자리가 줄어들고 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Việc làm đang giảm đi.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">새 일자리를 찾았어요. <button class="speak-btn" onclick="speakKorean('새 일자리를 찾았어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã tìm được việc làm mới.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 4. Mục tiêu đạt được sau Ngày 5</h2>
+<ul class="goals-list">
+<li>Đọc hiểu 2 bài đọc 300 chữ ("사이버 범죄" và "인공지능의 미래")</li>
+<li>Trả lời đúng 6/8 câu hỏi TOPIK format</li>
+<li>Mở rộng vốn từ vựng với 10 từ mới về tội phạm mạng và AI</li>
+<li>Phân tích được cấu trúc câu trong bài đọc</li>
+<li>Đặt câu ví dụ cho mỗi từ vựng mới</li>
+<li>Nắm vững cách sử dụng từ vựng trong ngữ cảnh công nghệ</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week08.html" class="day-nav-btn">← Về Hub Tuần 8</a>
+<a href="topik3-week08-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week08-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week08-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week08-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week08-day05.html" class="day-nav-btn active">Ngày 5 ✓</a>
+<a href="topik3-week08-day06.html" class="day-nav-btn">Ngày 6 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week08-day04.html" class="nav-btn">← Ngày 4</a>
+<a href="topik3-week08-day06.html" class="nav-btn primary">Tiếp: Ngày 6 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">💻 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Công nghệ là tương lai, ngôn ngữ là cầu nối"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['💻', '📱', '🌐', '🤖', '⚡', '🎮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading1(btnElement) {
+    const fullText = '요즘 사이버 범죄가 늘어나고 있어요. 사이버 범죄는 인터넷이나 컴퓨터를 이용해서 범죄를 저지르는 거예요. 여러 가지 사이버 범죄가 있어요. 첫째, 해킹이 있어요. 해커가 컴퓨터나 스마트폰에 침입해서 개인정보를 훔쳐요. 비밀번호가 약하면 해킹당하기 쉬워요. 둘째, 피싱이 있어요. 피싱은 가짜 이메일이나 웹사이트로 개인정보를 빼앗는 거예요. 은행이나 쇼핑몰을 사칭하는 경우가 많아요. 피싱에 당하면 금전적 피해를 봐요. 셋째, 멀웨어가 있어요. 멀웨어는 바이러스나 악성 프로그램을 말해요. 멀웨어에 감염되면 컴퓨터가 고장 나거나 개인정보가 유출돼요. 사이버 범죄를 예방하려면 보안을 강화해야 돼요. 비밀번호를 자주 바꾸고 백신 프로그램을 설치해야 돼요. 의심스러운 이메일은 열면 안 돼요. 공공장소에서 무료 와이파이를 사용하면 안 돼요. 사이버 범죄는 우리 모두에게 위험해요. 개인정보를 보호하기 위해 항상 조심해야 돼요. 사이버 범죄를 당하면 바로 경찰에 신고해야 돼요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading2(btnElement) {
+    const fullText = '인공지능 기술이 빠르게 발전하고 있어요. 인공지능은 사람의 생각과 학습 능력을 가진 컴퓨터 프로그램이에요. 이미 우리 생활에 많이 사용되고 있어요. 인공지능은 여러 분야에서 사용돼요. 자율주행차는 인공지능 기술로 움직여요. 스마트홈도 인공지능으로 제어해요. 의료 분야에서도 인공지능이 질병을 진단해요. 인공지능의 장점은 편리함과 효율성이에요. 인공지능은 사람보다 빨리 일하고 실수가 적어요. 24시간 일할 수 있어요. 그래서 많은 회사에서 인공지능을 사용해요. 하지만 인공지능에도 문제점이 있어요. 첫째, 일자리가 줄어들 수 있어요. 인공지능이 사람의 일을 대신하면 많은 사람들이 실직할 수 있어요. 둘째, 윤리적 문제가 있어요. 인공지능이 잘못된 결정을 내리면 큰 문제가 생길 수 있어요. 인공지능이 사람을 통제하면 위험해요. 미래에는 인공지능이 더 발전할 거예요. 로봇과 인공지능이 함께 일하는 세상이 올 거예요. 우리는 인공지능을 잘 활용해야 돼요. 인공지능과 사람이 함께 공존하는 방법을 찾아야 돼요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').classList.add('show');
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 75) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Ngày 6!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài đọc.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week8_progress') || '[]');
+        if (!progress.includes(5)) {
+            progress.push(5);
+            localStorage.setItem('topik3_week8_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>
+</body>
+</html>

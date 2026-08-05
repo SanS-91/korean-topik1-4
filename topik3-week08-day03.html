@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 3: Ngữ pháp liên kết & Luyện nghe - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 50%, #DDD6FE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #7C3AED; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #6D28D9; }
+.breadcrumb-separator { color: #C4B5FD; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #7C3AED; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(124,58,237,0.15); transition: all 0.3s; border: 2px solid #C4B5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(124,58,237,0.25); background: #F5F3FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(167,139,250,0.3) 0%, rgba(196,181,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '📱'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🎧'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #6D28D9; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #7C3AED; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(124,58,237,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(124,58,237,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Listening Section - Violet */
+.listening-section .section-title { color: #6D28D9; border-color: #A78BFA; }
+.listening-box { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border: 2px solid #A78BFA; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.listening-title { font-family: 'Baloo 2', cursive; color: #6D28D9; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.listening-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.listening-step { padding: 12px; margin: 8px 0; border-left: 4px solid #A78BFA; background: #F5F3FF; border-radius: 8px; }
+.listening-step strong { color: #6D28D9; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #A78BFA; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #6D28D9; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F5F3FF; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #6D28D9; min-width: 120px; background: #EDE9FE; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+.dialogue-text strong { color: #6D28D9; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #C4B5FD; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(124,58,237,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #6D28D9; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+/* Exercise Section - Orange */
+.exercise-section .section-title { color: #C05621; border-color: #F59E0B; }
+.exercise-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #C05621; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FED7AA; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Speaking Section - Violet */
+.speaking-section .section-title { color: #6D28D9; border-color: #A78BFA; }
+.speaking-box { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border: 2px solid #A78BFA; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.speaking-title { font-family: 'Baloo 2', cursive; color: #6D28D9; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.shadowing-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.shadowing-step { padding: 12px; margin: 8px 0; border-left: 4px solid #A78BFA; background: #F5F3FF; border-radius: 8px; }
+.shadowing-step strong { color: #6D28D9; }
+
+.role-selector { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+.role-btn { padding: 12px 25px; background: white; color: #6D28D9; border: 2px solid #C4B5FD; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.role-btn:hover { background: #F5F3FF; transform: translateY(-2px); }
+.role-btn.active { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border-color: transparent; }
+.role-script { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; color: #6D28D9; line-height: 1.8; min-height: 80px; }
+.record-btn { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; display: inline-flex; align-items: center; gap: 10px; }
+.record-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(239,68,68,0.4); }
+.record-btn.recording { animation: pulse 1s infinite; }
+.recording-status { margin-top: 15px; color: #718096; font-size: 0.95em; }
+.audio-playback { width: 100%; margin-top: 15px; display: none; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #7C3AED; border: 2px solid #C4B5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F5F3FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week08.html">💻 Tuần 8</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 3: Ngữ pháp & Luyện nghe</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week08.html" class="nav-btn">← Về Tổng quan Tuần 8</a>
+<a href="topik3-week08-day04.html" class="nav-btn primary">Ngày 4 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">📱 NGÀY 3 • 3일차</span>
+<h1>Ngữ pháp liên kết & Luyện nghe</h1>
+<div class="subtitle">Mở rộng ngữ pháp và rèn kỹ năng nghe hiểu về công nghệ</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp liên kết: <strong>-(으)ㄹ 수 있다/없다</strong> (có thể/không thể) và <strong>-게 하다</strong> (khiến cho, bắt làm). 
+Luyện nghe hội thoại "스마트폰 사용법" (Cách sử dụng smartphone) và thực hành Shadowing. 📱
+</p>
+<div class="time-info">⏰ 60 phút • 📝 2 ngữ pháp • 🎧 Hội thoại 10 lượt • 🗣️ Shadowing</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ngữ pháp liên kết (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-(으)ㄹ 수 있다/없다</div>
+<div class="grammar-meaning">Có thể / Không thể (khả năng)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả khả năng có thể hoặc không thể làm điều gì đó. Tương đương "có thể/không thể" trong tiếng Việt. Dùng khi muốn nói về khả năng, năng lực hoặc sự cho phép.
+</div>
+<div class="grammar-formula">
+Động từ + -(으)ㄹ 수 있다 (có thể)<br>
+Động từ + -(으)ㄹ 수 없다 (không thể)<br>
+• Không có patchim: + ㄹ 수 있다/없다<br>
+• Có patchim: + 을 수 있다/없다<br>
+• Ví dụ: 인터넷으로 쇼핑할 수 있어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">인터넷으로 쇼핑할 수 있어요. <button class="speak-btn" onclick="speakKorean('인터넷으로 쇼핑할 수 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Có thể mua sắm qua internet.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">스마트폰으로 사진을 찍을 수 있어요. <button class="speak-btn" onclick="speakKorean('스마트폰으로 사진을 찍을 수 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Có thể chụp ảnh bằng smartphone.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">비밀번호를 모르면 로그인할 수 없어요. <button class="speak-btn" onclick="speakKorean('비밀번호를 모르면 로그인할 수 없어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nếu không biết mật khẩu thì không thể đăng nhập.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">컴퓨터로 게임을 할 수 있어요. <button class="speak-btn" onclick="speakKorean('컴퓨터로 게임을 할 수 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Có thể chơi game bằng máy tính.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)ㄹ 수 있다/없다 = "có thể/không thể" → Diễn tả khả năng<br>
+<strong>⚠️ Lưu ý:</strong> Khác với -ㄹ/을 것이다 (sẽ - dự đoán) - -(으)ㄹ 수 있다 nhấn mạnh khả năng<br>
+<strong>🔄 So sánh:</strong> -(으)ㄹ 수 있다 (có thể) vs -ㄹ/을 것이다 (sẽ)
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-게 하다</div>
+<div class="grammar-meaning">Khiến cho, bắt làm, cho phép</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả việc khiến cho ai đó làm gì, hoặc cho phép ai đó làm gì. Tương đương "khiến cho", "bắt làm", "cho phép" trong tiếng Việt. Chủ ngữ là người gây ra hành động, tân ngữ là người thực hiện hành động.
+</div>
+<div class="grammar-formula">
+Động từ + -게 하다<br>
+• Ví dụ: 동생에게 컴퓨터를 사용하게 했어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">동생에게 컴퓨터를 사용하게 했어요. <button class="speak-btn" onclick="speakKorean('동생에게 컴퓨터를 사용하게 했어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi đã cho em trai dùng máy tính.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">아이들에게 스마트폰을 덜 사용하게 해요. <button class="speak-btn" onclick="speakKorean('아이들에게 스마트폰을 덜 사용하게 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Bắt trẻ em dùng smartphone ít hơn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">선생님이 학생들에게 과제를 하게 했어요. <button class="speak-btn" onclick="speakKorean('선생님이 학생들에게 과제를 하게 했어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Giáo viên đã bắt học sinh làm bài tập.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">부모님이 일찍 자게 했어요. <button class="speak-btn" onclick="speakKorean('부모님이 일찍 자게 했어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Bố mẹ đã bắt ngủ sớm.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -게 하다 = "khiến cho/bắt làm" → Chủ ngữ gây ra hành động cho người khác<br>
+<strong>⚠️ Lưu ý:</strong> Khác với -도록 하다 (yêu cầu) - -게 하다 mang tính bắt buộc mạnh hơn<br>
+<strong>🔄 So sánh:</strong> -게 하다 (bắt làm) vs -도록 하다 (yêu cầu)
+</div>
+</div>
+</div>
+</div>
+
+<!-- Listening Section -->
+<div class="section listening-section">
+<h2 class="section-title">🎧 2. Luyện nghe (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại 3 lần theo thứ tự • Lần 1 lấy ý chính • Lần 2 nghe chi tiết + transcript • Lần 3 Shadowing</p>
+
+<div class="listening-box">
+<div class="listening-title">📱 Hội thoại: 스마트폰 사용법 (Cách sử dụng smartphone)</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullDialogue(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ hội thoại</div>
+<div class="audio-sub">Nghe 3 lần: Ý chính → Chi tiết → Shadowing</div>
+</div>
+</div>
+
+<div class="listening-steps">
+<div class="listening-step">
+<strong>🎯 Lần 1 (5 phút):</strong> Nghe lấy ý chính - Không nhìn transcript, cố gắng hiểu nội dung chính về hướng dẫn sử dụng smartphone
+</div>
+<div class="listening-step">
+<strong>📝 Lần 2 (7 phút):</strong> Nghe chi tiết + Đọc transcript - Vừa nghe vừa đọc, chú ý ngữ điệu và từ mới
+</div>
+<div class="listening-step">
+<strong>🗣️ Lần 3 (8 phút):</strong> Shadowing - Nghe và đọc đuổi theo, bắt chước ngữ điệu và tốc độ
+</div>
+</div>
+
+<div class="transcript-box">
+<div class="transcript-title">📜 Transcript (Bản ghi lời thoại)</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">지영 씨, 새 <strong>스마트폰</strong>을 샀어요?</span>
+<button class="speak-btn" onclick="speakKorean('지영 씨, 새 스마트폰을 샀어요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">네, 새로 바꿨어요. 그런데 <strong>사용법</strong>을 잘 몰라요.</span>
+<button class="speak-btn" onclick="speakKorean('네, 새로 바꿨어요. 그런데 사용법을 잘 몰라요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">어떤 <strong>기능</strong>이 어려우세요?</span>
+<button class="speak-btn" onclick="speakKorean('어떤 기능이 어려우세요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text"><strong>카메라</strong> <strong>사용법</strong>이 어려워요. 사진을 어떻게 찍어요?</span>
+<button class="speak-btn" onclick="speakKorean('카메라 사용법이 어려워요. 사진을 어떻게 찍어요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text"><strong>카메라 앱</strong>을 열어서 <strong>버튼</strong>을 누르세요. <strong>화면</strong>을 터치하면 돼요.</span>
+<button class="speak-btn" onclick="speakKorean('카메라 앱을 열어서 버튼을 누르세요. 화면을 터치하면 돼요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">사진을 <strong>저장</strong>하려면 어떻게 해요?</span>
+<button class="speak-btn" onclick="speakKorean('사진을 저장하려면 어떻게 해요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">자동으로 <strong>저장</strong>돼요. <strong>갤러리</strong>에서 볼 수 있어요.</span>
+<button class="speak-btn" onclick="speakKorean('자동으로 저장돼요. 갤러리에서 볼 수 있어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text"><strong>애플리케이션</strong>은 어떻게 <strong>다운로드</strong>해요?</span>
+<button class="speak-btn" onclick="speakKorean('애플리케이션은 어떻게 다운로드해요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text"><strong>앱 스토어</strong>에서 검색해서 <strong>설치</strong>하세요. <strong>무료</strong> <strong>앱</strong>도 많아요.</span>
+<button class="speak-btn" onclick="speakKorean('앱 스토어에서 검색해서 설치하세요. 무료 앱도 많아요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">감사합니다! 이제 <strong>사용할 수</strong> 있어요. <strong>백업</strong>도 꼭 해야겠어요.</span>
+<button class="speak-btn" onclick="speakKorean('감사합니다! 이제 사용할 수 있어요. 백업도 꼭 해야겠어요.', this)">🔊</button>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">📚 Từ vựng & Ngữ pháp trong hội thoại:</strong>
+<div style="margin-top: 10px; color: #78350F; line-height: 1.8;">
+• <strong>스마트폰</strong> [seu-ma-teu-pfon]: Smartphone<br>
+• <strong>사용법</strong> [sa-yong-beop]: Cách sử dụng<br>
+• <strong>기능</strong> [gi-neung]: Tính năng<br>
+• <strong>카메라</strong> [ka-me-ra]: Camera<br>
+• <strong>버튼</strong> [beo-teun]: Nút bấm<br>
+• <strong>화면</strong> [hwa-myeon]: Màn hình<br>
+• <strong>저장</strong> [jeo-jang]: Lưu<br>
+• <strong>갤러리</strong> [gael-leo-ri]: Thư viện ảnh<br>
+• <strong>애플리케이션</strong> [ae-peul-li-ke-i-syeon]: Ứng dụng<br>
+• <strong>다운로드</strong> [da-un-ro-deu]: Tải xuống<br>
+• <strong>앱 스토어</strong> [aeb seu-to-eo]: App Store<br>
+• <strong>설치</strong> [seol-chi]: Cài đặt<br>
+• <strong>무료</strong> [mu-ryo]: Miễn phí<br>
+• <strong>백업</strong> [baek-eop]: Sao lưu<br>
+• <strong>-ㄹ 수 있다</strong>: Có thể (사용할 수 있어요 - có thể sử dụng)<br>
+• <strong>-게 하다</strong>: Khiến cho (trong ngữ cảnh hướng dẫn)
+</div>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 3. Bài tập nghe hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe lại hội thoại nếu cần • Chọn đáp án đúng • Kiểm tra kết quả</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 지영 씨는 무엇을 샀어요?</div>
+<div class="exercise-question">Ji-yeong đã mua gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 컴퓨터 (Máy tính)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 스마트폰 (Smartphone)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 태블릿 (Tablet)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 카메라 (Máy ảnh)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 지영 씨는 무엇을 어려워해요?</div>
+<div class="exercise-question">Ji-yeong cảm thấy khó khăn về điều gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 카메라 사용법 (Cách sử dụng camera)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 게임 (Game)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 이메일 (Email)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 쇼핑 (Mua sắm)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'a', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 지영 씨는 무엇을 꼭 해야겠다고 했어요?</div>
+<div class="exercise-question">Ji-yeong nói rằng nhất định phải làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 백업하기 (Sao lưu)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 삭제하기 (Xóa)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 다운로드하기 (Tải xuống)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 업데이트하기 (Cập nhật)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'a', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div style="background: #F0FFF4; border-left: 4px solid #10B981; padding: 20px; border-radius: 15px; margin-top: 25px;">
+<h4 style="color: #065F46; font-family: 'Baloo 2', cursive; margin-bottom: 12px;">📊 Kết quả bài tập</h4>
+<div id="totalScore" style="font-size: 1.2em; color: #065F46; font-weight: 700;">Đã làm: 0/3 câu</div>
+<p style="color: #718096; margin-top: 10px;">Mục tiêu: Trả lời đúng 3/3 câu hỏi ✅</p>
+</div>
+</div>
+
+<!-- Speaking Section -->
+<div class="section speaking-section">
+<h2 class="section-title">🗣️ 4. Nói & Shadowing (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Thực hành Shadowing để cải thiện phát âm • Tự ghi âm và nghe lại • So sánh với bản gốc</p>
+
+<div class="speaking-box">
+<div class="speaking-title">🎯 Phương pháp Shadowing</div>
+<div class="shadowing-steps">
+<div class="shadowing-step">
+<strong>Bước 1 (3 phút):</strong> Nghe từng câu thoại và lặp lại ngay sau khi nghe. Cố gắng bắt chước ngữ điệu, tốc độ và cách ngắt nghỉ.
+</div>
+<div class="shadowing-step">
+<strong>Bước 2 (3 phút):</strong> Đọc đuổi theo (shadow) - Bấm play và nói cùng lúc với audio, không cần dừng.
+</div>
+<div class="shadowing-step">
+<strong>Bước 3 (4 phút):</strong> Tự ghi âm - Chọn 1 vai (민수 hoặc 지영) và ghi âm toàn bộ phần thoại của vai đó. Nghe lại và so sánh với bản gốc.
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+<h4 style="color: #6D28D9; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">🎙️ Ghi âm thực hành</h4>
+<p style="color: #718096; margin-bottom: 15px;">Chọn vai bạn muốn đóng và bấm nút ghi âm:</p>
+<div class="role-selector">
+<button class="role-btn" onclick="selectRole('민수')" id="role-minsu">👤 Vai 민수 (Min-su)</button>
+<button class="role-btn" onclick="selectRole('지영')" id="role-jiyoung">👤 Vai 지영 (Ji-yeong)</button>
+</div>
+<div id="selectedRole" style="background: #F5F3FF; padding: 12px; border-radius: 10px; margin-bottom: 15px; color: #6D28D9; font-weight: 600;">
+Chưa chọn vai
+</div>
+<div class="role-script" id="roleScript">
+Hãy chọn vai để xem thoại...
+</div>
+<button class="record-btn" id="recordBtn" onclick="toggleRecording()">
+<span id="recordIcon">🎙️</span>
+<span id="recordText">Bắt đầu ghi âm</span>
+</button>
+<div class="recording-status" id="recordingStatus"></div>
+<audio id="audioPlayback" controls class="audio-playback"></audio>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">🎯 Tiêu chí tự đánh giá:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li><strong>Phát âm:</strong> Phát âm rõ ràng, đúng patchim (phụ âm cuối)</li>
+<li><strong>Ngữ điệu:</strong> Lên giọng ở câu hỏi, xuống giọng ở câu khẳng định</li>
+<li><strong>Tốc độ:</strong> Tốc độ tự nhiên, không quá nhanh cũng không quá chậm</li>
+<li><strong>Ngắt nghỉ:</strong> Ngắt nghỉ đúng chỗ sau mỗi câu</li>
+<li><strong>Từ vựng:</strong> Sử dụng đúng từ vựng về công nghệ và hướng dẫn</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 3</h2>
+<ul class="goals-list">
+<li>Hiểu và sử dụng được 2 cấu trúc ngữ pháp liên kết (-(으)ㄹ 수 있다/없다, -게 하다)</li>
+<li>Nghe hiểu hội thoại 10 lượt về hướng dẫn sử dụng smartphone</li>
+<li>Trả lời đúng 3/3 câu hỏi nghe hiểu</li>
+<li>Thực hành Shadowing ít nhất 3 lần</li>
+<li>Ghi âm và tự đánh giá phát âm theo 5 tiêu chí</li>
+<li>Nắm vững từ vựng chủ đề sử dụng thiết bị công nghệ</li>
+<li>Thuộc tổng cộng 4 cấu trúc ngữ pháp (bao gồm 2 cấu trúc từ Ngày 1, 2)</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week08.html" class="day-nav-btn">← Về Hub Tuần 8</a>
+<a href="topik3-week08-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week08-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week08-day03.html" class="day-nav-btn active">Ngày 3 ✓</a>
+<a href="topik3-week08-day04.html" class="day-nav-btn">Ngày 4 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week08-day02.html" class="nav-btn">← Ngày 2</a>
+<a href="topik3-week08-day04.html" class="nav-btn primary">Tiếp: Ngày 4 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">💻 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Công nghệ là tương lai, ngôn ngữ là cầu nối"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['💻', '📱', '🌐', '🤖', '⚡', '🎮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullDialogue(btnElement) {
+    const fullText = '지영 씨, 새 스마트폰을 샀어요? 네, 새로 바꿨어요. 그런데 사용법을 잘 몰라요. 어떤 기능이 어려우세요? 카메라 사용법이 어려워요. 사진을 어떻게 찍어요? 카메라 앱을 열어서 버튼을 누르세요. 화면을 터치하면 돼요. 사진을 저장하려면 어떻게 해요? 자동으로 저장돼요. 갤러리에서 볼 수 있어요. 애플리케이션은 어떻게 다운로드해요? 앱 스토어에서 검색해서 설치하세요. 무료 앱도 많아요. 감사합니다! 이제 사용할 수 있어요. 백업도 꼭 해야겠어요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    document.getElementById('totalScore').textContent = `Đã làm: ${correctAnswers}/3 câu`;
+    if (correctAnswers === 3) {
+        const progress = JSON.parse(localStorage.getItem('topik3_week8_progress') || '[]');
+        if (!progress.includes(3)) {
+            progress.push(3);
+            localStorage.setItem('topik3_week8_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Recording functionality
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let selectedRole = null;
+
+const roleScripts = {
+    '민수': '지영 씨, 새 스마트폰을 샀어요?\n\n어떤 기능이 어려우세요?\n\n카메라 앱을 열어서 버튼을 누르세요. 화면을 터치하면 돼요.\n\n자동으로 저장돼요. 갤러리에서 볼 수 있어요.\n\n앱 스토어에서 검색해서 설치하세요. 무료 앱도 많아요.',
+    '지영': '네, 새로 바꿨어요. 그런데 사용법을 잘 몰라요.\n\n카메라 사용법이 어려워요. 사진을 어떻게 찍어요?\n\n사진을 저장하려면 어떻게 해요?\n\n애플리케이션은 어떻게 다운로드해요?\n\n감사합니다! 이제 사용할 수 있어요. 백업도 꼭 해야겠어요.'
+};
+
+function selectRole(role) {
+    selectedRole = role;
+    document.getElementById('selectedRole').textContent = 'Đã chọn: Vai ' + role;
+    document.getElementById('roleScript').textContent = roleScripts[role];
+    document.getElementById('role-minsu').classList.toggle('active', role === '민수');
+    document.getElementById('role-jiyoung').classList.toggle('active', role === '지영');
+}
+
+async function toggleRecording() {
+    if (!selectedRole) {
+        alert('⚠️ Vui lòng chọn vai trước khi ghi âm!');
+        return;
+    }
+    
+    if (!isRecording) {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+            
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audioPlayback = document.getElementById('audioPlayback');
+                audioPlayback.src = audioUrl;
+                audioPlayback.style.display = 'block';
+                stream.getTracks().forEach(track => track.stop());
+            };
+            
+            mediaRecorder.start();
+            isRecording = true;
+            document.getElementById('recordIcon').textContent = '⏹️';
+            document.getElementById('recordText').textContent = 'Dừng ghi âm';
+            document.getElementById('recordBtn').classList.add('recording');
+            document.getElementById('recordingStatus').textContent = '🔴 Đang ghi âm...';
+        } catch (err) {
+            alert('⚠️ Không thể truy cập microphone. Vui lòng kiểm tra quyền truy cập.');
+        }
+    } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        document.getElementById('recordIcon').textContent = '🎙️';
+        document.getElementById('recordText').textContent = 'Bắt đầu ghi âm';
+        document.getElementById('recordBtn').classList.remove('recording');
+        document.getElementById('recordingStatus').textContent = '✅ Đã ghi âm xong! Hãy nghe lại và so sánh với bản gốc.';
+    }
+}
+</script>
+</body>
+</html>

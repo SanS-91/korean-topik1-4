@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 7: Ôn tập & Luyện đề TOPIK - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 50%, #DDD6FE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #7C3AED; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #6D28D9; }
+.breadcrumb-separator { color: #C4B5FD; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #7C3AED; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(124,58,237,0.15); transition: all 0.3s; border: 2px solid #C4B5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(124,58,237,0.25); background: #F5F3FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(167,139,250,0.3) 0%, rgba(196,181,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏆'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '💻'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #6D28D9; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #7C3AED; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(124,58,237,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Flashcard Section - Violet */
+.flashcard-section .section-title { color: #6D28D9; border-color: #A78BFA; }
+.flashcard-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.flashcard-tab { padding: 10px 20px; background: white; color: #6D28D9; border: 2px solid #C4B5FD; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-tab.active { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border-color: transparent; }
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; }
+.flashcard-back { background: white; color: #2D3748; transform: rotateY(180deg); border: 3px solid #7C3AED; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 3em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.4em; font-weight: 700; color: #6D28D9; margin-bottom: 10px; text-align: center; }
+.flashcard-pronunciation { color: #718096; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #718096; margin-top: 10px; font-weight: 600; }
+
+.speak-btn { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(124,58,237,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Listening Exercise - Lime */
+.listening-exercise .section-title { color: #3F6212; border-color: #84CC16; }
+.listening-container { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #84CC16; }
+.listening-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.listening-number { background: #84CC16; color: white; padding: 5px 15px; border-radius: 15px; font-weight: 700; }
+.listening-type { background: white; color: #3F6212; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+
+.audio-player { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #BEF264; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(77,124,15,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #3F6212; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #84CC16; display: none; }
+.transcript-box.show { display: block; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #3F6212; font-size: 1.2em; margin-bottom: 15px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F7FEE7; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #3F6212; min-width: 100px; background: #D9F99D; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.score-section.show { display: block; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Evaluation Section - Purple */
+.evaluation-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.evaluation-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.evaluation-title { font-family: 'Baloo 2', cursive; color: #5B21B6; font-size: 1.3em; margin-bottom: 15px; }
+.evaluation-textarea { width: 100%; min-height: 150px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; margin-bottom: 15px; }
+.evaluation-textarea:focus { outline: none; border-color: #8B5CF6; }
+.save-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.save-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(139,92,246,0.4); }
+
+/* Checklist Section - Green */
+.checklist-section .section-title { color: #065F46; border-color: #10B981; }
+.checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.checklist-card { background: white; padding: 20px; border-radius: 15px; border: 2px solid #E2E8F0; }
+.checklist-card-title { font-family: 'Baloo 2', cursive; color: #3F6212; font-size: 1.2em; margin-bottom: 15px; }
+.checklist-item { padding: 10px; margin: 8px 0; background: #F7FEE7; border-radius: 10px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s; }
+.checklist-item:hover { background: #ECFCCB; }
+.checklist-item input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; accent-color: #84CC16; }
+.checklist-item.checked { background: #D9F99D; opacity: 0.7; }
+.checklist-item.checked span { text-decoration: line-through; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #7C3AED; border: 2px solid #C4B5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F5F3FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.checklist-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week08.html">💻 Tuần 8</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 7: Ôn tập & Luyện đề</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week08.html" class="nav-btn">← Về Tổng quan Tuần 8</a>
+<a href="topik3-week09.html" class="nav-btn primary">Tuần 9 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏆 NGÀY 7 • 7일차</span>
+<h1>Ôn tập & Luyện đề TOPIK format</h1>
+<div class="subtitle">Tổng kết Tuần 8 và chuẩn bị cho Tuần 9</div>
+<p class="description">
+Ôn tập toàn bộ kiến thức Tuần 8 về Công nghệ & Internet qua flashcard, luyện đề TOPIK format với 5 câu đọc và 3 câu nghe, 
+tự đánh giá và lên kế hoạch cho Tuần 9 (Giao thông & Vận tải). 💻
+</p>
+<div class="time-info">⏰ 60 phút • 🎴 Flashcard • 📝 Đề TOPIK • 📊 Tự đánh giá</div>
+</div>
+
+<!-- Flashcard Section -->
+<div class="section flashcard-section">
+<h2 class="section-title">🎴 1. Ôn tập Flashcard (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại từ vựng và ngữ pháp đã học trong tuần. Click vào thẻ để lật và xem nghĩa.</p>
+
+<div class="flashcard-tabs">
+<button class="flashcard-tab active" onclick="switchTab('vocab', event)">📚 Từ vựng (100 từ)</button>
+<button class="flashcard-tab" onclick="switchTab('grammar', event)">📘 Ngữ pháp (6 cấu trúc)</button>
+</div>
+
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">컴퓨터</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">Máy tính</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[keom-pyu-teo]</div>
+<button class="speak-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 100</div>
+</div>
+
+<!-- Reading Exercise -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 2. Luyện đề TOPIK - Phần Đọc (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc kỹ đoạn văn và chọn đáp án đúng. Tổng cộng 5 câu hỏi.</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 인터넷으로 할 수 없는 것은?</div>
+<div class="exercise-question">Điều gì KHÔNG thể làm qua internet?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 쇼핑하기 (Mua sắm)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 은행 업무 보기 (Làm việc ngân hàng)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 직접 악수하기 (Bắt tay trực tiếp)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 이메일 보내기 (Gửi email)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'c', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 다음 중 사이버 범죄의 예는?</div>
+<div class="exercise-question">Đâu là ví dụ về tội phạm mạng?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 쇼핑하기 (Mua sắm)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 피싱 (Phishing)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 음악 듣기 (Nghe nhạc)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 사진 찍기 (Chụp ảnh)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 인공지능의 장점은 무엇이에요?</div>
+<div class="exercise-question">Ưu điểm của AI là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 느린 속도 (Tốc độ chậm)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 편리함과 효율성 (Sự tiện lợi và hiệu quả)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 많은 실수 (Nhiều sai sót)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 비싼 비용 (Chi phí đắt)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 보안을 위해 무엇을 해야 돼요?</div>
+<div class="exercise-question">Để bảo mật thì phải làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 비밀번호를 공개해요 (Công khai mật khẩu)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 무료 와이파이를 사용해요 (Dùng wifi miễn phí)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 비밀번호를 자주 바꿔요 (Đổi mật khẩu thường xuyên)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 백신 프로그램을 삭제해요 (Xóa phần mềm diệt virus)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'c', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 다음 글을 읽고 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">
+<div style="background: #F0F9FF; padding: 15px; border-radius: 10px; margin-bottom: 15px; line-height: 1.8;">
+<strong>디지털 시대의 생활</strong><br><br>
+요즘 우리는 스마트폰 없이 살 수 없게 됐어요. 스마트폰으로 쇼핑을 하거나 은행 업무를 봐요. 
+음악을 들으면서 걸을 수 있어요. 하지만 스마트폰을 사용하는 동안 시간을 잘 관리해야 돼요. 
+스마트폰을 보면서 밥을 먹으면 안 돼요. 컴퓨터를 오래 사용하면 눈이 아파요. 
+해커가 개인정보를 훔칠 수 있어요. 그래서 비밀번호를 자주 바꿔야 돼요. 
+디지털 기술을 현명하게 사용하면 삶이 편리하게 될 거예요.
+</div>
+</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 스마트폰 없이 살 수 있어요 (Có thể sống thiếu smartphone)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 스마트폰을 보면서 밥을 먹어도 돼요 (Được vừa dùng smartphone vừa ăn)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 비밀번호를 자주 바꿔야 돼요 (Phải đổi mật khẩu thường xuyên)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 컴퓨터를 오래 사용하면 눈이 좋아져요 (Dùng máy tính lâu thì mắt tốt hơn)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'c', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Listening Exercise -->
+<div class="section listening-exercise">
+<h2 class="section-title">🎧 3. Luyện đề TOPIK - Phần Nghe (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại "컴퓨터 고장" từ Ngày 6 và trả lời 3 câu hỏi.</p>
+
+<div class="listening-container">
+<div class="audio-player">
+<button class="play-btn" id="listeningAudioBtn" onclick="speakListeningAudio(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe hội thoại "컴퓨터 고장" (Máy tính bị hỏng)</div>
+<div class="audio-sub">Nghe 2-3 lần trước khi trả lời câu hỏi</div>
+</div>
+</div>
+
+<button class="nav-btn" onclick="toggleTranscript()" style="margin: 15px 0; display: inline-block;">📜 Xem Transcript</button>
+
+<div class="transcript-box" id="transcriptBox">
+<div class="transcript-title">📜 Transcript</div>
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">안녕하세요, 컴퓨터가 고장 났어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text">어떤 문제가 있어요? 화면이 안 나와요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">네, 전원을 켰는데 화면이 검은색이에요. 그리고 오류 메시지가 떠요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text">케이블을 확인해 보세요. 케이블이 빠졌을 수도 있어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">아, 케이블이 빠졌어요. 다시 연결했어요. 그런데 여전히 오류가 있어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text">바이러스에 감염됐을 수도 있어요. 백신 프로그램이 있어요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">네, 있지만 업데이트를 안 했어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text">백신 프로그램을 업데이트하고 검사하세요. 그리고 중요한 파일은 백업해야 돼요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">감사합니다! 백업을 먼저 해야겠어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text">문제가 해결 안 되면 수리를 받으세요. 저희 회사로 오시면 수리해 드릴게요.</span>
+</div>
+</div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 6</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">고객의 컴퓨터에 어떤 문제가 있어요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 화면이 안 나와요 (Màn hình không hiển thị)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 소리가 안 나와요 (Không có âm thanh)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 키보드가 안 돼요 (Bàn phím không hoạt động)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 인터넷이 안 돼요 (Internet không hoạt động)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'a', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 7</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">기사가 먼저 무엇을 하라고 했어요?</div>
+<div class="exercise-question" style="font-weight: 400; font-size: 0.95em;">Kỹ thuật viên bảo làm gì trước tiên?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 새 컴퓨터를 사요 (Mua máy tính mới)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 케이블을 확인해요 (Kiểm tra cáp)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 인터넷을 연결해요 (Kết nối internet)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 전원을 꺼요 (Tắt nguồn)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'b', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 8</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">고객은 무엇을 먼저 해야겠다고 했어요?</div>
+<div class="exercise-question" style="font-weight: 400; font-size: 0.95em;">Khách hàng nói sẽ làm gì trước?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 수리받기 (Nhận sửa chữa)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 업데이트하기 (Cập nhật)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 백업하기 (Sao lưu)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 검사하기 (Kiểm tra)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'c', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Evaluation Section -->
+<div class="section evaluation-section">
+<h2 class="section-title">📊 4. Tự đánh giá (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ghi chú điểm yếu cần cải thiện và lên kế hoạch cho Tuần 9.</p>
+
+<div class="evaluation-box">
+<div class="evaluation-title">📝 Ghi chú điểm yếu cần cải thiện</div>
+<textarea class="evaluation-textarea" id="evaluationNotes" placeholder="Viết về những điểm bạn còn yếu và cần cải thiện trong Tuần 9...
+
+Ví dụ:
+- Ngữ pháp -게 하다 còn chưa nhớ rõ
+- Từ vựng về an ninh mạng cần ôn thêm
+- Nghe hiểu hội thoại sự cố máy tính cần luyện thêm
+- Phát âm các từ mượn tiếng Anh (클라우드, 사이버)..."></textarea>
+
+<div class="evaluation-title">📋 Kế hoạch Tuần 9 (Chủ đề: Giao thông & Vận tải)</div>
+<textarea class="evaluation-textarea" id="week9Plan" placeholder="Viết kế hoạch học tập cho Tuần 9...
+
+Ví dụ:
+- Mỗi ngày học 60 phút
+- Ôn từ vựng 15 phút mỗi sáng về giao thông
+- Luyện ngữ pháp 15 phút
+- Đọc 1 bài đọc 300 chữ về giao thông mỗi ngày
+- Cuối tuần làm đề thi thử TOPIK
+- Luyện nghe hội thoại hỏi đường, mua vé..."></textarea>
+
+<button class="save-btn" onclick="saveEvaluation()">💾 Lưu đánh giá</button>
+<div id="evaluation-feedback" style="margin-top: 15px; padding: 15px; border-radius: 12px; display: none;"></div>
+</div>
+</div>
+
+<!-- Checklist Section -->
+<div class="section checklist-section">
+<h2 class="section-title">✅ 5. Checklist hoàn thành Tuần 8</h2>
+<div class="checklist-grid">
+<div class="checklist-card">
+<div class="checklist-card-title">💻 Ngày 1-2</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thuộc 20 từ vựng về thiết bị điện tử</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -게 되다 và -거나</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "하루 일과와 스마트폰" 200 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -(으)면서 và -는 동안</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "인터넷 생활" 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Tóm tắt bài đọc 3-4 câu</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">📱 Ngày 3-4</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -(으)ㄹ 수 있다/없다 và -게 하다</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu hội thoại "스마트폰 사용법"</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Trả lời đúng 3/3 câu hỏi nghe</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thực hành Shadowing</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết 5-7 câu phức tạp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "디지털 시대의 삶"</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">🔒 Ngày 5-6</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu 2 bài 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Trả lời đúng 6/8 câu TOPIK</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Học 10 từ vựng mới</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết đoạn văn 300-400 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Sử dụng 4+ cấu trúc ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu "컴퓨터 고장"</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">🏆 Ngày 7</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Ôn tập 100 từ vựng + 6 ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Làm đề TOPIK (5 Đọc + 3 Nghe)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đạt điểm ≥ 80% (4/5 câu)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Tự đánh giá và ghi chú</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Lên kế hoạch Tuần 9</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hoàn thành checklist 7 ngày</span></div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">🎯 Mục tiêu đạt được sau Ngày 7</h2>
+<ul class="goals-list">
+<li>Điểm kiểm tra ≥ 80% (4/5 câu Đọc + 3/3 câu Nghe)</li>
+<li>Hoàn thành checklist 7 ngày của Tuần 8</li>
+<li>Ôn tập và nắm vững 100 từ vựng chủ đề công nghệ & internet</li>
+<li>Hiểu và sử dụng linh hoạt 6 cấu trúc ngữ pháp</li>
+<li>Viết được đoạn văn 300-400 chữ về trải nghiệm công nghệ</li>
+<li>Nghe hiểu hội thoại 10 lượt về sự cố máy tính</li>
+<li>Sẵn sàng chuyển sang Tuần 9 (Giao thông & Vận tải)</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week08.html" class="day-nav-btn">← Về Hub Tuần 8</a>
+<a href="topik3-week08-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week08-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week08-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week08-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week08-day05.html" class="day-nav-btn">Ngày 5</a>
+<a href="topik3-week08-day06.html" class="day-nav-btn">Ngày 6</a>
+<a href="topik3-week08-day07.html" class="day-nav-btn active">Ngày 7 ✓</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week08-day06.html" class="nav-btn">← Ngày 6</a>
+<a href="topik3-week09.html" class="nav-btn primary">Tiếp: Tuần 9 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">💻 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Công nghệ là tương lai, ngôn ngữ là cầu nối"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['💻', '📱', '🌐', '🤖', '⚡', '🎮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakListeningAudio(btnElement) {
+    const fullText = '안녕하세요, 컴퓨터가 고장 났어요. 어떤 문제가 있어요? 화면이 안 나와요? 네, 전원을 켰는데 화면이 검은색이에요. 그리고 오류 메시지가 떠요. 케이블을 확인해 보세요. 케이블이 빠졌을 수도 있어요. 아, 케이블이 빠졌어요. 다시 연결했어요. 그런데 여전히 오류가 있어요. 바이러스에 감염됐을 수도 있어요. 백신 프로그램이 있어요? 네, 있지만 업데이트를 안 했어요. 백신 프로그램을 업데이트하고 검사하세요. 그리고 중요한 파일은 백업해야 돼요. 감사합니다! 백업을 먼저 해야겠어요. 문제가 해결 안 되면 수리를 받으세요. 저희 회사로 오시면 수리해 드릴게요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Flashcard data
+const vocabFlashcards = [
+    { char: '컴퓨터', meaning: 'Máy tính', pron: '[keom-pyu-teo]' },
+    { char: '스마트폰', meaning: 'Smartphone', pron: '[seu-ma-teu-pfon]' },
+    { char: '태블릿', meaning: 'Máy tính bảng', pron: '[tae-beul-lit]' },
+    { char: '이어폰', meaning: 'Tai nghe', pron: '[i-eo-pon]' },
+    { char: '충전기', meaning: 'Bộ sạc', pron: '[chung-jeon-gi]' },
+    { char: '키보드', meaning: 'Bàn phím', pron: '[ki-bo-deu]' },
+    { char: '마우스', meaning: 'Chuột', pron: '[ma-u-seu]' },
+    { char: '모니터', meaning: 'Màn hình', pron: '[mo-ni-teo]' },
+    { char: '프린터', meaning: 'Máy in', pron: '[peu-rin-teo]' },
+    { char: '스피커', meaning: 'Loa', pron: '[seu-pi-keo]' },
+    { char: '카메라', meaning: 'Máy ảnh', pron: '[ka-me-ra]' },
+    { char: '배터리', meaning: 'Pin', pron: '[bae-teo-ri]' },
+    { char: '화면', meaning: 'Màn hình', pron: '[hwa-myeon]' },
+    { char: '버튼', meaning: 'Nút bấm', pron: '[beo-teun]' },
+    { char: '케이블', meaning: 'Cáp', pron: '[ke-i-beul]' },
+    { char: 'USB', meaning: 'USB', pron: '[yu-es-bi]' },
+    { char: '하드디스크', meaning: 'Ổ cứng', pron: '[ha-deu-di-seu-keu]' },
+    { char: '메모리', meaning: 'Bộ nhớ', pron: '[me-mo-ri]' },
+    { char: '소프트웨어', meaning: 'Phần mềm', pron: '[so-peu-teu-we-eo]' },
+    { char: '하드웨어', meaning: 'Phần cứng', pron: '[ha-deu-we-eo]' },
+    { char: '인터넷', meaning: 'Internet', pron: '[in-teo-net]' },
+    { char: '와이파이', meaning: 'Wifi', pron: '[wa-i-pa-i]' },
+    { char: '이메일', meaning: 'Email', pron: '[i-me-il]' },
+    { char: '웹사이트', meaning: 'Trang web', pron: '[wep-sa-i-teu]' },
+    { char: 'SNS', meaning: 'Mạng xã hội', pron: '[es-en-e-seu]' },
+    { char: '메시지', meaning: 'Tin nhắn', pron: '[me-si-ji]' },
+    { char: '검색', meaning: 'Tìm kiếm', pron: '[geom-saek]' },
+    { char: '다운로드', meaning: 'Tải xuống', pron: '[da-un-ro-deu]' },
+    { char: '업로드', meaning: 'Tải lên', pron: '[eop-ro-deu]' },
+    { char: '로그인', meaning: 'Đăng nhập', pron: '[ro-geu-in]' },
+    { char: '비밀번호', meaning: 'Mật khẩu', pron: '[bi-mil-beon-ho]' },
+    { char: '아이디', meaning: 'ID', pron: '[a-i-di]' },
+    { char: '링크', meaning: 'Liên kết', pron: '[ring-keu]' },
+    { char: '게시물', meaning: 'Bài đăng', pron: '[ge-si-mul]' },
+    { char: '댓글', meaning: 'Bình luận', pron: '[daet-geul]' },
+    { char: '좋아요', meaning: 'Thích', pron: '[jo-a-yo]' },
+    { char: '공유', meaning: 'Chia sẻ', pron: '[gong-yu]' },
+    { char: '팔로우', meaning: 'Theo dõi', pron: '[pal-lo-u]' },
+    { char: '해시태그', meaning: 'Hashtag', pron: '[hae-si-tae-geu]' },
+    { char: '온라인', meaning: 'Trực tuyến', pron: '[on-ra-in]' },
+    { char: '애플리케이션', meaning: 'Ứng dụng', pron: '[ae-peul-li-ke-i-syeon]' },
+    { char: '프로그램', meaning: 'Chương trình', pron: '[peu-ro-geu-raem]' },
+    { char: '게임', meaning: 'Trò chơi', pron: '[ge-im]' },
+    { char: '동영상', meaning: 'Video', pron: '[dong-yeong-sang]' },
+    { char: '사진', meaning: 'Ảnh', pron: '[sa-jin]' },
+    { char: '지도', meaning: 'Bản đồ', pron: '[ji-do]' },
+    { char: '쇼핑', meaning: 'Mua sắm', pron: '[syo-ping]' },
+    { char: '예약', meaning: 'Đặt chỗ', pron: '[ye-yak]' },
+    { char: '번역', meaning: 'Dịch thuật', pron: '[beon-yeok]' },
+    { char: '결제', meaning: 'Thanh toán', pron: '[gyeol-je]' }
+];
+
+const grammarFlashcards = [
+    { char: '-게 되다', meaning: 'Trở nên (kết quả)', pron: '[-ge doeda]' },
+    { char: '-거나', meaning: 'Hoặc (lựa chọn)', pron: '[-geona]' },
+    { char: '-(으)면서', meaning: 'Vừa...vừa (đồng thời)', pron: '[-(eu)myeonseo]' },
+    { char: '-는 동안', meaning: 'Trong khoảng thời gian', pron: '[-neun dong-an]' },
+    { char: '-(으)ㄹ 수 있다', meaning: 'Có thể', pron: '[-(eu)l su itda]' },
+    { char: '-게 하다', meaning: 'Khiến cho, bắt làm', pron: '[-ge hada]' }
+];
+
+let currentFlashcards = vocabFlashcards;
+let currentFlashcard = 0;
+
+function switchTab(type, event) {
+    document.querySelectorAll('.flashcard-tab').forEach(tab => tab.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    if (type === 'vocab') {
+        currentFlashcards = vocabFlashcards;
+    } else {
+        currentFlashcards = grammarFlashcards;
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = currentFlashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = currentFlashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = currentFlashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + currentFlashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + currentFlashcards.length) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = currentFlashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [currentFlashcards[i], currentFlashcards[j]] = [currentFlashcards[j], currentFlashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').classList.add('show');
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 80) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Tuần 9!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài học.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week8_progress') || '[]');
+        if (!progress.includes(7)) {
+            progress.push(7);
+            localStorage.setItem('topik3_week8_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function toggleTranscript() {
+    const transcriptBox = document.getElementById('transcriptBox');
+    transcriptBox.classList.toggle('show');
+}
+
+function saveEvaluation() {
+    const notes = document.getElementById('evaluationNotes').value.trim();
+    const plan = document.getElementById('week9Plan').value.trim();
+    const feedback = document.getElementById('evaluation-feedback');
+    
+    if (notes && plan) {
+        localStorage.setItem('topik3_week8_evaluation', notes);
+        localStorage.setItem('topik3_week9_plan', plan);
+        feedback.style.display = 'block';
+        feedback.style.background = '#F0FFF4';
+        feedback.style.color = '#065F46';
+        feedback.style.border = '2px solid #10B981';
+        feedback.innerHTML = '✅ Đã lưu đánh giá và kế hoạch Tuần 9!';
+    } else {
+        feedback.style.display = 'block';
+        feedback.style.background = '#FEF3C7';
+        feedback.style.color = '#92400E';
+        feedback.style.border = '2px solid #F59E0B';
+        feedback.innerHTML = '⚠️ Vui lòng điền đầy đủ thông tin!';
+    }
+}
+
+function toggleChecklist(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('checked');
+}
+
+// Load saved data
+window.onload = function() {
+    const savedNotes = localStorage.getItem('topik3_week8_evaluation');
+    if (savedNotes) {
+        document.getElementById('evaluationNotes').value = savedNotes;
+    }
+    const savedPlan = localStorage.getItem('topik3_week9_plan');
+    if (savedPlan) {
+        document.getElementById('week9Plan').value = savedPlan;
+    }
+};
+</script>
+</body>
+</html>

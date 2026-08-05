@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 6: Viết đoạn văn & Luyện hội thoại - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 50%, #DDD6FE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #7C3AED; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #6D28D9; }
+.breadcrumb-separator { color: #C4B5FD; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #7C3AED; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(124,58,237,0.15); transition: all 0.3s; border: 2px solid #C4B5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(124,58,237,0.25); background: #F5F3FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(167,139,250,0.3) 0%, rgba(196,181,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '✍️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🔧'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #6D28D9; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #7C3AED; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(124,58,237,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 320px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 5px; line-height: 1.6; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 5px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Conversation Section - Violet */
+.conversation-section .section-title { color: #6D28D9; border-color: #A78BFA; }
+.conversation-box { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border: 2px solid #A78BFA; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.conversation-title { font-family: 'Baloo 2', cursive; color: #6D28D9; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.shadowing-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.shadowing-step { padding: 12px; margin: 8px 0; border-left: 4px solid #A78BFA; background: #F5F3FF; border-radius: 8px; }
+.shadowing-step strong { color: #6D28D9; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #A78BFA; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #6D28D9; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F5F3FF; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #6D28D9; min-width: 120px; background: #EDE9FE; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+.dialogue-text strong { color: #6D28D9; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #C4B5FD; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(124,58,237,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #6D28D9; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.speak-btn { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(124,58,237,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Recording Section - Red */
+.recording-section .section-title { color: #991B1B; border-color: #EF4444; }
+.recording-box { background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%); border: 2px solid #EF4444; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.recording-title { font-family: 'Baloo 2', cursive; color: #991B1B; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.role-selector { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+.role-btn { padding: 12px 25px; background: white; color: #991B1B; border: 2px solid #FECACA; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.role-btn:hover { background: #FEF2F2; transform: translateY(-2px); }
+.role-btn.active { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border-color: transparent; }
+.role-script { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; color: #991B1B; line-height: 1.8; min-height: 80px; }
+.record-btn { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; display: inline-flex; align-items: center; gap: 10px; }
+.record-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(239,68,68,0.4); }
+.record-btn.recording { animation: pulse 1s infinite; }
+.recording-status { margin-top: 15px; color: #718096; font-size: 0.95em; }
+.audio-playback { width: 100%; margin-top: 15px; display: none; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #7C3AED; border: 2px solid #C4B5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F5F3FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week08.html">💻 Tuần 8</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 6: Viết & Hội thoại</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week08.html" class="nav-btn">← Về Tổng quan Tuần 8</a>
+<a href="topik3-week08-day07.html" class="nav-btn primary">Ngày 7 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">✍️ NGÀY 6 • 6일차</span>
+<h1>Viết đoạn văn & Luyện hội thoại</h1>
+<div class="subtitle">Tổng hợp kỹ năng viết và nói về chủ đề công nghệ</div>
+<p class="description">
+Viết đoạn văn 300-400 chữ về <strong>"나의 디지털 경험"</strong> (Trải nghiệm công nghệ của tôi) và luyện hội thoại 
+với chủ đề <strong>"컴퓨터 고장"</strong> (Máy tính bị hỏng). Ghi âm và tự đánh giá phát âm. 🔧
+</p>
+<div class="time-info">⏰ 60 phút • ✍️ Viết 300-400 chữ • 🗣️ Hội thoại 10 lượt • 🎙️ Ghi âm</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 1. Viết đoạn văn (30 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết đoạn văn 300-400 chữ về chủ đề "나의 디지털 경험" (Trải nghiệm công nghệ của tôi). Sử dụng cấu trúc Mở bài + Thân bài + Kết bài và ít nhất 4 cấu trúc ngữ pháp đã học.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Đề bài:</strong> Viết đoạn văn về <strong>"나의 디지털 경험" (Trải nghiệm công nghệ của tôi)</strong><br><br>
+<strong>Yêu cầu:</strong><br>
+• Độ dài: <strong>300-400 chữ</strong> (khoảng 15-20 câu)<br>
+• Cấu trúc: <strong>Mở bài (2-3 câu) + Thân bài (3-4 trải nghiệm) + Kết bài (2-3 câu)</strong><br>
+• Sử dụng ít nhất <strong>4 cấu trúc ngữ pháp</strong> đã học trong tuần:<br>
+  - <strong>-게 되다</strong> (trở nên)<br>
+  - <strong>-거나</strong> (hoặc)<br>
+  - <strong>-(으)면서</strong> (vừa...vừa)<br>
+  - <strong>-는 동안</strong> (trong khi)<br>
+  - <strong>-(으)ㄹ 수 있다/없다</strong> (có thể/không thể)<br>
+  - <strong>-게 하다</strong> (khiến cho, bắt làm)<br><br>
+• Sử dụng từ vựng: 디지털, 스마트폰, 컴퓨터, 인터넷, SNS, 이메일, 앱, 데이터, 클라우드, AI, 로봇, 보안, 개인정보, 해킹, 바이러스, 업데이트
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📝 Dàn ý gợi ý</h4>
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+<strong style="color: #8B5CF6;">📌 Mở bài (2-3 câu):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Giới thiệu về cuộc sống số của bạn và tầm quan trọng của công nghệ.</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 요즘 우리는 디지털 시대에 살게 됐어요. 스마트폰은 우리 생활에 필수품이 됐어요.</p>
+</div>
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+<strong style="color: #8B5CF6;">📌 Thân bài (3-4 trải nghiệm):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Miêu tả các trải nghiệm công nghệ: mua sắm online, học tập, làm việc, giải trí, vấn đề bảo mật</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 인터넷으로 쇼핑을 하거나 은행 업무를 봐요. 스마트폰을 보면서 시간을 보내요.</p>
+</div>
+<div style="background: white; padding: 15px; border-radius: 12px;">
+<strong style="color: #8B5CF6;">📌 Kết bài (2-3 câu):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Cảm nhận và kế hoạch sử dụng công nghệ thông minh</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 우리는 디지털 기술을 현명하게 사용해야 돼요. 기술을 잘 활용하면 삶이 편리하게 될 거예요.</p>
+</div>
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📝 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">요즘 우리는 디지털 시대에 살게 됐어요. 스마트폰과 컴퓨터는 우리 생활에 필수품이 됐어요. 저는 매일 디지털 기기를 사용해요.</div>
+<div class="writing-example-meaning">Dạo này chúng ta đã trở nên sống trong thời đại số. Smartphone và máy tính đã trở thành vật dụng thiết yếu trong cuộc sống. Tôi sử dụng thiết bị số mỗi ngày.</div>
+<div class="writing-example-grammar">Ngữ pháp: -게 되다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">아침에 일어나자마자 스마트폰으로 뉴스를 확인해요. 출근하면서 이어폰으로 음악을 들어요. 회사에서는 컴퓨터로 일을 해요.</div>
+<div class="writing-example-meaning">Sáng ngủ dậy là kiểm tra tin tức bằng smartphone. Đi làm vừa nghe nhạc bằng tai nghe. Ở công ty làm việc bằng máy tính.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)면서</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">점심에는 스마트폰으로 쇼핑을 하거나 은행 업무를 봐요. SNS에서 친구들과 소통해요. 이메일로 업무를 처리해요.</div>
+<div class="writing-example-meaning">Trưa mua sắm hoặc làm việc ngân hàng bằng smartphone. Giao tiếp với bạn bè qua SNS. Xử lý công việc qua email.</div>
+<div class="writing-example-grammar">Ngữ pháp: -거나</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">인터넷을 사용하는 동안 시간을 잘 관리해야 돼요. 스마트폰을 보면서 밥을 먹으면 안 돼요. 컴퓨터를 오래 사용하면 눈이 아파요.</div>
+<div class="writing-example-meaning">Trong khi sử dụng internet phải quản lý thời gian tốt. Không được vừa dùng smartphone vừa ăn cơm. Dùng máy tính lâu thì mắt bị đau.</div>
+<div class="writing-example-grammar">Ngữ pháp: -는 동안, -(으)면서</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">사이버 범죄도 늘어나고 있어요. 해커가 개인정보를 훔칠 수 있어요. 그래서 보안을 강화해야 돼요. 비밀번호를 자주 바꾸는 게 좋아요.</div>
+<div class="writing-example-meaning">Tội phạm mạng cũng đang gia tăng. Hacker có thể lấy trộm thông tin cá nhân. Vì vậy phải tăng cường bảo mật. Nên đổi mật khẩu thường xuyên.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)ㄹ 수 있다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">AI와 로봇 기술도 발전하고 있어요. 클라우드에 데이터를 저장할 수 있어요. 부모님이 아이들에게 스마트폰을 덜 사용하게 해요.</div>
+<div class="writing-example-meaning">Công nghệ AI và robot cũng đang phát triển. Có thể lưu dữ liệu trên đám mây. Bố mẹ bắt trẻ em dùng smartphone ít hơn.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)ㄹ 수 있다, -게 하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">우리는 디지털 기술을 현명하게 사용해야 돼요. 기술을 잘 활용하면 삶이 편리하게 될 거예요. 하지만 디지털 중독에 조심해야 돼요.</div>
+<div class="writing-example-meaning">Chúng ta phải sử dụng công nghệ số thông minh. Nếu sử dụng công nghệ tốt thì cuộc sống sẽ trở nên tiện lợi. Nhưng phải cẩn thận với nghiện số.</div>
+<div class="writing-example-grammar">Ngữ pháp: -게 되다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="writingText" placeholder="Viết đoạn văn của bạn về trải nghiệm công nghệ...
+
+Gợi ý bắt đầu:
+요즘 우리는 디지털 시대에...
+스마트폰으로...
+인터넷을 사용하는 동안...
+사이버 범죄도...
+우리는 디지털 기술을...
+
+Hãy viết 15-20 câu (300-400 chữ)!
+Sử dụng ít nhất 4 cấu trúc ngữ pháp đã học."></textarea>
+
+<div style="background: white; padding: 10px 15px; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #5B21B6;">
+<span>📝 Số chữ đã viết:</span>
+<span id="wordCount" style="font-size: 1.2em;">0 / 300-400 chữ</span>
+</div>
+
+<button class="check-btn" onclick="checkWriting()">✓ Kiểm tra bài viết</button>
+
+<div id="writing-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết đoạn văn TOPIK 3:</strong><br>
+• <strong>Độ dài:</strong> 300-400 chữ (khoảng 15-20 câu)<br>
+• <strong>Cấu trúc:</strong> Mở bài giới thiệu → Thân bài miêu tả chi tiết → Kết bài cảm nhận<br>
+• <strong>Ngữ pháp:</strong> Sử dụng đa dạng 4+ cấu trúc đã học<br>
+• <strong>Từ vựng:</strong> Sử dụng từ vựng chủ đề công nghệ đã học trong tuần<br>
+• <strong>Liên kết:</strong> Sử dụng từ nối: 그리고 (và), 그래서 (vì vậy), 그러면 (như vậy), 하지만 (nhưng)<br>
+• <strong>Thời gian:</strong> 30 phút (10 phút lập dàn ý + 15 phút viết + 5 phút kiểm tra)
+</div>
+</div>
+</div>
+
+<!-- Conversation Section -->
+<div class="section conversation-section">
+<h2 class="section-title">🔧 2. Luyện hội thoại (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại 3 lần theo thứ tự • Lần 1 lấy ý chính • Lần 2 nghe chi tiết + transcript • Lần 3 Shadowing</p>
+
+<div class="conversation-box">
+<div class="conversation-title">🔧 Hội thoại: 컴퓨터 고장 (Máy tính bị hỏng)</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullDialogue(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ hội thoại</div>
+<div class="audio-sub">Nghe 3 lần: Ý chính → Chi tiết → Shadowing</div>
+</div>
+</div>
+
+<div class="shadowing-steps">
+<div class="shadowing-step">
+<strong>🎯 Lần 1 (5 phút):</strong> Nghe lấy ý chính - Không nhìn transcript, cố gắng hiểu nội dung chính về sự cố máy tính
+</div>
+<div class="shadowing-step">
+<strong>📝 Lần 2 (7 phút):</strong> Nghe chi tiết + Đọc transcript - Vừa nghe vừa đọc, chú ý ngữ điệu và từ mới
+</div>
+<div class="shadowing-step">
+<strong>🗣️ Lần 3 (8 phút):</strong> Shadowing - Nghe và đọc đuổi theo, bắt chước ngữ điệu và tốc độ
+</div>
+</div>
+
+<div class="transcript-box">
+<div class="transcript-title">📜 Transcript (Bản ghi lời thoại)</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객 (Khách):</span>
+<span class="dialogue-text">안녕하세요, <strong>컴퓨터</strong>가 <strong>고장</strong> 났어요.</span>
+<button class="speak-btn" onclick="speakKorean('안녕하세요, 컴퓨터가 고장 났어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">기사 (Kỹ thuật):</span>
+<span class="dialogue-text">어떤 <strong>문제</strong>가 있어요? <strong>화면</strong>이 안 나와요?</span>
+<button class="speak-btn" onclick="speakKorean('어떤 문제가 있어요? 화면이 안 나와요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">네, <strong>전원</strong>을 켰는데 <strong>화면</strong>이 검은색이에요. 그리고 <strong>오류</strong> 메시지가 떠요.</span>
+<button class="speak-btn" onclick="speakKorean('네, 전원을 켰는데 화면이 검은색이에요. 그리고 오류 메시지가 떠요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text"><strong>케이블</strong>을 확인해 보세요. <strong>케이블</strong>이 빠졌을 수도 있어요.</span>
+<button class="speak-btn" onclick="speakKorean('케이블을 확인해 보세요. 케이블이 빠졌을 수도 있어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">아, <strong>케이블</strong>이 빠졌어요. 다시 연결했어요. 그런데 여전히 <strong>오류</strong>가 있어요.</span>
+<button class="speak-btn" onclick="speakKorean('아, 케이블이 빠졌어요. 다시 연결했어요. 그런데 여전히 오류가 있어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text"><strong>바이러스</strong>에 감염됐을 수도 있어요. <strong>백신 프로그램</strong>이 있어요?</span>
+<button class="speak-btn" onclick="speakKorean('바이러스에 감염됐을 수도 있어요. 백신 프로그램이 있어요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">네, 있지만 <strong>업데이트</strong>를 안 했어요.</span>
+<button class="speak-btn" onclick="speakKorean('네, 있지만 업데이트를 안 했어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text"><strong>백신 프로그램</strong>을 <strong>업데이트</strong>하고 <strong>검사</strong>하세요. 그리고 중요한 파일은 <strong>백업</strong>해야 돼요.</span>
+<button class="speak-btn" onclick="speakKorean('백신 프로그램을 업데이트하고 검사하세요. 그리고 중요한 파일은 백업해야 돼요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">고객:</span>
+<span class="dialogue-text">감사합니다! <strong>백업</strong>을 먼저 해야겠어요.</span>
+<button class="speak-btn" onclick="speakKorean('감사합니다! 백업을 먼저 해야겠어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">기사:</span>
+<span class="dialogue-text">문제가 해결 안 되면 <strong>수리</strong>를 받으세요. 저희 회사로 오시면 <strong>수리</strong>해 드릴게요.</span>
+<button class="speak-btn" onclick="speakKorean('문제가 해결 안 되면 수리를 받으세요. 저희 회사로 오시면 수리해 드릴게요.', this)">🔊</button>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">📚 Từ vựng & Ngữ pháp trong hội thoại:</strong>
+<div style="margin-top: 10px; color: #78350F; line-height: 1.8;">
+• <strong>컴퓨터</strong> [keom-pyu-teo]: Máy tính<br>
+• <strong>고장</strong> [go-jang]: Hỏng hóc, sự cố<br>
+• <strong>화면</strong> [hwa-myeon]: Màn hình<br>
+• <strong>전원</strong> [jeon-won]: Nguồn điện<br>
+• <strong>오류</strong> [o-ryu]: Lỗi<br>
+• <strong>케이블</strong> [ke-i-beul]: Cáp<br>
+• <strong>바이러스</strong> [ba-i-reo-seu]: Virus<br>
+• <strong>백신 프로그램</strong> [baek-sin peu-ro-geu-raem]: Phần mềm diệt virus<br>
+• <strong>업데이트</strong> [eop-de-i-teu]: Cập nhật<br>
+• <strong>검사</strong> [geom-sa]: Kiểm tra<br>
+• <strong>백업</strong> [baek-eop]: Sao lưu<br>
+• <strong>수리</strong> [su-ri]: Sửa chữa<br>
+• <strong>-게 되다</strong>: Trở nên (화면이 검은색이 됐어요 - màn hình đã trở nên đen)<br>
+• <strong>-거나</strong>: Hoặc (화면이 안 나오거나 오류가 있어요)<br>
+• <strong>-는 동안</strong>: Trong khi (컴퓨터를 사용하는 동안)<br>
+• <strong>-게 하다</strong>: Khiến cho (수리해 드릴게요 - tôi sẽ khiến cho sửa)
+</div>
+</div>
+
+<div style="background: #FAF5FF; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #5B21B6;">🎭 Role-play (Đóng vai):</strong>
+<p style="color: #6B21A8; margin-top: 10px;">Chọn vai <strong>고객</strong> (khách hàng) hoặc <strong>기사</strong> (kỹ thuật viên) và thực hành hội thoại. Đọc to phần thoại của vai mình, dừng lại để đối tác đọc phần còn lại.</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 3. Bài tập nghe hiểu (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe lại hội thoại nếu cần • Chọn đáp án đúng • Kiểm tra kết quả</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 컴퓨터가 왜 고장 났어요?</div>
+<div class="exercise-question">Tại sao máy tính bị hỏng?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 케이블이 빠졌어요 (Cáp bị rút ra)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 바이러스에 감염됐어요 (Bị nhiễm virus)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 화면이 깨졌어요 (Màn hình bị vỡ)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 전원이 없어요 (Không có nguồn điện)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 여자는 무엇을 먼저 해야 해요?</div>
+<div class="exercise-question">Người phụ nữ phải làm gì trước tiên?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 업데이트하기 (Cập nhật)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 검사하기 (Kiểm tra)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 수리하기 (Sửa chữa)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 백업하기 (Sao lưu)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'd', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 남자의 추천은 뭐예요?</div>
+<div class="exercise-question">Đề xuất của người đàn ông là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 새 컴퓨터를 사요 (Mua máy tính mới)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 인터넷을 사용해요 (Sử dụng internet)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 이메일을 보내요 (Gửi email)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 수리를 받아요 (Nhận sửa chữa)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'd', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div style="background: #F0FFF4; border-left: 4px solid #10B981; padding: 20px; border-radius: 15px; margin-top: 25px;">
+<h4 style="color: #065F46; font-family: 'Baloo 2', cursive; margin-bottom: 12px;">📊 Kết quả bài tập</h4>
+<div id="totalScore" style="font-size: 1.2em; color: #065F46; font-weight: 700;">Đã làm: 0/3 câu</div>
+<p style="color: #718096; margin-top: 10px;">Mục tiêu: Trả lời đúng 3/3 câu hỏi ✅</p>
+</div>
+</div>
+
+<!-- Recording Section -->
+<div class="section recording-section">
+<h2 class="section-title">🎙️ 4. Ghi âm & Tự đánh giá (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Chọn vai • Ghi âm hội thoại • Nghe lại và so sánh với bản gốc • Tự đánh giá phát âm</p>
+
+<div class="recording-box">
+<div class="recording-title">🎙️ Ghi âm thực hành</div>
+<p style="color: #718096; margin-bottom: 15px;">Chọn vai bạn muốn đóng và bấm nút ghi âm:</p>
+
+<div class="role-selector">
+<button class="role-btn" onclick="selectRole('고객')" id="role-customer">👤 Vai 고객 (Khách hàng)</button>
+<button class="role-btn" onclick="selectRole('기사')" id="role-technician">👤 Vai 기사 (Kỹ thuật viên)</button>
+</div>
+
+<div id="selectedRole" style="background: white; padding: 12px; border-radius: 10px; margin-bottom: 15px; color: #991B1B; font-weight: 600;">
+Chưa chọn vai
+</div>
+
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+<strong style="color: #991B1B;">📜 Thoại của vai bạn:</strong>
+<div id="roleScript" style="margin-top: 10px; color: #718096; line-height: 1.8; min-height: 80px;">
+Hãy chọn vai để xem thoại...
+</div>
+</div>
+
+<button class="record-btn" id="recordBtn" onclick="toggleRecording()">
+<span id="recordIcon">🎙️</span>
+<span id="recordText">Bắt đầu ghi âm</span>
+</button>
+
+<div class="recording-status" id="recordingStatus"></div>
+<audio id="audioPlayback" controls class="audio-playback"></audio>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">🎯 Tiêu chí tự đánh giá:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li><strong>Phát âm:</strong> Phát âm rõ ràng, đúng patchim (phụ âm cuối)</li>
+<li><strong>Ngữ điệu:</strong> Lên giọng ở câu hỏi, xuống giọng ở câu khẳng định</li>
+<li><strong>Tốc độ:</strong> Tốc độ tự nhiên, không quá nhanh cũng không quá chậm</li>
+<li><strong>Ngắt nghỉ:</strong> Ngắt nghỉ đúng chỗ sau mỗi câu</li>
+<li><strong>Từ vựng:</strong> Sử dụng đúng từ vựng về sự cố máy tính và hướng dẫn sửa chữa</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 6</h2>
+<ul class="goals-list">
+<li>Viết đoạn văn 300-400 chữ về "나의 디지털 경험" (Trải nghiệm công nghệ của tôi)</li>
+<li>Sử dụng ít nhất 4 cấu trúc ngữ pháp đã học trong tuần</li>
+<li>Sử dụng đa dạng từ vựng chủ đề công nghệ và internet</li>
+<li>Nghe hiểu hội thoại 10 lượt về sự cố máy tính</li>
+<li>Thực hành Shadowing và Role-play hội thoại</li>
+<li>Ghi âm và tự đánh giá phát âm theo 5 tiêu chí</li>
+<li>Hoàn thành checklist 6 ngày đầu tuần</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week08.html" class="day-nav-btn">← Về Hub Tuần 8</a>
+<a href="topik3-week08-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week08-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week08-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week08-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week08-day05.html" class="day-nav-btn">Ngày 5</a>
+<a href="topik3-week08-day06.html" class="day-nav-btn active">Ngày 6 ✓</a>
+<a href="topik3-week08-day07.html" class="day-nav-btn">Ngày 7 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week08-day05.html" class="nav-btn">← Ngày 5</a>
+<a href="topik3-week08-day07.html" class="nav-btn primary">Tiếp: Ngày 7 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">💻 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Công nghệ là tương lai, ngôn ngữ là cầu nối"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['💻', '📱', '🌐', '🤖', '⚡', '🎮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullDialogue(btnElement) {
+    const fullText = '안녕하세요, 컴퓨터가 고장 났어요. 어떤 문제가 있어요? 화면이 안 나와요? 네, 전원을 켰는데 화면이 검은색이에요. 그리고 오류 메시지가 떠요. 케이블을 확인해 보세요. 케이블이 빠졌을 수도 있어요. 아, 케이블이 빠졌어요. 다시 연결했어요. 그런데 여전히 오류가 있어요. 바이러스에 감염됐을 수도 있어요. 백신 프로그램이 있어요? 네, 있지만 업데이트를 안 했어요. 백신 프로그램을 업데이트하고 검사하세요. 그리고 중요한 파일은 백업해야 돼요. 감사합니다! 백업을 먼저 해야겠어요. 문제가 해결 안 되면 수리를 받으세요. 저희 회사로 오시면 수리해 드릴게요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Word counter
+const writingText = document.getElementById('writingText');
+const wordCount = document.getElementById('wordCount');
+
+writingText.addEventListener('input', function() {
+    const text = this.value.trim();
+    const count = text.length;
+    wordCount.textContent = count + ' / 300-400 chữ';
+    if (count >= 300 && count <= 400) {
+        wordCount.style.color = '#10B981';
+    } else {
+        wordCount.style.color = '#5B21B6';
+    }
+});
+
+function checkWriting() {
+    const text = writingText.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    const count = text.length;
+    
+    if (count < 300) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn (' + count + ' chữ). Hãy viết ít nhất 300 chữ nhé!';
+    } else if (count > 450) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết hơi dài (' + count + ' chữ). Hãy viết trong khoảng 300-400 chữ!';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Xuất sắc! Bài viết của bạn đạt ' + count + ' chữ. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 4 cấu trúc ngữ pháp?<br>• Có cấu trúc Mở bài + Thân bài + Kết bài?<br>• Sử dụng đa dạng từ vựng chủ đề công nghệ?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week8_progress') || '[]');
+        if (!progress.includes(6)) {
+            progress.push(6);
+            localStorage.setItem('topik3_week8_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Exercise answers
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    document.getElementById('totalScore').textContent = `Đã làm: ${correctAnswers}/3 câu`;
+}
+
+// Recording functionality
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let selectedRole = null;
+
+const roleScripts = {
+    '고객': '안녕하세요, 컴퓨터가 고장 났어요.\n\n네, 전원을 켰는데 화면이 검은색이에요. 그리고 오류 메시지가 떠요.\n\n아, 케이블이 빠졌어요. 다시 연결했어요. 그런데 여전히 오류가 있어요.\n\n네, 있지만 업데이트를 안 했어요.\n\n감사합니다! 백업을 먼저 해야겠어요.',
+    '기사': '어떤 문제가 있어요? 화면이 안 나와요?\n\n케이블을 확인해 보세요. 케이블이 빠졌을 수도 있어요.\n\n바이러스에 감염됐을 수도 있어요. 백신 프로그램이 있어요?\n\n백신 프로그램을 업데이트하고 검사하세요. 그리고 중요한 파일은 백업해야 돼요.\n\n문제가 해결 안 되면 수리를 받으세요. 저희 회사로 오시면 수리해 드릴게요.'
+};
+
+function selectRole(role) {
+    selectedRole = role;
+    document.getElementById('selectedRole').textContent = 'Đã chọn: Vai ' + role;
+    document.getElementById('roleScript').textContent = roleScripts[role];
+    document.getElementById('role-customer').classList.toggle('active', role === '고객');
+    document.getElementById('role-technician').classList.toggle('active', role === '기사');
+}
+
+async function toggleRecording() {
+    if (!selectedRole) {
+        alert('⚠️ Vui lòng chọn vai trước khi ghi âm!');
+        return;
+    }
+    
+    if (!isRecording) {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+            
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audioPlayback = document.getElementById('audioPlayback');
+                audioPlayback.src = audioUrl;
+                audioPlayback.style.display = 'block';
+                stream.getTracks().forEach(track => track.stop());
+            };
+            
+            mediaRecorder.start();
+            isRecording = true;
+            document.getElementById('recordIcon').textContent = '⏹️';
+            document.getElementById('recordText').textContent = 'Dừng ghi âm';
+            document.getElementById('recordBtn').classList.add('recording');
+            document.getElementById('recordingStatus').textContent = '🔴 Đang ghi âm...';
+        } catch (err) {
+            alert('⚠️ Không thể truy cập microphone. Vui lòng kiểm tra quyền truy cập.');
+        }
+    } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        document.getElementById('recordIcon').textContent = '🎙️';
+        document.getElementById('recordText').textContent = 'Bắt đầu ghi âm';
+        document.getElementById('recordBtn').classList.remove('recording');
+        document.getElementById('recordingStatus').textContent = '✅ Đã ghi âm xong! Hãy nghe lại và so sánh với bản gốc.';
+    }
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingText.value.trim().length > 0) {
+        localStorage.setItem('topik3_week8_day6_writing', writingText.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week8_day6_writing');
+    if (saved) {
+        writingText.value = saved;
+        wordCount.textContent = saved.trim().length + ' / 300-400 chữ';
+    }
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 6: Viết đoạn văn & Luyện hội thoại - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 50%, #D9F99D 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #4D7C0F; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #3F6212; }
+.breadcrumb-separator { color: #84CC16; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #4D7C0F; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(77,124,15,0.15); transition: all 0.3s; border: 2px solid #BEF264; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(77,124,15,0.25); background: #F7FEE7; }
+.nav-btn.primary { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(190,242,100,0.3) 0%, rgba(217,249,157,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '✍️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '♻️'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #3F6212; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #4D7C0F; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(77,124,15,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 320px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 5px; line-height: 1.6; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 5px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Conversation Section - Lime */
+.conversation-section .section-title { color: #3F6212; border-color: #84CC16; }
+.conversation-box { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border: 2px solid #84CC16; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.conversation-title { font-family: 'Baloo 2', cursive; color: #3F6212; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.shadowing-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.shadowing-step { padding: 12px; margin: 8px 0; border-left: 4px solid #84CC16; background: #F7FEE7; border-radius: 8px; }
+.shadowing-step strong { color: #3F6212; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #84CC16; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #3F6212; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F7FEE7; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #3F6212; min-width: 120px; background: #D9F99D; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+.dialogue-text strong { color: #3F6212; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #BEF264; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(77,124,15,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #3F6212; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.speak-btn { background: linear-gradient(135deg, #84CC16 0%, #A3E635 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(132,204,22,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Recording Section - Red */
+.recording-section .section-title { color: #991B1B; border-color: #EF4444; }
+.recording-box { background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%); border: 2px solid #EF4444; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.recording-title { font-family: 'Baloo 2', cursive; color: #991B1B; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.role-selector { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+.role-btn { padding: 12px 25px; background: white; color: #991B1B; border: 2px solid #FECACA; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.role-btn:hover { background: #FEF2F2; transform: translateY(-2px); }
+.role-btn.active { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border-color: transparent; }
+.role-script { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; color: #991B1B; line-height: 1.8; min-height: 80px; }
+.record-btn { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; display: inline-flex; align-items: center; gap: 10px; }
+.record-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(239,68,68,0.4); }
+.record-btn.recording { animation: pulse 1s infinite; }
+.recording-status { margin-top: 15px; color: #718096; font-size: 0.95em; }
+.audio-playback { width: 100%; margin-top: 15px; display: none; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #4D7C0F; border: 2px solid #BEF264; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F7FEE7; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week07.html">🌿 Tuần 7</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 6: Viết & Hội thoại</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week07.html" class="nav-btn">← Về Tổng quan Tuần 7</a>
+<a href="topik3-week07-day07.html" class="nav-btn primary">Ngày 7 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">✍️ NGÀY 6 • 6일차</span>
+<h1>Viết đoạn văn & Luyện hội thoại</h1>
+<div class="subtitle">Tổng hợp kỹ năng viết và nói về chủ đề môi trường</div>
+<p class="description">
+Viết đoạn văn 300-400 chữ về <strong>"환경을 지키는 나의 생활"</strong> (Cuộc sống bảo vệ môi trường của tôi) và luyện hội thoại 
+với chủ đề <strong>"쓰레기 분리수거"</strong> (Phân loại rác). Ghi âm và tự đánh giá phát âm. ♻️
+</p>
+<div class="time-info">⏰ 60 phút • ✍️ Viết 300-400 chữ • 🗣️ Hội thoại 10 lượt • 🎙️ Ghi âm</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 1. Viết đoạn văn (30 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết đoạn văn 300-400 chữ về chủ đề "환경을 지키는 나의 생활" (Cuộc sống bảo vệ môi trường của tôi). Sử dụng cấu trúc Mở bài + Thân bài + Kết bài và ít nhất 4 cấu trúc ngữ pháp đã học.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Đề bài:</strong> Viết đoạn văn về <strong>"환경을 지키는 나의 생활" (Cuộc sống bảo vệ môi trường của tôi)</strong><br><br>
+<strong>Yêu cầu:</strong><br>
+• Độ dài: <strong>300-400 chữ</strong> (khoảng 15-20 câu)<br>
+• Cấu trúc: <strong>Mở bài (2-3 câu) + Thân bài (3-4 thói quen) + Kết bài (2-3 câu)</strong><br>
+• Sử dụng ít nhất <strong>4 cấu trúc ngữ pháp</strong> đã học trong tuần:<br>
+  - <strong>-아/어야 되다</strong> (phải)<br>
+  - <strong>-게 되다</strong> (trở nên)<br>
+  - <strong>-는 편이다</strong> (có xu hướng)<br>
+  - <strong>-기 때문에</strong> (vì)<br>
+  - <strong>-(으)ㄹ 것이다</strong> (sẽ)<br>
+  - <strong>-는 김에</strong> (nhân tiện)<br><br>
+• Sử dụng từ vựng: 환경, 재활용, 분리수거, 쓰레기, 플라스틱, 대중교통, 에너지, 나무, 지구, 오염, 절약, 보호
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📝 Dàn ý gợi ý</h4>
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+<strong style="color: #8B5CF6;">📌 Mở bài (2-3 câu):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Giới thiệu tầm quan trọng của việc bảo vệ môi trường và bản thân bạn.</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 환경 오염이 심한 편이에요. 환경을 보호해야 돼요.</p>
+</div>
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+<strong style="color: #8B5CF6;">📌 Thân bài (3-4 thói quen):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Miêu tả các thói quen bảo vệ môi trường: tái chế, tiết kiệm điện, sử dụng giao thông công cộng, trồng cây</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 쓰레기를 버리는 김에 분리수거를 해요. 대중교통을 이용해요.</p>
+</div>
+<div style="background: white; padding: 15px; border-radius: 12px;">
+<strong style="color: #8B5CF6;">📌 Kết bài (2-3 câu):</strong>
+<p style="color: #4A5568; margin-top: 8px;">Cảm nhận và kế hoạch tương lai</p>
+<p style="color: #718096; font-style: italic; margin-top: 5px;">Ví dụ: 그러면 지구가 깨끗해질 거예요. 계속 노력할 거예요.</p>
+</div>
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📝 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">요즘 환경 오염이 심한 편이에요. 환경 오염 때문에 많은 문제가 생겼어요. 우리는 환경을 보호해야 돼요.</div>
+<div class="writing-example-meaning">Dạo này ô nhiễm môi trường có xu hướng nghiêm trọng. Vì ô nhiễm môi trường nên nhiều vấn đề đã phát sinh. Chúng ta phải bảo vệ môi trường.</div>
+<div class="writing-example-grammar">Ngữ pháp: -는 편이다, -기 때문에, -아/어야 되다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">저는 재활용을 열심히 해요. 쓰레기를 버리는 김에 분리수거를 꼭 해요. 플라스틱, 종이, 유리를 따로 버려요.</div>
+<div class="writing-example-meaning">Tôi chăm chỉ tái chế. Nhân tiện vứt rác nên nhất định phân loại rác. Tôi vứt riêng nhựa, giấy, thủy tinh.</div>
+<div class="writing-example-grammar">Ngữ pháp: -는 김에</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">그리고 대중교통을 자주 이용해요. 자동차를 안 타면 매연이 줄어들 거예요. 지하철을 타는 김에 책도 읽어요.</div>
+<div class="writing-example-meaning">Và tôi thường xuyên sử dụng giao thông công cộng. Nếu không đi ô tô thì khói sẽ giảm. Nhân tiện đi tàu điện ngầm nên tôi cũng đọc sách.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)ㄹ 것이다, -는 김에</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">에너지를 절약해야 돼요. 안 쓸 때는 전기를 꺼요. 그러면 전기세도 절약되고 환경도 보호돼요.</div>
+<div class="writing-example-meaning">Phải tiết kiệm năng lượng. Khi không sử dụng thì tắt điện. Như vậy thì vừa tiết kiệm tiền điện vừa bảo vệ môi trường.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어야 되다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">집 근처에 나무를 심었어요. 나무가 공기를 깨끗하게 해요. 나무를 많이 심으면 환경이 깨끗하게 될 거예요.</div>
+<div class="writing-example-meaning">Tôi đã trồng cây gần nhà. Cây làm sạch không khí. Nếu trồng nhiều cây thì môi trường sẽ trở nên sạch sẽ.</div>
+<div class="writing-example-grammar">Ngữ pháp: -게 되다, -(으)ㄹ 것이다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">작은 일부터 시작해야 돼요. 분리수거를 하고 에너지를 절약해요. 그러면 지구가 건강하게 될 거예요.</div>
+<div class="writing-example-meaning">Phải bắt đầu từ những việc nhỏ. Phân loại rác và tiết kiệm năng lượng. Như vậy thì Trái Đất sẽ trở nên khỏe mạnh.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어야 되다, -게 되다, -(으)ㄹ 것이다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">우리의 후손도 지구에서 살아야 돼요. 환경을 보호하는 것은 우리의 책임이에요. 계속 노력할 거예요.</div>
+<div class="writing-example-meaning">Con cháu chúng ta cũng phải sống trên Trái Đất. Bảo vệ môi trường là trách nhiệm của chúng ta. Tôi sẽ tiếp tục nỗ lực.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어야 되다, -(으)ㄹ 것이다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="writingText" placeholder="Viết đoạn văn của bạn về cuộc sống bảo vệ môi trường...
+
+Gợi ý bắt đầu:
+요즘 환경 오염이 심한 편이에요...
+저는 재활용을 열심히 해요...
+쓰레기를 버리는 김에...
+대중교통을 자주 이용해요...
+에너지를 절약해야 돼요...
+나무를 심었어요...
+우리의 후손도...
+
+Hãy viết 15-20 câu (300-400 chữ)!
+Sử dụng ít nhất 4 cấu trúc ngữ pháp đã học."></textarea>
+
+<div style="background: white; padding: 10px 15px; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #5B21B6;">
+<span>📝 Số chữ đã viết:</span>
+<span id="wordCount" style="font-size: 1.2em;">0 / 300-400 chữ</span>
+</div>
+
+<button class="check-btn" onclick="checkWriting()">✓ Kiểm tra bài viết</button>
+
+<div id="writing-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết đoạn văn TOPIK 3:</strong><br>
+• <strong>Độ dài:</strong> 300-400 chữ (khoảng 15-20 câu)<br>
+• <strong>Cấu trúc:</strong> Mở bài giới thiệu → Thân bài miêu tả chi tiết → Kết bài cảm nhận<br>
+• <strong>Ngữ pháp:</strong> Sử dụng đa dạng 4+ cấu trúc đã học<br>
+• <strong>Từ vựng:</strong> Sử dụng từ vựng chủ đề môi trường đã học trong tuần<br>
+• <strong>Liên kết:</strong> Sử dụng từ nối: 그리고 (và), 그래서 (vì vậy), 그러면 (như vậy), 하지만 (nhưng)<br>
+• <strong>Thời gian:</strong> 30 phút (10 phút lập dàn ý + 15 phút viết + 5 phút kiểm tra)
+</div>
+</div>
+</div>
+
+<!-- Conversation Section -->
+<div class="section conversation-section">
+<h2 class="section-title">♻️ 2. Luyện hội thoại (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại 3 lần theo thứ tự • Lần 1 lấy ý chính • Lần 2 nghe chi tiết + transcript • Lần 3 Shadowing</p>
+
+<div class="conversation-box">
+<div class="conversation-title">♻️ Hội thoại: 쓰레기 분리수거 (Phân loại rác)</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullDialogue(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ hội thoại</div>
+<div class="audio-sub">Nghe 3 lần: Ý chính → Chi tiết → Shadowing</div>
+</div>
+</div>
+
+<div class="shadowing-steps">
+<div class="shadowing-step">
+<strong>🎯 Lần 1 (5 phút):</strong> Nghe lấy ý chính - Không nhìn transcript, cố gắng hiểu nội dung chính về phân loại rác
+</div>
+<div class="shadowing-step">
+<strong>📝 Lần 2 (7 phút):</strong> Nghe chi tiết + Đọc transcript - Vừa nghe vừa đọc, chú ý ngữ điệu và từ mới
+</div>
+<div class="shadowing-step">
+<strong>🗣️ Lần 3 (8 phút):</strong> Shadowing - Nghe và đọc đuổi theo, bắt chước ngữ điệu và tốc độ
+</div>
+</div>
+
+<div class="transcript-box">
+<div class="transcript-title">📜 Transcript (Bản ghi lời thoại)</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">지영 씨, <strong>분리수거</strong> 어떻게 해요? 잘 모르겠어요.</span>
+<button class="speak-btn" onclick="speakKorean('지영 씨, 분리수거 어떻게 해요? 잘 모르겠어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text"><strong>분리수거</strong>는 정말 중요해요. <strong>환경 오염</strong> <strong>때문에</strong> 꼭 해야 돼요.</span>
+<button class="speak-btn" onclick="speakKorean('분리수거는 정말 중요해요. 환경 오염 때문에 꼭 해야 돼요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text"><strong>플라스틱</strong>은 어떻게 버려요?</span>
+<button class="speak-btn" onclick="speakKorean('플라스틱은 어떻게 버려요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text"><strong>플라스틱</strong>은 깨끗이 씻어서 <strong>재활용</strong> 쓰레기통에 버려요. <strong>플라스틱</strong>은 분해되기 어려워서 <strong>환경</strong>에 나빠요.</span>
+<button class="speak-btn" onclick="speakKorean('플라스틱은 깨끗이 씻어서 재활용 쓰레기통에 버려요. 플라스틱은 분해되기 어려워서 환경에 나빠요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text"><strong>종이</strong>와 <strong>유리</strong>는요?</span>
+<button class="speak-btn" onclick="speakKorean('종이와 유리는요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text"><strong>종이</strong>와 <strong>유리</strong>도 따로 버려야 돼요. <strong>종이</strong>를 <strong>재활용</strong>하면 <strong>나무</strong>를 절약할 수 있어요.</span>
+<button class="speak-btn" onclick="speakKorean('종이와 유리도 따로 버려야 돼요. 종이를 재활용하면 나무를 절약할 수 있어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text"><strong>음식물 쓰레기</strong>는 어디에 버려요?</span>
+<button class="speak-btn" onclick="speakKorean('음식물 쓰레기는 어디에 버려요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text"><strong>음식물 쓰레기</strong>는専用の 용기에 버려요. <strong>음식물 쓰레기</strong>는 거름으로 만들 수 있어요.</span>
+<button class="speak-btn" onclick="speakKorean('음식물 쓰레기는 전용 용기에 버려요. 음식물 쓰레기는 거름으로 만들 수 있어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">그럼 <strong>쓰레기</strong>를 버리는 <strong>김에</strong> <strong>분리수거</strong>를 해야겠어요.</span>
+<button class="speak-btn" onclick="speakKorean('그럼 쓰레기를 버리는 김에 분리수거를 해야겠어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">맞아요! 작은 일부터 시작하면 <strong>환경</strong>이 <strong>깨끗하게 될 거예요</strong>. 같이 노력해요!</span>
+<button class="speak-btn" onclick="speakKorean('맞아요! 작은 일부터 시작하면 환경이 깨끗하게 될 거예요. 같이 노력해요!', this)">🔊</button>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">📚 Từ vựng & Ngữ pháp trong hội thoại:</strong>
+<div style="margin-top: 10px; color: #78350F; line-height: 1.8;">
+• <strong>분리수거</strong> [bul-li-su-geo]: Phân loại rác<br>
+• <strong>재활용</strong> [jae-hwal-yong]: Tái chế<br>
+• <strong>플라스틱</strong> [peul-la-seu-tik]: Nhựa<br>
+• <strong>종이</strong> [jong-i]: Giấy<br>
+• <strong>유리</strong> [yu-ri]: Thủy tinh<br>
+• <strong>음식물 쓰레기</strong> [eum-sik-mul sseu-re-gi]: Rác thực phẩm<br>
+• <strong>쓰레기통</strong> [sseu-re-gi-tong]: Thùng rác<br>
+• <strong>전용 용기</strong> [jeon-yong yong-gi]: Vật chứa chuyên dụng<br>
+• <strong>거름</strong> [geo-reum]: Phân bón<br>
+• <strong>환경 오염</strong> [hwan-gyeong o-yeom]: Ô nhiễm môi trường<br>
+• <strong>-기 때문에</strong>: Vì (환경 오염 때문에 - vì ô nhiễm môi trường)<br>
+• <strong>-는 김에</strong>: Nhân tiện (쓰레기를 버리는 김에 - nhân tiện vứt rác)<br>
+• <strong>-게 되다</strong>: Trở nên (깨끗하게 될 거예요 - sẽ trở nên sạch sẽ)<br>
+• <strong>-아/어야 되다</strong>: Phải (분리수거를 해야 돼요 - phải phân loại rác)
+</div>
+</div>
+
+<div style="background: #FAF5FF; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #5B21B6;">🎭 Role-play (Đóng vai):</strong>
+<p style="color: #6B21A8; margin-top: 10px;">Chọn vai <strong>민수</strong> hoặc <strong>지영</strong> và thực hành hội thoại. Đọc to phần thoại của vai mình, dừng lại để đối tác đọc phần còn lại.</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 3. Bài tập nghe hiểu (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe lại hội thoại nếu cần • Chọn đáp án đúng • Kiểm tra kết quả</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 민수 씨는 무엇을 배우고 있어요?</div>
+<div class="exercise-question">Min-su đang học gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 요리하는 방법 (Cách nấu ăn)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 분리수거하는 방법 (Cách phân loại rác)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 운전하는 방법 (Cách lái xe)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 운동하는 방법 (Cách tập thể dục)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 플라스틱은 어떻게 처리해요?</div>
+<div class="exercise-question">Xử lý nhựa như thế nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 그냥 버려요 (Vứt luôn)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 깨끗이 씻어서 재활용 쓰레기통에 버려요 (Rửa sạch rồi vứt vào thùng rác tái chế)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 태워요 (Đốt)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 땅에 묻어요 (Chôn xuống đất)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 음식물 쓰레기는 어디에 버려요?</div>
+<div class="exercise-question">Rác thực phẩm vứt ở đâu?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 일반 쓰레기통에 (Vào thùng rác thông thường)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 재활용 쓰레기통에 (Vào thùng rác tái chế)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 전용 용기에 (Vào vật chứa chuyên dụng)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 바다에 (Xuống biển)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'c', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div style="background: #F0FFF4; border-left: 4px solid #10B981; padding: 20px; border-radius: 15px; margin-top: 25px;">
+<h4 style="color: #065F46; font-family: 'Baloo 2', cursive; margin-bottom: 12px;">📊 Kết quả bài tập</h4>
+<div id="totalScore" style="font-size: 1.2em; color: #065F46; font-weight: 700;">Đã làm: 0/3 câu</div>
+<p style="color: #718096; margin-top: 10px;">Mục tiêu: Trả lời đúng 3/3 câu hỏi ✅</p>
+</div>
+</div>
+
+<!-- Recording Section -->
+<div class="section recording-section">
+<h2 class="section-title">🎙️ 4. Ghi âm & Tự đánh giá (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Chọn vai • Ghi âm hội thoại • Nghe lại và so sánh với bản gốc • Tự đánh giá phát âm</p>
+
+<div class="recording-box">
+<div class="recording-title">🎙️ Ghi âm thực hành</div>
+<p style="color: #718096; margin-bottom: 15px;">Chọn vai bạn muốn đóng và bấm nút ghi âm:</p>
+
+<div class="role-selector">
+<button class="role-btn" onclick="selectRole('민수')" id="role-minsu">👤 Vai 민수 (Min-su)</button>
+<button class="role-btn" onclick="selectRole('지영')" id="role-jiyoung">👤 Vai 지영 (Ji-yeong)</button>
+</div>
+
+<div id="selectedRole" style="background: white; padding: 12px; border-radius: 10px; margin-bottom: 15px; color: #991B1B; font-weight: 600;">
+Chưa chọn vai
+</div>
+
+<div style="background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+<strong style="color: #991B1B;">📜 Thoại của vai bạn:</strong>
+<div id="roleScript" style="margin-top: 10px; color: #718096; line-height: 1.8; min-height: 80px;">
+Hãy chọn vai để xem thoại...
+</div>
+</div>
+
+<button class="record-btn" id="recordBtn" onclick="toggleRecording()">
+<span id="recordIcon">🎙️</span>
+<span id="recordText">Bắt đầu ghi âm</span>
+</button>
+
+<div class="recording-status" id="recordingStatus"></div>
+<audio id="audioPlayback" controls class="audio-playback"></audio>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">🎯 Tiêu chí tự đánh giá:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li><strong>Phát âm:</strong> Phát âm rõ ràng, đúng patchim (phụ âm cuối)</li>
+<li><strong>Ngữ điệu:</strong> Lên giọng ở câu hỏi, xuống giọng ở câu khẳng định</li>
+<li><strong>Tốc độ:</strong> Tốc độ tự nhiên, không quá nhanh cũng không quá chậm</li>
+<li><strong>Ngắt nghỉ:</strong> Ngắt nghỉ đúng chỗ sau mỗi câu</li>
+<li><strong>Từ vựng:</strong> Sử dụng đúng từ vựng về phân loại rác và môi trường</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 6</h2>
+<ul class="goals-list">
+<li>Viết đoạn văn 300-400 chữ về "환경을 지키는 나의 생활" (Cuộc sống bảo vệ môi trường)</li>
+<li>Sử dụng ít nhất 4 cấu trúc ngữ pháp đã học trong tuần</li>
+<li>Sử dụng đa dạng từ vựng chủ đề môi trường và tái chế</li>
+<li>Nghe hiểu hội thoại 10 lượt về phân loại rác</li>
+<li>Thực hành Shadowing và Role-play hội thoại</li>
+<li>Ghi âm và tự đánh giá phát âm theo 5 tiêu chí</li>
+<li>Hoàn thành checklist 6 ngày đầu tuần</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week07.html" class="day-nav-btn">← Về Hub Tuần 7</a>
+<a href="topik3-week07-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week07-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week07-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week07-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week07-day05.html" class="day-nav-btn">Ngày 5</a>
+<a href="topik3-week07-day06.html" class="day-nav-btn active">Ngày 6 ✓</a>
+<a href="topik3-week07-day07.html" class="day-nav-btn">Ngày 7 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week07-day05.html" class="nav-btn">← Ngày 5</a>
+<a href="topik3-week07-day07.html" class="nav-btn primary">Tiếp: Ngày 7 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🌿 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Bảo vệ thiên nhiên là bảo vệ tương lai của chúng ta"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌿', '🍃', '🌱', '🍀', '🌳'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullDialogue(btnElement) {
+    const fullText = '지영 씨, 분리수거 어떻게 해요? 잘 모르겠어요. 분리수거는 정말 중요해요. 환경 오염 때문에 꼭 해야 돼요. 플라스틱은 어떻게 버려요? 플라스틱은 깨끗이 씻어서 재활용 쓰레기통에 버려요. 플라스틱은 분해되기 어려워서 환경에 나빠요. 종이는 유리는요? 종이나 유리도 따로 버려야 돼요. 종이를 재활용하면 나무를 절약할 수 있어요. 음식물 쓰레기는 어디에 버려요? 음식물 쓰레기는 전용 용기에 버려요. 음식물 쓰레기는 거름으로 만들 수 있어요. 그럼 쓰레기를 버리는 김에 분리수거를 해야겠어요. 맞아요! 작은 일부터 시작하면 환경이 깨끗하게 될 거예요. 같이 노력해요!';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Word counter
+const writingText = document.getElementById('writingText');
+const wordCount = document.getElementById('wordCount');
+
+writingText.addEventListener('input', function() {
+    const text = this.value.trim();
+    const count = text.length;
+    wordCount.textContent = count + ' / 300-400 chữ';
+    if (count >= 300 && count <= 400) {
+        wordCount.style.color = '#10B981';
+    } else {
+        wordCount.style.color = '#5B21B6';
+    }
+});
+
+function checkWriting() {
+    const text = writingText.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    const count = text.length;
+    
+    if (count < 300) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn (' + count + ' chữ). Hãy viết ít nhất 300 chữ nhé!';
+    } else if (count > 450) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết hơi dài (' + count + ' chữ). Hãy viết trong khoảng 300-400 chữ!';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Xuất sắc! Bài viết của bạn đạt ' + count + ' chữ. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 4 cấu trúc ngữ pháp?<br>• Có cấu trúc Mở bài + Thân bài + Kết bài?<br>• Sử dụng đa dạng từ vựng chủ đề môi trường?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week7_progress') || '[]');
+        if (!progress.includes(6)) {
+            progress.push(6);
+            localStorage.setItem('topik3_week7_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Exercise answers
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    document.getElementById('totalScore').textContent = `Đã làm: ${correctAnswers}/3 câu`;
+}
+
+// Recording functionality
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let selectedRole = null;
+
+const roleScripts = {
+    '민수': '지영 씨, 분리수거 어떻게 해요? 잘 모르겠어요.\n\n플라스틱은 어떻게 버려요?\n\n종이와 유리는요?\n\n음식물 쓰레기는 어디에 버려요?\n\n그럼 쓰레기를 버리는 김에 분리수거를 해야겠어요.',
+    '지영': '분리수거는 정말 중요해요. 환경 오염 때문에 꼭 해야 돼요.\n\n플라스틱은 깨끗이 씻어서 재활용 쓰레기통에 버려요. 플라스틱은 분해되기 어려워서 환경에 나빠요.\n\n종이와 유리도 따로 버려야 돼요. 종이를 재활용하면 나무를 절약할 수 있어요.\n\n음식물 쓰레기는 전용 용기에 버려요. 음식물 쓰레기는 거름으로 만들 수 있어요.\n\n맞아요! 작은 일부터 시작하면 환경이 깨끗하게 될 거예요. 같이 노력해요!'
+};
+
+function selectRole(role) {
+    selectedRole = role;
+    document.getElementById('selectedRole').textContent = 'Đã chọn: Vai ' + role;
+    document.getElementById('roleScript').textContent = roleScripts[role];
+    document.getElementById('role-minsu').classList.toggle('active', role === '민수');
+    document.getElementById('role-jiyoung').classList.toggle('active', role === '지영');
+}
+
+async function toggleRecording() {
+    if (!selectedRole) {
+        alert('⚠️ Vui lòng chọn vai trước khi ghi âm!');
+        return;
+    }
+    
+    if (!isRecording) {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+            
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audioPlayback = document.getElementById('audioPlayback');
+                audioPlayback.src = audioUrl;
+                audioPlayback.style.display = 'block';
+                stream.getTracks().forEach(track => track.stop());
+            };
+            
+            mediaRecorder.start();
+            isRecording = true;
+            document.getElementById('recordIcon').textContent = '⏹️';
+            document.getElementById('recordText').textContent = 'Dừng ghi âm';
+            document.getElementById('recordBtn').classList.add('recording');
+            document.getElementById('recordingStatus').textContent = '🔴 Đang ghi âm...';
+        } catch (err) {
+            alert('⚠️ Không thể truy cập microphone. Vui lòng kiểm tra quyền truy cập.');
+        }
+    } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        document.getElementById('recordIcon').textContent = '🎙️';
+        document.getElementById('recordText').textContent = 'Bắt đầu ghi âm';
+        document.getElementById('recordBtn').classList.remove('recording');
+        document.getElementById('recordingStatus').textContent = '✅ Đã ghi âm xong! Hãy nghe lại và so sánh với bản gốc.';
+    }
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingText.value.trim().length > 0) {
+        localStorage.setItem('topik3_week7_day6_writing', writingText.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week7_day6_writing');
+    if (saved) {
+        writingText.value = saved;
+        wordCount.textContent = saved.trim().length + ' / 300-400 chữ';
+    }
+};
+</script>
+</body>
+</html>

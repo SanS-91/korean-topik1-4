@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 3: Ngữ pháp liên kết & Luyện nghe - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 50%, #D9F99D 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #4D7C0F; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #3F6212; }
+.breadcrumb-separator { color: #84CC16; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #4D7C0F; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(77,124,15,0.15); transition: all 0.3s; border: 2px solid #BEF264; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(77,124,15,0.25); background: #F7FEE7; }
+.nav-btn.primary { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(190,242,100,0.3) 0%, rgba(217,249,157,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🌍'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🎧'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #3F6212; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #4D7C0F; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(77,124,15,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Section - Blue */
+.grammar-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; border: 2px solid #3B82F6; }
+.grammar-number { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #1E40AF; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #3B82F6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #3B82F6; }
+.grammar-example-korean { color: #1E40AF; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(59,130,246,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Listening Section - Lime */
+.listening-section .section-title { color: #3F6212; border-color: #84CC16; }
+.listening-box { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border: 2px solid #84CC16; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.listening-title { font-family: 'Baloo 2', cursive; color: #3F6212; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.listening-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.listening-step { padding: 12px; margin: 8px 0; border-left: 4px solid #84CC16; background: #F7FEE7; border-radius: 8px; }
+.listening-step strong { color: #3F6212; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #84CC16; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #3F6212; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F7FEE7; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #3F6212; min-width: 120px; background: #D9F99D; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+.dialogue-text strong { color: #3F6212; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #BEF264; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(77,124,15,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #3F6212; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+/* Exercise Section - Orange */
+.exercise-section .section-title { color: #C05621; border-color: #F59E0B; }
+.exercise-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #C05621; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FED7AA; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Speaking Section - Purple */
+.speaking-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.speaking-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.speaking-title { font-family: 'Baloo 2', cursive; color: #5B21B6; font-size: 1.3em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.shadowing-steps { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; }
+.shadowing-step { padding: 12px; margin: 8px 0; border-left: 4px solid #8B5CF6; background: #FAF5FF; border-radius: 8px; }
+.shadowing-step strong { color: #5B21B6; }
+
+.role-selector { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+.role-btn { padding: 12px 25px; background: white; color: #5B21B6; border: 2px solid #C4B5FD; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.role-btn:hover { background: #FAF5FF; transform: translateY(-2px); }
+.role-btn.active { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border-color: transparent; }
+.role-script { background: white; padding: 15px; border-radius: 12px; margin-bottom: 20px; color: #5B21B6; line-height: 1.8; min-height: 80px; }
+.record-btn { background: linear-gradient(135deg, #EF4444 0%, #F87171 100%); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.1em; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; display: inline-flex; align-items: center; gap: 10px; }
+.record-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(239,68,68,0.4); }
+.record-btn.recording { animation: pulse 1s infinite; }
+.recording-status { margin-top: 15px; color: #718096; font-size: 0.95em; }
+.audio-playback { width: 100%; margin-top: 15px; display: none; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #4D7C0F; border: 2px solid #BEF264; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F7FEE7; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week07.html">🌿 Tuần 7</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 3: Ngữ pháp & Luyện nghe</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week07.html" class="nav-btn">← Về Tổng quan Tuần 7</a>
+<a href="topik3-week07-day04.html" class="nav-btn primary">Ngày 4 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🌍 NGÀY 3 • 3일차</span>
+<h1>Ngữ pháp liên kết & Luyện nghe</h1>
+<div class="subtitle">Mở rộng ngữ pháp và rèn kỹ năng nghe hiểu về bảo vệ môi trường</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp liên kết: <strong>-(으)ㄹ 것이다</strong> (sẽ - dự đoán) và <strong>-는 김에</strong> (nhân tiện). 
+Luyện nghe hội thoại "환경 보호" (Bảo vệ môi trường) và thực hành Shadowing. 🌿
+</p>
+<div class="time-info">⏰ 60 phút • 📝 2 ngữ pháp • 🎧 Hội thoại 10 lượt • 🗣️ Shadowing</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ngữ pháp liên kết (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-(으)ㄹ 것이다</div>
+<div class="grammar-meaning">Sẽ (dự đoán tương lai)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả dự đoán, suy đoán về điều gì đó sẽ xảy ra trong tương lai. Tương đương "sẽ" trong tiếng Việt. Dùng khi người nói đưa ra dự đoán dựa trên kinh nghiệm hoặc suy luận. Trong văn nói thường viết tắt thành -(으)ㄹ 거예요.
+</div>
+<div class="grammar-formula">
+Động từ/Tính từ + -(으)ㄹ 것이다<br>
+• Không có patchim: + ㄹ 것이다<br>
+• Có patchim: + 을 것이다<br>
+• Văn nói: -(으)ㄹ 거예요<br>
+• Ví dụ: 내일 비가 올 거예요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">내일 비가 올 거예요. <button class="speak-btn" onclick="speakKorean('내일 비가 올 거예요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Ngày mai sẽ có mưa.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">환경을 보호하면 지구가 깨끗해질 거예요. <button class="speak-btn" onclick="speakKorean('환경을 보호하면 지구가 깨끗해질 거예요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nếu bảo vệ môi trường thì trái đất sẽ trở nên sạch sẽ.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">재활용을 하면 쓰레기가 줄어들 거예요. <button class="speak-btn" onclick="speakKorean('재활용을 하면 쓰레기가 줄어들 거예요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nếu tái chế thì rác sẽ giảm đi.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">나무를 많이 심으면 공기가 좋아질 거예요. <button class="speak-btn" onclick="speakKorean('나무를 많이 심으면 공기가 좋아질 거예요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nếu trồng nhiều cây thì không khí sẽ tốt hơn.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)ㄹ 것이다 = "sẽ" → Dự đoán tương lai<br>
+<strong>⚠️ Lưu ý:</strong> Trong văn nói thường dùng -(으)ㄹ 거예요 thay vì -(으)ㄹ 것이다<br>
+<strong>🔄 So sánh:</strong> -(으)ㄹ 것이다 (dự đoán) vs -(으)ㄹ까요? (hỏi ý kiến)
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-는 김에</div>
+<div class="grammar-meaning">Nhân tiện (khi đã làm gì thì tiện thể làm việc khác)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả việc nhân dịp làm một việc gì đó thì tiện thể làm luôn việc khác. Tương đương "nhân tiện", "tiện thể", "nhân dịp" trong tiếng Việt. Vế trước là hành động đã định làm, vế sau là hành động làm thêm cho tiện.
+</div>
+<div class="grammar-formula">
+Động từ + -는 김에<br>
+• Ví dụ: 쓰레기를 버리는 김에 분리수거를 했어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">쓰레기를 버리는 김에 분리수거를 했어요. <button class="speak-btn" onclick="speakKorean('쓰레기를 버리는 김에 분리수거를 했어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nhân tiện vứt rác nên đã phân loại rác luôn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">시장에 가는 김에 채소를 샀어요. <button class="speak-btn" onclick="speakKorean('시장에 가는 김에 채소를 샀어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nhân tiện đi chợ nên đã mua rau luôn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">집에 오는 김에 우유를 샀어요. <button class="speak-btn" onclick="speakKorean('집에 오는 김에 우유를 샀어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nhân tiện về nhà nên đã mua sữa luôn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">대중교통을 이용하는 김에 에너지도 절약해요. <button class="speak-btn" onclick="speakKorean('대중교통을 이용하는 김에 에너지도 절약해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nhân tiện sử dụng giao thông công cộng nên cũng tiết kiệm năng lượng.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -는 김에 = "nhân tiện" → Làm thêm việc khác cho tiện<br>
+<strong>⚠️ Lưu ý:</strong> Vế trước phải là hành động đã định làm, không phải hành động mới<br>
+<strong>🔄 So sánh:</strong> -는 김에 (nhân tiện) vs -면서 (vừa...vừa)
+</div>
+</div>
+</div>
+</div>
+
+<!-- Listening Section -->
+<div class="section listening-section">
+<h2 class="section-title">🎧 2. Luyện nghe (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại 3 lần theo thứ tự • Lần 1 lấy ý chính • Lần 2 nghe chi tiết + transcript • Lần 3 Shadowing</p>
+
+<div class="listening-box">
+<div class="listening-title">🌍 Hội thoại: 환경 보호 (Bảo vệ môi trường)</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullDialogue(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ hội thoại</div>
+<div class="audio-sub">Nghe 3 lần: Ý chính → Chi tiết → Shadowing</div>
+</div>
+</div>
+
+<div class="listening-steps">
+<div class="listening-step">
+<strong>🎯 Lần 1 (5 phút):</strong> Nghe lấy ý chính - Không nhìn transcript, cố gắng hiểu nội dung chính về bảo vệ môi trường
+</div>
+<div class="listening-step">
+<strong>📝 Lần 2 (7 phút):</strong> Nghe chi tiết + Đọc transcript - Vừa nghe vừa đọc, chú ý ngữ điệu và từ mới
+</div>
+<div class="listening-step">
+<strong>🗣️ Lần 3 (8 phút):</strong> Shadowing - Nghe và đọc đuổi theo, bắt chước ngữ điệu và tốc độ
+</div>
+</div>
+
+<div class="transcript-box">
+<div class="transcript-title">📜 Transcript (Bản ghi lời thoại)</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">지영 씨, 요즘 <strong>환경</strong>에 관심이 많아요?</span>
+<button class="speak-btn" onclick="speakKorean('지영 씨, 요즘 환경에 관심이 많아요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">네, <strong>환경 오염</strong>이 심각하니까요. <strong>환경</strong>을 <strong>보호해야 돼요</strong>.</span>
+<button class="speak-btn" onclick="speakKorean('네, 환경 오염이 심각하니까요. 환경을 보호해야 돼요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">그래요. 저는 <strong>재활용</strong>을 열심히 해요. <strong>플라스틱</strong>과 <strong>종이</strong>를 <strong>분리수거</strong>해요.</span>
+<button class="speak-btn" onclick="speakKorean('그래요. 저는 재활용을 열심히 해요. 플라스틱과 종이를 분리수거해요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">저도요. <strong>쓰레기</strong>를 버리는 <strong>김에</strong> <strong>분리수거</strong>를 꼭 해요.</span>
+<button class="speak-btn" onclick="speakKorean('저도요. 쓰레기를 버리는 김에 분리수거를 꼭 해요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">그리고 <strong>대중교통</strong>을 자주 이용해요. <strong>자동차</strong>를 안 타면 <strong>매연</strong>이 줄어들 거예요.</span>
+<button class="speak-btn" onclick="speakKorean('그리고 대중교통을 자주 이용해요. 자동차를 안 타면 매연이 줄어들 거예요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">맞아요. 저도 <strong>지하철</strong>을 타요. <strong>지하철</strong>을 타는 <strong>김에</strong> 책도 읽어요.</span>
+<button class="speak-btn" onclick="speakKorean('맞아요. 저도 지하철을 타요. 지하철을 타는 김에 책도 읽어요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text"><strong>에너지</strong>도 절약해야 돼요. <strong>전기</strong>를 아껴 써야 해요.</span>
+<button class="speak-btn" onclick="speakKorean('에너지도 절약해야 돼요. 전기를 아껴 써야 해요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">네. 안 쓸 때는 <strong>전기</strong>를 꺼요. 그러면 <strong>전기세</strong>도 절약될 거예요.</span>
+<button class="speak-btn" onclick="speakKorean('네. 안 쓸 때는 전기를 꺼요. 그러면 전기세도 절약될 거예요.', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">다음 주말에 <strong>나무 심기</strong> 봉사활동이 있어요. 같이 갈래요?</span>
+<button class="speak-btn" onclick="speakKorean('다음 주말에 나무 심기 봉사활동이 있어요. 같이 갈래요?', this)">🔊</button>
+</div>
+
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">좋아요! <strong>나무</strong>를 심는 <strong>김에</strong> <strong>환경</strong>도 보호할 수 있어요. 같이 가요!</span>
+<button class="speak-btn" onclick="speakKorean('좋아요! 나무를 심는 김에 환경도 보호할 수 있어요. 같이 가요!', this)">🔊</button>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">📚 Từ vựng & Ngữ pháp trong hội thoại:</strong>
+<div style="margin-top: 10px; color: #78350F; line-height: 1.8;">
+• <strong>환경</strong> [hwan-gyeong]: Môi trường<br>
+• <strong>환경 오염</strong> [hwan-gyeong o-yeom]: Ô nhiễm môi trường<br>
+• <strong>재활용</strong> [jae-hwal-yong]: Tái chế<br>
+• <strong>분리수거</strong> [bul-li-su-geo]: Phân loại rác<br>
+• <strong>플라스틱</strong> [peul-la-seu-tik]: Nhựa<br>
+• <strong>쓰레기</strong> [sseu-re-gi]: Rác<br>
+• <strong>대중교통</strong> [dae-jung-gyo-tong]: Giao thông công cộng<br>
+• <strong>지하철</strong> [ji-ha-cheol]: Tàu điện ngầm<br>
+• <strong>매연</strong> [mae-yeon]: Khói (xe)<br>
+• <strong>에너지</strong> [e-neo-ji]: Năng lượng<br>
+• <strong>전기</strong> [jeon-gi]: Điện<br>
+• <strong>나무 심기</strong> [na-mu sim-gi]: Trồng cây<br>
+• <strong>봉사활동</strong> [bong-sa-hwal-dong]: Hoạt động tình nguyện<br>
+• <strong>-는 김에</strong>: Nhân tiện (쓰레기를 버리는 김에 - nhân tiện vứt rác)<br>
+• <strong>-(으)ㄹ 것이다</strong>: Sẽ (매연이 줄어들 거예요 - khói sẽ giảm)<br>
+• <strong>-아/어야 되다</strong>: Phải (환경을 보호해야 돼요 - phải bảo vệ môi trường)
+</div>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 3. Bài tập nghe hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe lại hội thoại nếu cần • Chọn đáp án đúng • Kiểm tra kết quả</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 민수 씨는 무엇을 열심히 해요?</div>
+<div class="exercise-question">Min-su chăm chỉ làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 운동을 해요 (Tập thể dục)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 재활용을 해요 (Tái chế)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 공부를 해요 (Học bài)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 운전을 해요 (Lái xe)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 지영 씨는 지하철을 탈 때 뭐를 해요?</div>
+<div class="exercise-question">Ji-yeong làm gì khi đi tàu điện ngầm?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 음악을 들어요 (Nghe nhạc)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 잠을 자요 (Ngủ)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 책을 읽어요 (Đọc sách)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 게임을 해요 (Chơi game)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'c', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 다음 주말에 두 사람이 무엇을 할 거예요?</div>
+<div class="exercise-question">Cuối tuần sau hai người sẽ làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 여행을 갈 거예요 (Sẽ đi du lịch)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 나무 심기 봉사활동을 할 거예요 (Sẽ tham gia hoạt động tình nguyện trồng cây)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 영화를 볼 거예요 (Sẽ xem phim)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 쇼핑을 할 거예요 (Sẽ mua sắm)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div style="background: #F0FFF4; border-left: 4px solid #10B981; padding: 20px; border-radius: 15px; margin-top: 25px;">
+<h4 style="color: #065F46; font-family: 'Baloo 2', cursive; margin-bottom: 12px;">📊 Kết quả bài tập</h4>
+<div id="totalScore" style="font-size: 1.2em; color: #065F46; font-weight: 700;">Đã làm: 0/3 câu</div>
+<p style="color: #718096; margin-top: 10px;">Mục tiêu: Trả lời đúng 3/3 câu hỏi ✅</p>
+</div>
+</div>
+
+<!-- Speaking Section -->
+<div class="section speaking-section">
+<h2 class="section-title">🗣️ 4. Nói & Shadowing (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Thực hành Shadowing để cải thiện phát âm • Tự ghi âm và nghe lại • So sánh với bản gốc</p>
+
+<div class="speaking-box">
+<div class="speaking-title">🎯 Phương pháp Shadowing</div>
+<div class="shadowing-steps">
+<div class="shadowing-step">
+<strong>Bước 1 (3 phút):</strong> Nghe từng câu thoại và lặp lại ngay sau khi nghe. Cố gắng bắt chước ngữ điệu, tốc độ và cách ngắt nghỉ.
+</div>
+<div class="shadowing-step">
+<strong>Bước 2 (3 phút):</strong> Đọc đuổi theo (shadow) - Bấm play và nói cùng lúc với audio, không cần dừng.
+</div>
+<div class="shadowing-step">
+<strong>Bước 3 (4 phút):</strong> Tự ghi âm - Chọn 1 vai (민수 또는 지영) và ghi âm toàn bộ phần thoại của vai đó. Nghe lại và so sánh với bản gốc.
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">🎙️ Ghi âm thực hành</h4>
+<p style="color: #718096; margin-bottom: 15px;">Chọn vai bạn muốn đóng và bấm nút ghi âm:</p>
+<div class="role-selector">
+<button class="role-btn" onclick="selectRole('민수')" id="role-minsu">👤 Vai 민수 (Min-su)</button>
+<button class="role-btn" onclick="selectRole('지영')" id="role-jiyoung">👤 Vai 지영 (Ji-yeong)</button>
+</div>
+<div id="selectedRole" style="background: #FAF5FF; padding: 12px; border-radius: 10px; margin-bottom: 15px; color: #5B21B6; font-weight: 600;">
+Chưa chọn vai
+</div>
+<div class="role-script" id="roleScript">
+Hãy chọn vai để xem thoại...
+</div>
+<button class="record-btn" id="recordBtn" onclick="toggleRecording()">
+<span id="recordIcon">🎙️</span>
+<span id="recordText">Bắt đầu ghi âm</span>
+</button>
+<div class="recording-status" id="recordingStatus"></div>
+<audio id="audioPlayback" controls class="audio-playback"></audio>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">🎯 Tiêu chí tự đánh giá:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li><strong>Phát âm:</strong> Phát âm rõ ràng, đúng patchim (phụ âm cuối)</li>
+<li><strong>Ngữ điệu:</strong> Lên giọng ở câu hỏi, xuống giọng ở câu khẳng định</li>
+<li><strong>Tốc độ:</strong> Tốc độ tự nhiên, không quá nhanh cũng không quá chậm</li>
+<li><strong>Ngắt nghỉ:</strong> Ngắt nghỉ đúng chỗ sau mỗi câu</li>
+<li><strong>Từ vựng:</strong> Sử dụng đúng từ vựng về môi trường</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 3</h2>
+<ul class="goals-list">
+<li>Hiểu và sử dụng được 2 cấu trúc ngữ pháp liên kết (-(으)ㄹ 것이다, -는 김에)</li>
+<li>Nghe hiểu hội thoại 10 lượt về bảo vệ môi trường</li>
+<li>Trả lời đúng 3/3 câu hỏi nghe hiểu</li>
+<li>Thực hành Shadowing ít nhất 3 lần</li>
+<li>Ghi âm và tự đánh giá phát âm theo 5 tiêu chí</li>
+<li>Nắm vững từ vựng chủ đề bảo vệ môi trường và tái chế</li>
+<li>Thuộc tổng cộng 4 cấu trúc ngữ pháp (bao gồm 2 cấu trúc từ Ngày 1, 2)</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week07.html" class="day-nav-btn">← Về Hub Tuần 7</a>
+<a href="topik3-week07-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week07-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week07-day03.html" class="day-nav-btn active">Ngày 3 ✓</a>
+<a href="topik3-week07-day04.html" class="day-nav-btn">Ngày 4 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week07-day02.html" class="nav-btn">← Ngày 2</a>
+<a href="topik3-week07-day04.html" class="nav-btn primary">Tiếp: Ngày 4 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🌿 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Bảo vệ thiên nhiên là bảo vệ tương lai của chúng ta"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌿', '🍃', '🌱', '🍀', '🌳'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullDialogue(btnElement) {
+    const fullText = '지영 씨, 요즘 환경에 관심이 많아요? 네, 환경 오염이 심각하니까요. 환경을 보호해야 돼요. 그래요. 저는 재활용을 열심히 해요. 플라스틱과 종이를 분리수거해요. 저도요. 쓰레기를 버리는 김에 분리수거를 꼭 해요. 그리고 대중교통을 자주 이용해요. 자동차를 안 타면 매연이 줄어들 거예요. 맞아요. 저도 지하철을 타요. 지하철을 타는 김에 책도 읽어요. 에너지도 절약해야 돼요. 전기를 아껴 써야 해요. 네. 안 쓸 때는 전기를 꺼요. 그러면 전기세도 절약될 거예요. 다음 주말에 나무 심기 봉사활동이 있어요. 같이 갈래요? 좋아요! 나무를 심는 김에 환경도 보호할 수 있어요. 같이 가요!';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    document.getElementById('totalScore').textContent = `Đã làm: ${correctAnswers}/3 câu`;
+    if (correctAnswers === 3) {
+        const progress = JSON.parse(localStorage.getItem('topik3_week7_progress') || '[]');
+        if (!progress.includes(3)) {
+            progress.push(3);
+            localStorage.setItem('topik3_week7_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Recording functionality
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let selectedRole = null;
+
+const roleScripts = {
+    '민수': '지영 씨, 요즘 환경에 관심이 많아요?\n\n그래요. 저는 재활용을 열심히 해요. 플라스틱과 종이를 분리수거해요.\n\n그리고 대중교통을 자주 이용해요. 자동차를 안 타면 매연이 줄어들 거예요.\n\n에너지도 절약해야 돼요. 전기를 아껴 써야 해요.\n\n다음 주말에 나무 심기 봉사활동이 있어요. 같이 갈래요?',
+    '지영': '네, 환경 오염이 심각하니까요. 환경을 보호해야 돼요.\n\n저도요. 쓰레기를 버리는 김에 분리수거를 꼭 해요.\n\n맞아요. 저도 지하철을 타요. 지하철을 타는 김에 책도 읽어요.\n\n네. 안 쓸 때는 전기를 꺼요. 그러면 전기세도 절약될 거예요.\n\n좋아요! 나무를 심는 김에 환경도 보호할 수 있어요. 같이 가요!'
+};
+
+function selectRole(role) {
+    selectedRole = role;
+    document.getElementById('selectedRole').textContent = 'Đã chọn: Vai ' + role;
+    document.getElementById('roleScript').textContent = roleScripts[role];
+    document.getElementById('role-minsu').classList.toggle('active', role === '민수');
+    document.getElementById('role-jiyoung').classList.toggle('active', role === '지영');
+}
+
+async function toggleRecording() {
+    if (!selectedRole) {
+        alert('⚠️ Vui lòng chọn vai trước khi ghi âm!');
+        return;
+    }
+    
+    if (!isRecording) {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+            
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+            
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audioPlayback = document.getElementById('audioPlayback');
+                audioPlayback.src = audioUrl;
+                audioPlayback.style.display = 'block';
+                stream.getTracks().forEach(track => track.stop());
+            };
+            
+            mediaRecorder.start();
+            isRecording = true;
+            document.getElementById('recordIcon').textContent = '⏹️';
+            document.getElementById('recordText').textContent = 'Dừng ghi âm';
+            document.getElementById('recordBtn').classList.add('recording');
+            document.getElementById('recordingStatus').textContent = '🔴 Đang ghi âm...';
+        } catch (err) {
+            alert('⚠️ Không thể truy cập microphone. Vui lòng kiểm tra quyền truy cập.');
+        }
+    } else {
+        mediaRecorder.stop();
+        isRecording = false;
+        document.getElementById('recordIcon').textContent = '🎙️';
+        document.getElementById('recordText').textContent = 'Bắt đầu ghi âm';
+        document.getElementById('recordBtn').classList.remove('recording');
+        document.getElementById('recordingStatus').textContent = '✅ Đã ghi âm xong! Hãy nghe lại và so sánh với bản gốc.';
+    }
+}
+</script>
+</body>
+</html>

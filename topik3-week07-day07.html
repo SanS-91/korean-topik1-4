@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 7: Ôn tập & Luyện đề TOPIK - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 50%, #D9F99D 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #4D7C0F; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #3F6212; }
+.breadcrumb-separator { color: #84CC16; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #4D7C0F; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(77,124,15,0.15); transition: all 0.3s; border: 2px solid #BEF264; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(77,124,15,0.25); background: #F7FEE7; }
+.nav-btn.primary { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(190,242,100,0.3) 0%, rgba(217,249,157,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏆'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🌍'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #3F6212; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #4D7C0F; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(77,124,15,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Flashcard Section - Lime */
+.flashcard-section .section-title { color: #3F6212; border-color: #84CC16; }
+.flashcard-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.flashcard-tab { padding: 10px 20px; background: white; color: #3F6212; border: 2px solid #BEF264; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-tab.active { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border-color: transparent; }
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; }
+.flashcard-back { background: white; color: #2D3748; transform: rotateY(180deg); border: 3px solid #4D7C0F; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 3em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.4em; font-weight: 700; color: #3F6212; margin-bottom: 10px; text-align: center; }
+.flashcard-pronunciation { color: #718096; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #718096; margin-top: 10px; font-weight: 600; }
+
+.speak-btn { background: linear-gradient(135deg, #84CC16 0%, #A3E635 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(132,204,22,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Listening Exercise - Lime */
+.listening-exercise .section-title { color: #3F6212; border-color: #84CC16; }
+.listening-container { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #84CC16; }
+.listening-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.listening-number { background: #84CC16; color: white; padding: 5px 15px; border-radius: 15px; font-weight: 700; }
+.listening-type { background: white; color: #3F6212; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+
+.audio-player { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #BEF264; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(77,124,15,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #3F6212; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #84CC16; display: none; }
+.transcript-box.show { display: block; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #3F6212; font-size: 1.2em; margin-bottom: 15px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #F7FEE7; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #3F6212; min-width: 100px; background: #D9F99D; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.score-section.show { display: block; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Evaluation Section - Purple */
+.evaluation-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.evaluation-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.evaluation-title { font-family: 'Baloo 2', cursive; color: #5B21B6; font-size: 1.3em; margin-bottom: 15px; }
+.evaluation-textarea { width: 100%; min-height: 150px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; margin-bottom: 15px; }
+.evaluation-textarea:focus { outline: none; border-color: #8B5CF6; }
+.save-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.save-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(139,92,246,0.4); }
+
+/* Checklist Section - Green */
+.checklist-section .section-title { color: #065F46; border-color: #10B981; }
+.checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.checklist-card { background: white; padding: 20px; border-radius: 15px; border: 2px solid #E2E8F0; }
+.checklist-card-title { font-family: 'Baloo 2', cursive; color: #3F6212; font-size: 1.2em; margin-bottom: 15px; }
+.checklist-item { padding: 10px; margin: 8px 0; background: #F7FEE7; border-radius: 10px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s; }
+.checklist-item:hover { background: #ECFCCB; }
+.checklist-item input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; accent-color: #84CC16; }
+.checklist-item.checked { background: #D9F99D; opacity: 0.7; }
+.checklist-item.checked span { text-decoration: line-through; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #4D7C0F; border: 2px solid #BEF264; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F7FEE7; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.checklist-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week07.html">🌿 Tuần 7</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 7: Ôn tập & Luyện đề</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week07.html" class="nav-btn">← Về Tổng quan Tuần 7</a>
+<a href="topik3-week08.html" class="nav-btn primary">Tuần 8 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏆 NGÀY 7 • 7일차</span>
+<h1>Ôn tập & Luyện đề TOPIK format</h1>
+<div class="subtitle">Tổng kết Tuần 7 và chuẩn bị cho Tuần 8</div>
+<p class="description">
+Ôn tập toàn bộ kiến thức Tuần 7 về Môi trường & Thiên nhiên qua flashcard, luyện đề TOPIK format với 5 câu đọc và 3 câu nghe, 
+tự đánh giá và lên kế hoạch cho Tuần 8 (Công nghệ & Internet). 🌍
+</p>
+<div class="time-info">⏰ 60 phút • 🎴 Flashcard • 📝 Đề TOPIK • 📊 Tự đánh giá</div>
+</div>
+
+<!-- Flashcard Section -->
+<div class="section flashcard-section">
+<h2 class="section-title">🎴 1. Ôn tập Flashcard (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại từ vựng và ngữ pháp đã học trong tuần. Click vào thẻ để lật và xem nghĩa.</p>
+
+<div class="flashcard-tabs">
+<button class="flashcard-tab active" onclick="switchTab('vocab', event)">📚 Từ vựng (100 từ)</button>
+<button class="flashcard-tab" onclick="switchTab('grammar', event)">📘 Ngữ pháp (6 cấu trúc)</button>
+</div>
+
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">환경</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">Môi trường</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[hwan-gyeong]</div>
+<button class="speak-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 100</div>
+</div>
+
+<!-- Reading Exercise -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 2. Luyện đề TOPIK - Phần Đọc (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc kỹ đoạn văn và chọn đáp án đúng. Tổng cộng 5 câu hỏi.</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 재활용은 왜 중요해요?</div>
+<div class="exercise-question">Tại sao tái chế quan trọng?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 돈을 벌 수 있기 때문에 (Vì có thể kiếm tiền)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 자원을 절약하고 환경을 보호하기 때문에 (Vì tiết kiệm tài nguyên và bảo vệ môi trường)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 시간이 절약되기 때문에 (Vì tiết kiệm thời gian)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 재미있기 때문에 (Vì thú vị)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 플라스틱 쓰레기가 바다로 흘러들어가면 어떻게 돼요?</div>
+<div class="exercise-question">Nếu rác nhựa chảy ra biển thì sao?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 물고기가 많이 생겨요 (Có nhiều cá hơn)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 바다가 깨끗해져요 (Biển sạch hơn)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 물고기가 죽어요 (Cá bị chết)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 플라스틱이 사라져요 (Nhựa biến mất)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'c', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 기후 변화의 주된 원인은 뭐예요?</div>
+<div class="exercise-question">Nguyên nhân chính của biến đổi khí hậu là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 나무를 많이 심기 때문에 (Vì trồng nhiều cây)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 온실가스 때문에 (Vì khí nhà kính)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 대중교통을 이용하기 때문에 (Vì sử dụng giao thông công cộng)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 에너지를 절약하기 때문에 (Vì tiết kiệm năng lượng)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 기후 변화를 막기 위해 무엇을 해야 돼요?</div>
+<div class="exercise-question">Để ngăn chặn biến đổi khí hậu thì phải làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 공장을 많이 만들어야 돼요 (Phải xây nhiều nhà máy)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 자동차를 많이 타야 돼요 (Phải đi ô tô nhiều)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 탄소 배출을 줄여야 돼요 (Phải giảm phát thải carbon)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 에너지를 많이 써야 돼요 (Phải sử dụng nhiều năng lượng)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'c', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 다음 글을 읽고 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">
+<div style="background: #F0F9FF; padding: 15px; border-radius: 10px; margin-bottom: 15px; line-height: 1.8;">
+<strong>지구를 지키는 방법</strong><br><br>
+지구는 우리의 집이에요. 지구를 보호해야 돼요. 요즘 환경 오염이 심한 편이에요.<br><br>
+첫째, 재활용을 해야 돼요. 플라스틱, 종이, 유리를 분리수거해야 돼요. 재활용을 하면 쓰레기가 줄어들 거예요.<br><br>
+둘째, 대중교통을 이용해야 돼요. 자동차를 안 타면 매연이 줄어들어요. 에너지를 절약할 수 있어요.<br><br>
+셋째, 나무를 심어야 돼요. 나무는 공기를 깨끗하게 해요. 나무를 많이 심으면 환경이 깨끗하게 될 거예요.<br><br>
+작은 일부터 시작해야 돼요. 그러면 지구가 건강하게 될 거예요.
+</div>
+</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 재활용은 선택이에요 (Tái chế là tùy chọn)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 재활용을 하면 쓰레기가 줄어들 거예요 (Nếu tái chế thì rác sẽ giảm đi)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 자동차를 많이 타야 돼요 (Phải đi ô tô nhiều)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 나무를 심으면 환경이 나빠져요 (Trồng cây làm môi trường xấu đi)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Listening Exercise -->
+<div class="section listening-exercise">
+<h2 class="section-title">♻️ 3. Luyện đề TOPIK - Phần Nghe (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại "쓰레기 분리수거" từ Ngày 6 và trả lời 3 câu hỏi.</p>
+
+<div class="listening-container">
+<div class="audio-player">
+<button class="play-btn" id="listeningAudioBtn" onclick="speakListeningAudio(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe hội thoại "쓰레기 분리수거" (Phân loại rác)</div>
+<div class="audio-sub">Nghe 2-3 lần trước khi trả lời câu hỏi</div>
+</div>
+</div>
+
+<button class="nav-btn" onclick="toggleTranscript()" style="margin: 15px 0; display: inline-block;">📜 Xem Transcript</button>
+
+<div class="transcript-box" id="transcriptBox">
+<div class="transcript-title">📜 Transcript</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">지영 씨, 분리수거 어떻게 해요? 잘 모르겠어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">분리수거는 정말 중요해요. 환경 오염 때문에 꼭 해야 돼요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">플라스틱은 어떻게 버려요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">플라스틱은 깨끗이 씻어서 재활용 쓰레기통에 버려요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">종이와 유리는요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">종이와 유리도 따로 버려야 돼요. 종이를 재활용하면 나무를 절약할 수 있어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">음식물 쓰레기는 어디에 버려요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">음식물 쓰레기는 전용 용기에 버려요. 음식물 쓰레기는 거름으로 만들 수 있어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">민수:</span>
+<span class="dialogue-text">그럼 쓰레기를 버리는 김에 분리수거를 해야겠어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">지영:</span>
+<span class="dialogue-text">맞아요! 작은 일부터 시작하면 환경이 깨끗하게 될 거예요. 같이 노력해요!</span>
+</div>
+</div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 6</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">민수 씨는 무엇을 배우고 있어요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 요리하는 방법 (Cách nấu ăn)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 분리수거하는 방법 (Cách phân loại rác)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 운전하는 방법 (Cách lái xe)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 운동하는 방법 (Cách tập thể dục)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'b', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 7</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">플라스틱은 어떻게 처리해요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 그냥 버려요 (Vứt luôn)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 깨끗이 씻어서 재활용 쓰레기통에 버려요 (Rửa sạch rồi vứt vào thùng rác tái chế)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 태워요 (Đốt)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 땅에 묻어요 (Chôn xuống đất)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'b', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 8</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">음식물 쓰레기는 어디에 버려요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 일반 쓰레기통에 (Vào thùng rác thông thường)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 재활용 쓰레기통에 (Vào thùng rác tái chế)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 전용 용기에 (Vào vật chứa chuyên dụng)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 바다에 (Xuống biển)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'c', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Evaluation Section -->
+<div class="section evaluation-section">
+<h2 class="section-title">📊 4. Tự đánh giá (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ghi chú điểm yếu cần cải thiện và lên kế hoạch cho Tuần 8.</p>
+
+<div class="evaluation-box">
+<div class="evaluation-title">📝 Ghi chú điểm yếu cần cải thiện</div>
+<textarea class="evaluation-textarea" id="evaluationNotes" placeholder="Viết về những điểm bạn còn yếu và cần cải thiện trong Tuần 8...
+
+Ví dụ:
+- Ngữ pháp -는 김에 còn chưa nhớ rõ
+- Từ vựng về biến đổi khí hậu cần ôn thêm
+- Nghe hiểu hội thoại phân loại rác cần luyện thêm
+- Phát âm các từ mượn tiếng Anh (플라스틱, 에너지)..."></textarea>
+
+<div class="evaluation-title">📋 Kế hoạch Tuần 8 (Chủ đề: Công nghệ & Internet)</div>
+<textarea class="evaluation-textarea" id="week8Plan" placeholder="Viết kế hoạch học tập cho Tuần 8...
+
+Ví dụ:
+- Mỗi ngày học 60 phút
+- Ôn từ vựng 15 phút mỗi sáng về công nghệ
+- Luyện ngữ pháp 15 phút
+- Đọc 1 bài đọc 300 chữ về internet/mạng xã hội mỗi ngày
+- Cuối tuần làm đề thi thử TOPIK
+- Luyện nghe hội thoại về công nghệ..."></textarea>
+
+<button class="save-btn" onclick="saveEvaluation()">💾 Lưu đánh giá</button>
+<div id="evaluation-feedback" style="margin-top: 15px; padding: 15px; border-radius: 12px; display: none;"></div>
+</div>
+</div>
+
+<!-- Checklist Section -->
+<div class="section checklist-section">
+<h2 class="section-title">✅ 5. Checklist hoàn thành Tuần 7</h2>
+<div class="checklist-grid">
+<div class="checklist-card">
+<div class="checklist-card-title">🌿 Ngày 1-2</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thuộc 20 từ vựng về thiên nhiên & cảnh quan</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -아/어야 되다 và -게 되다</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "자연의 아름다움" 200 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -는 편이다 và -기 때문에</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "환경 오염" 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Tóm tắt bài đọc 3-4 câu</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">🌍 Ngày 3-4</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -(으)ㄹ 것이다 và -는 김에</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu hội thoại "환경 보호"</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Trả lời đúng 3/3 câu hỏi nghe</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thực hành Shadowing</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết 5-7 câu phức tạp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "지구를 지키는 방법"</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">♻️ Ngày 5-6</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu 2 bài 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Trả lời đúng 6/8 câu TOPIK</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Học 10 từ vựng mới</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết đoạn văn 300-400 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Sử dụng 4+ cấu trúc ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu "쓰레기 분리수거"</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">🏆 Ngày 7</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Ôn tập 100 từ vựng + 6 ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Làm đề TOPIK (5 Đọc + 3 Nghe)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đạt điểm ≥ 80% (4/5 câu)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Tự đánh giá và ghi chú</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Lên kế hoạch Tuần 8</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hoàn thành checklist 7 ngày</span></div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">🎯 Mục tiêu đạt được sau Ngày 7</h2>
+<ul class="goals-list">
+<li>Điểm kiểm tra ≥ 80% (4/5 câu Đọc + 3/3 câu Nghe)</li>
+<li>Hoàn thành checklist 7 ngày của Tuần 7</li>
+<li>Ôn tập và nắm vững 100 từ vựng chủ đề môi trường & thiên nhiên</li>
+<li>Hiểu và sử dụng linh hoạt 6 cấu trúc ngữ pháp</li>
+<li>Viết được đoạn văn 300-400 chữ về bảo vệ môi trường</li>
+<li>Nghe hiểu hội thoại 10 lượt về phân loại rác</li>
+<li>Sẵn sàng chuyển sang Tuần 8 (Công nghệ & Internet)</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week07.html" class="day-nav-btn">← Về Hub Tuần 7</a>
+<a href="topik3-week07-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week07-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week07-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week07-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week07-day05.html" class="day-nav-btn">Ngày 5</a>
+<a href="topik3-week07-day06.html" class="day-nav-btn">Ngày 6</a>
+<a href="topik3-week07-day07.html" class="day-nav-btn active">Ngày 7 ✓</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week07-day06.html" class="nav-btn">← Ngày 6</a>
+<a href="topik3-week08.html" class="nav-btn primary">Tiếp: Tuần 8 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🌿 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Bảo vệ thiên nhiên là bảo vệ tương lai của chúng ta"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌿', '🍃', '🌱', '🍀', '🌳'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakListeningAudio(btnElement) {
+    const fullText = '지영 씨, 분리수거 어떻게 해요? 잘 모르겠어요. 분리수거는 정말 중요해요. 환경 오염 때문에 꼭 해야 돼요. 플라스틱은 어떻게 버려요? 플라스틱은 깨끗이 씻어서 재활용 쓰레기통에 버려요. 종이는 유리는요? 종이와 유리도 따로 버려야 돼요. 종이를 재활용하면 나무를 절약할 수 있어요. 음식물 쓰레기는 어디에 버려요? 음식물 쓰레기는 전용 용기에 버려요. 음식물 쓰레기는 거름으로 만들 수 있어요. 그럼 쓰레기를 버리는 김에 분리수거를 해야겠어요. 맞아요! 작은 일부터 시작하면 환경이 깨끗하게 될 거예요. 같이 노력해요!';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Flashcard data
+const vocabFlashcards = [
+    { char: '산', meaning: 'Núi', pron: '[san]' },
+    { char: '바다', meaning: 'Biển', pron: '[ba-da]' },
+    { char: '강', meaning: 'Sông', pron: '[gang]' },
+    { char: '호수', meaning: 'Hồ', pron: '[ho-su]' },
+    { char: '숲', meaning: 'Rừng', pron: '[sup]' },
+    { char: '나무', meaning: 'Cây', pron: '[na-mu]' },
+    { char: '꽃', meaning: 'Hoa', pron: '[kkot]' },
+    { char: '하늘', meaning: 'Bầu trời', pron: '[ha-neul]' },
+    { char: '구름', meaning: 'Mây', pron: '[gu-reum]' },
+    { char: '바람', meaning: 'Gió', pron: '[ba-ram]' },
+    { char: '섬', meaning: 'Đảo', pron: '[seom]' },
+    { char: '폭포', meaning: 'Thác nước', pron: '[pok-po]' },
+    { char: '계곡', meaning: 'Thung lũng', pron: '[gye-gok]' },
+    { char: '들판', meaning: 'Cánh đồng', pron: '[deul-pan]' },
+    { char: '해변', meaning: 'Bãi biển', pron: '[hae-byeon]' },
+    { char: '자연', meaning: 'Thiên nhiên', pron: '[ja-yeon]' },
+    { char: '풍경', meaning: 'Phong cảnh', pron: '[pung-gyeong]' },
+    { char: '경치', meaning: 'Cảnh sắc', pron: '[gyeong-chi]' },
+    { char: '공기', meaning: 'Không khí', pron: '[gong-gi]' },
+    { char: '태양', meaning: 'Mặt trời', pron: '[tae-yang]' },
+    { char: '환경', meaning: 'Môi trường', pron: '[hwan-gyeong]' },
+    { char: '오염', meaning: 'Ô nhiễm', pron: '[o-yeom]' },
+    { char: '쓰레기', meaning: 'Rác', pron: '[sseu-re-gi]' },
+    { char: '플라스틱', meaning: 'Nhựa', pron: '[peul-la-seu-tik]' },
+    { char: '재활용', meaning: 'Tái chế', pron: '[jae-hwal-yong]' },
+    { char: '분리수거', meaning: 'Phân loại rác', pron: '[bul-li-su-geo]' },
+    { char: '대중교통', meaning: 'Giao thông công cộng', pron: '[dae-jung-gyo-tong]' },
+    { char: '에너지', meaning: 'Năng lượng', pron: '[e-neo-ji]' },
+    { char: '절약', meaning: 'Tiết kiệm', pron: '[jeol-yak]' },
+    { char: '기후 변화', meaning: 'Biến đổi khí hậu', pron: '[gi-hu byeon-hwa]' },
+    { char: '온실가스', meaning: 'Khí nhà kính', pron: '[on-sil-ga-seu]' },
+    { char: '이산화탄소', meaning: 'Khí CO2', pron: '[i-san-hwa-tan-so]' },
+    { char: '탄소', meaning: 'Carbon', pron: '[tan-so]' },
+    { char: '빙하', meaning: 'Sông băng', pron: '[bing-ha]' },
+    { char: '해수면', meaning: 'Mực nước biển', pron: '[hae-su-myeon]' },
+    { char: '가뭄', meaning: 'Hạn hán', pron: '[ga-mum]' },
+    { char: '홍수', meaning: 'Lũ lụt', pron: '[hong-su]' },
+    { char: '폭염', meaning: 'Nắng nóng cực đoan', pron: '[pong-yeom]' },
+    { char: '사막화', meaning: 'Sa mạc hóa', pron: '[sa-mak-hwa]' },
+    { char: '폐기물', meaning: 'Chất thải', pron: '[pye-gi-mul]' },
+    { char: '자원', meaning: 'Tài nguyên', pron: '[ja-won]' },
+    { char: '유리', meaning: 'Thủy tinh', pron: '[yu-ri]' },
+    { char: '캔', meaning: 'Lon', pron: '[kaen]' },
+    { char: '매립지', meaning: 'Bãi rác', pron: '[mae-rip-ji]' },
+    { char: '지구', meaning: 'Trái Đất', pron: '[ji-gu]' },
+    { char: '보호', meaning: 'Bảo vệ', pron: '[bo-ho]' },
+    { char: '생태계', meaning: 'Hệ sinh thái', pron: '[saeng-tae-gye]' },
+    { char: '멸종', meaning: 'Tuyệt chủng', pron: '[myeol-jong]' },
+    { char: '공장', meaning: 'Nhà máy', pron: '[gong-jang]' },
+    { char: '자동차', meaning: 'Ô tô', pron: '[ja-dong-cha]' }
+];
+
+const grammarFlashcards = [
+    { char: '-아/어야 되다', meaning: 'Phải (nghĩa vụ mạnh)', pron: '[-a/eoya doeda]' },
+    { char: '-게 되다', meaning: 'Trở nên (kết quả)', pron: '[-ge doeda]' },
+    { char: '-는 편이다', meaning: 'Có xu hướng', pron: '[-neun pyeonida]' },
+    { char: '-기 때문에', meaning: 'Vì (nguyên nhân)', pron: '[-gi ttaemune]' },
+    { char: '-(으)ㄹ 것이다', meaning: 'Sẽ (dự đoán)', pron: '[-(eu)l geosida]' },
+    { char: '-는 김에', meaning: 'Nhân tiện', pron: '[-neun gime]' }
+];
+
+let currentFlashcards = vocabFlashcards;
+let currentFlashcard = 0;
+
+function switchTab(type, event) {
+    document.querySelectorAll('.flashcard-tab').forEach(tab => tab.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    if (type === 'vocab') {
+        currentFlashcards = vocabFlashcards;
+    } else {
+        currentFlashcards = grammarFlashcards;
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = currentFlashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = currentFlashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = currentFlashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + currentFlashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + currentFlashcards.length) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = currentFlashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [currentFlashcards[i], currentFlashcards[j]] = [currentFlashcards[j], currentFlashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').classList.add('show');
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 80) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Tuần 8!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài học.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week7_progress') || '[]');
+        if (!progress.includes(7)) {
+            progress.push(7);
+            localStorage.setItem('topik3_week7_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function toggleTranscript() {
+    const transcriptBox = document.getElementById('transcriptBox');
+    transcriptBox.classList.toggle('show');
+}
+
+function saveEvaluation() {
+    const notes = document.getElementById('evaluationNotes').value.trim();
+    const plan = document.getElementById('week8Plan').value.trim();
+    const feedback = document.getElementById('evaluation-feedback');
+    
+    if (notes && plan) {
+        localStorage.setItem('topik3_week7_evaluation', notes);
+        localStorage.setItem('topik3_week8_plan', plan);
+        feedback.style.display = 'block';
+        feedback.style.background = '#F0FFF4';
+        feedback.style.color = '#065F46';
+        feedback.style.border = '2px solid #10B981';
+        feedback.innerHTML = '✅ Đã lưu đánh giá và kế hoạch Tuần 8!';
+    } else {
+        feedback.style.display = 'block';
+        feedback.style.background = '#FEF3C7';
+        feedback.style.color = '#92400E';
+        feedback.style.border = '2px solid #F59E0B';
+        feedback.innerHTML = '⚠️ Vui lòng điền đầy đủ thông tin!';
+    }
+}
+
+function toggleChecklist(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('checked');
+}
+
+// Load saved data
+window.onload = function() {
+    const savedNotes = localStorage.getItem('topik3_week7_evaluation');
+    if (savedNotes) {
+        document.getElementById('evaluationNotes').value = savedNotes;
+    }
+    const savedPlan = localStorage.getItem('topik3_week8_plan');
+    if (savedPlan) {
+        document.getElementById('week8Plan').value = savedPlan;
+    }
+};
+</script>
+</body>
+</html>

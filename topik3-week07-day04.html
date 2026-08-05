@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 4: Luyện viết câu & Tổng hợp ngữ pháp - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 50%, #D9F99D 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #4D7C0F; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #3F6212; }
+.breadcrumb-separator { color: #84CC16; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #4D7C0F; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(77,124,15,0.15); transition: all 0.3s; border: 2px solid #BEF264; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(77,124,15,0.25); background: #F7FEE7; }
+.nav-btn.primary { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(190,242,100,0.3) 0%, rgba(217,249,157,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '✍️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🌍'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #3F6212; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #4D7C0F; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(77,124,15,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Review Section - Lime */
+.grammar-section .section-title { color: #3F6212; border-color: #84CC16; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #F7FEE7 0%, #ECFCCB 100%); border-radius: 20px; padding: 22px; border: 2px solid #84CC16; transition: all 0.3s; }
+.grammar-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(132,204,22,0.2); }
+.grammar-number { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #3F6212; margin-bottom: 8px; }
+.grammar-meaning { color: #4A5568; font-size: 0.95em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed #BEF264; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 12px; border-radius: 10px; margin: 10px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 0.95em; }
+.grammar-example { background: white; padding: 10px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #84CC16; }
+.grammar-example-korean { color: #3F6212; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 10px; border-radius: 8px; margin-top: 12px; color: #92400E; font-size: 0.9em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #84CC16 0%, #A3E635 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(132,204,22,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Writing Section - Purple */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 220px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #3F6212; background: #F7FEE7; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #F7FEE7; color: #3F6212; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #BEF264; }
+.grammar-tag { background: #EFF6FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+
+/* Pronunciation Section - Red */
+.pronunciation-section .section-title { color: #991B1B; border-color: #EF4444; }
+.pronunciation-box { background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%); border: 2px solid #EF4444; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.pronunciation-tips { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+.pronunciation-tip { padding: 12px; margin: 8px 0; border-left: 4px solid #EF4444; background: #FEF2F2; border-radius: 8px; }
+.pronunciation-tip strong { color: #991B1B; }
+.pronunciation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.pronunciation-card { background: white; padding: 15px; border-radius: 12px; border: 2px solid #EF4444; }
+.pronunciation-korean { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #991B1B; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.pronunciation-pron { color: #718096; font-size: 0.9em; margin-bottom: 10px; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #4D7C0F; border: 2px solid #BEF264; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F7FEE7; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #4D7C0F 0%, #84CC16 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.pronunciation-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week07.html">🌿 Tuần 7</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 4: Viết câu & Tổng hợp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week07.html" class="nav-btn">← Về Tổng quan Tuần 7</a>
+<a href="topik3-week07-day05.html" class="nav-btn primary">Ngày 5 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">✍️ NGÀY 4 • 4일차</span>
+<h1>Luyện viết câu & Tổng hợp ngữ pháp</h1>
+<div class="subtitle">Tổng hợp 6 cấu trúc ngữ pháp và luyện viết câu phức tạp</div>
+<p class="description">
+Ôn tập 6 cấu trúc ngữ pháp đã học và luyện viết 5-7 câu phức tạp về chủ đề "지구를 지키는 방법" (Cách bảo vệ Trái Đất). 
+Đọc hiểu bài đọc và luyện phát âm. 🌍
+</p>
+<div class="time-info">⏰ 60 phút • 📝 6 ngữ pháp • ✍️ Viết 5-7 câu • 📖 Bài đọc 280 chữ</div>
+</div>
+
+<!-- Grammar Review Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ôn tập 6 cấu trúc ngữ pháp (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại 6 cấu trúc ngữ pháp đã học trong tuần. Đọc to các ví dụ và tự đặt câu mới về chủ đề môi trường.</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-아/어야 되다</div>
+<div class="grammar-meaning">Phải (nghĩa vụ mạnh)</div>
+<div class="grammar-formula">Động từ + -아/어야 되다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">환경을 보호해야 돼요. <button class="speak-btn" onclick="speakKorean('환경을 보호해야 돼요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Phải bảo vệ môi trường.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">쓰레기를 분리수거해야 돼요. <button class="speak-btn" onclick="speakKorean('쓰레기를 분리수거해야 돼요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Phải phân loại rác.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어야 되다 = "phải" → Nghĩa vụ mạnh, bắt buộc
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-게 되다</div>
+<div class="grammar-meaning">Trở nên (kết quả của quá trình)</div>
+<div class="grammar-formula">Động từ/Tính từ + -게 되다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">환경이 깨끗하게 됐어요. <button class="speak-btn" onclick="speakKorean('환경이 깨끗하게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Môi trường đã trở nên sạch sẽ.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">공기가 좋아지게 됐어요. <button class="speak-btn" onclick="speakKorean('공기가 좋아지게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Không khí đã trở nên tốt hơn.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -게 되다 = "trở nên" → Diễn tả sự thay đổi do quá trình
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">3</div>
+<div class="grammar-title">-는 편이다</div>
+<div class="grammar-meaning">Có xu hướng</div>
+<div class="grammar-formula">Động từ + -는 편이다 / Tính từ + -ㄴ/은 편이다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">환경 오염이 심한 편이에요. <button class="speak-btn" onclick="speakKorean('환경 오염이 심한 편이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Ô nhiễm môi trường có xu hướng nghiêm trọng.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">요즘 날씨가 추운 편이에요. <button class="speak-btn" onclick="speakKorean('요즘 날씨가 추운 편이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Dạo này thời tiết có xu hướng lạnh.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -는 편이다 = "có xu hướng" → Diễn tả đặc điểm tương đối
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">4</div>
+<div class="grammar-title">-기 때문에</div>
+<div class="grammar-meaning">Vì (nguyên nhân rõ ràng)</div>
+<div class="grammar-formula">Động từ/Tính từ + -기 때문에 / Danh từ + 이기 때문에</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">환경 오염 때문에 건강이 나빠요. <button class="speak-btn" onclick="speakKorean('환경 오염 때문에 건강이 나빠요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Vì ô nhiễm môi trường nên sức khỏe kém.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">쓰레기 때문에 강이 더러워졌어요. <button class="speak-btn" onclick="speakKorean('쓰레기 때문에 강이 더러워졌어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Vì rác thải nên sông đã trở nên bẩn.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -기 때문에 = "vì" → Diễn tả nguyên nhân rõ ràng, trang trọng
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">5</div>
+<div class="grammar-title">-(으)ㄹ 것이다</div>
+<div class="grammar-meaning">Sẽ (dự đoán tương lai)</div>
+<div class="grammar-formula">Động từ/Tính từ + -(으)ㄹ 것이다 (문어: -(으)ㄹ 거예요 khẩu ngữ)</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">재활용을 하면 쓰레기가 줄어들 거예요. <button class="speak-btn" onclick="speakKorean('재활용을 하면 쓰레기가 줄어들 거예요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nếu tái chế thì rác sẽ giảm đi.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">나무를 많이 심으면 공기가 좋아질 거예요. <button class="speak-btn" onclick="speakKorean('나무를 많이 심으면 공기가 좋아질 거예요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nếu trồng nhiều cây thì không khí sẽ tốt hơn.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)ㄹ 것이다 = "sẽ" → Dự đoán tương lai
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">6</div>
+<div class="grammar-title">-는 김에</div>
+<div class="grammar-meaning">Nhân tiện</div>
+<div class="grammar-formula">Động từ + -는 김에</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">쓰레기를 버리는 김에 분리수거를 했어요. <button class="speak-btn" onclick="speakKorean('쓰레기를 버리는 김에 분리수거를 했어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nhân tiện vứt rác nên đã phân loại rác luôn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">대중교통을 이용하는 김에 에너지도 절약해요. <button class="speak-btn" onclick="speakKorean('대중교통을 이용하는 김에 에너지도 절약해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nhân tiện sử dụng giao thông công cộng nên cũng tiết kiệm năng lượng.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -는 김에 = "nhân tiện" → Làm thêm việc khác cho tiện
+</div>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 2. Luyện viết câu phức tạp (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5-7 câu phức tạp về chủ đề "지구를 지키는 방법" (Cách bảo vệ Trái Đất). Mỗi câu kết hợp ít nhất 1 cấu trúc ngữ pháp.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Đề bài:</strong> Viết đoạn văn về <strong>"지구를 지키는 방법" (Cách bảo vệ Trái Đất)</strong><br><br>
+<strong>Yêu cầu:</strong><br>
+• Độ dài: <strong>5-7 câu</strong> (mỗi câu 15-20 từ)<br>
+• Mỗi câu kết hợp ít nhất <strong>1 cấu trúc ngữ pháp</strong> đã học:<br>
+  - <strong>-아/어야 되다</strong> (phải)<br>
+  - <strong>-게 되다</strong> (trở nên)<br>
+  - <strong>-는 편이다</strong> (có xu hướng)<br>
+  - <strong>-기 때문에</strong> (vì)<br>
+  - <strong>-(으)ㄹ 것이다</strong> (sẽ)<br>
+  - <strong>-는 김에</strong> (nhân tiện)<br><br>
+• Sử dụng từ vựng: 환경, 재활용, 분리수거, 쓰레기, 플라스틱, 대중교통, 에너지, 나무, 지구, 오염, 절약, 보호
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 우리는 지구를 보호해야 돼요.</div>
+<div class="writing-example-meaning">Chúng ta phải bảo vệ Trái Đất.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어야 되다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 환경 오염 때문에 공기가 나빠졌어요.</div>
+<div class="writing-example-meaning">Vì ô nhiễm môi trường nên không khí đã trở nên xấu.</div>
+<div class="writing-example-grammar">Ngữ pháp: -기 때문에</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 재활용을 하면 쓰레기가 줄어들 거예요.</div>
+<div class="writing-example-meaning">Nếu tái chế thì rác sẽ giảm đi.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)ㄹ 것이다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 요즘 환경 오염이 심한 편이에요.</div>
+<div class="writing-example-meaning">Dạo này ô nhiễm môi trường có xu hướng nghiêm trọng.</div>
+<div class="writing-example-grammar">Ngữ pháp: -는 편이다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">5. 쓰레기를 버리는 김에 분리수거를 해야 돼요.</div>
+<div class="writing-example-meaning">Nhân tiện vứt rác nên phải phân loại rác.</div>
+<div class="writing-example-grammar">Ngữ pháp: -는 김에, -아/어야 되다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">6. 나무를 많이 심으면 환경이 깨끗하게 될 거예요.</div>
+<div class="writing-example-meaning">Nếu trồng nhiều cây thì môi trường sẽ trở nên sạch sẽ.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)ㄹ 것이다, -게 되다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">7. 대중교통을 이용하는 김에 에너지도 절약해야 돼요.</div>
+<div class="writing-example-meaning">Nhân tiện sử dụng giao thông công cộng nên cũng phải tiết kiệm năng lượng.</div>
+<div class="writing-example-grammar">Ngữ pháp: -는 김에, -아/어야 되다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="writingText" placeholder="Viết 5-7 câu về cách bảo vệ Trái Đất...
+
+Gợi ý bắt đầu:
+1. 우리는 지구를...
+2. 환경 오염 때문에...
+3. 재활용을 하면...
+4. 요즘 환경이...
+5. 쓰레기를 버리는 김에...
+6. 나무를 많이 심으면...
+7. 대중교통을 이용하는 김에...
+
+Hãy kết hợp ít nhất 1 cấu trúc ngữ pháp trong mỗi câu!"></textarea>
+
+<div style="background: white; padding: 10px 15px; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #5B21B6;">
+<span>📝 Số câu đã viết:</span>
+<span id="sentenceCount" style="font-size: 1.2em;">0 / 5-7 câu</span>
+</div>
+
+<button class="check-btn" onclick="checkWriting()">✓ Kiểm tra bài viết</button>
+
+<div id="writing-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết câu phức tạp:</strong><br>
+• <strong>Kết hợp ngữ pháp:</strong> Sử dụng 1-2 cấu trúc trong một câu<br>
+• <strong>Độ dài câu:</strong> 15-20 từ mỗi câu<br>
+• <strong>Chủ đề:</strong> Tập trung vào bảo vệ môi trường và Trái Đất<br>
+• <strong>Từ vựng:</strong> Sử dụng từ vựng về môi trường đã học<br>
+• <strong>Cấu trúc:</strong> Chủ ngữ + Tân ngữ + Động từ + Ngữ pháp<br>
+• <strong>Liên kết:</strong> Sử dụng từ nối: 그리고 (và), 그래서 (vì vậy), 하지만 (nhưng)
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc ngữ pháp • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🌍 지구를 지키는 방법 (Cách bảo vệ Trái Đất)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 280 chữ</span>
+<span class="reading-tag">⏱️ 15 phút</span>
+<span class="reading-tag">🎯 Ngày 4</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p><strong>지구</strong>는 우리의 집이에요. <strong>지구</strong>를 <span class="grammar-highlight">보호해야 돼요</span>. 요즘 <strong>환경 오염</strong>이 <span class="grammar-highlight">심한 편이에요</span>. <strong>환경 오염</strong> <span class="grammar-highlight">때문에</span> 많은 문제가 생겼어요.</p>
+
+<p>첫째, <strong>재활용</strong>을 해야 돼요. <strong>플라스틱</strong>과 <strong>종이</strong>, <strong>유리</strong>를 <strong>분리수거</strong>해야 돼요. <strong>재활용</strong>을 하면 <strong>쓰레기</strong>가 <span class="grammar-highlight">줄어들 거예요</span>. <strong>쓰레기</strong>를 버리는 <span class="grammar-highlight">김에</span> 꼭 <strong>분리수거</strong>를 해요.</p>
+
+<p>둘째, <strong>대중교통</strong>을 이용해야 돼요. <strong>자동차</strong>를 안 타면 <strong>매연</strong>이 줄어들어요. <strong>대중교통</strong>을 이용하는 <span class="grammar-highlight">김에</span> <strong>에너지</strong>도 <strong>절약</strong>해요. 그러면 <strong>공기</strong>가 <span class="grammar-highlight">깨끗하게 될 거예요</span>.</p>
+
+<p>셋째, <strong>나무</strong>를 심어야 돼요. <strong>나무</strong>는 <strong>공기</strong>를 깨끗하게 해요. <strong>나무</strong>를 많이 심으면 <strong>지구</strong>가 <span class="grammar-highlight">건강하게 됐어요</span>. <strong>숲</strong>이 많아져요.</p>
+
+<p>마지막으로, <strong>에너지</strong>를 <strong>절약</strong>해야 돼요. <strong>전기</strong>를 아껴 써야 돼요. 안 쓸 때는 <strong>전기</strong>를 꺼요. 그러면 <strong>전기세</strong>도 <strong>절약</strong>돼요.</p>
+
+<p>우리가 <strong>환경</strong>을 <strong>보호해야 돼요</strong>. 작은 일부터 시작해야 돼요. 그러면 <strong>지구</strong>가 <span class="grammar-highlight">깨끗하게 될 거예요</span>. 우리의 후손도 <strong>지구</strong>에서 살 수 있어요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về bảo vệ môi trường:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">지구 (Trái Đất)</span>
+<span class="vocab-tag">환경 (môi trường)</span>
+<span class="vocab-tag">환경 오염 (ô nhiễm môi trường)</span>
+<span class="vocab-tag">재활용 (tái chế)</span>
+<span class="vocab-tag">분리수거 (phân loại rác)</span>
+<span class="vocab-tag">플라스틱 (nhựa)</span>
+<span class="vocab-tag">쓰레기 (rác)</span>
+<span class="vocab-tag">대중교통 (giao thông công cộng)</span>
+<span class="vocab-tag">자동차 (ô tô)</span>
+<span class="vocab-tag">매연 (khói)</span>
+<span class="vocab-tag">에너지 (năng lượng)</span>
+<span class="vocab-tag">절약 (tiết kiệm)</span>
+<span class="vocab-tag">나무 (cây)</span>
+<span class="vocab-tag">숲 (rừng)</span>
+<span class="vocab-tag">공기 (không khí)</span>
+<span class="vocab-tag">전기 (điện)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-아/어야 되다 (phải)</span>
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+<span class="grammar-tag">-는 편이다 (có xu hướng)</span>
+<span class="grammar-tag">-기 때문에 (vì)</span>
+<span class="grammar-tag">-(으)ㄹ 것이다 (sẽ)</span>
+<span class="grammar-tag">-는 김에 (nhân tiện)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>cách bảo vệ Trái Đất</strong> qua 4 phương pháp chính: (1) Tái chế và phân loại rác để giảm rác thải; (2) Sử dụng giao thông công cộng để giảm khói xe và tiết kiệm năng lượng; (3) Trồng cây để làm sạch không khí và tạo rừng; (4) Tiết kiệm điện bằng cách tắt khi không sử dụng. Chúng ta phải bảo vệ môi trường từ những việc nhỏ, để Trái Đất sạch sẽ và con cháu có thể sống được.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Pronunciation Section -->
+<div class="section pronunciation-section">
+<h2 class="section-title">🗣️ 4. Tự sửa phát âm (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to bài viết của bạn • Tự ghi âm và nghe lại • So sánh với audio mẫu • Sửa lỗi phát âm</p>
+
+<div class="pronunciation-box">
+<div class="pronunciation-tips">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">🎯 Phương pháp tự sửa phát âm</h4>
+<div class="pronunciation-tip">
+<strong>Bước 1 (3 phút):</strong> Đọc to bài viết của bạn 2-3 lần. Chú ý phát âm rõ từng từ, đặc biệt là các từ có patchim phức tạp.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 2 (3 phút):</strong> Tự ghi âm bằng điện thoại hoặc máy tính. Đọc với tốc độ tự nhiên, không quá nhanh cũng không quá chậm.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 3 (4 phút):</strong> Nghe lại bản ghi âm và so sánh với audio mẫu. Ghi chú những từ phát âm chưa chuẩn để luyện tập thêm.
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📚 Các từ cần chú ý phát âm:</h4>
+<div class="pronunciation-grid">
+<div class="pronunciation-card">
+<div class="pronunciation-korean">환경 <button class="speak-btn" onclick="speakKorean('환경', this)">🔊</button></div>
+<div class="pronunciation-pron">[hwan-gyeong]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㄴ" patchim</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">재활용 <button class="speak-btn" onclick="speakKorean('재활용', this)">🔊</button></div>
+<div class="pronunciation-pron">[jae-hwal-yong]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ 3 âm tiết</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">분리수거 <button class="speak-btn" onclick="speakKorean('분리수거', this)">🔊</button></div>
+<div class="pronunciation-pron">[bul-li-su-geo]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ 4 âm tiết</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">플라스틱 <button class="speak-btn" onclick="speakKorean('플라스틱', this)">🔊</button></div>
+<div class="pronunciation-pron">[peul-la-seu-tik]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Từ mượn tiếng Anh "plastic"</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">대중교통 <button class="speak-btn" onclick="speakKorean('대중교통', this)">🔊</button></div>
+<div class="pronunciation-pron">[dae-jung-gyo-tong]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ 4 âm tiết</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">기후 변화 <button class="speak-btn" onclick="speakKorean('기후 변화', this)">🔊</button></div>
+<div class="pronunciation-pron">[gi-hu byeon-hwa]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅎ" cuối</div>
+</div>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Lưu ý quan trọng:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li>Phát âm đúng patchim (phụ âm cuối) là rất quan trọng trong tiếng Hàn</li>
+<li>Các từ có patchim "ㄹ" thường khó phát âm - hãy luyện tập nhiều</li>
+<li>Từ mượn tiếng Anh (플라스틱, 에너지) cần chú ý cách đọc Hàn hóa</li>
+<li>Ngữ điệu cũng quan trọng không kém phát âm - chú ý lên xuống giọng</li>
+<li>Đừng ngại ghi âm và nghe lại - đây là cách tốt nhất để tự sửa lỗi</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 4</h2>
+<ul class="goals-list">
+<li>Ôn tập và nắm vững 6 cấu trúc ngữ pháp đã học</li>
+<li>Viết được 5-7 câu phức tạp về cách bảo vệ Trái Đất</li>
+<li>Sử dụng linh hoạt ít nhất 1 cấu trúc ngữ pháp trong mỗi câu</li>
+<li>Đọc hiểu bài đọc 280 chữ "지구를 지키는 방법"</li>
+<li>Phân tích được cấu trúc ngữ pháp trong bài đọc</li>
+<li>Phát âm chuẩn các từ vựng khó về môi trường</li>
+<li>Tự ghi âm và tự đánh giá phát âm của bản thân</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week07.html" class="day-nav-btn">← Về Hub Tuần 7</a>
+<a href="topik3-week07-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week07-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week07-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week07-day04.html" class="day-nav-btn active">Ngày 4 ✓</a>
+<a href="topik3-week07-day05.html" class="day-nav-btn">Ngày 5 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week07-day03.html" class="nav-btn">← Ngày 3</a>
+<a href="topik3-week07-day05.html" class="nav-btn primary">Tiếp: Ngày 5 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🌿 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Bảo vệ thiên nhiên là bảo vệ tương lai của chúng ta"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🌿', '🍃', '🌱', '🍀', '🌳'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '지구는 우리의 집이에요. 지구를 보호해야 돼요. 요즘 환경 오염이 심한 편이에요. 환경 오염 때문에 많은 문제가 생겼어요. 첫째, 재활용을 해야 돼요. 플라스틱과 종이, 유리를 분리수거해야 돼요. 재활용을 하면 쓰레기가 줄어들 거예요. 쓰레기를 버리는 김에 꼭 분리수거를 해요. 둘째, 대중교통을 이용해야 돼요. 자동차를 안 타면 매연이 줄어들어요. 대중교통을 이용하는 김에 에너지도 절약해요. 그러면 공기가 깨끗하게 될 거예요. 셋째, 나무를 심어야 돼요. 나무는 공기를 깨끗하게 해요. 나무를 많이 심으면 지구가 건강하게 됐어요. 숲이 많아져요. 마지막으로, 에너지를 절약해야 돼요. 전기를 아껴 써야 돼요. 안 쓸 때는 전기를 꺼요. 그러면 전기세도 절약돼요. 우리가 환경을 보호해야 돼요. 작은 일부터 시작해야 돼요. 그러면 지구가 깨끗하게 될 거예요. 우리의 후손도 지구에서 살 수 있어요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Sentence counter
+const writingText = document.getElementById('writingText');
+const sentenceCount = document.getElementById('sentenceCount');
+
+writingText.addEventListener('input', function() {
+    const text = this.value.trim();
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    sentenceCount.textContent = count + ' / 5-7 câu';
+    if (count >= 5 && count <= 7) {
+        sentenceCount.style.color = '#10B981';
+    } else {
+        sentenceCount.style.color = '#5B21B6';
+    }
+});
+
+function checkWriting() {
+    const text = writingText.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    
+    if (count < 5) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn (' + count + ' câu). Hãy viết ít nhất 5 câu nhé!';
+    } else if (count > 7) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết hơi dài (' + count + ' câu). Hãy viết trong khoảng 5-7 câu!';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Xuất sắc! Bài viết của bạn có ' + count + ' câu. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 1 cấu trúc ngữ pháp trong mỗi câu?<br>• Câu văn có mạch lạc không?<br>• Sử dụng đa dạng từ vựng chủ đề môi trường?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week7_progress') || '[]');
+        if (!progress.includes(4)) {
+            progress.push(4);
+            localStorage.setItem('topik3_week7_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingText.value.trim().length > 0) {
+        localStorage.setItem('topik3_week7_day4_writing', writingText.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week7_day4_writing');
+    if (saved) {
+        writingText.value = saved;
+        const sentences = saved.split(/[.!?]+/).filter(s => s.trim().length > 0);
+        sentenceCount.textContent = sentences.length + ' / 5-7 câu';
+    }
+};
+</script>
+</body>
+</html>
