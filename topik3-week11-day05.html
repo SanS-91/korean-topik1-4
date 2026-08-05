@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 5: Đọc hiểu chuyên sâu - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #92400E; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #78350F; }
+.breadcrumb-separator { color: #FCD34D; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #92400E; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(146,64,14,0.15); transition: all 0.3s; border: 2px solid #FCD34D; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(146,64,14,0.25); background: #FFFBEB; }
+.nav-btn.primary { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(217,119,6,0.3) 0%, rgba(252,211,77,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '📜'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🗿'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #78350F; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #92400E; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(146,64,14,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #78350F; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #FFFBEB; color: #78350F; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #FCD34D; }
+.grammar-tag { background: #FEF3C7; color: #78350F; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F59E0B; }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Vocabulary Section - Amber */
+.vocab-section .section-title { color: #78350F; border-color: #D97706; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.vocab-card { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border-radius: 20px; padding: 22px; border: 2px solid #D97706; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(217,119,6,0.2); }
+.vocab-number { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #78350F; font-weight: 800; margin-bottom: 5px; }
+.vocab-pron { color: #718096; font-size: 0.9em; font-style: italic; margin-bottom: 8px; }
+.vocab-meaning { color: #78350F; font-size: 1.05em; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #FCD34D; }
+.vocab-example { background: white; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 4px solid #D97706; }
+.example-korean { color: #78350F; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(146,64,14,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.score-section.show { display: block; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #92400E; border: 2px solid #FCD34D; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FFFBEB; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week11.html">🏯 Tuần 11</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 5: Đọc hiểu chuyên sâu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week11.html" class="nav-btn">← Về Tổng quan Tuần 11</a>
+<a href="topik3-week11-day06.html" class="nav-btn primary">Ngày 6 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">📜 NGÀY 5 • 5일차</span>
+<h1>Đọc hiểu chuyên sâu</h1>
+<div class="subtitle">Khám phá 2 vị anh hùng vĩ đại trong lịch sử Hàn Quốc</div>
+<p class="description">
+Đọc hiểu 2 bài đọc về <strong>"위대한 왕 세종대왕"</strong> (Vị vua vĩ đại Sejong) và <strong>"이순신 장군"</strong> (Tướng quân Yi Sun-sin). 
+Trả lời 8 câu hỏi TOPIK format và mở rộng vốn từ vựng với 10 từ mới về anh hùng dân tộc. 🗿
+</p>
+<div class="time-info">⏰ 60 phút • 📖 2 bài đọc 300 chữ • ❓ 8 câu hỏi TOPIK • 📚 10 từ mới</div>
+</div>
+
+<!-- Reading 1: 위대한 왕 세종대왕 -->
+<div class="section reading-section">
+<h2 class="section-title">👑 1. Bài đọc 1: 위대한 왕 세종대왕 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Phân tích từ vựng</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">👑 위대한 왕 세종대왕 (Vị vua vĩ đại Sejong)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p><strong>세종대왕</strong>은 조선의 네 번째 <strong>왕</strong>이에요. <strong>위대한</strong> <strong>왕</strong>으로 <strong>유명해요</strong>. 백성을 사랑하고 <strong>나라</strong>를 위해 많은 일을 했어요.</p>
+
+<p>세종대왕의 가장 큰 <strong>업적</strong>은 <strong>한글</strong>을 만든 거예요. 1443년에 <strong>한글</strong>을 만들었어요. <strong>훈민정음</strong>이라는 이름으로 <strong>반포</strong>했어요. 훈민정음은 "백성을 가르치는 올바른 소리"라는 뜻이에요.</p>
+
+<p><strong>한글</strong>은 <strong>자음</strong> 14개와 <strong>모음</strong> 10개로 이루어져 있어요. <strong>과학적</strong>이고 체계적이에요. 세계에서 가장 <strong>독창적</strong>인 <strong>문자</strong>예요. <strong>배우기 쉬워서</strong> 백성들이 <strong>글</strong>을 쉽게 <strong>배울 수 있었어요</strong>.</p>
+
+<p>세종대왕은 <strong>과학</strong> 기술도 <strong>발전시켰어요</strong>. <strong>집현전</strong>이라는 연구 기관을 만들었어요. <strong>측우기</strong>, <strong>혼천의</strong>, <strong>앙부일구</strong> 같은 <strong>과학 기구</strong>를 만들게 했어요. <strong>농사</strong>에 도움이 되는 <strong>농서</strong>도 편찬했어요.</p>
+
+<p>세종대왕은 <strong>백성</strong>의 <strong>생활</strong>을 <strong>개선하기 위해</strong> 노력했어요. <strong>세금</strong> 제도를 <strong>공평하게</strong> 바꾸었어요. <strong>의료</strong> 제도도 <strong>발전시켰어요</strong>. 백성들이 <strong>건강하게</strong> 살 수 있도록 <strong>도와줬어요</strong>.</p>
+
+<p>세종대왕은 <strong>한국 역사</strong>에서 가장 <strong>위대한</strong> <strong>왕</strong>이에요. <strong>한글</strong> 덕분에 한국 사람들은 <strong>자랑스러운</strong> <strong>문화</strong>를 <strong>가지게 됐어요</strong>. 세종대왕의 <strong>정신</strong>은 지금도 <strong>계승되고 있어요</strong>.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio1Btn" onclick="speakReading1(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 1</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 1</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về vua Sejong:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">세종대왕 (Vua Sejong)</span>
+<span class="vocab-tag">위대하다 (vĩ đại)</span>
+<span class="vocab-tag">업적 (thành tích)</span>
+<span class="vocab-tag">한글 (chữ Hangeul)</span>
+<span class="vocab-tag">훈민정음 (Huấn dân chính âm)</span>
+<span class="vocab-tag">반포하다 (ban bố)</span>
+<span class="vocab-tag">자음 (phụ âm)</span>
+<span class="vocab-tag">모음 (nguyên âm)</span>
+<span class="vocab-tag">과학적 (khoa học)</span>
+<span class="vocab-tag">독창적 (độc đáo)</span>
+<span class="vocab-tag">문자 (văn tự)</span>
+<span class="vocab-tag">집현전 (Tập hiền điện)</span>
+<span class="vocab-tag">측우기 (Trắc vũ khí)</span>
+<span class="vocab-tag">혼천의 (Hồn thiên nghi)</span>
+<span class="vocab-tag">앙부일구 (Ngưỡng phó nghi quỹ)</span>
+<span class="vocab-tag">농서 (Nông thư)</span>
+<span class="vocab-tag">공평하다 (công bằng)</span>
+<span class="vocab-tag">계승되다 (kế thừa)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-(으)로 유명하다 (nổi tiếng về)</span>
+<span class="grammar-tag">-기 때문에 (bởi vì)</span>
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+<span class="grammar-tag">-아/어 오다 (đã...từ trước đến nay)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc giới thiệu <strong>Vua Sejong</strong> - vị vua thứ 4 của triều Joseon, nổi tiếng là vị vua vĩ đại. Thành tích lớn nhất của ngài là sáng tạo ra chữ Hangeul năm 1443, được ban bố với tên "Huấn dân chính âm" (dạy cho dân chúng âm thanh đúng đắn). Chữ Hangeul có 14 phụ âm và 10 nguyên âm, khoa học và độc đáo, dễ học nên dân chúng có thể học dễ dàng. Vua Sejong cũng phát triển khoa học kỹ thuật, lập Tập hiền điện, chế tạo các dụng cụ khoa học như Trắc vũ khí, Hồn thiên nghi. Ngài cải cách thuế công bằng, phát triển y tế để dân chúng sống khỏe mạnh. Nhờ chữ Hangeul, người Hàn có nền văn hóa đáng tự hào. Tinh thần của ngài vẫn được kế thừa đến ngày nay.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 1 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 1</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 세종대왕이 무엇을 만들었어요?</div>
+<div class="exercise-question">Vua Sejong đã tạo ra cái gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 거북선 (Tàu Rùa)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 한글 (Chữ Hangeul)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 경복궁 (Cung Gyeongbok)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 김치 (Kim chi)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 훈민정음의 뜻은 뭐예요?</div>
+<div class="exercise-question">Ý nghĩa của Huấn dân chính âm là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 왕의 이름 (Tên của vua)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 백성을 가르치는 올바른 소리 (Âm thanh đúng đắn dạy cho dân chúng)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 나라의 이름 (Tên quốc gia)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 과학 기구의 이름 (Tên dụng cụ khoa học)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 왜 한글을 만들었어요?</div>
+<div class="exercise-question">Tại sao đã tạo ra chữ Hangeul?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 백성이 쉽게 글을 배우기 위해 (Để dân chúng có thể dễ dàng học chữ)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 전쟁을 이기기 위해 (Để chiến thắng chiến tranh)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 돈을 벌기 위해 (Để kiếm tiền)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 외국에 가기 위해 (Để đi nước ngoài)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'a', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 세종대왕은 조선의 첫 번째 왕이에요 (Vua Sejong là vua đầu tiên của Joseon)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 한글은 배우기 어려워요 (Chữ Hangeul khó học)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 세종대왕은 과학 기구도 만들었어요 (Vua Sejong cũng chế tạo dụng cụ khoa học)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 세종대왕은 과학에 관심이 없었어요 (Vua Sejong không quan tâm đến khoa học)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'c', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Reading 2: 이순신 장군 -->
+<div class="section reading-section">
+<h2 class="section-title">⚔️ 2. Bài đọc 2: 이순신 장군 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Ghi chú từ vựng mới</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">⚔️ 이순신 장군 (Tướng quân Yi Sun-sin)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p><strong>이순신 장군</strong>은 조선 시대의 <strong>영웅</strong>이에요. <strong>임진왜란</strong> 때 <strong>일본</strong> 군함과 싸웠어요. <strong>용감한</strong> <strong>장군</strong>으로 <strong>유명해요</strong>.</p>
+
+<p>이순신 장군은 <strong>거북선</strong>을 만들었어요. 거북선은 <strong>등</strong>에 <strong>쇠못</strong>이 박힌 <strong>배</strong>예요. <strong>적</strong>의 <strong>화살</strong>을 막을 수 있었어요. 세계 최초의 <strong>철갑선</strong>이에요.</p>
+
+<p>이순신 장군은 여러 <strong>해전</strong>에서 <strong>승리</strong>했어요. <strong>한산도 대첩</strong>, <strong>명량 해전</strong>, <strong>노량 해전</strong>에서 큰 <strong>승리</strong>를 거두었어요. 특히 명량 해전에서는 13척의 <strong>배</strong>로 133척의 적 배를 이겼어요.</p>
+
+<p>이순신 장군은 <strong>지혜</strong>롭고 <strong>용감</strong>했어요. <strong>전략</strong>이 뛰어났어요. <strong>병사</strong>들을 잘 이끌었어요. <strong>백성</strong>을 사랑하고 <strong>나라</strong>를 위해 <strong>충성</strong>했어요.</p>
+
+<p>마지막 <strong>노량 해전</strong>에서 <strong>적</strong>의 <strong>총</strong>에 맞았어요. 죽기 전에 "지금 <strong>전쟁</strong>이 <strong>급하니</strong> <strong>나의 죽음을</strong> <strong>알리지 마라</strong>"고 했어요. <strong>병사</strong>들의 <strong>사기</strong>를 <strong>챙기기</strong> <strong>위해서</strong>였어요.</p>
+
+<p>이순신 장군은 <strong>나라</strong>를 <strong>구한</strong> <strong>위대한</strong> <strong>영웅</strong>이에요. 지금도 한국 사람들은 이순신 장군을 <strong>존경</strong>해요. <strong>충무공</strong>이라는 <strong>시호</strong>를 받았어요. 이순신 장군의 <strong>정신</strong>은 <strong>한국인</strong>에게 큰 <strong>자랑</strong>이에요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio2Btn" onclick="speakReading2(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 2</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 2</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về tướng Yi Sun-sin:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">이순신 (Yi Sun-sin)</span>
+<span class="vocab-tag">장군 (tướng quân)</span>
+<span class="vocab-tag">영웅 (anh hùng)</span>
+<span class="vocab-tag">임진왜란 (Chiến tranh Imjin)</span>
+<span class="vocab-tag">일본 (Nhật Bản)</span>
+<span class="vocab-tag">군함 (chiến hạm)</span>
+<span class="vocab-tag">용감하다 (dũng cảm)</span>
+<span class="vocab-tag">거북선 (Tàu Rùa)</span>
+<span class="vocab-tag">쇠못 (đinh sắt)</span>
+<span class="vocab-tag">철갑선 (thiết giáp thuyền)</span>
+<span class="vocab-tag">해전 (hải chiến)</span>
+<span class="vocab-tag">승리 (chiến thắng)</span>
+<span class="vocab-tag">한산도 대첩 (Chiến thắng Hansando)</span>
+<span class="vocab-tag">명량 해전 (Hải chiến Myeongnyang)</span>
+<span class="vocab-tag">노량 해전 (Hải chiến Noryang)</span>
+<span class="vocab-tag">지혜 (trí tuệ)</span>
+<span class="vocab-tag">전략 (chiến lược)</span>
+<span class="vocab-tag">병사 (binh sĩ)</span>
+<span class="vocab-tag">충성 (trung thành)</span>
+<span class="vocab-tag">충무공 (danh hiệu Chungmugong)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-(으)로 유명하다 (nổi tiếng về)</span>
+<span class="grammar-tag">-기 때문에 (bởi vì)</span>
+<span class="grammar-tag">-기 위해(서) (để)</span>
+<span class="grammar-tag">-ㄹ/을 뿐만 아니라 (không những...mà còn)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc giới thiệu <strong>Tướng quân Yi Sun-sin</strong> - anh hùng thời Joseon, nổi tiếng dũng cảm trong Chiến tranh Imjin chống lại chiến hạm Nhật Bản. Ngài đã chế tạo <strong>Tàu Rùa</strong> (거북선) - con tàu có đinh sắt trên lưng để chống lại mũi tên của địch, là thiết giáp thuyền đầu tiên trên thế giới. Tướng Yi đã giành nhiều chiến thắng trong các hải chiến như Hansando, Myeongnyang, Noryang. Đặc biệt trong hải chiến Myeongnyang, ngài đã dùng 13 thuyền đánh thắng 133 thuyền địch. Ngài là người trí tuệ, dũng cảm, có chiến lược xuất sắc, yêu thương binh sĩ và trung thành với đất nước. Trong hải chiến Noryang cuối cùng, ngài bị trúng đạn địch nhưng trước khi mất đã dặn "chiến tranh đang gấp, đừng báo tin ta chết" để giữ tinh thần binh sĩ. Ngài là vị anh hùng vĩ đại đã cứu đất nước, được người Hàn tôn kính với danh hiệu Chungmugong.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 2 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 2</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 이순신 장군은 어떤 사람이에요?</div>
+<div class="exercise-question">Tướng Yi Sun-sin là người như thế nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 유명한 과학자 (Nhà khoa học nổi tiếng)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 용감한 장군 (Tướng quân dũng cảm)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 유명한 화가 (Họa sĩ nổi tiếng)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 유명한 왕 (Vua nổi tiếng)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 6: 거북선은 무엇이에요?</div>
+<div class="exercise-question">Tàu Rùa là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 일본 군함을 이긴 배 (Chiến thuyền đánh thắng chiến hạm Nhật)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 농사를 짓는 배 (Thuyền làm nông)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 물건을 나르는 배 (Thuyền chở hàng)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 사람을 태우는 배 (Thuyền chở người)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'a', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 7: 명량 해전에서 몇 척의 배로 이겼어요?</div>
+<div class="exercise-question">Trong hải chiến Myeongnyang, dùng bao nhiêu thuyền để chiến thắng?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 5척 (5 thuyền)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 13척 (13 thuyền)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 50척 (50 thuyền)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 100척 (100 thuyền)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'b', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 8: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 이순신 장군은 조선 시대 왕이에요 (Tướng Yi Sun-sin là vua thời Joseon)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 거북선은 세계 최초의 철갑선이에요 (Tàu Rùa là thiết giáp thuyền đầu tiên trên thế giới)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 이순신 장군은 일본 사람이에요 (Tướng Yi Sun-sin là người Nhật)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 이순신 장군은 전쟁에서 졌어요 (Tướng Yi Sun-sin thua trận)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'b', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 3. Tổng hợp 10 từ vựng mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Học 10 từ vựng mới • Đọc to mỗi từ 3 lần • Đặt câu ví dụ cho mỗi từ</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">위인</div>
+<div class="vocab-pron">[wi-in]</div>
+<div class="vocab-meaning">Vĩ nhân</div>
+<div class="vocab-example">
+<div class="example-korean">세종대왕은 위인이에요. <button class="speak-btn" onclick="speakKorean('세종대왕은 위인이에요.', this)">🔊</button></div>
+<div class="example-meaning">Vua Sejong là vĩ nhân.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">위인전을 읽어요. <button class="speak-btn" onclick="speakKorean('위인전을 읽어요.', this)">🔊</button></div>
+<div class="example-meaning">Đọc truyện vĩ nhân.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">전설</div>
+<div class="vocab-pron">[jeon-seol]</div>
+<div class="vocab-meaning">Truyền thuyết</div>
+<div class="vocab-example">
+<div class="example-korean">전설이 내려와요. <button class="speak-btn" onclick="speakKorean('전설이 내려와요.', this)">🔊</button></div>
+<div class="example-meaning">Truyền thuyết được lưu truyền.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">전설적인 영웅이에요. <button class="speak-btn" onclick="speakKorean('전설적인 영웅이에요.', this)">🔊</button></div>
+<div class="example-meaning">Là anh hùng huyền thoại.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">영웅</div>
+<div class="vocab-pron">[yeong-ung]</div>
+<div class="vocab-meaning">Anh hùng</div>
+<div class="vocab-example">
+<div class="example-korean">이순신 장군은 영웅이에요. <button class="speak-btn" onclick="speakKorean('이순신 장군은 영웅이에요.', this)">🔊</button></div>
+<div class="example-meaning">Tướng Yi Sun-sin là anh hùng.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">민족의 영웅이에요. <button class="speak-btn" onclick="speakKorean('민족의 영웅이에요.', this)">🔊</button></div>
+<div class="example-meaning">Là anh hùng của dân tộc.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">애국</div>
+<div class="vocab-pron">[ae-guk]</div>
+<div class="vocab-meaning">Ái quốc</div>
+<div class="vocab-example">
+<div class="example-korean">애국 정신이 중요해요. <button class="speak-btn" onclick="speakKorean('애국 정신이 중요해요.', this)">🔊</button></div>
+<div class="example-meaning">Tinh thần ái quốc quan trọng.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">애국가를 불러요. <button class="speak-btn" onclick="speakKorean('애국가를 불러요.', this)">🔊</button></div>
+<div class="example-meaning">Hát quốc ca.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">충성</div>
+<div class="vocab-pron">[chung-seong]</div>
+<div class="vocab-meaning">Trung thành</div>
+<div class="vocab-example">
+<div class="example-korean">나라에 충성했어요. <button class="speak-btn" onclick="speakKorean('나라에 충성했어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã trung thành với đất nước.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">충성심이 강해요. <button class="speak-btn" onclick="speakKorean('충성심이 강해요.', this)">🔊</button></div>
+<div class="example-meaning">Lòng trung thành mạnh mẽ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">공헌</div>
+<div class="vocab-pron">[gong-heon]</div>
+<div class="vocab-meaning">Cống hiến</div>
+<div class="vocab-example">
+<div class="example-korean">큰 공헌을 했어요. <button class="speak-btn" onclick="speakKorean('큰 공헌을 했어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã có cống hiến lớn.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">문화에 공헌했어요. <button class="speak-btn" onclick="speakKorean('문화에 공헌했어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã cống hiến cho văn hóa.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">업적</div>
+<div class="vocab-pron">[eop-jeok]</div>
+<div class="vocab-meaning">Thành tích, sự nghiệp</div>
+<div class="vocab-example">
+<div class="example-korean">위대한 업적을 남겼어요. <button class="speak-btn" onclick="speakKorean('위대한 업적을 남겼어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã để lại thành tích vĩ đại.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">업적이 훌륭해요. <button class="speak-btn" onclick="speakKorean('업적이 훌륭해요.', this)">🔊</button></div>
+<div class="example-meaning">Thành tích xuất sắc.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">민족</div>
+<div class="vocab-pron">[min-jok]</div>
+<div class="vocab-meaning">Dân tộc</div>
+<div class="vocab-example">
+<div class="example-korean">한국 민족은 자랑스러워요. <button class="speak-btn" onclick="speakKorean('한국 민족은 자랑스러워요.', this)">🔊</button></div>
+<div class="example-meaning">Dân tộc Hàn Quốc đáng tự hào.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">민족의 영웅이에요. <button class="speak-btn" onclick="speakKorean('민족의 영웅이에요.', this)">🔊</button></div>
+<div class="example-meaning">Là anh hùng của dân tộc.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">자랑</div>
+<div class="vocab-pron">[ja-rang]</div>
+<div class="vocab-meaning">Tự hào</div>
+<div class="vocab-example">
+<div class="example-korean">한글이 자랑이에요. <button class="speak-btn" onclick="speakKorean('한글이 자랑이에요.', this)">🔊</button></div>
+<div class="example-meaning">Chữ Hangeul là niềm tự hào.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">자랑스러운 문화예요. <button class="speak-btn" onclick="speakKorean('자랑스러운 문화예요.', this)">🔊</button></div>
+<div class="example-meaning">Là văn hóa đáng tự hào.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">충무공</div>
+<div class="vocab-pron">[chung-mu-gong]</div>
+<div class="vocab-meaning">Danh hiệu Chungmugong</div>
+<div class="vocab-example">
+<div class="example-korean">이순신은 충무공이라는 시호를 받았어요. <button class="speak-btn" onclick="speakKorean('이순신은 충무공이라는 시호를 받았어요.', this)">🔊</button></div>
+<div class="example-meaning">Yi Sun-sin nhận được thụy hiệu Chungmugong.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">충무공 이순신 장군을 존경해요. <button class="speak-btn" onclick="speakKorean('충무공 이순신 장군을 존경해요.', this)">🔊</button></div>
+<div class="example-meaning">Kính trọng tướng Chungmugong Yi Sun-sin.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 4. Mục tiêu đạt được sau Ngày 5</h2>
+<ul class="goals-list">
+<li>Đọc hiểu 2 bài đọc 300 chữ ("위대한 왕 세종대왕" và "이순신 장군")</li>
+<li>Trả lời đúng 6/8 câu hỏi TOPIK format</li>
+<li>Mở rộng vốn từ vựng với 10 từ mới về anh hùng dân tộc</li>
+<li>Phân tích được cấu trúc câu trong bài đọc về lịch sử</li>
+<li>Đặt câu ví dụ cho mỗi từ vựng mới</li>
+<li>Nắm vững kiến thức về 2 vị anh hùng vĩ đại nhất Hàn Quốc</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week11.html" class="day-nav-btn">← Về Hub Tuần 11</a>
+<a href="topik3-week11-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week11-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week11-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week11-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week11-day05.html" class="day-nav-btn active">Ngày 5 ✓</a>
+<a href="topik3-week11-day06.html" class="day-nav-btn">Ngày 6 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week11-day04.html" class="nav-btn">← Ngày 4</a>
+<a href="topik3-week11-day06.html" class="nav-btn primary">Tiếp: Ngày 6 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🏯 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Lịch sử là nền tảng, truyền thống là cầu nối giữa quá khứ và tương lai"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🏯', '📜', '🎎', '🏮', '🎋', '🗿'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading1(btnElement) {
+    const fullText = '세종대왕은 조선의 네 번째 왕이에요. 위대한 왕으로 유명해요. 백성을 사랑하고 나라를 위해 많은 일을 했어요. 세종대왕의 가장 큰 업적은 한글을 만든 거예요. 1443년에 한글을 만들었어요. 훈민정음이라는 이름으로 반포했어요. 훈민정음은 "백성을 가르치는 올바른 소리"라는 뜻이에요. 한글은 자음 14개와 모음 10개로 이루어져 있어요. 과학적이고 체계적이에요. 세계에서 가장 독창적인 문자예요. 배우기 쉬워서 백성들이 글을 쉽게 배울 수 있었어요. 세종대왕은 과학 기술도 발전시켰어요. 집현전이라는 연구 기관을 만들었어요. 측우기, 혼천의, 앙부일구 같은 과학 기구를 만들게 했어요. 농사에 도움이 되는 농서도 편찬했어요. 세종대왕은 백성의 생활을 개선하기 위해 노력했어요. 세금 제도를 공평하게 바꾸었어요. 의료 제도도 발전시켰어요. 백성들이 건강하게 살 수 있도록 도와줬어요. 세종대왕은 한국 역사에서 가장 위대한 왕이에요. 한글 덕분에 한국 사람들은 자랑스러운 문화를 가지게 됐어요. 세종대왕의 정신은 지금도 계승되고 있어요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading2(btnElement) {
+    const fullText = '이순신 장군은 조선 시대의 영웅이에요. 임진왜란 때 일본 군함과 싸웠어요. 용감한 장군으로 유명해요. 이순신 장군은 거북선을 만들었어요. 거북선은 등에 쇠못이 박힌 배예요. 적의 화살을 막을 수 있었어요. 세계 최초의 철갑선이에요. 이순신 장군은 여러 해전에서 승리했어요. 한산도 대첩, 명량 해전, 노량 해전에서 큰 승리를 거두었어요. 특히 명량 해전에서는 13척의 배로 133척의 적 배를 이겼어요. 이순신 장군은 지혜롭고 용감했어요. 전략이 뛰어났어요. 병사들을 잘 이끌었어요. 백성을 사랑하고 나라를 위해 충성했어요. 마지막 노량 해전에서 적의 총에 맞았어요. 죽기 전에 "지금 전쟁이 급하니 나의 죽음을 알리지 마라"고 했어요. 병사들의 사기를 챙기기 위해서였어요. 이순신 장군은 나라를 구한 위대한 영웅이에요. 지금도 한국 사람들은 이순신 장군을 존경해요. 충무공이라는 시호를 받았어요. 이순신 장군의 정신은 한국인에게 큰 자랑이에요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').classList.add('show');
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 75) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Ngày 6!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài đọc.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week11_progress') || '[]');
+        if (!progress.includes(5)) {
+            progress.push(5);
+            localStorage.setItem('topik3_week11_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>
+</body>
+</html>

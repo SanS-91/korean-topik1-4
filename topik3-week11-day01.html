@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 1: Từ vựng & Ngữ pháp nền tảng - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #92400E; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #78350F; }
+.breadcrumb-separator { color: #FCD34D; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #92400E; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(146,64,14,0.15); transition: all 0.3s; border: 2px solid #FCD34D; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(146,64,14,0.25); background: #FFFBEB; }
+.nav-btn.primary { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(217,119,6,0.3) 0%, rgba(252,211,77,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏯'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '📜'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #78350F; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #92400E; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(146,64,14,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Vocabulary Section - Amber */
+.vocab-section .section-title { color: #78350F; border-color: #D97706; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+.vocab-card { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border-radius: 15px; padding: 18px; border-left: 5px solid #D97706; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(217,119,6,0.2); }
+.vocab-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.vocab-number { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85em; flex-shrink: 0; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #78350F; font-weight: 800; }
+.vocab-pron { color: #718096; font-size: 0.85em; font-style: italic; background: white; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
+.vocab-meaning { color: #78350F; font-size: 1em; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed #FCD34D; }
+.vocab-example { background: white; padding: 10px; border-radius: 10px; margin: 6px 0; border-left: 4px solid #D97706; }
+.example-korean { color: #78350F; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(146,64,14,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Grammar Section - Amber */
+.grammar-section .section-title { color: #78350F; border-color: #D97706; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border-radius: 20px; padding: 25px; border: 2px solid #D97706; }
+.grammar-number { background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #78350F; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #FCD34D; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #D97706; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #D97706; }
+.grammar-example-korean { color: #78350F; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #FFFBEB; color: #78350F; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #FCD34D; }
+.grammar-tag { background: #FEF3C7; color: #78350F; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F59E0B; }
+
+/* Exercise Section - Orange */
+.exercise-section .section-title { color: #C05621; border-color: #F59E0B; }
+.exercise-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #C05621; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FED7AA; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Practice Section - Amber */
+.practice-section .section-title { color: #78350F; border-color: #D97706; }
+.practice-box { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 2px solid #D97706; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.practice-textarea { width: 100%; min-height: 150px; padding: 15px; border: 2px solid #FCD34D; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; }
+.practice-textarea:focus { outline: none; border-color: #D97706; }
+.practice-tips { background: #FFFBEB; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.practice-tips strong { color: #78350F; }
+.check-btn { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(146,64,14,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Flashcard Section */
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; }
+.flashcard-back { background: white; color: #2D3748; transform: rotateY(180deg); border: 3px solid #92400E; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 3em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.4em; font-weight: 700; color: #78350F; margin-bottom: 10px; text-align: center; }
+.flashcard-pronunciation { color: #718096; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #718096; margin-top: 10px; font-weight: 600; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #92400E; border: 2px solid #FCD34D; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FFFBEB; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week11.html">🏯 Tuần 11</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 1: Từ vựng & Ngữ pháp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week11.html" class="nav-btn">← Về Tổng quan Tuần 11</a>
+<a href="topik3-week11-day02.html" class="nav-btn primary">Ngày 2 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏯 NGÀY 1 • 1일차</span>
+<h1>Từ vựng nền tảng & Ngữ pháp cơ bản</h1>
+<div class="subtitle">Bước đầu tiên vào dòng lịch sử Hàn Quốc</div>
+<p class="description">
+Học 20 từ vựng cốt lõi về triều đại & lịch sử và 2 cấu trúc ngữ pháp nền tảng. 
+Đọc hiểu bài "한국의 역사" (Lịch sử Hàn Quốc) và luyện viết câu tổng hợp. 📜
+</p>
+<div class="time-info">⏰ 60 phút • 📚 20 từ vựng • 📝 2 ngữ pháp • 📖 Bài đọc 200 chữ</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 1. Từ vựng nền tảng (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to mỗi từ 3 lần • Viết nghĩa tiếng Việt • Đặt 1 câu ví dụ cho mỗi từ • Nghe audio để phát âm chuẩn</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">고대</div>
+<div class="vocab-pron">[go-dae]</div>
+<button class="speak-btn" onclick="speakKorean('고대', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Cổ đại</div>
+<div class="vocab-example">
+<div class="example-korean">고대 한국은 삼국시대였어요. <button class="speak-btn" onclick="speakKorean('고대 한국은 삼국시대였어요.', this)">🔊</button></div>
+<div class="example-meaning">Hàn Quốc cổ đại là thời Tam Quốc.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">중세</div>
+<div class="vocab-pron">[jung-se]</div>
+<button class="speak-btn" onclick="speakKorean('중세', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Trung thế (Trung cổ)</div>
+<div class="vocab-example">
+<div class="example-korean">고려 시대는 중세예요. <button class="speak-btn" onclick="speakKorean('고려 시대는 중세예요.', this)">🔊</button></div>
+<div class="example-meaning">Thời Goryeo là trung thế.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">근대</div>
+<div class="vocab-pron">[geun-dae]</div>
+<button class="speak-btn" onclick="speakKorean('근대', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Cận đại</div>
+<div class="vocab-example">
+<div class="example-korean">근대에 많은 변화가 있었어요. <button class="speak-btn" onclick="speakKorean('근대에 많은 변화가 있었어요.', this)">🔊</button></div>
+<div class="example-meaning">Thời cận đại có nhiều thay đổi.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">현대</div>
+<div class="vocab-pron">[hyeon-dae]</div>
+<button class="speak-btn" onclick="speakKorean('현대', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Hiện đại</div>
+<div class="vocab-example">
+<div class="example-korean">현대 한국은 발전했어요. <button class="speak-btn" onclick="speakKorean('현대 한국은 발전했어요.', this)">🔊</button></div>
+<div class="example-meaning">Hàn Quốc hiện đại đã phát triển.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">삼국시대</div>
+<div class="vocab-pron">[sam-guk-si-dae]</div>
+<button class="speak-btn" onclick="speakKorean('삼국시대', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Thời Tam Quốc</div>
+<div class="vocab-example">
+<div class="example-korean">삼국시대에는 고구려, 백제, 신라가 있었어요. <button class="speak-btn" onclick="speakKorean('삼국시대에는 고구려, 백제, 신라가 있었어요.', this)">🔊</button></div>
+<div class="example-meaning">Thời Tam Quốc có Goguryeo, Baekje, Silla.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">통일신라</div>
+<div class="vocab-pron">[tong-il-sil-la]</div>
+<button class="speak-btn" onclick="speakKorean('통일신라', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Tân La Thống Nhất</div>
+<div class="vocab-example">
+<div class="example-korean">통일신라는 삼국을 통일했어요. <button class="speak-btn" onclick="speakKorean('통일신라는 삼국을 통일했어요.', this)">🔊</button></div>
+<div class="example-meaning">Tân La Thống Nhất đã thống nhất Tam Quốc.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">고려</div>
+<div class="vocab-pron">[go-ryeo]</div>
+<button class="speak-btn" onclick="speakKorean('고려', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Cao Ly (Goryeo)</div>
+<div class="vocab-example">
+<div class="example-korean">고려 시대에는 청자가 유명했어요. <button class="speak-btn" onclick="speakKorean('고려 시대에는 청자가 유명했어요.', this)">🔊</button></div>
+<div class="example-meaning">Thời Goryeo gốm xanh nổi tiếng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">조선</div>
+<div class="vocab-pron">[jo-seon]</div>
+<button class="speak-btn" onclick="speakKorean('조선', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Triều Tiên (Joseon)</div>
+<div class="vocab-example">
+<div class="example-korean">조선은 500년 동안 이어졌어요. <button class="speak-btn" onclick="speakKorean('조선은 500년 동안 이어졌어요.', this)">🔊</button></div>
+<div class="example-meaning">Joseon kéo dài 500 năm.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">왕</div>
+<div class="vocab-pron">[wang]</div>
+<button class="speak-btn" onclick="speakKorean('왕', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Vua</div>
+<div class="vocab-example">
+<div class="example-korean">세종대왕은 위대한 왕이에요. <button class="speak-btn" onclick="speakKorean('세종대왕은 위대한 왕이에요.', this)">🔊</button></div>
+<div class="example-meaning">Vua Sejong là vị vua vĩ đại.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">왕비</div>
+<div class="vocab-pron">[wang-bi]</div>
+<button class="speak-btn" onclick="speakKorean('왕비', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Hoàng hậu</div>
+<div class="vocab-example">
+<div class="example-korean">왕비는 왕을 도와요. <button class="speak-btn" onclick="speakKorean('왕비는 왕을 도와요.', this)">🔊</button></div>
+<div class="example-meaning">Hoàng hậu giúp đỡ nhà vua.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">11</div>
+<div class="vocab-korean">왕자</div>
+<div class="vocab-pron">[wang-ja]</div>
+<button class="speak-btn" onclick="speakKorean('왕자', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Hoàng tử</div>
+<div class="vocab-example">
+<div class="example-korean">왕자가 왕위를 이어받아요. <button class="speak-btn" onclick="speakKorean('왕자가 왕위를 이어받아요.', this)">🔊</button></div>
+<div class="example-meaning">Hoàng tử kế thừa ngai vàng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">12</div>
+<div class="vocab-korean">공주</div>
+<div class="vocab-pron">[gong-ju]</div>
+<button class="speak-btn" onclick="speakKorean('공주', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Công chúa</div>
+<div class="vocab-example">
+<div class="example-korean">공주가 궁궐에서 살아요. <button class="speak-btn" onclick="speakKorean('공주가 궁궐에서 살아요.', this)">🔊</button></div>
+<div class="example-meaning">Công chúa sống trong cung điện.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">13</div>
+<div class="vocab-korean">장군</div>
+<div class="vocab-pron">[jang-gun]</div>
+<button class="speak-btn" onclick="speakKorean('장군', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Tướng quân</div>
+<div class="vocab-example">
+<div class="example-korean">이순신 장군은 영웅이에요. <button class="speak-btn" onclick="speakKorean('이순신 장군은 영웅이에요.', this)">🔊</button></div>
+<div class="example-meaning">Tướng Yi Sun-sin là anh hùng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">14</div>
+<div class="vocab-korean">신하</div>
+<div class="vocab-pron">[sin-ha]</div>
+<button class="speak-btn" onclick="speakKorean('신하', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Bề tôi, quan thần</div>
+<div class="vocab-example">
+<div class="example-korean">신하가 왕을 보좌해요. <button class="speak-btn" onclick="speakKorean('신하가 왕을 보좌해요.', this)">🔊</button></div>
+<div class="example-meaning">Bề tôi phò tá nhà vua.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">15</div>
+<div class="vocab-korean">왕조</div>
+<div class="vocab-pron">[wang-jo]</div>
+<button class="speak-btn" onclick="speakKorean('왕조', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Vương triều</div>
+<div class="vocab-example">
+<div class="example-korean">조선 왕조는 오래 지속됐어요. <button class="speak-btn" onclick="speakKorean('조선 왕조는 오래 지속됐어요.', this)">🔊</button></div>
+<div class="example-meaning">Vương triều Joseon kéo dài.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">16</div>
+<div class="vocab-korean">역사</div>
+<div class="vocab-pron">[yeok-sa]</div>
+<button class="speak-btn" onclick="speakKorean('역사', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Lịch sử</div>
+<div class="vocab-example">
+<div class="example-korean">한국 역사는 오래됐어요. <button class="speak-btn" onclick="speakKorean('한국 역사는 오래됐어요.', this)">🔊</button></div>
+<div class="example-meaning">Lịch sử Hàn Quốc lâu đời.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">17</div>
+<div class="vocab-korean">시대</div>
+<div class="vocab-pron">[si-dae]</div>
+<button class="speak-btn" onclick="speakKorean('시대', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Thời đại</div>
+<div class="vocab-example">
+<div class="example-korean">우리는 새로운 시대에 살아요. <button class="speak-btn" onclick="speakKorean('우리는 새로운 시대에 살아요.', this)">🔊</button></div>
+<div class="example-meaning">Chúng ta sống trong thời đại mới.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">18</div>
+<div class="vocab-korean">전쟁</div>
+<div class="vocab-pron">[jeon-jaeng]</div>
+<button class="speak-btn" onclick="speakKorean('전쟁', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Chiến tranh</div>
+<div class="vocab-example">
+<div class="example-korean">한국전쟁은 1950년에 있었어요. <button class="speak-btn" onclick="speakKorean('한국전쟁은 1950년에 있었어요.', this)">🔊</button></div>
+<div class="example-meaning">Chiến tranh Hàn Quốc xảy ra năm 1950.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">19</div>
+<div class="vocab-korean">평화</div>
+<div class="vocab-pron">[pyeong-hwa]</div>
+<button class="speak-btn" onclick="speakKorean('평화', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Hòa bình</div>
+<div class="vocab-example">
+<div class="example-korean">평화가 중요해요. <button class="speak-btn" onclick="speakKorean('평화가 중요해요.', this)">🔊</button></div>
+<div class="example-meaning">Hòa bình quan trọng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">20</div>
+<div class="vocab-korean">독립</div>
+<div class="vocab-pron">[dong-nip]</div>
+<button class="speak-btn" onclick="speakKorean('독립', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Độc lập</div>
+<div class="vocab-example">
+<div class="example-korean">1945년에 독립했어요. <button class="speak-btn" onclick="speakKorean('1945년에 독립했어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã độc lập năm 1945.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 2. Ngữ pháp nền tảng (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-아/어 오다</div>
+<div class="grammar-meaning">Đã...từ trước đến nay (quá trình lịch sử)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả một hành động hoặc trạng thái đã diễn ra liên tục từ quá khứ đến hiện tại. Tương đương "đã...từ trước đến nay" trong tiếng Việt. Thường dùng khi nói về lịch sử, truyền thống, quá trình phát triển.
+</div>
+<div class="grammar-formula">
+Động từ + -아/어 오다<br>
+• Nguyên âm cuối là ㅏ, ㅗ: + -아 오다<br>
+• Các nguyên âm khác: + -어 오다<br>
+• Thường dùng ở thì quá khứ: -아/어 왔어요<br>
+• Ví dụ: 한국은 발전해 왔어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국은 오랜 역사를 가지고 발전해 왔어요. <button class="speak-btn" onclick="speakKorean('한국은 오랜 역사를 가지고 발전해 왔어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Hàn Quốc đã phát triển với lịch sử lâu đời.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한글은 세종대왕이 만들었어요. <button class="speak-btn" onclick="speakKorean('한글은 세종대왕이 만들었어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Chữ Hangeul do vua Sejong tạo ra.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이 전통은 오래 전해져 왔어요. <button class="speak-btn" onclick="speakKorean('이 전통은 오래 전해져 왔어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Truyền thống này đã được lưu truyền từ lâu.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어 오다 = "đã...từ trước đến nay" → Quá trình liên tục từ quá khứ đến hiện tại<br>
+<strong>⚠️ Lưu ý:</strong> Thường dùng với các động từ chỉ quá trình dài như 발전하다 (phát triển), 전해지다 (lưu truyền), 이어지다 (kéo dài)<br>
+<strong>🔄 So sánh:</strong> Khác với -아/어 보다 (đã thử) - -아/어 오다 nhấn mạnh quá trình kéo dài
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-다고 전해지다</div>
+<div class="grammar-meaning">Được truyền lại rằng (truyền thuyết, lịch sử)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả thông tin được truyền lại từ đời này sang đời khác, thường dùng trong truyền thuyết, lịch sử, câu chuyện dân gian. Tương đương "được truyền lại rằng", "tương truyền rằng" trong tiếng Việt.
+</div>
+<div class="grammar-formula">
+• Động từ + -ㄴ/는다고 전해지다<br>
+• Tính từ + -다고 전해지다<br>
+• Danh từ + -(이)라고 전해지다<br>
+• Ví dụ: 이 절은 1000년 전에 지어졌다고 전해져요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이 이야기는 옛날부터 전해져 내려와요. <button class="speak-btn" onclick="speakKorean('이 이야기는 옛날부터 전해져 내려와요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Câu chuyện này được truyền lại từ xưa.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이 절은 1000년 전에 지어졌다고 전해져요. <button class="speak-btn" onclick="speakKorean('이 절은 1000년 전에 지어졌다고 전해져요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Ngôi chùa này được truyền lại là xây cách đây 1000 năm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이 산은 신성한 곳이라고 전해져요. <button class="speak-btn" onclick="speakKorean('이 산은 신성한 곳이라고 전해져요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Ngọn núi này được truyền lại là nơi linh thiêng.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -다고 전해지다 = "được truyền lại rằng" → Thông tin từ truyền thuyết, lịch sử<br>
+<strong>⚠️ Lưu ý:</strong> Thường dùng trong ngữ cảnh trang trọng, nói về truyền thống, di tích, truyền thuyết<br>
+<strong>🔄 So sánh:</strong> Khác với -다고 하다 (ai đó nói rằng) - -다고 전해지다 nhấn mạnh thông tin được lưu truyền
+</div>
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Trả lời 3 câu hỏi đọc hiểu</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">📜 한국의 역사 (Lịch sử Hàn Quốc)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 200 chữ</span>
+<span class="reading-tag">⏱️ 15 phút</span>
+<span class="reading-tag">❓ 3 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국은 오랜 <strong>역사</strong>를 가지고 있어요. <strong>고대</strong>부터 <strong>현대</strong>까지 많은 <strong>왕조</strong>가 있었어요. <strong>삼국시대</strong>에는 고구려, 백제, 신라가 있었어요. <strong>통일신라</strong>를 거쳐 <strong>고려</strong>가 세워졌어요.</p>
+
+<p><strong>고려</strong>는 500년 동안 이어졌어요. 그 후에 <strong>조선</strong>이 세워졌어요. <strong>조선</strong>은 500년 동안 이어진 긴 <strong>왕조</strong>예요. 세종대왕은 <strong>한글</strong>을 만들었어요. 한글은 세계에서 가장 과학적인 문자예요.</p>
+
+<p><strong>근대</strong>에는 많은 어려움이 있었어요. 일본에게 지배를 받았어요. 하지만 많은 <strong>영웅</strong>들이 나라를 위해 싸웠어요. 이순신 <strong>장군</strong>, 안중근 의사, 유관순 열사 등이 있어요.</p>
+
+<p>1945년에 <strong>독립</strong>을 했어요. 그리고 1950년에 한국<strong>전쟁</strong>이 있었어요. <strong>전쟁</strong> 후에 한국은 빠르게 발전했어요.</p>
+
+<p>이제는 세계적으로 유명한 나라가 됐어요. K-pop과 한국 드라마가 인기가 많아요. 한국의 <strong>역사</strong>는 자랑스러워요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng đã học xuất hiện trong bài:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">역사 (lịch sử)</span>
+<span class="vocab-tag">고대 (cổ đại)</span>
+<span class="vocab-tag">현대 (hiện đại)</span>
+<span class="vocab-tag">왕조 (vương triều)</span>
+<span class="vocab-tag">삼국시대 (thời Tam Quốc)</span>
+<span class="vocab-tag">통일신라 (Tân La Thống Nhất)</span>
+<span class="vocab-tag">고려 (Cao Ly)</span>
+<span class="vocab-tag">조선 (Triều Tiên)</span>
+<span class="vocab-tag">근대 (cận đại)</span>
+<span class="vocab-tag">장군 (tướng quân)</span>
+<span class="vocab-tag">독립 (độc lập)</span>
+<span class="vocab-tag">전쟁 (chiến tranh)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-아/어 오다 (đã...từ trước đến nay)</span>
+<span class="grammar-tag">-다고 전해지다 (được truyền lại rằng)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc giới thiệu <strong>lịch sử Hàn Quốc</strong> từ cổ đại đến hiện đại. Thời Tam Quốc có 3 nước: Goguryeo, Baekje, Silla. Sau đó là Tân La Thống Nhất, rồi Goryeo (500 năm), và Joseon (500 năm) - nơi vua Sejong sáng tạo ra chữ Hangeul. Thời cận đại, Hàn Quốc bị Nhật Bản đô hộ nhưng nhiều anh hùng như tướng Yi Sun-sin, Ahn Jung-geun, Yu Gwan-sun đã chiến đấu. Năm 1945 giành độc lập, 1950 có chiến tranh Hàn Quốc. Sau chiến tranh, Hàn Quốc phát triển nhanh và trở thành quốc gia nổi tiếng thế giới với K-pop và phim truyền hình.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi đọc hiểu</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 삼국시대에 어떤 나라가 있었어요?</div>
+<div class="exercise-question">Thời Tam Quốc có những nước nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 고려, 조선, 현대 (Goryeo, Joseon, hiện đại)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 신라, 고려, 조선 (Silla, Goryeo, Joseon)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 고구려, 백제, 신라 (Goguryeo, Baekje, Silla)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 통일신라, 고려, 조선 (Tân La Thống Nhất, Goryeo, Joseon)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'c', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 세종대왕이 무엇을 만들었어요?</div>
+<div class="exercise-question">Vua Sejong đã tạo ra cái gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 경복궁 (Cung Gyeongbok)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 한글 (Chữ Hangeul)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 거북선 (Tàu Rùa)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 김치 (Kim chi)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 언제 독립을 했어요?</div>
+<div class="exercise-question">Độc lập khi nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 1910년 (Năm 1910)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 1945년 (Năm 1945)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 1950년 (Năm 1950)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 1960년 (Năm 1960)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Practice Section -->
+<div class="section practice-section">
+<h2 class="section-title">✍️ 4. Tự học (5 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5 câu tổng hợp sử dụng từ vựng và ngữ pháp đã học hôm nay</p>
+
+<div class="practice-box">
+<div class="practice-textarea" id="practiceText" placeholder="Viết 5 câu của bạn vào đây...
+
+Ví dụ:
+1. 한국은 오랜 역사를 가지고 발전해 왔어요.
+2. 조선 시대에는 한글이 만들어졌다고 전해져요.
+3. 삼국시대에는 고구려, 백제, 신라가 있었어요.
+4. ...
+5. ..."></div>
+
+<button class="check-btn" onclick="checkPractice()">✓ Kiểm tra bài tập</button>
+
+<div id="practice-feedback" class="feedback"></div>
+
+<div class="practice-tips">
+<strong>💡 Mẹo viết câu:</strong><br>
+• Sử dụng từ vựng: 고대, 중세, 근대, 현대, 삼국시대, 통일신라, 고려, 조선, 왕, 왕비, 왕자, 공주, 장군, 신하, 왕조, 역사, 시대, 전쟁, 평화, 독립<br>
+• Sử dụng ngữ pháp: -아/어 오다, -다고 전해지다<br>
+• Cấu trúc câu: Chủ ngữ + Tân ngữ + Động từ + Ngữ pháp
+</div>
+</div>
+
+<!-- Flashcard Section -->
+<div style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 2px solid #D97706; border-radius: 20px; padding: 25px; margin-top: 20px;">
+<h3 style="font-family: 'Baloo 2', cursive; color: #78350F; margin-bottom: 15px;">🎴 Flashcard ôn tập từ vựng</h3>
+<p style="color: #718096; margin-bottom: 15px;">Ôn lại 20 từ vựng về triều đại & lịch sử:</p>
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">고대</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">Cổ đại</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[go-dae]</div>
+<button class="speak-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 20</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 1</h2>
+<ul class="goals-list">
+<li>Thuộc 20 từ vựng cốt lõi về triều đại & lịch sử</li>
+<li>Hiểu và đặt câu với 2 cấu trúc ngữ pháp (-아/어 오다, -다고 전해지다)</li>
+<li>Đọc hiểu bài đọc 200 chữ "한국의 역사" (Lịch sử Hàn Quốc)</li>
+<li>Trả lời đúng 3/3 câu hỏi đọc hiểu</li>
+<li>Viết được 5 câu tổng hợp sử dụng từ vựng và ngữ pháp đã học</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week11.html" class="day-nav-btn">← Về Hub Tuần 11</a>
+<a href="topik3-week11-day01.html" class="day-nav-btn active">Ngày 1 ✓</a>
+<a href="topik3-week11-day02.html" class="day-nav-btn">Ngày 2 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week11.html" class="nav-btn">← Về Tổng quan Tuần 11</a>
+<a href="topik3-week11-day02.html" class="nav-btn primary">Tiếp: Ngày 2 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🏯 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Lịch sử là nền tảng, truyền thống là cầu nối giữa quá khứ và tương lai"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🏯', '📜', '🎎', '🏮', '🎋', '🗿'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '한국은 오랜 역사를 가지고 있어요. 고대부터 현대까지 많은 왕조가 있었어요. 삼국시대에는 고구려, 백제, 신라가 있었어요. 통일신라를 거쳐 고려가 세워졌어요. 고려는 500년 동안 이어졌어요. 그 후에 조선이 세워졌어요. 조선은 500년 동안 이어진 긴 왕조예요. 세종대왕은 한글을 만들었어요. 한글은 세계에서 가장 과학적인 문자예요. 근대에는 많은 어려움이 있었어요. 일본에게 지배를 받았어요. 하지만 많은 영웅들이 나라를 위해 싸웠어요. 이순신 장군, 안중근 의사, 유관순 열사 등이 있어요. 1945년에 독립을 했어요. 그리고 1950년에 한국전쟁이 있었어요. 전쟁 후에 한국은 빠르게 발전했어요. 이제는 세계적으로 유명한 나라가 됐어요. K-pop과 한국 드라마가 인기가 많아요. 한국의 역사는 자랑스러워요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Flashcard data
+const flashcards = [
+    { char: '고대', meaning: 'Cổ đại', pron: '[go-dae]' },
+    { char: '중세', meaning: 'Trung thế', pron: '[jung-se]' },
+    { char: '근대', meaning: 'Cận đại', pron: '[geun-dae]' },
+    { char: '현대', meaning: 'Hiện đại', pron: '[hyeon-dae]' },
+    { char: '삼국시대', meaning: 'Thời Tam Quốc', pron: '[sam-guk-si-dae]' },
+    { char: '통일신라', meaning: 'Tân La Thống Nhất', pron: '[tong-il-sil-la]' },
+    { char: '고려', meaning: 'Cao Ly (Goryeo)', pron: '[go-ryeo]' },
+    { char: '조선', meaning: 'Triều Tiên (Joseon)', pron: '[jo-seon]' },
+    { char: '왕', meaning: 'Vua', pron: '[wang]' },
+    { char: '왕비', meaning: 'Hoàng hậu', pron: '[wang-bi]' },
+    { char: '왕자', meaning: 'Hoàng tử', pron: '[wang-ja]' },
+    { char: '공주', meaning: 'Công chúa', pron: '[gong-ju]' },
+    { char: '장군', meaning: 'Tướng quân', pron: '[jang-gun]' },
+    { char: '신하', meaning: 'Bề tôi', pron: '[sin-ha]' },
+    { char: '왕조', meaning: 'Vương triều', pron: '[wang-jo]' },
+    { char: '역사', meaning: 'Lịch sử', pron: '[yeok-sa]' },
+    { char: '시대', meaning: 'Thời đại', pron: '[si-dae]' },
+    { char: '전쟁', meaning: 'Chiến tranh', pron: '[jeon-jaeng]' },
+    { char: '평화', meaning: 'Hòa bình', pron: '[pyeong-hwa]' },
+    { char: '독립', meaning: 'Độc lập', pron: '[dong-nip]' }
+];
+let currentFlashcard = 0;
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = flashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = flashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = flashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + flashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % flashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + flashcards.length) % flashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 3;
+    if (answeredQuestions.size === total && correctAnswers === total) {
+        const progress = JSON.parse(localStorage.getItem('topik3_week11_progress') || '[]');
+        if (!progress.includes(1)) {
+            progress.push(1);
+            localStorage.setItem('topik3_week11_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+function checkPractice() {
+    const textarea = document.getElementById('practiceText');
+    const feedback = document.getElementById('practice-feedback');
+    const text = textarea.value.trim();
+    
+    if (text.length < 50) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn. Hãy viết ít nhất 5 câu đầy đủ nhé! (tối thiểu 50 ký tự)';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài tập. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 1 từ vựng về lịch sử trong mỗi câu?<br>• Đã sử dụng ngữ pháp -아/어 오다 hoặc -다고 전해지다?<br>• Câu văn có mạch lạc không?';
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week11_progress') || '[]');
+        if (!progress.includes(1)) {
+            progress.push(1);
+            localStorage.setItem('topik3_week11_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save practice
+window.onbeforeunload = function() {
+    const textarea = document.getElementById('practiceText');
+    if (textarea.value.trim().length > 50) {
+        localStorage.setItem('topik3_week11_day1_practice', textarea.value);
+    }
+};
+
+// Load saved practice
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week11_day1_practice');
+    if (saved) {
+        document.getElementById('practiceText').value = saved;
+    }
+};
+</script>
+</body>
+</html>

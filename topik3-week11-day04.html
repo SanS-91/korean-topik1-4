@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 4: Luyện viết câu & Tổng hợp ngữ pháp - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #92400E; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #78350F; }
+.breadcrumb-separator { color: #FCD34D; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #92400E; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(146,64,14,0.15); transition: all 0.3s; border: 2px solid #FCD34D; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(146,64,14,0.25); background: #FFFBEB; }
+.nav-btn.primary { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(217,119,6,0.3) 0%, rgba(252,211,77,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '✍️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🎎'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #78350F; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #92400E; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(146,64,14,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Review Section - Amber */
+.grammar-section .section-title { color: #78350F; border-color: #D97706; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border-radius: 20px; padding: 22px; border: 2px solid #D97706; transition: all 0.3s; }
+.grammar-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(217,119,6,0.2); }
+.grammar-number { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #78350F; margin-bottom: 8px; }
+.grammar-meaning { color: #4A5568; font-size: 0.95em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed #FCD34D; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 12px; border-radius: 10px; margin: 10px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 0.95em; }
+.grammar-example { background: white; padding: 10px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #D97706; }
+.grammar-example-korean { color: #78350F; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 10px; border-radius: 8px; margin-top: 12px; color: #92400E; font-size: 0.9em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(146,64,14,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Writing Section - Violet */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 220px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #78350F; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #FFFBEB; color: #78350F; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #FCD34D; }
+.grammar-tag { background: #FEF3C7; color: #78350F; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F59E0B; }
+
+/* Exercise Section - Orange */
+.exercise-section .section-title { color: #C05621; border-color: #F59E0B; }
+.exercise-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #C05621; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FED7AA; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Pronunciation Section - Red */
+.pronunciation-section .section-title { color: #991B1B; border-color: #EF4444; }
+.pronunciation-box { background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%); border: 2px solid #EF4444; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.pronunciation-tips { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+.pronunciation-tip { padding: 12px; margin: 8px 0; border-left: 4px solid #EF4444; background: #FEF2F2; border-radius: 8px; }
+.pronunciation-tip strong { color: #991B1B; }
+.pronunciation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.pronunciation-card { background: white; padding: 15px; border-radius: 12px; border: 2px solid #EF4444; }
+.pronunciation-korean { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #991B1B; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.pronunciation-pron { color: #718096; font-size: 0.9em; margin-bottom: 10px; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #92400E; border: 2px solid #FCD34D; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FFFBEB; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.pronunciation-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week11.html">🏯 Tuần 11</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 4: Viết câu & Tổng hợp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week11.html" class="nav-btn">← Về Tổng quan Tuần 11</a>
+<a href="topik3-week11-day05.html" class="nav-btn primary">Ngày 5 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">✍️ NGÀY 4 • 4일차</span>
+<h1>Luyện viết câu & Tổng hợp ngữ pháp</h1>
+<div class="subtitle">Tổng hợp 6 cấu trúc ngữ pháp và luyện viết câu phức tạp</div>
+<p class="description">
+Ôn tập 6 cấu trúc ngữ pháp đã học và luyện viết 5-7 câu phức tạp về chủ đề "전통 명절" (Ngày lễ truyền thống). 
+Đọc hiểu bài đọc và luyện phát âm. 🎎
+</p>
+<div class="time-info">⏰ 60 phút • 📝 6 ngữ pháp • ✍️ Viết 5-7 câu • 📖 Bài đọc 280 chữ</div>
+</div>
+
+<!-- Grammar Review Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ôn tập 6 cấu trúc ngữ pháp (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại 6 cấu trúc ngữ pháp đã học trong tuần. Đọc to các ví dụ và tự đặt câu mới về chủ đề lịch sử & truyền thống.</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-아/어 오다</div>
+<div class="grammar-meaning">Đã...từ trước đến nay</div>
+<div class="grammar-formula">Động từ + -아/어 오다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국은 오랜 역사를 가지고 발전해 왔어요. <button class="speak-btn" onclick="speakKorean('한국은 오랜 역사를 가지고 발전해 왔어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Hàn Quốc đã phát triển với lịch sử lâu đời.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이 전통은 오래 전해져 왔어요. <button class="speak-btn" onclick="speakKorean('이 전통은 오래 전해져 왔어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Truyền thống này đã được lưu truyền từ lâu.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어 오다 = "đã...từ trước đến nay" → Quá trình liên tục từ quá khứ đến hiện tại
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-다고 전해지다</div>
+<div class="grammar-meaning">Được truyền lại rằng</div>
+<div class="grammar-formula">Động từ + -ㄴ/는다고 전해지다<br>Tính từ + -다고 전해지다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이 절은 1000년 전에 지어졌다고 전해져요. <button class="speak-btn" onclick="speakKorean('이 절은 1000년 전에 지어졌다고 전해져요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Ngôi chùa này được truyền lại là xây cách đây 1000 năm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">경복궁은 조선 태조 때 지어졌다고 전해져요. <button class="speak-btn" onclick="speakKorean('경복궁은 조선 태조 때 지어졌다고 전해져요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Gyeongbokgung được truyền lại là xây thời vua Taejo triều Joseon.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -다고 전해지다 = "được truyền lại rằng" → Thông tin từ truyền thuyết, lịch sử
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">3</div>
+<div class="grammar-title">-ㄹ/을 뿐만 아니라</div>
+<div class="grammar-meaning">Không những...mà còn</div>
+<div class="grammar-formula">Động từ + -ㄹ 뿐만 아니라<br>Tính từ + -ㄹ/을 뿐만 아니라</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">세종대왕은 현명할 뿐만 아니라 백성을 사랑했어요. <button class="speak-btn" onclick="speakKorean('세종대왕은 현명할 뿐만 아니라 백성을 사랑했어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Vua Sejong không những thông minh mà còn yêu thương dân chúng.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">수원화성은 아름다울 뿐만 아니라 역사적 가치가 있어요. <button class="speak-btn" onclick="speakKorean('수원화성은 아름다울 뿐만 아니라 역사적 가치가 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Pháo đài Suwon không những đẹp mà còn có giá trị lịch sử.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -ㄹ/을 뿐만 아니라 = "không những...mà còn" → Thêm thông tin tích cực
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">4</div>
+<div class="grammar-title">-(으)로 유명하다</div>
+<div class="grammar-meaning">Nổi tiếng về</div>
+<div class="grammar-formula">Danh từ + -(으)로 유명하다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">전주는 비빔밥으로 유명해요. <button class="speak-btn" onclick="speakKorean('전주는 비빔밥으로 유명해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Jeonju nổi tiếng với bibimbap.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">해인사는 팔만대장경으로 유명해요. <button class="speak-btn" onclick="speakKorean('해인사는 팔만대장경으로 유명해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Chùa Haeinsa nổi tiếng với Bát vạn đại tạng kinh.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)로 유명하다 = "nổi tiếng về" → Giới thiệu đặc điểm nổi bật
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">5</div>
+<div class="grammar-title">-던</div>
+<div class="grammar-meaning">Từng (ký ức quá khứ)</div>
+<div class="grammar-formula">Động từ/Tính từ + -던 + Danh từ</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">어릴 때 먹던 김치가 생각나요. <button class="speak-btn" onclick="speakKorean('어릴 때 먹던 김치가 생각나요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi nhớ món kim chi từng ăn lúc nhỏ.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">옛날에 살던 고향이 그리워요. <button class="speak-btn" onclick="speakKorean('옛날에 살던 고향이 그리워요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi nhớ quê hương từng sống ngày xưa.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -던 = "từng" → Diễn tả ký ức, trải nghiệm quá khứ
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">6</div>
+<div class="grammar-title">-기 때문이다</div>
+<div class="grammar-meaning">Bởi vì (nguyên nhân chính thức)</div>
+<div class="grammar-formula">Động từ/Tính từ + -기 때문이다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한글이 위대한 발명인 이유는 백성이 쉽게 배울 수 있기 때문이에요. <button class="speak-btn" onclick="speakKorean('한글이 위대한 발명인 이유는 백성이 쉽게 배울 수 있기 때문이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Lý do Hangeul là phát minh vĩ đại là vì dân chúng có thể dễ dàng học.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이순신 장군이 영웅인 이유는 나라를 지켰기 때문이에요. <button class="speak-btn" onclick="speakKorean('이순신 장군이 영웅인 이유는 나라를 지켰기 때문이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Lý do tướng Yi Sun-sin là anh hùng là vì đã bảo vệ đất nước.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -기 때문이다 = "bởi vì" → Giải thích nguyên nhân trang trọng
+</div>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 2. Luyện viết câu phức tạp (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5-7 câu phức tạp về chủ đề "전통 명절" (Ngày lễ truyền thống). Mỗi câu kết hợp ít nhất 1 cấu trúc ngữ pháp.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Đề bài:</strong> Viết đoạn văn về <strong>"전통 명절" (Ngày lễ truyền thống)</strong><br><br>
+<strong>Yêu cầu:</strong><br>
+• Độ dài: <strong>5-7 câu</strong> (mỗi câu 15-20 từ)<br>
+• Mỗi câu kết hợp ít nhất <strong>1 cấu trúc ngữ pháp</strong> đã học:<br>
+  - <strong>-아/어 오다</strong> (đã...từ trước đến nay)<br>
+  - <strong>-다고 전해지다</strong> (được truyền lại rằng)<br>
+  - <strong>-ㄹ/을 뿐만 아니라</strong> (không những...mà còn)<br>
+  - <strong>-(으)로 유명하다</strong> (nổi tiếng về)<br>
+  - <strong>-던</strong> (từng, ký ức quá khứ)<br>
+  - <strong>-기 때문이다</strong> (bởi vì)<br><br>
+• Sử dụng từ vựng: 명절, 설날, 추석, 세배, 차례, 송편, 떡국, 한복, 세뱃돈, 성묘, 조상, 가족, 고향, 전통, 풍습
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 한국에는 설날과 추석 같은 큰 명절이 있어요.</div>
+<div class="writing-example-meaning">Hàn Quốc có những ngày lễ lớn như Seollal và Chuseok.</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 명절은 가족과 함께 보내는 전통이에요. 이 풍습은 오래 전해져 왔어요.</div>
+<div class="writing-example-meaning">Ngày lễ là truyền thống sum họp cùng gia đình. Phong tục này đã được lưu truyền từ lâu.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어 오다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 설날에는 떡국을 먹는데, 이는 장수를 기원하기 때문이에요.</div>
+<div class="writing-example-meaning">Vào Seollal người ta ăn canh bánh gạo, điều này là vì cầu mong trường thọ.</div>
+<div class="writing-example-grammar">Ngữ pháp: -기 때문이다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 추석에는 송편을 만들어요. 송편은 보름달 모양일 뿐만 아니라 맛도 좋아요.</div>
+<div class="writing-example-meaning">Vào Chuseok người ta làm bánh songpyeon. Bánh songpyeon không những có hình trăng rằm mà còn ngon.</div>
+<div class="writing-example-grammar">Ngữ pháp: -ㄹ/을 뿐만 아니라</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">5. 어릴 때 조상님께 세배를 드리던 기억이 생각나요.</div>
+<div class="writing-example-meaning">Tôi nhớ ký ức từng thực hiện lễ Sebae với tổ tiên lúc nhỏ.</div>
+<div class="writing-example-grammar">Ngữ pháp: -던</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">6. 한국은 명절 문화로 유명해요. 많은 외국인들이 명절에 한국을 방문해요.</div>
+<div class="writing-example-meaning">Hàn Quốc nổi tiếng với văn hóa ngày lễ. Nhiều người nước ngoài đến thăm Hàn Quốc vào dịp lễ.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)로 유명하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">7. 명절에 고향에 간다고 전해지는 풍습이 있어요. 고향에 가서 가족을 만나요.</div>
+<div class="writing-example-meaning">Có phong tục được truyền lại là về quê vào ngày lễ. Về quê để gặp gia đình.</div>
+<div class="writing-example-grammar">Ngữ pháp: -다고 전해지다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="writingText" placeholder="Viết 5-7 câu về ngày lễ truyền thống...
+
+Gợi ý bắt đầu:
+1. 한국에는 ... 명절이 있어요.
+2. 명절은 ... 전통이에요. ... 전해져 왔어요.
+3. 설날에는 ... 먹는데, ... 때문이에요.
+4. 추석에는 ... 만들어요. ... 뿐만 아니라 ...
+5. 어릴 때 ... 드리던 기억이 ...
+6. 한국은 ... 으로 유명해요.
+7. ...
+
+Hãy kết hợp ít nhất 1 cấu trúc ngữ pháp trong mỗi câu!"></textarea>
+
+<div style="background: white; padding: 10px 15px; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #5B21B6;">
+<span>📝 Số câu đã viết:</span>
+<span id="sentenceCount" style="font-size: 1.2em;">0 / 5-7 câu</span>
+</div>
+
+<button class="check-btn" onclick="checkWriting()">✓ Kiểm tra bài viết</button>
+
+<div id="writing-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết câu phức tạp:</strong><br>
+• <strong>Kết hợp ngữ pháp:</strong> Sử dụng 1-2 cấu trúc trong một câu<br>
+• <strong>Độ dài câu:</strong> 15-20 từ mỗi câu<br>
+• <strong>Chủ đề:</strong> Tập trung vào ngày lễ truyền thống và phong tục<br>
+• <strong>Từ vựng:</strong> Sử dụng từ vựng về ngày lễ và truyền thống đã học<br>
+• <strong>Cấu trúc:</strong> Chủ ngữ + Tân ngữ + Động từ + Ngữ pháp<br>
+• <strong>Liên kết:</strong> Sử dụng từ nối: 그리고 (và), 그래서 (vì vậy), 그런데 (nhưng)
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc ngữ pháp • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🎎 전통 명절 (Ngày lễ truyền thống)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 280 chữ</span>
+<span class="reading-tag">⏱️ 15 phút</span>
+<span class="reading-tag">❓ 3 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국에는 큰 <strong>명절</strong>이 두 개 있어요. <strong>설날</strong>과 <strong>추석</strong>이에요. 이 <strong>풍습</strong>은 오래 <span class="grammar-highlight">전해져 왔어요</span>. <strong>명절</strong>에는 <strong>가족</strong>과 <strong>친척</strong>을 만나요. 많은 사람들이 <strong>고향</strong>에 <strong>귀성</strong>해요.</p>
+
+<p><strong>설날</strong>에는 <strong>떡국</strong>을 먹어요. 이는 장수를 기원<span class="grammar-highlight">하기 때문이에요</span>. <strong>조상</strong>님께 <strong>차례</strong>를 지내요. 아이들은 어른께 <strong>세배</strong>를 드리고 <strong>세뱃돈</strong>을 받아요. 사람들은 <strong>한복</strong>을 입어요.</p>
+
+<p><strong>추석</strong>에는 <strong>송편</strong>을 만들어요. <strong>송편</strong>은 보름달 모양<span class="grammar-highlight">일 뿐만 아니라</strong> 맛도 좋아요. <strong>조상</strong>님의 <strong>성묘</strong>를 가요. <strong>명절</strong> 연휴에는 교통이 복잡해요.</p>
+
+<p><strong>명절</strong>에는 <strong>선물</strong>을 주고받아요. <strong>명절</strong> 인사를 드려요. 어릴 때 <strong>조상</strong>님께 <strong>세배</strong>를 드리<span class="grammar-highlight">던</span> 기억이 생각나요.</p>
+
+<p>한국은 <strong>명절</strong> 문화<span class="grammar-highlight">로 유명해요</span>. <strong>명절</strong>은 한국에서 가장 중요한 날이에요. <strong>가족</strong>의 소중함을 느껴요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về ngày lễ truyền thống:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">명절 (ngày lễ)</span>
+<span class="vocab-tag">설날 (Tết Nguyên Đán)</span>
+<span class="vocab-tag">추석 (Chuseok)</span>
+<span class="vocab-tag">풍습 (phong tục)</span>
+<span class="vocab-tag">가족 (gia đình)</span>
+<span class="vocab-tag">친척 (họ hàng)</span>
+<span class="vocab-tag">고향 (quê hương)</span>
+<span class="vocab-tag">귀성 (về quê)</span>
+<span class="vocab-tag">떡국 (canh bánh gạo)</span>
+<span class="vocab-tag">송편 (bánh songpyeon)</span>
+<span class="vocab-tag">차례 (lễ cúng)</span>
+<span class="vocab-tag">세배 (lễ Sebae)</span>
+<span class="vocab-tag">세뱃돈 (tiền mừng tuổi)</span>
+<span class="vocab-tag">한복 (hanbok)</span>
+<span class="vocab-tag">성묘 (viếng mộ)</span>
+<span class="vocab-tag">조상 (tổ tiên)</span>
+<span class="vocab-tag">선물 (quà tặng)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-아/어 오다 (đã...từ trước đến nay)</span>
+<span class="grammar-tag">-기 때문이다 (bởi vì)</span>
+<span class="grammar-tag">-ㄹ/을 뿐만 아니라 (không những...mà còn)</span>
+<span class="grammar-tag">-던 (từng)</span>
+<span class="grammar-tag">-(으)로 유명하다 (nổi tiếng về)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc giới thiệu <strong>hai ngày lễ lớn của Hàn Quốc</strong>: Seollal (Tết Nguyên Đán) và Chuseok (Tết Trung Thu). Phong tục này đã được lưu truyền từ lâu. Vào ngày lễ, mọi người gặp gia đình và họ hàng, nhiều người về quê. Seollal ăn canh bánh gạo để cầu trường thọ, thực hiện lễ cúng tổ tiên, trẻ em thực hiện lễ Sebae và nhận tiền mừng tuổi, mọi người mặc hanbok. Chuseok làm bánh songpyeon - không những có hình trăng rằm mà còn ngon, đi viếng mộ tổ tiên. Hàn Quốc nổi tiếng với văn hóa ngày lễ. Ngày lễ là ngày quan trọng nhất ở Hàn Quốc, giúp cảm nhận sự quý giá của gia đình.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi đọc hiểu</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 설날에 무엇을 먹어요?</div>
+<div class="exercise-question">Vào Seollal ăn gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 송편 (Bánh songpyeon)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 떡국 (Canh bánh gạo)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 김치 (Kim chi)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 비빔밥 (Bibimbap)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 추석에 무엇을 만들어요?</div>
+<div class="exercise-question">Vào Chuseok làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 떡국을 만들어요 (Làm canh bánh gạo)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 송편을 만들어요 (Làm bánh songpyeon)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 김치를 만들어요 (Làm kim chi)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 비빔밥을 만들어요 (Làm bibimbap)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 명절에 아이들은 무엇을 받아요?</div>
+<div class="exercise-question">Ngày lễ trẻ em nhận gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 선물을 받아요 (Nhận quà)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 세뱃돈을 받아요 (Nhận tiền mừng tuổi)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 한복을 받아요 (Nhận hanbok)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 송편을 받아요 (Nhận bánh songpyeon)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Pronunciation Section -->
+<div class="section pronunciation-section">
+<h2 class="section-title">🗣️ 4. Tự sửa phát âm (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to bài viết của bạn • Tự ghi âm và nghe lại • So sánh với audio mẫu • Sửa lỗi phát âm</p>
+
+<div class="pronunciation-box">
+<div class="pronunciation-tips">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">🎯 Phương pháp tự sửa phát âm</h4>
+<div class="pronunciation-tip">
+<strong>Bước 1 (3 phút):</strong> Đọc to bài viết của bạn 2-3 lần. Chú ý phát âm rõ từng từ, đặc biệt là các từ về truyền thống có patchim phức tạp.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 2 (3 phút):</strong> Tự ghi âm bằng điện thoại hoặc máy tính. Đọc với tốc độ tự nhiên, không quá nhanh cũng không quá chậm.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 3 (4 phút):</strong> Nghe lại bản ghi âm và so sánh với audio mẫu. Ghi chú những từ phát âm chưa chuẩn để luyện tập thêm.
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📚 Các từ cần chú ý phát âm:</h4>
+<div class="pronunciation-grid">
+<div class="pronunciation-card">
+<div class="pronunciation-korean">명절 <button class="speak-btn" onclick="speakKorean('명절', this)">🔊</button></div>
+<div class="pronunciation-pron">[myeong-jeol]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅁ" và "ㅈ" patchim</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">설날 <button class="speak-btn" onclick="speakKorean('설날', this)">🔊</button></div>
+<div class="pronunciation-pron">[seol-lal]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: "ㄹ" nối tiếp giữa hai âm tiết</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">추석 <button class="speak-btn" onclick="speakKorean('추석', this)">🔊</button></div>
+<div class="pronunciation-pron">[chu-seok]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅊ" và "ㅅ"</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">세배 <button class="speak-btn" onclick="speakKorean('세배', this)">🔊</button></div>
+<div class="pronunciation-pron">[se-bae]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅂ" patchim</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">차례 <button class="speak-btn" onclick="speakKorean('차례', this)">🔊</button></div>
+<div class="pronunciation-pron">[cha-rye]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: "ㄹ" và "ㄹ" nối tiếp</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">송편 <button class="speak-btn" onclick="speakKorean('송편', this)">🔊</button></div>
+<div class="pronunciation-pron">[song-pyeon]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: "ㅇ" và "ㅍ" phát âm rõ</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">성묘 <button class="speak-btn" onclick="speakKorean('성묘', this)">🔊</button></div>
+<div class="pronunciation-pron">[seong-myo]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: "ㅇ" patchim nối với "ㅁ"</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">조상 <button class="speak-btn" onclick="speakKorean('조상', this)">🔊</button></div>
+<div class="pronunciation-pron">[jo-sang]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: "ㅈ" và "ㅅ" phát âm rõ</div>
+</div>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Lưu ý quan trọng:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li>Các từ về ngày lễ truyền thống thường có patchim phức tạp</li>
+<li>Chú ý hiện tượng nối âm (연음) khi patchim gặp nguyên âm</li>
+<li>Từ ghép (명절, 설날, 추석) cần phát âm rõ từng âm tiết</li>
+<li>Ngữ điệu trong bài về truyền thống nên trang trọng, ấm áp</li>
+<li>Đừng ngại ghi âm và nghe lại - đây là cách tốt nhất để tự sửa lỗi</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 4</h2>
+<ul class="goals-list">
+<li>Ôn tập và nắm vững 6 cấu trúc ngữ pháp đã học trong tuần</li>
+<li>Viết được 5-7 câu phức tạp về ngày lễ truyền thống</li>
+<li>Sử dụng linh hoạt ít nhất 1 cấu trúc ngữ pháp trong mỗi câu</li>
+<li>Đọc hiểu bài đọc 280 chữ "전통 명절" (Ngày lễ truyền thống)</li>
+<li>Phân tích được cấu trúc ngữ pháp trong bài đọc</li>
+<li>Phát âm chuẩn các từ vựng về ngày lễ và truyền thống</li>
+<li>Tự ghi âm và tự đánh giá phát âm của bản thân</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week11.html" class="day-nav-btn">← Về Hub Tuần 11</a>
+<a href="topik3-week11-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week11-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week11-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week11-day04.html" class="day-nav-btn active">Ngày 4 ✓</a>
+<a href="topik3-week11-day05.html" class="day-nav-btn">Ngày 5 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week11-day03.html" class="nav-btn">← Ngày 3</a>
+<a href="topik3-week11-day05.html" class="nav-btn primary">Tiếp: Ngày 5 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🏯 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Lịch sử là nền tảng, truyền thống là cầu nối giữa quá khứ và tương lai"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🏯', '📜', '🎎', '🏮', '🎋', '🗿'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '한국에는 큰 명절이 두 개 있어요. 설날과 추석이에요. 이 풍습은 오래 전해져 왔어요. 명절에는 가족과 친척을 만나요. 많은 사람들이 고향에 귀성해요. 설날에는 떡국을 먹어요. 이는 장수를 기원하기 때문이에요. 조상님께 차례를 지내요. 아이들은 어른께 세배를 드리고 세뱃돈을 받아요. 사람들은 한복을 입어요. 추석에는 송편을 만들어요. 송편은 보름달 모양일 뿐만 아니라 맛도 좋아요. 조상님의 성묘를 가요. 명절 연휴에는 교통이 복잡해요. 명절에는 선물을 주고받아요. 명절 인사를 드려요. 어릴 때 조상님께 세배를 드리던 기억이 생각나요. 한국은 명절 문화로 유명해요. 명절은 한국에서 가장 중요한 날이에요. 가족의 소중함을 느껴요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Sentence counter
+const writingText = document.getElementById('writingText');
+const sentenceCount = document.getElementById('sentenceCount');
+
+writingText.addEventListener('input', function() {
+    const text = this.value.trim();
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    sentenceCount.textContent = count + ' / 5-7 câu';
+    if (count >= 5 && count <= 7) {
+        sentenceCount.style.color = '#10B981';
+    } else {
+        sentenceCount.style.color = '#5B21B6';
+    }
+});
+
+function checkWriting() {
+    const text = writingText.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    
+    if (count < 5) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn (' + count + ' câu). Hãy viết ít nhất 5 câu nhé!';
+    } else if (count > 7) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết hơi dài (' + count + ' câu). Hãy viết trong khoảng 5-7 câu!';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Xuất sắc! Bài viết của bạn có ' + count + ' câu. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 1 cấu trúc ngữ pháp trong mỗi câu?<br>• Câu văn có mạch lạc không?<br>• Sử dụng đa dạng từ vựng chủ đề ngày lễ truyền thống?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week11_progress') || '[]');
+        if (!progress.includes(4)) {
+            progress.push(4);
+            localStorage.setItem('topik3_week11_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingText.value.trim().length > 0) {
+        localStorage.setItem('topik3_week11_day4_writing', writingText.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week11_day4_writing');
+    if (saved) {
+        writingText.value = saved;
+        const sentences = saved.split(/[.!?]+/).filter(s => s.trim().length > 0);
+        sentenceCount.textContent = sentences.length + ' / 5-7 câu';
+    }
+};
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+}
+</script>
+</body>
+</html>

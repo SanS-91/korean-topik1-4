@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 2: Ngữ pháp nâng cao & Luyện đọc - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #92400E; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #78350F; }
+.breadcrumb-separator { color: #FCD34D; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #92400E; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(146,64,14,0.15); transition: all 0.3s; border: 2px solid #FCD34D; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(146,64,14,0.25); background: #FFFBEB; }
+.nav-btn.primary { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(217,119,6,0.3) 0%, rgba(252,211,77,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏯'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '📜'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #78350F; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #92400E; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(146,64,14,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Review Section - Yellow */
+.review-section .section-title { color: #B7791F; border-color: #ECC94B; }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.review-card { background: linear-gradient(135deg, #FFF9E6 0%, #FFFBEA 100%); border-radius: 20px; padding: 22px; border-left: 5px solid #ECC94B; }
+.review-card h4 { font-family: 'Baloo 2', cursive; color: #92400E; margin-bottom: 12px; font-size: 1.2em; display: flex; align-items: center; gap: 8px; }
+.review-item { padding: 8px 0; color: #78350F; font-size: 0.95em; border-bottom: 1px dashed #FDE68A; }
+.review-item:last-child { border-bottom: none; }
+.review-item strong { color: #92400E; }
+
+/* Grammar Section - Amber */
+.grammar-section .section-title { color: #78350F; border-color: #D97706; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border-radius: 20px; padding: 25px; border: 2px solid #D97706; }
+.grammar-number { background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #78350F; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #FCD34D; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #D97706; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #D97706; }
+.grammar-example-korean { color: #78350F; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(146,64,14,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #78350F; background: #FEF3C7; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #FFFBEB; color: #78350F; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #FCD34D; }
+.grammar-tag { background: #FEF3C7; color: #78350F; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F59E0B; }
+
+/* Exercise Section - Orange */
+.exercise-section .section-title { color: #C05621; border-color: #F59E0B; }
+.exercise-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #C05621; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FED7AA; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Writing Section - Violet */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 180px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #92400E; border: 2px solid #FCD34D; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FFFBEB; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #92400E 0%, #D97706 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.review-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week11.html">🏯 Tuần 11</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 2: Ngữ pháp & Đọc hiểu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week11.html" class="nav-btn">← Về Tổng quan Tuần 11</a>
+<a href="topik3-week11-day03.html" class="nav-btn primary">Ngày 3 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏯 NGÀY 2 • 2일차</span>
+<h1>Ngữ pháp nâng cao & Luyện đọc</h1>
+<div class="subtitle">Mở rộng ngữ pháp và rèn kỹ năng đọc về di sản văn hóa</div>
+<p class="description">
+Học 2 cấu trúc ngữ pháp mới: <strong>-ㄹ/을 뿐만 아니라</strong> (không những...mà còn) và <strong>-(으)로 유명하다</strong> (nổi tiếng về). 
+Đọc hiểu bài "한국의 문화재" (Di sản văn hóa Hàn Quốc) 300 chữ và luyện tóm tắt nội dung. 📜
+</p>
+<div class="time-info">⏰ 60 phút • 📝 2 ngữ pháp mới • 📖 Bài đọc 300 chữ • ✍️ Tóm tắt</div>
+</div>
+
+<!-- Review Section -->
+<div class="section review-section">
+<h2 class="section-title">🔄 1. Ôn tập Ngày 1 (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc lại từ vựng và ngữ pháp đã học ngày hôm qua. Tự kiểm tra bằng cách đọc to và đặt câu.</p>
+
+<div class="review-grid">
+<div class="review-card">
+<h4>🏛️ 20 Từ vựng đã học</h4>
+<div class="review-item"><strong>Thời kỳ lịch sử:</strong> 고대, 중세, 근대, 현대, 삼국시대, 통일신라, 고려, 조선</div>
+<div class="review-item" style="margin-top: 10px;"><strong>Nhân vật hoàng gia:</strong> 왕, 왕비, 왕자, 공주, 장군, 신하</div>
+<div class="review-item" style="margin-top: 10px;"><strong>Khái niệm lịch sử:</strong> 왕조, 역사, 시대, 전쟁, 평화, 독립</div>
+</div>
+
+<div class="review-card">
+<h4>📝 2 Ngữ pháp đã học</h4>
+<div class="review-item">
+<strong>-아/어 오다</strong> - Đã...từ trước đến nay<br>
+<em style="color: #78350F;">한국은 오랜 역사를 가지고 발전해 왔어요. (Hàn Quốc đã phát triển với lịch sử lâu đời.)</em>
+</div>
+<div class="review-item" style="margin-top: 10px;">
+<strong>-다고 전해지다</strong> - Được truyền lại rằng<br>
+<em style="color: #78350F;">이 절은 1000년 전에 지어졌다고 전해져요. (Ngôi chùa này được truyền lại là xây cách đây 1000 năm.)</em>
+</div>
+</div>
+</div>
+
+<div style="background: #FFF9E6; border-left: 4px solid #ECC94B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Bài tập nhanh:</strong>
+<p style="color: #78350F; margin-top: 8px;">Hãy đặt 2 câu sử dụng <strong>-아/어 오다</strong> và 2 câu sử dụng <strong>-다고 전해지다</strong> với từ vựng về lịch sử đã học.</p>
+</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 2. Ngữ pháp mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-ㄹ/을 뿐만 아니라</div>
+<div class="grammar-meaning">Không những...mà còn (thêm thông tin)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả việc không chỉ có tính chất A mà còn có thêm tính chất B. Tương đương "không những...mà còn", "vừa...vừa" trong tiếng Việt. Dùng để nhấn mạnh nhiều đặc điểm, nhiều giá trị cùng lúc.
+</div>
+<div class="grammar-formula">
+• Động từ + -ㄹ 뿐만 아니라<br>
+• Tính từ + -ㄹ/을 뿐만 아니라<br>
+• Danh từ + 일 뿐만 아니라<br>
+• Ví dụ: 경복궁은 아름다울 뿐만 아니라 역사적 가치가 있어요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">경복궁은 아름다울 뿐만 아니라 역사적 가치가 있어요. <button class="speak-btn" onclick="speakKorean('경복궁은 아름다울 뿐만 아니라 역사적 가치가 있어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Gyeongbokgung không những đẹp mà còn có giá trị lịch sử.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">세종대왕은 현명할 뿐만 아니라 백성을 사랑했어요. <button class="speak-btn" onclick="speakKorean('세종대왕은 현명할 뿐만 아니라 백성을 사랑했어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Vua Sejong không những thông minh mà còn yêu thương dân chúng.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한글은 과학적일 뿐만 아니라 배우기 쉬워요. <button class="speak-btn" onclick="speakKorean('한글은 과학적일 뿐만 아니라 배우기 쉬워요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Chữ Hangeul không những khoa học mà còn dễ học.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">이순신 장군은 용감할 뿐만 아니라 지혜로웠어요. <button class="speak-btn" onclick="speakKorean('이순신 장군은 용감할 뿐만 아니라 지혜로웠어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tướng Yi Sun-sin không những dũng cảm mà còn thông thái.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -ㄹ/을 뿐만 아니라 = "không những...mà còn" → Thêm thông tin tích cực<br>
+<strong>⚠️ Lưu ý:</strong> Thường dùng để nhấn mạnh nhiều giá trị, nhiều đặc điểm cùng lúc<br>
+<strong>🔄 So sánh:</strong> Khác với -고 (và) - -ㄹ/을 뿐만 아니라 nhấn mạnh sự bổ sung
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-(으)로 유명하다</div>
+<div class="grammar-meaning">Nổi tiếng về</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả điều gì đó nổi tiếng về một đặc điểm, sản phẩm, địa điểm. Tương đương "nổi tiếng về" trong tiếng Việt. Thường dùng khi giới thiệu danh thắng, đặc sản, văn hóa.
+</div>
+<div class="grammar-formula">
+Danh từ + -(으)로 유명하다<br>
+• Không có patchim: + 로 유명하다<br>
+• Có patchim: + 으로 유명하다<br>
+• Ví dụ: 전주는 비빔밥으로 유명해요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">전주는 비빔밥으로 유명해요. <button class="speak-btn" onclick="speakKorean('전주는 비빔밥으로 유명해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Jeonju nổi tiếng với bibimbap.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">불국사는 아름다운 건축으로 유명해요. <button class="speak-btn" onclick="speakKorean('불국사는 아름다운 건축으로 유명해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Chùa Bulguksa nổi tiếng với kiến trúc đẹp.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">경주는 역사 유적으로 유명해요. <button class="speak-btn" onclick="speakKorean('경주는 역사 유적으로 유명해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Gyeongju nổi tiếng với di tích lịch sử.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국은 K-pop으로 유명해요. <button class="speak-btn" onclick="speakKorean('한국은 K-pop으로 유명해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Hàn Quốc nổi tiếng với K-pop.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)로 유명하다 = "nổi tiếng về" → Giới thiệu đặc điểm nổi bật<br>
+<strong>⚠️ Lưu ý:</strong> Dùng với danh từ chỉ đặc điểm, sản phẩm, địa danh<br>
+<strong>🔄 So sánh:</strong> Khác với -기로 유명하다 (nổi tiếng vì đã làm gì) - -(으)로 유명하다 dùng với danh từ
+</div>
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc ngữ pháp • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🏯 한국의 문화재 (Di sản văn hóa Hàn Quốc)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">📝 Tóm tắt</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국에는 많은 <strong>문화재</strong>가 있어요. <strong>문화재</strong>는 조상들이 남긴 소중한 유산이에요. <strong>세계유산</strong>도 많아요.</p>
+
+<p><strong>경복궁</strong>은 서울에 있는 대표적인 <strong>궁궐</strong>이에요. 조선 시대에는 왕이 살던 곳이에요. 아름다운 건축물<span class="grammar-highlight">으로 유명</span>해요. <strong>광화문</strong>은 경복궁의 정문이에요. 수문장 교대식을 볼 수 있어요.</p>
+
+<p><strong>불국사</strong>와 <strong>석굴암</strong>은 경주에 있어요. 신라 시대에 지어졌어요. 아름다운 <strong>불교</strong> 건축물이에요. 유네스코 <strong>세계유산</strong>으로 지정되었어요. 많은 관광객이 방문해요.</p>
+
+<p><strong>해인사</strong>는 <strong>팔만대장경</strong>으로 유명해요. 팔만대장경은 고려 시대에 만든 목판이에요. 8만 개의 판에 불경을 새겼어요. 세계에서 가장 오래된 목판 인쇄물이에요.</p>
+
+<p><strong>수원화성</strong>은 정조 시대에 지어진 성이에요. 아버지를 위해 지은 성이에요. 성곽이 잘 보존되어 있어요. <strong>유적</strong>이 아름다울 뿐만 아니라 역사적 가치가 있어요.</p>
+
+<p><strong>종묘</strong>는 조선 왕의 제사를 지내는 곳이에요. 유교 전통을 보여주는 중요한 문화재예요. 매년 종묘대제가 열려요.</p>
+
+<p>이런 <strong>문화재</strong>들은 한국의 <strong>역사</strong>와 <strong>문화</strong>를 보여줘요. 우리는 문화재를 소중히 여겨야 해요. 후손들에게 물려줄 귀중한 유산이에요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng mới về di sản văn hóa:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">문화재 (di sản văn hóa)</span>
+<span class="vocab-tag">궁궐 (cung điện)</span>
+<span class="vocab-tag">경복궁 (cung Gyeongbok)</span>
+<span class="vocab-tag">광화문 (cổng Gwanghwamun)</span>
+<span class="vocab-tag">불국사 (chùa Bulguksa)</span>
+<span class="vocab-tag">석굴암 (hang Seokguram)</span>
+<span class="vocab-tag">해인사 (chùa Haeinsa)</span>
+<span class="vocab-tag">팔만대장경 (Bát vạn đại tạng kinh)</span>
+<span class="vocab-tag">수원화성 (pháo đài Suwon)</span>
+<span class="vocab-tag">종묘 (miếu Jongmyo)</span>
+<span class="vocab-tag">세계유산 (di sản thế giới)</span>
+<span class="vocab-tag">유적 (di tích)</span>
+<span class="vocab-tag">불교 (Phật giáo)</span>
+<span class="vocab-tag">건축물 (công trình kiến trúc)</span>
+<span class="vocab-tag">성곽 (thành quách)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-ㄹ/을 뿐만 아니라 (không những...mà còn)</span>
+<span class="grammar-tag">-(으)로 유명하다 (nổi tiếng về)</span>
+<span class="grammar-tag">-다고 전해지다 (được truyền lại rằng)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc giới thiệu <strong>các di sản văn hóa Hàn Quốc</strong>. Gyeongbokgung là cung điện tiêu biểu ở Seoul, nổi tiếng với kiến trúc đẹp. Bulguksa và Seokguram ở Gyeongju được xây thời Silla, là di sản thế giới UNESCO. Haeinsa nổi tiếng với Bát vạn đại tạng kinh - bản in gỗ cổ nhất thế giới. Suwon Hwaseong là pháo đài thời vua Jeongjo, không những đẹp mà còn có giá trị lịch sử. Jongmyo là nơi cúng tế vua triều Joseon. Những di sản này thể hiện lịch sử và văn hóa Hàn Quốc, cần được trân trọng để truyền lại cho thế hệ sau.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi đọc hiểu</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 경복궁은 무엇으로 유명해요?</div>
+<div class="exercise-question">Gyeongbokgung nổi tiếng về gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 음식 (Ẩm thực)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 아름다운 건축물 (Kiến trúc đẹp)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 팔만대장경 (Bát vạn đại tạng kinh)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ K-pop</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 해인사는 무엇이 있어요?</div>
+<div class="exercise-question">Chùa Haeinsa có gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 광화문 (Cổng Gwanghwamun)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 수원화성 (Pháo đài Suwon)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 팔만대장경 (Bát vạn đại tạng kinh)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 석굴암 (Hang Seokguram)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'c', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 수원화성은 언제 지어졌어요?</div>
+<div class="exercise-question">Pháo đài Suwon được xây khi nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 신라 시대 (Thời Silla)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 고려 시대 (Thời Goryeo)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 정조 시대 (Thời vua Jeongjo)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 현대 (Hiện đại)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'c', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 불국사는 현대에 지어졌어요 (Bulguksa được xây thời hiện đại)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 해인사는 팔만대장경으로 유명해요 (Haeinsa nổi tiếng với Bát vạn đại tạng kinh)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 경복궁은 부산에 있어요 (Gyeongbokgung ở Busan)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 종묘는 불교 사찰이에요 (Jongmyo là chùa Phật giáo)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'b', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 4. Tóm tắt bài đọc (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Tóm tắt bài đọc "한국의 문화재" bằng 3-4 câu tiếng Hàn. Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Yêu cầu:</strong> Tóm tắt bài đọc "한국의 문화재" bằng <strong>3-4 câu tiếng Hàn</strong>.<br><br>
+<strong>Quy tắc:</strong><br>
+• Độ dài: <strong>3-4 câu</strong> (khoảng 50-80 từ)<br>
+• Sử dụng ít nhất <strong>2 cấu trúc ngữ pháp</strong> đã học trong tuần:<br>
+  - <strong>-아/어 오다</strong> (đã...từ trước đến nay)<br>
+  - <strong>-다고 전해지다</strong> (được truyền lại rằng)<br>
+  - <strong>-ㄹ/을 뿐만 아니라</strong> (không những...mà còn)<br>
+  - <strong>-(으)로 유명하다</strong> (nổi tiếng về)<br><br>
+• Nội dung: Tóm tắt ý chính của bài đọc về di sản văn hóa Hàn Quốc
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 한국에는 많은 문화재가 있어요.</div>
+<div class="writing-example-meaning">Hàn Quốc có nhiều di sản văn hóa.</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 경복궁은 아름다운 건축물로 유명해요.</div>
+<div class="writing-example-meaning">Gyeongbokgung nổi tiếng với kiến trúc đẹp.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)로 유명하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 불국사는 신라 시대에 지어졌다고 전해져요.</div>
+<div class="writing-example-meaning">Chùa Bulguksa được truyền lại là xây thời Silla.</div>
+<div class="writing-example-grammar">Ngữ pháp: -다고 전해지다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 수원화성은 아름다울 뿐만 아니라 역사적 가치가 있어요.</div>
+<div class="example-meaning">Pháo đài Suwon không những đẹp mà còn có giá trị lịch sử.</div>
+<div class="writing-example-grammar">Ngữ pháp: -ㄹ/을 뿐만 아니라</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="summaryText" placeholder="Viết tóm tắt của bạn vào đây...
+
+Gợi ý bắt đầu:
+1. 한국에는 많은 문화재가 있어요.
+2. 경복궁은 ...으로 유명해요.
+3. 불국사는 ...다고 전해져요.
+4. ...
+
+Hãy viết 3-4 câu tóm tắt bài đọc!
+Sử dụng ít nhất 2 cấu trúc ngữ pháp đã học."></textarea>
+
+<button class="check-btn" onclick="checkSummary()">✓ Kiểm tra bài tóm tắt</button>
+
+<div id="summary-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết tóm tắt:</strong><br>
+• <strong>Câu 1:</strong> Giới thiệu chủ đề (Hàn Quốc có nhiều di sản văn hóa)<br>
+• <strong>Câu 2:</strong> Nêu một di sản nổi bật với đặc điểm<br>
+• <strong>Câu 3:</strong> Thêm thông tin về lịch sử hoặc giá trị<br>
+• <strong>Câu 4:</strong> Kết luận về ý nghĩa của di sản<br>
+• Sử dụng từ nối: 그리고 (và), 또한 (ngoài ra), 특히 (đặc biệt)
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 2</h2>
+<ul class="goals-list">
+<li>Đọc hiểu bài đọc 300 chữ "한국의 문화재" (Di sản văn hóa Hàn Quốc)</li>
+<li>Tóm tắt được nội dung chính bằng 3-4 câu tiếng Hàn</li>
+<li>Hiểu và đặt câu với 2 cấu trúc ngữ pháp mới (-ㄹ/을 뿐만 아니라, -(으)로 유명하다)</li>
+<li>Thuộc tổng cộng 4 cấu trúc ngữ pháp (bao gồm 2 cấu trúc từ Ngày 1)</li>
+<li>Phân tích được cấu trúc câu phức trong bài đọc</li>
+<li>Nắm vững từ vựng chủ đề di sản văn hóa và danh thắng</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week11.html" class="day-nav-btn">← Về Hub Tuần 11</a>
+<a href="topik3-week11-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week11-day02.html" class="day-nav-btn active">Ngày 2 ✓</a>
+<a href="topik3-week11-day03.html" class="day-nav-btn">Ngày 3 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week11-day01.html" class="nav-btn">← Ngày 1</a>
+<a href="topik3-week11-day03.html" class="nav-btn primary">Tiếp: Ngày 3 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🏯 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Lịch sử là nền tảng, truyền thống là cầu nối giữa quá khứ và tương lai"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🏯', '📜', '🎎', '🏮', '🎋', '🗿'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '한국에는 많은 문화재가 있어요. 문화재는 조상들이 남긴 소중한 유산이에요. 세계유산도 많아요. 경복궁은 서울에 있는 대표적인 궁궐이에요. 조선 시대에는 왕이 살던 곳이에요. 아름다운 건축물로 유명해요. 광화문은 경복궁의 정문이에요. 수문장 교대식을 볼 수 있어요. 불국사와 석굴암은 경주에 있어요. 신라 시대에 지어졌어요. 아름다운 불교 건축물이에요. 유네스코 세계유산으로 지정되었어요. 많은 관광객이 방문해요. 해인사는 팔만대장경으로 유명해요. 팔만대장경은 고려 시대에 만든 목판이에요. 8만 개의 판에 불경을 새겼어요. 세계에서 가장 오래된 목판 인쇄물이에요. 수원화성은 정조 시대에 지어진 성이에요. 아버지를 위해 지은 성이에요. 성곽이 잘 보존되어 있어요. 유적이 아름다울 뿐만 아니라 역사적 가치가 있어요. 종묘는 조선 왕의 제사를 지내는 곳이에요. 유교 전통을 보여주는 중요한 문화재예요. 매년 종묘대제가 열려요. 이런 문화재들은 한국의 역사와 문화를 보여줘요. 우리는 문화재를 소중히 여겨야 해요. 후손들에게 물려줄 귀중한 유산이에요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function checkSummary() {
+    const textarea = document.getElementById('summaryText');
+    const feedback = document.getElementById('summary-feedback');
+    const text = textarea.value.trim();
+    
+    if (text.length < 50) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài tóm tắt của bạn còn ngắn. Hãy viết ít nhất 3-4 câu đầy đủ nhé! (tối thiểu 50 ký tự)';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài tóm tắt. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 2 cấu trúc ngữ pháp?<br>• Câu văn có mạch lạc không?<br>• Có tóm tắt đúng nội dung về di sản văn hóa Hàn Quốc không?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week11_progress') || '[]');
+        if (!progress.includes(2)) {
+            progress.push(2);
+            localStorage.setItem('topik3_week11_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+}
+
+// Auto-save summary when leaving page
+window.onbeforeunload = function() {
+    const textarea = document.getElementById('summaryText');
+    if (textarea.value.trim().length > 50) {
+        localStorage.setItem('topik3_week11_day2_summary', textarea.value);
+    }
+};
+
+// Load saved summary
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week11_day2_summary');
+    if (saved) {
+        document.getElementById('summaryText').value = saved;
+    }
+};
+</script>
+</body>
+</html>
