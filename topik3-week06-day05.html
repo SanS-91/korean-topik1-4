@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 5: Đọc hiểu chuyên sâu - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 50%, #7DD3FC 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #0284C7; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #0369A1; }
+.breadcrumb-separator { color: #7DD3FC; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #0284C7; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(2,132,199,0.15); transition: all 0.3s; border: 2px solid #7DD3FC; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(2,132,199,0.25); background: #F0F9FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(125,211,252,0.3) 0%, rgba(186,230,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '📖'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '✨'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #0369A1; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #0284C7; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(2,132,199,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #0369A1; background: #E0F2FE; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #F0F9FF; color: #0369A1; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #7DD3FC; }
+.grammar-tag { background: #E0F2FE; color: #0369A1; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #0EA5E9; }
+
+/* Exercise Section - Blue */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Vocabulary Section - Green */
+.vocab-section .section-title { color: #065F46; border-color: #10B981; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.vocab-card { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 22px; border: 2px solid #0EA5E9; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(14,165,233,0.2); }
+.vocab-number { background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #0369A1; font-weight: 800; margin-bottom: 5px; }
+.vocab-pron { color: #718096; font-size: 0.9em; font-style: italic; margin-bottom: 8px; }
+.vocab-meaning { color: #0369A1; font-size: 1.05em; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #7DD3FC; }
+.vocab-example { background: white; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 4px solid #0EA5E9; }
+.example-korean { color: #0369A1; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(14,165,233,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #0284C7; border: 2px solid #7DD3FC; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #F0F9FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week06.html">🏥 Tuần 6</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 5: Đọc hiểu chuyên sâu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week06.html" class="nav-btn">← Về Tổng quan Tuần 6</a>
+<a href="topik3-week06-day06.html" class="nav-btn primary">Ngày 6 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">📖 NGÀY 5 • 5일차</span>
+<h1>Đọc hiểu chuyên sâu</h1>
+<div class="subtitle">Luyện đọc 2 bài 300 chữ về bảo hiểm y tế và thực phẩm chức năng</div>
+<p class="description">
+Đọc hiểu 2 bài đọc về <strong>"한국의 건강보험"</strong> (Bảo hiểm y tế Hàn Quốc) và <strong>"영양제와 건강"</strong> (Thực phẩm chức năng và sức khỏe). 
+Trả lời 8 câu hỏi TOPIK format và mở rộng vốn từ vựng với 10 từ mới. 🏥
+</p>
+<div class="time-info">⏰ 60 phút • 📖 2 bài đọc 300 chữ • ❓ 8 câu hỏi TOPIK • 📚 10 từ mới</div>
+</div>
+
+<!-- Reading 1: 한국의 건강보험 -->
+<div class="section reading-section">
+<h2 class="section-title">📖 1. Bài đọc 1: 한국의 건강보험 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Phân tích từ vựng</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🏥 한국의 건강보험 (Bảo hiểm y tế Hàn Quốc)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>한국에서는 <strong>건강보험</strong>이 아주 중요해요. 모든 국민이 <strong>건강보험</strong>에 <strong>가입</strong>해야 해요. <strong>건강보험</strong>은 <strong>병원</strong>에 갈 때 <strong>비용</strong>을 <strong>절감</strong>할 수 있어요.</p>
+
+<p><strong>건강보험</strong>에는 두 가지 종류가 있어요. <strong>국민건강보험</strong>과 <strong>민간보험</strong>이에요. <strong>국민건강보험</strong>은 정부에서 운영해요. <strong>민간보험</strong>은 사설 회사에서 운영해요. 대부분 사람들은 <strong>국민건강보험</strong>에 들어요.</p>
+
+<p><strong>병원</strong>에 가면 <strong>보험증</strong>을 보여줘야 해요. <strong>보험증</strong>이 있으면 <strong>진료비</strong>의 30%만 내면 돼요. 나머지는 <strong>건강보험</strong>이 내줘요. 그래서 <strong>병원 비용</strong>이 <strong>비싸지 않게 됐어요</strong>.</p>
+
+<p><strong>건강보험</strong>에 <strong>가입</strong>하려면 <strong>보험료</strong>를 내야 해요. <strong>보험료</strong>는 <strong>월</strong>마다 내요. <strong>직장</strong>에 다니면 회사에서 절반을 내줘요. <strong>아플까 봐</strong> <strong>민간보험</strong>에도 드는 사람들이 있어요.</p>
+
+<p><strong>건강보험</strong>이 있어서 한국 사람들은 <strong>병원</strong>에 <strong>쉽게</strong> 갈 수 있어요. <strong>아플 때</strong> <strong>병원</strong>에 <strong>빨리</strong> 가는 <strong>편이 좋아요</strong>. <strong>건강</strong>이 <strong>제일</strong> 중요하니까요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio1Btn" onclick="speakReading1(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 1</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 1</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng mới về bảo hiểm:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">건강보험 (bảo hiểm y tế)</span>
+<span class="vocab-tag">국민건강보험 (bảo hiểm y tế quốc gia)</span>
+<span class="vocab-tag">민간보험 (bảo hiểm tư nhân)</span>
+<span class="vocab-tag">보험증 (thẻ bảo hiểm)</span>
+<span class="vocab-tag">보험료 (phí bảo hiểm)</span>
+<span class="vocab-tag">가입하다 (tham gia)</span>
+<span class="vocab-tag">절감하다 (tiết kiệm, giảm)</span>
+<span class="vocab-tag">진료비 (chi phí khám bệnh)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+<span class="grammar-tag">-(으)까 봐 (sợ rằng)</span>
+<span class="grammar-tag">-는 편이 좋다 (thì tốt hơn)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc giới thiệu về <strong>hệ thống bảo hiểm y tế Hàn Quốc</strong>. Tất cả công dân phải tham gia bảo hiểm y tế. Có 2 loại: bảo hiểm y tế quốc gia (do chính phủ quản lý) và bảo hiểm tư nhân (do công ty tư nhân quản lý). Khi đi bệnh viện, chỉ cần trả 30% chi phí, phần còn lại do bảo hiểm chi trả. Phí bảo hiểm đóng hàng tháng, nếu đi làm thì công ty trả một nửa. Nhờ có bảo hiểm y tế, người dân Hàn Quốc có thể đi khám bệnh dễ dàng và chi phí không quá đắt.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 1 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 1</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 한국 건강보험에는 몇 가지 종류가 있어요?</div>
+<div class="exercise-question">Bảo hiểm y tế Hàn Quốc có mấy loại?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 한 가지 (1 loại)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 두 가지 (2 loại)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 세 가지 (3 loại)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 네 가지 (4 loại)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 보험증이 있으면 진료비의 얼마를 내요?</div>
+<div class="exercise-question">Nếu có thẻ bảo hiểm thì phải trả bao nhiêu phần chi phí khám bệnh?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 10%</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 30%</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 50%</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 100%</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'b', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 직장에 다니면 누가 보험료의 절반을 내줘요?</div>
+<div class="exercise-question">Nếu đi làm thì ai trả một nửa phí bảo hiểm?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 정부 (Chính phủ)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 병원 (Bệnh viện)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 회사 (Công ty)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 가족 (Gia đình)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'c', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 건강보험은 선택이에요 (Bảo hiểm y tế là tùy chọn)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 국민건강보험은 사설 회사가 운영해요 (Bảo hiểm y tế quốc gia do công ty tư nhân quản lý)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 건강보험이 있어서 병원에 쉽게 갈 수 있어요 (Nhờ có bảo hiểm y tế nên có thể đi bệnh viện dễ dàng)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 보험료는 1년에 한 번 내요 (Phí bảo hiểm đóng 1 năm 1 lần)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'c', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Reading 2: 영양제와 건강 -->
+<div class="section reading-section">
+<h2 class="section-title">📖 2. Bài đọc 2: 영양제와 건강 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Ghi chú từ vựng mới</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">💊 영양제와 건강 (Thực phẩm chức năng và sức khỏe)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>요즘 많은 사람들이 <strong>영양제</strong>를 먹어요. <strong>영양제</strong>는 <strong>건강</strong>에 <strong>도움</strong>이 돼요. 하지만 <strong>영양제</strong>만으로는 <strong>건강</strong>해질 수 없어요.</p>
+
+<p><strong>비타민</strong>은 가장 인기 있는 <strong>영양제</strong>예요. <strong>비타민 C</strong>는 <strong>감기</strong>를 <strong>예방</strong>할 수 있어요. <strong>비타민 D</strong>는 <strong>뼈</strong>를 <strong>강하게</strong> 해요. <strong>오메가3</strong>는 <strong>심장</strong>에 좋아요.</p>
+
+<p><strong>프로바이오틱스</strong>는 <strong>장</strong>에 좋아요. <strong>소화</strong>를 <strong>도와줘요</strong>. <strong>유산균</strong>도 <strong>프로바이오틱스</strong>의 일종이에요. <strong>요거트</strong>에 많이 들어 있어요.</p>
+
+<p><strong>영양제</strong>를 먹을 때 <strong>주의</strong>해야 해요. <strong>과다 복용</strong>하면 <strong>부작용</strong>이 있을 수 있어요. <strong>의사</strong>나 <strong>약사</strong>와 <strong>상담</strong>하는 <strong>편이 좋아요</strong>. <strong>아플까 봐</strong> <strong>영양제</strong>를 많이 먹는 사람들이 있어요. 하지만 <strong>영양제</strong>는 <strong>약</strong>이 아니에요.</p>
+
+<p><strong>건강</strong>해지려면 <strong>영양제</strong>뿐만 아니라 <strong>균형</strong> 잡힌 <strong>식사</strong>와 <strong>운동</strong>이 중요해요. <strong>충분한 수면</strong>도 필요해요. <strong>영양제</strong>는 <strong>보조</strong> 역할만 해요. <strong>건강한 생활 습관</strong>이 <strong>제일</strong> 중요해요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio2Btn" onclick="speakReading2(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 2</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 2</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng mới về thực phẩm chức năng:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">영양제 (thực phẩm chức năng)</span>
+<span class="vocab-tag">비타민 (vitamin)</span>
+<span class="vocab-tag">오메가3 (omega-3)</span>
+<span class="vocab-tag">프로바이오틱스 (probiotics)</span>
+<span class="vocab-tag">유산균 (lợi khuẩn)</span>
+<span class="vocab-tag">부작용 (tác dụng phụ)</span>
+<span class="vocab-tag">상담 (tư vấn)</span>
+<span class="vocab-tag">과다 복용 (uống quá liều)</span>
+<span class="vocab-tag">예방 (phòng ngừa)</span>
+<span class="vocab-tag">보조 (hỗ trợ)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-는 편이 좋다 (thì tốt hơn)</span>
+<span class="grammar-tag">-(으)까 봐 (sợ rằng)</span>
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>thực phẩm chức năng và sức khỏe</strong>. Ngày nay nhiều người uống thực phẩm chức năng như vitamin C (phòng cảm cúm), vitamin D (tốt cho xương), omega-3 (tốt cho tim), probiotics (tốt cho tiêu hóa). Tuy nhiên, cần lưu ý khi uống: uống quá liều có thể gây tác dụng phụ, nên tư vấn với bác sĩ hoặc dược sĩ. Thực phẩm chức năng chỉ có vai trò hỗ trợ, không phải là thuốc. Muốn khỏe mạnh cần kết hợp ăn uống cân bằng, tập thể dục và ngủ đủ giấc.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 2 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 2</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 비타민 C는 무엇에 도움이 돼요?</div>
+<div class="exercise-question">Vitamin C giúp ích cho điều gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 뼈를 강하게 해요 (Làm xương chắc khỏe)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 감기를 예방할 수 있어요 (Có thể phòng cảm cúm)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 심장에 좋아요 (Tốt cho tim)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 소화를 도와줘요 (Hỗ trợ tiêu hóa)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 6: 오메가3는 어디에 좋아요?</div>
+<div class="exercise-question">Omega-3 tốt cho đâu?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 뼈 (Xương)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 장 (Ruột)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 심장 (Tim)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 피부 (Da)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'c', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 7: 영양제를 먹을 때 무엇을 해야 해요?</div>
+<div class="exercise-question">Khi uống thực phẩm chức năng thì phải làm gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 많이 먹어야 해요 (Phải uống nhiều)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 의사나 약사와 상담해야 해요 (Phải tư vấn với bác sĩ hoặc dược sĩ)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 식사 전에 먹어야 해요 (Phải uống trước bữa ăn)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 운동 후에 먹어야 해요 (Phải uống sau khi tập thể dục)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'b', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 8: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 영양제만 먹으면 건강해져요 (Chỉ uống thực phẩm chức năng là khỏe mạnh)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 영양제는 약이에요 (Thực phẩm chức năng là thuốc)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 건강한 생활 습관이 제일 중요해요 (Thói quen sống lành mạnh là quan trọng nhất)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 과다 복용해도 부작용이 없어요 (Uống quá liều cũng không có tác dụng phụ)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'c', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection" style="display: none;">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 3. Tổng hợp 10 từ vựng mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Học 10 từ vựng mới • Đọc to mỗi từ 3 lần • Đặt câu ví dụ cho mỗi từ</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">건강보험</div>
+<div class="vocab-pron">[geon-gang-bo-heom]</div>
+<div class="vocab-meaning">Bảo hiểm y tế</div>
+<div class="vocab-example">
+<div class="example-korean">건강보험에 가입해야 해요. <button class="speak-btn" onclick="speakKorean('건강보험에 가입해야 해요.', this)">🔊</button></div>
+<div class="example-meaning">Phải tham gia bảo hiểm y tế.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">건강보험이 있어서 병원에 쉽게 가요. <button class="speak-btn" onclick="speakKorean('건강보험이 있어서 병원에 쉽게 가요.', this)">🔊</button></div>
+<div class="example-meaning">Có bảo hiểm y tế nên đi bệnh viện dễ dàng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">민간보험</div>
+<div class="vocab-pron">[min-gan-bo-heom]</div>
+<div class="vocab-meaning">Bảo hiểm tư nhân</div>
+<div class="vocab-example">
+<div class="example-korean">민간보험에 가입했어요. <button class="speak-btn" onclick="speakKorean('민간보험에 가입했어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã tham gia bảo hiểm tư nhân.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">민간보험은 비싸요. <button class="speak-btn" onclick="speakKorean('민간보험은 비싸요.', this)">🔊</button></div>
+<div class="example-meaning">Bảo hiểm tư nhân đắt.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">보험료</div>
+<div class="vocab-pron">[bo-heom-ryo]</div>
+<div class="vocab-meaning">Phí bảo hiểm</div>
+<div class="vocab-example">
+<div class="example-korean">보험료를 매달 내요. <button class="speak-btn" onclick="speakKorean('보험료를 매달 내요.', this)">🔊</button></div>
+<div class="example-meaning">Đóng phí bảo hiểm hàng tháng.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">보험료가 비싸요. <button class="speak-btn" onclick="speakKorean('보험료가 비싸요.', this)">🔊</button></div>
+<div class="example-meaning">Phí bảo hiểm đắt.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">영양제</div>
+<div class="vocab-pron">[yeong-yang-je]</div>
+<div class="vocab-meaning">Thực phẩm chức năng</div>
+<div class="vocab-example">
+<div class="example-korean">영양제를 먹어요. <button class="speak-btn" onclick="speakKorean('영양제를 먹어요.', this)">🔊</button></div>
+<div class="example-meaning">Uống thực phẩm chức năng.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">영양제는 약이 아니에요. <button class="speak-btn" onclick="speakKorean('영양제는 약이 아니에요.', this)">🔊</button></div>
+<div class="example-meaning">Thực phẩm chức năng không phải là thuốc.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">비타민</div>
+<div class="vocab-pron">[bi-ta-min]</div>
+<div class="vocab-meaning">Vitamin</div>
+<div class="vocab-example">
+<div class="example-korean">비타민을 먹으면 좋아요. <button class="speak-btn" onclick="speakKorean('비타민을 먹으면 좋아요.', this)">🔊</button></div>
+<div class="example-meaning">Uống vitamin thì tốt.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">비타민 C가 감기에 좋아요. <button class="speak-btn" onclick="speakKorean('비타민 C가 감기에 좋아요.', this)">🔊</button></div>
+<div class="example-meaning">Vitamin C tốt cho cảm cúm.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">오메가3</div>
+<div class="vocab-pron">[o-me-ga-seum]</div>
+<div class="vocab-meaning">Omega-3</div>
+<div class="vocab-example">
+<div class="example-korean">오메가3는 심장에 좋아요. <button class="speak-btn" onclick="speakKorean('오메가3는 심장에 좋아요.', this)">🔊</button></div>
+<div class="example-meaning">Omega-3 tốt cho tim.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">생선에 오메가3가 많아요. <button class="speak-btn" onclick="speakKorean('생선에 오메가3가 많아요.', this)">🔊</button></div>
+<div class="example-meaning">Trong cá có nhiều omega-3.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">프로바이오틱스</div>
+<div class="vocab-pron">[peu-ro-ba-i-o-tik-seu]</div>
+<div class="vocab-meaning">Probiotics (lợi khuẩn)</div>
+<div class="vocab-example">
+<div class="example-korean">프로바이오틱스가 장에 좋아요. <button class="speak-btn" onclick="speakKorean('프로바이오틱스가 장에 좋아요.', this)">🔊</button></div>
+<div class="example-meaning">Probiotics tốt cho ruột.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">요거트에 프로바이오틱스가 있어요. <button class="speak-btn" onclick="speakKorean('요거트에 프로바이오틱스가 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Trong sữa chua có probiotics.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">부작용</div>
+<div class="vocab-pron">[bu-jak-yong]</div>
+<div class="vocab-meaning">Tác dụng phụ</div>
+<div class="vocab-example">
+<div class="example-korean">약에 부작용이 있어요. <button class="speak-btn" onclick="speakKorean('약에 부작용이 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Thuốc có tác dụng phụ.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">과다 복용하면 부작용이 있어요. <button class="speak-btn" onclick="speakKorean('과다 복용하면 부작용이 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Uống quá liều thì có tác dụng phụ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">상담</div>
+<div class="vocab-pron">[sang-dam]</div>
+<div class="vocab-meaning">Tư vấn</div>
+<div class="vocab-example">
+<div class="example-korean">의사와 상담해야 해요. <button class="speak-btn" onclick="speakKorean('의사와 상담해야 해요.', this)">🔊</button></div>
+<div class="example-meaning">Phải tư vấn với bác sĩ.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">약사와 상담했어요. <button class="speak-btn" onclick="speakKorean('약사와 상담했어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã tư vấn với dược sĩ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">예방</div>
+<div class="vocab-pron">[ye-bang]</div>
+<div class="vocab-meaning">Phòng ngừa</div>
+<div class="vocab-example">
+<div class="example-korean">감기를 예방해야 해요. <button class="speak-btn" onclick="speakKorean('감기를 예방해야 해요.', this)">🔊</button></div>
+<div class="example-meaning">Phải phòng ngừa cảm cúm.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">예방이 치료보다 중요해요. <button class="speak-btn" onclick="speakKorean('예방이 치료보다 중요해요.', this)">🔊</button></div>
+<div class="example-meaning">Phòng ngừa quan trọng hơn điều trị.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 4. Mục tiêu đạt được sau Ngày 5</h2>
+<ul class="goals-list">
+<li>Đọc hiểu 2 bài đọc 300 chữ ("한국의 건강보험" và "영양제와 건강")</li>
+<li>Trả lời đúng 6/8 câu hỏi TOPIK format</li>
+<li>Mở rộng vốn từ vựng với 10 từ mới về bảo hiểm y tế và thực phẩm chức năng</li>
+<li>Phân tích được cấu trúc câu trong bài đọc</li>
+<li>Đặt câu ví dụ cho mỗi từ vựng mới</li>
+<li>Nắm vững cách sử dụng từ vựng trong ngữ cảnh y tế</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week06.html" class="day-nav-btn">← Về Hub Tuần 6</a>
+<a href="topik3-week06-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week06-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week06-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week06-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week06-day05.html" class="day-nav-btn active">Ngày 5 ✓</a>
+<a href="topik3-week06-day06.html" class="day-nav-btn">Ngày 6 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week06-day04.html" class="nav-btn">← Ngày 4</a>
+<a href="topik3-week06-day06.html" class="nav-btn primary">Tiếp: Ngày 6 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">🏥 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Sức khỏe là vàng, ngôn ngữ là chìa khóa mở ra thế giới mới"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['🏥', '💊', '💮'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading1(btnElement) {
+    const fullText = '한국에서는 건강보험이 아주 중요해요. 모든 국민이 건강보험에 가입해야 해요. 건강보험은 병원에 갈 때 비용을 절감할 수 있어요. 건강보험에는 두 가지 종류가 있어요. 국민건강보험과 민간보험이에요. 국민건강보험은 정부에서 운영해요. 민간보험은 사설 회사에서 운영해요. 대부분 사람들은 국민건강보험에 들어요. 병원에 가면 보험증을 보여줘야 해요. 보험증이 있으면 진료비의 30%만 내면 돼요. 나머지는 건강보험이 내줘요. 그래서 병원 비용이 비싸지 않게 됐어요. 건강보험에 가입하려면 보험료를 내야 해요. 보험료는 월마다 내요. 직장에 다니면 회사에서 절반을 내줘요. 아플까 봐 민간보험에도 드는 사람들이 있어요. 건강보험이 있어서 한국 사람들은 병원에 쉽게 갈 수 있어요. 아플 때 병원에 빨리 가는 편이 좋아요. 건강이 제일 중요하니까요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading2(btnElement) {
+    const fullText = '요즘 많은 사람들이 영양제를 먹어요. 영양제는 건강에 도움이 돼요. 하지만 영양제만으로는 건강해질 수 없어요. 비타민은 가장 인기 있는 영양제예요. 비타민 C는 감기를 예방할 수 있어요. 비타민 D는 뼈를 강하게 해요. 오메가3는 심장에 좋아요. 프로바이오틱스는 장에 좋아요. 소화를 도와줘요. 유산균도 프로바이오틱스의 일종이에요. 요거트에 많이 들어 있어요. 영양제를 먹을 때 주의해야 해요. 과다 복용하면 부작용이 있을 수 있어요. 의사나 약사와 상담하는 편이 좋아요. 아플까 봐 영양제를 많이 먹는 사람들이 있어요. 하지만 영양제는 약이 아니에요. 건강해지려면 영양제뿐만 아니라 균형 잡힌 식사와 운동이 중요해요. 충분한 수면도 필요해요. 영양제는 보조 역할만 해요. 건강한 생활 습관이 제일 중요해요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').style.display = 'block';
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 75) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Ngày 6!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài đọc.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week6_progress') || '[]');
+        if (!progress.includes(5)) {
+            progress.push(5);
+            localStorage.setItem('topik3_week6_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>
+</body>
+</html>
