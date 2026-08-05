@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 1: Từ vựng & Ngữ pháp nền tảng - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 50%, #FBCFE8 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #DB2777; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #BE185D; }
+.breadcrumb-separator { color: #F9A8D4; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #DB2777; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(219,39,119,0.15); transition: all 0.3s; border: 2px solid #F9A8D4; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(219,39,119,0.25); background: #FDF2F8; }
+.nav-btn.primary { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(244,114,182,0.3) 0%, rgba(251,207,232,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '👨‍👩‍👧‍👦'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '💝'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #BE185D; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #DB2777; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(219,39,119,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Vocabulary Section - Rose */
+.vocab-section .section-title { color: #BE185D; border-color: #F472B6; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+.vocab-card { background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); border-radius: 15px; padding: 18px; border-left: 5px solid #F472B6; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(244,114,182,0.2); }
+.vocab-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.vocab-number { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85em; flex-shrink: 0; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #BE185D; font-weight: 800; }
+.vocab-pron { color: #718096; font-size: 0.85em; font-style: italic; background: white; padding: 4px 10px; border-radius: 12px; font-weight: 600; }
+.vocab-meaning { color: #BE185D; font-size: 1em; font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed #F9A8D4; }
+.vocab-example { background: white; padding: 10px; border-radius: 10px; margin: 6px 0; border-left: 4px solid #F472B6; }
+.example-korean { color: #BE185D; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(219,39,119,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Grammar Section - Pink */
+.grammar-section .section-title { color: #BE185D; border-color: #F472B6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); border-radius: 20px; padding: 25px; border: 2px solid #F472B6; }
+.grammar-number { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.4em; color: #BE185D; margin-bottom: 10px; }
+.grammar-meaning { color: #4A5568; font-size: 1.05em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px dashed #F9A8D4; }
+.grammar-explanation { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #4A5568; line-height: 1.7; border-left: 4px solid #F472B6; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 15px; border-radius: 12px; margin: 15px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 1.05em; }
+.grammar-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #F472B6; }
+.grammar-example-korean { color: #BE185D; font-weight: 700; font-size: 1.05em; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.95em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 10px; margin-top: 15px; color: #92400E; font-size: 0.95em; }
+.grammar-note strong { color: #78350F; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #FDF2F8; color: #BE185D; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F9A8D4; }
+.grammar-tag { background: #FCE7F3; color: #BE185D; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F472B6; }
+
+/* Exercise Section - Orange */
+.exercise-section .section-title { color: #C05621; border-color: #F59E0B; }
+.exercise-container { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #F59E0B; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #C05621; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #FED7AA; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #F59E0B; background: #FFFBEB; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(245,158,11,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Practice Section - Rose */
+.practice-section .section-title { color: #BE185D; border-color: #F472B6; }
+.practice-box { background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); border: 2px solid #F472B6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.practice-textarea { width: 100%; min-height: 150px; padding: 15px; border: 2px solid #F9A8D4; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; }
+.practice-textarea:focus { outline: none; border-color: #F472B6; }
+.practice-tips { background: #FDF2F8; padding: 12px; border-radius: 10px; margin-top: 15px; color: #9D174D; font-size: 0.95em; }
+.practice-tips strong { color: #BE185D; }
+.check-btn { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(219,39,119,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Flashcard Section */
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; }
+.flashcard-back { background: white; color: #2D3748; transform: rotateY(180deg); border: 3px solid #DB2777; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 3em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.4em; font-weight: 700; color: #BE185D; margin-bottom: 10px; text-align: center; }
+.flashcard-pronunciation { color: #718096; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #718096; margin-top: 10px; font-weight: 600; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #DB2777; border: 2px solid #F9A8D4; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FDF2F8; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week10.html">👥 Tuần 10</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 1: Từ vựng & Ngữ pháp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week10.html" class="nav-btn">← Về Tổng quan Tuần 10</a>
+<a href="topik3-week10-day02.html" class="nav-btn primary">Ngày 2 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">👨‍👩‍👧‍👦 NGÀY 1 • 1일차</span>
+<h1>Từ vựng nền tảng & Ngữ pháp cơ bản</h1>
+<div class="subtitle">Bước đầu tiên vào thế giới gia đình & quan hệ</div>
+<p class="description">
+Học 20 từ vựng cốt lõi về gia đình & họ hàng và 2 cấu trúc ngữ pháp nền tảng. 
+Đọc hiểu bài "우리 가족" (Gia đình tôi) và luyện viết câu tổng hợp. 💝
+</p>
+<div class="time-info">⏰ 60 phút • 📚 20 từ vựng • 📝 2 ngữ pháp • 📖 Bài đọc 200 chữ</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 1. Từ vựng nền tảng (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to mỗi từ 3 lần • Viết nghĩa tiếng Việt • Đặt 1 câu ví dụ cho mỗi từ • Nghe audio để phát âm chuẩn</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">부모님</div>
+<div class="vocab-pron">[bu-mo-nim]</div>
+<button class="speak-btn" onclick="speakKorean('부모님', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Cha mẹ (kính ngữ)</div>
+<div class="vocab-example">
+<div class="example-korean">부모님께 인사드려요. <button class="speak-btn" onclick="speakKorean('부모님께 인사드려요.', this)">🔊</button></div>
+<div class="example-meaning">Chào hỏi cha mẹ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">아버지</div>
+<div class="vocab-pron">[a-beo-ji]</div>
+<button class="speak-btn" onclick="speakKorean('아버지', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Bố</div>
+<div class="vocab-example">
+<div class="example-korean">아버지가 회사에 가요. <button class="speak-btn" onclick="speakKorean('아버지가 회사에 가요.', this)">🔊</button></div>
+<div class="example-meaning">Bố đi công ty.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">어머니</div>
+<div class="vocab-pron">[eo-meo-ni]</div>
+<button class="speak-btn" onclick="speakKorean('어머니', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Mẹ</div>
+<div class="vocab-example">
+<div class="example-korean">어머니가 요리를 해요. <button class="speak-btn" onclick="speakKorean('어머니가 요리를 해요.', this)">🔊</button></div>
+<div class="example-meaning">Mẹ nấu ăn.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">형제</div>
+<div class="vocab-pron">[hyeong-je]</div>
+<button class="speak-btn" onclick="speakKorean('형제', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Anh chị em</div>
+<div class="vocab-example">
+<div class="example-korean">형제가 셋이에요. <button class="speak-btn" onclick="speakKorean('형제가 셋이에요.', this)">🔊</button></div>
+<div class="example-meaning">Có 3 anh chị em.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">자매</div>
+<div class="vocab-pron">[ja-mae]</div>
+<button class="speak-btn" onclick="speakKorean('자매', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Chị em gái</div>
+<div class="vocab-example">
+<div class="example-korean">자매가仲仲해요. <button class="speak-btn" onclick="speakKorean('자매가仲仲해요.', this)">🔊</button></div>
+<div class="example-meaning">Chị em gái thân thiết.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">조부모</div>
+<div class="vocab-pron">[jo-bu-mo]</div>
+<button class="speak-btn" onclick="speakKorean('조부모', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Ông bà</div>
+<div class="vocab-example">
+<div class="example-korean">조부모를 찾아뵤요. <button class="speak-btn" onclick="speakKorean('조부모를 찾아뵤요.', this)">🔊</button></div>
+<div class="example-meaning">Đi thăm ông bà.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">친척</div>
+<div class="vocab-pron">[chin-cheok]</div>
+<button class="speak-btn" onclick="speakKorean('친척', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Họ hàng</div>
+<div class="vocab-example">
+<div class="example-korean">명절에 친척을 만나요. <button class="speak-btn" onclick="speakKorean('명절에 친척을 만나요.', this)">🔊</button></div>
+<div class="example-meaning">Gặp họ hàng vào ngày lễ.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">시어머니</div>
+<div class="vocab-pron">[si-eo-meo-ni]</div>
+<button class="speak-btn" onclick="speakKorean('시어머니', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Mẹ chồng</div>
+<div class="vocab-example">
+<div class="example-korean">시어머니가 친절하세요. <button class="speak-btn" onclick="speakKorean('시어머니가 친절하세요.', this)">🔊</button></div>
+<div class="example-meaning">Mẹ chồng thân thiện.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">시아버지</div>
+<div class="vocab-pron">[si-a-beo-ji]</div>
+<button class="speak-btn" onclick="speakKorean('시아버지', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Bố chồng</div>
+<div class="vocab-example">
+<div class="example-korean">시아버지가 건강하세요. <button class="speak-btn" onclick="speakKorean('시아버지가 건강하세요.', this)">🔊</button></div>
+<div class="example-meaning">Bố chồng khỏe mạnh.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">사위</div>
+<div class="vocab-pron">[sa-wi]</div>
+<button class="speak-btn" onclick="speakKorean('사위', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Con rể</div>
+<div class="vocab-example">
+<div class="example-korean">사위가 왔어요. <button class="speak-btn" onclick="speakKorean('사위가 왔어요.', this)">🔊</button></div>
+<div class="example-meaning">Con rể đã đến.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">11</div>
+<div class="vocab-korean">며느리</div>
+<div class="vocab-pron">[myeo-neu-ri]</div>
+<button class="speak-btn" onclick="speakKorean('며느리', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Con dâu</div>
+<div class="vocab-example">
+<div class="example-korean">며느리가 요리를 잘해요. <button class="speak-btn" onclick="speakKorean('며느리가 요리를 잘해요.', this)">🔊</button></div>
+<div class="example-meaning">Con dâu nấu ăn giỏi.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">12</div>
+<div class="vocab-korean">조카</div>
+<div class="vocab-pron">[jo-ka]</div>
+<button class="speak-btn" onclick="speakKorean('조카', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Cháu (con của anh chị em)</div>
+<div class="vocab-example">
+<div class="example-korean">조카가 귀여워요. <button class="speak-btn" onclick="speakKorean('조카가 귀여워요.', this)">🔊</button></div>
+<div class="example-meaning">Cháu dễ thương.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">13</div>
+<div class="vocab-korean">친가</div>
+<div class="vocab-pron">[chin-ga]</div>
+<button class="speak-btn" onclick="speakKorean('친가', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Họ nội</div>
+<div class="vocab-example">
+<div class="example-korean">친가에 갔어요. <button class="speak-btn" onclick="speakKorean('친가에 갔어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã đi bên họ nội.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">14</div>
+<div class="vocab-korean">외가</div>
+<div class="vocab-pron">[oe-ga]</div>
+<button class="speak-btn" onclick="speakKorean('외가', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Họ ngoại</div>
+<div class="vocab-example">
+<div class="example-korean">외가에 갔어요. <button class="speak-btn" onclick="speakKorean('외가에 갔어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã đi bên họ ngoại.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">15</div>
+<div class="vocab-korean">대가족</div>
+<div class="vocab-pron">[dae-ga-jok]</div>
+<button class="speak-btn" onclick="speakKorean('대가족', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Đại gia đình</div>
+<div class="vocab-example">
+<div class="example-korean">대가족이 모였어요. <button class="speak-btn" onclick="speakKorean('대가족이 모였어요.', this)">🔊</button></div>
+<div class="example-meaning">Đại gia đình đã tụ họp.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">16</div>
+<div class="vocab-korean">핵가족</div>
+<div class="vocab-pron">[haek-ga-jok]</div>
+<button class="speak-btn" onclick="speakKorean('핵가족', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Gia đình hạt nhân</div>
+<div class="vocab-example">
+<div class="example-korean">핵가족이 많아요. <button class="speak-btn" onclick="speakKorean('핵가족이 많아요.', this)">🔊</button></div>
+<div class="example-meaning">Có nhiều gia đình hạt nhân.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">17</div>
+<div class="vocab-korean">가정</div>
+<div class="vocab-pron">[ga-jeong]</div>
+<button class="speak-btn" onclick="speakKorean('가정', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Gia đình (tổ ấm)</div>
+<div class="vocab-example">
+<div class="example-korean">가정이 중요해요. <button class="speak-btn" onclick="speakKorean('가정이 중요해요.', this)">🔊</button></div>
+<div class="example-meaning">Gia đình quan trọng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">18</div>
+<div class="vocab-korean">가족관계</div>
+<div class="vocab-pron">[ga-jok-gwan-gye]</div>
+<button class="speak-btn" onclick="speakKorean('가족관계', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Quan hệ gia đình</div>
+<div class="vocab-example">
+<div class="example-korean">가족관계가 좋아요. <button class="speak-btn" onclick="speakKorean('가족관계가 좋아요.', this)">🔊</button></div>
+<div class="example-meaning">Quan hệ gia đình tốt.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">19</div>
+<div class="vocab-korean">혈연</div>
+<div class="vocab-pron">[hyeol-yeon]</div>
+<button class="speak-btn" onclick="speakKorean('혈연', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Huyết thống</div>
+<div class="vocab-example">
+<div class="example-korean">혈연 관계가 중요해요. <button class="speak-btn" onclick="speakKorean('혈연 관계가 중요해요.', this)">🔊</button></div>
+<div class="example-meaning">Quan hệ huyết thống quan trọng.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-header">
+<div class="vocab-number">20</div>
+<div class="vocab-korean">가정사</div>
+<div class="vocab-pron">[ga-jeong-sa]</div>
+<button class="speak-btn" onclick="speakKorean('가정사', this)">🔊</button>
+</div>
+<div class="vocab-meaning">Chuyện gia đình</div>
+<div class="vocab-example">
+<div class="example-korean">가정사를 이야기해요. <button class="speak-btn" onclick="speakKorean('가정사를 이야기해요.', this)">🔊</button></div>
+<div class="example-meaning">Kể chuyện gia đình.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Grammar Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 2. Ngữ pháp nền tảng (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nắm vững công thức • Đọc kỹ cách dùng • Luyện đặt 3-5 câu cho mỗi cấu trúc</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-아/어야 하다</div>
+<div class="grammar-meaning">Phải (nghĩa vụ xã hội, gia đình)</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả nghĩa vụ, điều phải làm trong quan hệ gia đình và xã hội. Tương đương "phải làm gì" trong tiếng Việt. Dùng khi nói về bổn phận, trách nhiệm với gia đình, người lớn tuổi.
+</div>
+<div class="grammar-formula">
+Động từ + -아/어야 하다<br>
+• Nguyên âm cuối là ㅏ, ㅗ: + -아야 하다<br>
+• Các nguyên âm khác: + -어야 하다<br>
+• Ví dụ: 어른께 인사해야 해요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">어른께 인사해야 해요. <button class="speak-btn" onclick="speakKorean('어른께 인사해야 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Phải chào người lớn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">부모님을 도와드려야 해요. <button class="speak-btn" onclick="speakKorean('부모님을 도와드려야 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Phải giúp đỡ cha mẹ.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">가족을 배려해야 해요. <button class="speak-btn" onclick="speakKorean('가족을 배려해야 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Phải quan tâm gia đình.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어야 하다 = "phải" → Diễn tả nghĩa vụ, bổn phận<br>
+<strong>⚠️ Lưu ý:</strong> Khác với -(으)면 좋다 (nên) - -아/어야 하다 mang tính bắt buộc hơn<br>
+<strong>🔄 So sánh:</strong> -아/어야 하다 (phải) vs -(으)면 좋다 (nên)
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-는 편이다</div>
+<div class="grammar-meaning">Có xu hướng / Thuộc loại</div>
+<div class="grammar-explanation">
+<strong>Cách dùng:</strong> Diễn tả xu hướng, đặc điểm tương đối của người hoặc vật. Tương đương "có xu hướng", "thuộc loại" trong tiếng Việt. Dùng khi mô tả tính cách, đặc điểm của người trong gia đình, bạn bè.
+</div>
+<div class="grammar-formula">
+• Động từ + -는 편이다<br>
+• Tính từ + -ㄴ/은 편이다<br>
+• Ví dụ: 한국 사람은 정이 많은 편이에요.
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국 사람은 정이 많은 편이에요. <button class="speak-btn" onclick="speakKorean('한국 사람은 정이 많은 편이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Người Hàn Quốc có xu hướng nhiều tình cảm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">저는 친구를 자주 만나는 편이에요. <button class="speak-btn" onclick="speakKorean('저는 친구를 자주 만나는 편이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi có xu hướng gặp bạn bè thường xuyên.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">아버지는 무뚝뚝하신 편이에요. <button class="speak-btn" onclick="speakKorean('아버지는 무뚝뚝하신 편이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Bố có xu hướng ít nói.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -는 편이다 = "có xu hướng" → Diễn tả đặc điểm tương đối<br>
+<strong>⚠️ Lưu ý:</strong> Không dùng để diễn tả sự thật tuyệt đối, chỉ là xu hướng chung<br>
+<strong>🔄 So sánh:</strong> Khác với -게 되다 (trở nên) - -는 편이다 diễn tả đặc điểm hiện tại
+</div>
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Trả lời 3 câu hỏi đọc hiểu</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">👨‍👩‍👧‍👦 우리 가족 (Gia đình tôi)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 200 chữ</span>
+<span class="reading-tag">⏱️ 15 phút</span>
+<span class="reading-tag">❓ 3 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>저희 <strong>가정</strong>은 <strong>핵가족</strong>이에요. <strong>부모님</strong>과 저, 그리고 동생이 있어요. <strong>아버지</strong>는 회사원이시고 <strong>어머니</strong>는 전업주부세요.</p>
+
+<p><strong>가족관계</strong>가 좋아요. 주말에는 같이 영화를 보거나 나들이를 가요. <strong>부모님</strong>께 <strong>인사해야 해요</strong>. 명절에는 <strong>친척</strong>들이 모두 모여서 <strong>대가족</strong>이 돼요.</p>
+
+<p><strong>어머니</strong>는 항상 <strong>가족</strong>을 <strong>배려해야 해요</strong>라고 하세요. <strong>아버지</strong>는 무뚝뚝하신 <strong>편</strong>이지만 <strong>가족</strong>을 <strong>위해</strong> 열심히 일하세요.</p>
+
+<p><strong>조부모</strong>는 <strong>친가</strong>와 <strong>외가</strong>에 계세요. <strong>조카</strong>도 있어요. <strong>조카</strong>가 귀여워요. <strong>혈연</strong> 관계가 <strong>정</strong>이 들어요.</p>
+
+<p><strong>가정</strong>이 저에게 가장 소중한 존재예요. <strong>가족</strong>을 사랑해요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng đã học xuất hiện trong bài:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">가정 (gia đình)</span>
+<span class="vocab-tag">핵가족 (gia đình hạt nhân)</span>
+<span class="vocab-tag">부모님 (cha mẹ)</span>
+<span class="vocab-tag">아버지 (bố)</span>
+<span class="vocab-tag">어머니 (mẹ)</span>
+<span class="vocab-tag">가족관계 (quan hệ gia đình)</span>
+<span class="vocab-tag">친척 (họ hàng)</span>
+<span class="vocab-tag">대가족 (đại gia đình)</span>
+<span class="vocab-tag">조부모 (ông bà)</span>
+<span class="vocab-tag">친가 (họ nội)</span>
+<span class="vocab-tag">외가 (họ ngoại)</span>
+<span class="vocab-tag">조카 (cháu)</span>
+<span class="vocab-tag">혈연 (huyết thống)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-아/어야 하다 (phải)</span>
+<span class="grammar-tag">-는 편이다 (có xu hướng)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc giới thiệu về gia đình tác giả. Gia đình là gia đình hạt nhân gồm cha mẹ, tác giả và em. Bố là nhân viên công ty, mẹ là nội trợ. Quan hệ gia đình tốt, cuối tuần cùng xem phim hoặc đi chơi. Vào ngày lễ, họ hàng tụ họp thành đại gia đình. Mẹ luôn dạy phải quan tâm gia đình. Bố ít nói nhưng làm việc chăm chỉ vì gia đình. Ông bà ở cả họ nội và họ ngoại. Có cháu rất dễ thương. Gia đình là điều quý giá nhất.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise Section -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi đọc hiểu</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 가족이 몇 명이에요?</div>
+<div class="exercise-question">Gia đình có mấy người?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 두 명 (2 người)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 세 명 (3 người)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 네 명 (4 người)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 다섯 명 (5 người)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'c', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 명절에 누가 모여요?</div>
+<div class="exercise-question">Vào ngày lễ ai tụ họp?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 친구들 (Bạn bè)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 동료들 (Đồng nghiệp)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 친척들 (Họ hàng)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 이웃들 (Hàng xóm)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'c', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 아버지는 어떤 편이에요?</div>
+<div class="exercise-question">Bố thuộc loại người như thế nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 친절하신 편이에요 (Thân thiện)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 무뚝뚝하신 편이에요 (Ít nói)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 엄격하신 편이에요 (Nghiêm khắc)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 재미있으신 편이에요 (Vui tính)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Practice Section -->
+<div class="section practice-section">
+<h2 class="section-title">✍️ 4. Tự học (5 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5 câu tổng hợp sử dụng từ vựng và ngữ pháp đã học hôm nay</p>
+
+<div class="practice-box">
+<div class="practice-textarea" id="practiceText" placeholder="Viết 5 câu của bạn vào đây...
+
+Ví dụ:
+1. 부모님께 인사해야 해요.
+2. 한국 사람은 정이 많은 편이에요.
+3. 가족을 배려해야 해요.
+4. ...
+5. ..."></div>
+
+<button class="check-btn" onclick="checkPractice()">✓ Kiểm tra bài tập</button>
+
+<div id="practice-feedback" class="feedback"></div>
+
+<div class="practice-tips">
+<strong>💡 Mẹo viết câu:</strong><br>
+• Sử dụng từ vựng: 부모님, 아버지, 어머니, 형제, 자매, 조부모, 친척, 시어머니, 시아버지, 사위, 며느리, 조카, 친가, 외가, 대가족, 핵가족, 가정, 가족관계, 혈연, 가정사<br>
+• Sử dụng ngữ pháp: -아/어야 하다, -는 편이다<br>
+• Cấu trúc câu: Chủ ngữ + Tân ngữ + Động từ + Ngữ pháp
+</div>
+</div>
+
+<!-- Flashcard Section -->
+<div style="background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); border: 2px solid #F472B6; border-radius: 20px; padding: 25px; margin-top: 20px;">
+<h3 style="font-family: 'Baloo 2', cursive; color: #BE185D; margin-bottom: 15px;">🎴 Flashcard ôn tập từ vựng</h3>
+<p style="color: #718096; margin-bottom: 15px;">Ôn lại 20 từ vựng về gia đình & họ hàng:</p>
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">부모님</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">Cha mẹ (kính ngữ)</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[bu-mo-nim]</div>
+<button class="speak-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 20</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 1</h2>
+<ul class="goals-list">
+<li>Thuộc 20 từ vựng cốt lõi về gia đình & họ hàng</li>
+<li>Hiểu và đặt câu với 2 cấu trúc ngữ pháp (-아/어야 하다, -는 편이다)</li>
+<li>Đọc hiểu bài đọc 200 chữ "우리 가족" (Gia đình tôi)</li>
+<li>Trả lời đúng 3/3 câu hỏi đọc hiểu</li>
+<li>Viết được 5 câu tổng hợp sử dụng từ vựng và ngữ pháp đã học</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week10.html" class="day-nav-btn">← Về Hub Tuần 10</a>
+<a href="topik3-week10-day01.html" class="day-nav-btn active">Ngày 1 ✓</a>
+<a href="topik3-week10-day02.html" class="day-nav-btn">Ngày 2 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week10.html" class="nav-btn">← Về Tổng quan Tuần 10</a>
+<a href="topik3-week10-day02.html" class="nav-btn primary">Tiếp: Ngày 2 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">👥 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Quan hệ là cầu nối, tình cảm là nền tảng của cuộc sống"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['👥', '💝', '🏠', '🤝', '💬', '🎭'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '저희 가정은 핵가족이에요. 부모님과 저, 그리고 동생이 있어요. 아버지는 회사원이시고 어머니는 전업주부세요. 가족관계가 좋아요. 주말에는 같이 영화를 보거나 나들이를 가요. 부모님께 인사해야 해요. 명절에는 친척들이 모두 모여서 대가족이 돼요. 어머니는 항상 가족을 배려해야 해요라고 하세요. 아버지는 무뚝뚝하신 편이지만 가족을 위해 열심히 일하세요. 조부모는 친가와 외가에 계세요. 조카도 있어요. 조카가 귀여워요. 혈연 관계에 정이 들어요. 가정이 저에게 가장 소중한 존재예요. 가족을 사랑해요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Flashcard data
+const flashcards = [
+    { char: '부모님', meaning: 'Cha mẹ (kính ngữ)', pron: '[bu-mo-nim]' },
+    { char: '아버지', meaning: 'Bố', pron: '[a-beo-ji]' },
+    { char: '어머니', meaning: 'Mẹ', pron: '[eo-meo-ni]' },
+    { char: '형제', meaning: 'Anh chị em', pron: '[hyeong-je]' },
+    { char: '자매', meaning: 'Chị em gái', pron: '[ja-mae]' },
+    { char: '조부모', meaning: 'Ông bà', pron: '[jo-bu-mo]' },
+    { char: '친척', meaning: 'Họ hàng', pron: '[chin-cheok]' },
+    { char: '시어머니', meaning: 'Mẹ chồng', pron: '[si-eo-meo-ni]' },
+    { char: '시아버지', meaning: 'Bố chồng', pron: '[si-a-beo-ji]' },
+    { char: '사위', meaning: 'Con rể', pron: '[sa-wi]' },
+    { char: '며느리', meaning: 'Con dâu', pron: '[myeo-neu-ri]' },
+    { char: '조카', meaning: 'Cháu', pron: '[jo-ka]' },
+    { char: '친가', meaning: 'Họ nội', pron: '[chin-ga]' },
+    { char: '외가', meaning: 'Họ ngoại', pron: '[oe-ga]' },
+    { char: '대가족', meaning: 'Đại gia đình', pron: '[dae-ga-jok]' },
+    { char: '핵가족', meaning: 'Gia đình hạt nhân', pron: '[haek-ga-jok]' },
+    { char: '가정', meaning: 'Gia đình (tổ ấm)', pron: '[ga-jeong]' },
+    { char: '가족관계', meaning: 'Quan hệ gia đình', pron: '[ga-jok-gwan-gye]' },
+    { char: '혈연', meaning: 'Huyết thống', pron: '[hyeol-yeon]' },
+    { char: '가정사', meaning: 'Chuyện gia đình', pron: '[ga-jeong-sa]' }
+];
+let currentFlashcard = 0;
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = flashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = flashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = flashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + flashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % flashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + flashcards.length) % flashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 3;
+    if (answeredQuestions.size === total && correctAnswers === total) {
+        const progress = JSON.parse(localStorage.getItem('topik3_week10_progress') || '[]');
+        if (!progress.includes(1)) {
+            progress.push(1);
+            localStorage.setItem('topik3_week10_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+function checkPractice() {
+    const textarea = document.getElementById('practiceText');
+    const feedback = document.getElementById('practice-feedback');
+    const text = textarea.value.trim();
+    
+    if (text.length < 50) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn. Hãy viết ít nhất 5 câu đầy đủ nhé! (tối thiểu 50 ký tự)';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Tốt lắm! Bạn đã hoàn thành bài tập. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 1 từ vựng về gia đình trong mỗi câu?<br>• Đã sử dụng ngữ pháp -아/어야 하다 hoặc -는 편이다?<br>• Câu văn có mạch lạc không?';
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week10_progress') || '[]');
+        if (!progress.includes(1)) {
+            progress.push(1);
+            localStorage.setItem('topik3_week10_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save practice
+window.onbeforeunload = function() {
+    const textarea = document.getElementById('practiceText');
+    if (textarea.value.trim().length > 50) {
+        localStorage.setItem('topik3_week10_day1_practice', textarea.value);
+    }
+};
+
+// Load saved practice
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week10_day1_practice');
+    if (saved) {
+        document.getElementById('practiceText').value = saved;
+    }
+};
+</script>
+</body>
+</html>

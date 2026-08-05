@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 4: Luyện viết câu & Tổng hợp ngữ pháp - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 50%, #FBCFE8 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #DB2777; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #BE185D; }
+.breadcrumb-separator { color: #F9A8D4; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #DB2777; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(219,39,119,0.15); transition: all 0.3s; border: 2px solid #F9A8D4; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(219,39,119,0.25); background: #FDF2F8; }
+.nav-btn.primary { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(244,114,182,0.3) 0%, rgba(251,207,232,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '✍️'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '💝'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #BE185D; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #DB2777; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(219,39,119,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Grammar Review Section - Rose */
+.grammar-section .section-title { color: #BE185D; border-color: #F472B6; }
+.grammar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+.grammar-card { background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%); border-radius: 20px; padding: 22px; border: 2px solid #F472B6; transition: all 0.3s; }
+.grammar-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(244,114,182,0.2); }
+.grammar-number { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.grammar-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #BE185D; margin-bottom: 8px; }
+.grammar-meaning { color: #4A5568; font-size: 0.95em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed #F9A8D4; }
+.grammar-formula { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; padding: 12px; border-radius: 10px; margin: 10px 0; font-family: 'Courier New', monospace; font-weight: 700; color: #92400E; font-size: 0.95em; }
+.grammar-example { background: white; padding: 10px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #F472B6; }
+.grammar-example-korean { color: #BE185D; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.grammar-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.grammar-note { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 10px; border-radius: 8px; margin-top: 12px; color: #92400E; font-size: 0.9em; }
+.grammar-note strong { color: #78350F; }
+
+.speak-btn { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(219,39,119,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Writing Section - Violet */
+.writing-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.writing-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.writing-prompt { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; color: #5B21B6; line-height: 1.7; }
+.writing-textarea { width: 100%; min-height: 220px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; line-height: 1.8; }
+.writing-textarea:focus { outline: none; border-color: #8B5CF6; }
+.writing-tips { background: #FAF5FF; padding: 12px; border-radius: 10px; margin-top: 15px; color: #6B21A8; font-size: 0.95em; }
+.writing-tips strong { color: #5B21B6; }
+.writing-example { background: white; padding: 12px; border-radius: 10px; margin: 10px 0; border-left: 4px solid #8B5CF6; }
+.writing-example-korean { color: #5B21B6; font-weight: 700; font-size: 1em; margin-bottom: 4px; }
+.writing-example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+.writing-example-grammar { color: #8B5CF6; font-size: 0.85em; margin-top: 4px; }
+.check-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(139,92,246,0.4); }
+.feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.feedback.show { display: block; animation: fadeIn 0.3s; }
+.feedback.success { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.feedback.warning { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #BE185D; background: #FCE7F3; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #FDF2F8; color: #BE185D; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F9A8D4; }
+.grammar-tag { background: #FCE7F3; color: #BE185D; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #F472B6; }
+
+/* Pronunciation Section - Red */
+.pronunciation-section .section-title { color: #991B1B; border-color: #EF4444; }
+.pronunciation-box { background: linear-gradient(135deg, #FEF2F2 0%, #FECACA 100%); border: 2px solid #EF4444; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.pronunciation-tips { background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+.pronunciation-tip { padding: 12px; margin: 8px 0; border-left: 4px solid #EF4444; background: #FEF2F2; border-radius: 8px; }
+.pronunciation-tip strong { color: #991B1B; }
+.pronunciation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.pronunciation-card { background: white; padding: 15px; border-radius: 12px; border: 2px solid #EF4444; }
+.pronunciation-korean { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #991B1B; font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+.pronunciation-pron { color: #718096; font-size: 0.9em; margin-bottom: 10px; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #DB2777; border: 2px solid #F9A8D4; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #FDF2F8; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #DB2777 0%, #F472B6 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.grammar-grid { grid-template-columns: 1fr; }
+.pronunciation-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week10.html">👥 Tuần 10</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 4: Viết câu & Tổng hợp</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week10.html" class="nav-btn">← Về Tổng quan Tuần 10</a>
+<a href="topik3-week10-day05.html" class="nav-btn primary">Ngày 5 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">✍️ NGÀY 4 • 4일차</span>
+<h1>Luyện viết câu & Tổng hợp ngữ pháp</h1>
+<div class="subtitle">Tổng hợp 6 cấu trúc ngữ pháp và luyện viết câu phức tạp</div>
+<p class="description">
+Ôn tập 6 cấu trúc ngữ pháp đã học và luyện viết 5-7 câu phức tạp về chủ đề "사회 봉사" (Tình nguyện xã hội). 
+Đọc hiểu bài đọc và luyện phát âm. 💝
+</p>
+<div class="time-info">⏰ 60 phút • 📝 6 ngữ pháp • ✍️ Viết 5-7 câu • 📖 Bài đọc 280 chữ</div>
+</div>
+
+<!-- Grammar Review Section -->
+<div class="section grammar-section">
+<h2 class="section-title">📘 1. Ôn tập 6 cấu trúc ngữ pháp (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại 6 cấu trúc ngữ pháp đã học trong tuần. Đọc to các ví dụ và tự đặt câu mới về chủ đề quan hệ xã hội.</p>
+
+<div class="grammar-grid">
+<div class="grammar-card">
+<div class="grammar-number">1</div>
+<div class="grammar-title">-아/어야 하다</div>
+<div class="grammar-meaning">Phải (nghĩa vụ)</div>
+<div class="grammar-formula">Động từ + -아/어야 하다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">어른께 인사해야 해요. <button class="speak-btn" onclick="speakKorean('어른께 인사해야 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Phải chào người lớn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">가족을 배려해야 해요. <button class="speak-btn" onclick="speakKorean('가족을 배려해야 해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Phải quan tâm gia đình.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -아/어야 하다 = "phải" → Diễn tả nghĩa vụ, bổn phận
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">2</div>
+<div class="grammar-title">-는 편이다</div>
+<div class="grammar-meaning">Có xu hướng</div>
+<div class="grammar-formula">Động từ + -는 편이다<br>Tính từ + -ㄴ/은 편이다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국 사람은 정이 많은 편이에요. <button class="speak-btn" onclick="speakKorean('한국 사람은 정이 많은 편이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Người Hàn Quốc có xu hướng nhiều tình cảm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">저는 친구를 자주 만나는 편이에요. <button class="speak-btn" onclick="speakKorean('저는 친구를 자주 만나는 편이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tôi có xu hướng gặp bạn bè thường xuyên.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -는 편이다 = "có xu hướng" → Diễn tả đặc điểm tương đối
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">3</div>
+<div class="grammar-title">-게 되다</div>
+<div class="grammar-meaning">Trở nên (kết quả)</div>
+<div class="grammar-formula">Động từ/Tính từ + -게 되다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">한국에 살면서 친구가 많게 됐어요. <button class="speak-btn" onclick="speakKorean('한국에 살면서 친구가 많게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Sống ở Hàn Quốc nên đã có nhiều bạn.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">시간이 지나면서 사이가 좋게 됐어요. <button class="speak-btn" onclick="speakKorean('시간이 지나면서 사이가 좋게 됐어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Thời gian trôi qua, quan hệ đã trở nên tốt.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -게 되다 = "trở nên" → Diễn tả sự thay đổi do quá trình
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">4</div>
+<div class="grammar-title">-에 따라(서)</div>
+<div class="grammar-meaning">Tùy theo</div>
+<div class="grammar-formula">Danh từ + -에 따라(서)</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">사람에 따라 성격이 달라요. <button class="speak-btn" onclick="speakKorean('사람에 따라 성격이 달라요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Tính cách khác nhau tùy theo người.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">상황에 따라 예의가 달라요. <button class="speak-btn" onclick="speakKorean('상황에 따라 예의가 달라요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Lễ phép khác nhau tùy theo tình huống.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -에 따라(서) = "tùy theo" → Kết quả thay đổi theo điều kiện
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">5</div>
+<div class="grammar-title">-(으)ㄹ수록</div>
+<div class="grammar-meaning">Càng...càng</div>
+<div class="grammar-formula">Động từ/Tính từ + -(으)ㄹ수록</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">만날수록 정이 들어요. <button class="speak-btn" onclick="speakKorean('만날수록 정이 들어요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Càng gặp càng thêm tình cảm.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">나이가 들수록 가족이 중요해요. <button class="speak-btn" onclick="speakKorean('나이가 들수록 가족이 중요해요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Càng lớn tuổi gia đình càng quan trọng.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -(으)ㄹ수록 = "càng...càng" → Tỷ lệ thuận
+</div>
+</div>
+
+<div class="grammar-card">
+<div class="grammar-number">6</div>
+<div class="grammar-title">-기 마련이다</div>
+<div class="grammar-meaning">Chắc chắn sẽ</div>
+<div class="grammar-formula">Động từ/Tính từ + -기 마련이다</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">좋은 사람은 좋은 사람을 만나기 마련이에요. <button class="speak-btn" onclick="speakKorean('좋은 사람은 좋은 사람을 만나기 마련이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Người tốt chắc chắn sẽ gặp người tốt.</div>
+</div>
+<div class="grammar-example">
+<div class="grammar-example-korean">노력하면 성공하기 마련이에요. <button class="speak-btn" onclick="speakKorean('노력하면 성공하기 마련이에요.', this)">🔊</button></div>
+<div class="grammar-example-meaning">Nỗ lực thì chắc chắn sẽ thành công.</div>
+</div>
+<div class="grammar-note">
+<strong>💡 Mẹo nhớ:</strong> -기 마련이다 = "chắc chắn sẽ" → Quy luật tất yếu
+</div>
+</div>
+</div>
+</div>
+
+<!-- Writing Section -->
+<div class="section writing-section">
+<h2 class="section-title">✍️ 2. Luyện viết câu phức tạp (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Viết 5-7 câu phức tạp về chủ đề "사회 봉사" (Tình nguyện xã hội). Mỗi câu kết hợp ít nhất 1 cấu trúc ngữ pháp.</p>
+
+<div class="writing-box">
+<div class="writing-prompt">
+<strong>📝 Đề bài:</strong> Viết đoạn văn về <strong>"사회 봉사" (Tình nguyện xã hội)</strong><br><br>
+<strong>Yêu cầu:</strong><br>
+• Độ dài: <strong>5-7 câu</strong> (mỗi câu 15-20 từ)<br>
+• Mỗi câu kết hợp ít nhất <strong>1 cấu trúc ngữ pháp</strong> đã học:<br>
+  - <strong>-아/어야 하다</strong> (phải)<br>
+  - <strong>-는 편이다</strong> (có xu hướng)<br>
+  - <strong>-게 되다</strong> (trở nên)<br>
+  - <strong>-에 따라(서)</strong> (tùy theo)<br>
+  - <strong>-(으)ㄹ수록</strong> (càng...càng)<br>
+  - <strong>-기 마련이다</strong> (chắc chắn sẽ)<br><br>
+• Sử dụng từ vựng: 이웃, 봉사, 기부, 나눔, 협력, 참여, 공동체, 사회, 주민, 시민, 온정, 배려, 이해, 소통, 공감
+</div>
+
+<div style="background: #FAF5FF; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+<h4 style="color: #5B21B6; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">💡 Bài mẫu tham khảo</h4>
+<div class="writing-example">
+<div class="writing-example-korean">1. 우리는 이웃을 도와야 해요.</div>
+<div class="writing-example-meaning">Chúng ta phải giúp đỡ hàng xóm.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어야 하다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">2. 한국 사람은 봉사를 자주 하는 편이에요.</div>
+<div class="writing-example-meaning">Người Hàn Quốc có xu hướng làm tình nguyện thường xuyên.</div>
+<div class="writing-example-grammar">Ngữ pháp: -는 편이다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">3. 봉사를 하면서 이웃과 친하게 됐어요.</div>
+<div class="writing-example-meaning">Trong khi làm tình nguyện, đã trở nên thân thiết với hàng xóm.</div>
+<div class="writing-example-grammar">Ngữ pháp: -게 되다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">4. 나이에 따라 봉사 활동이 달라요.</div>
+<div class="writing-example-meaning">Hoạt động tình nguyện khác nhau tùy theo tuổi tác.</div>
+<div class="writing-example-grammar">Ngữ pháp: -에 따라(서)</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">5. 도울수록 기분이 좋아져요.</div>
+<div class="writing-example-meaning">Càng giúp đỡ tâm trạng càng tốt lên.</div>
+<div class="writing-example-grammar">Ngữ pháp: -(으)ㄹ수록</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">6. 노력하면 사회가 좋아지기 마련이에요.</div>
+<div class="writing-example-meaning">Nỗ lực thì xã hội chắc chắn sẽ tốt lên.</div>
+<div class="writing-example-grammar">Ngữ pháp: -기 마련이다</div>
+</div>
+<div class="writing-example">
+<div class="writing-example-korean">7. 기부를 해야 해요. 그래야 사회가 발전해요.</div>
+<div class="writing-example-meaning">Phải quyên góp. Như vậy xã hội mới phát triển.</div>
+<div class="writing-example-grammar">Ngữ pháp: -아/어야 하다</div>
+</div>
+</div>
+
+<textarea class="writing-textarea" id="writingText" placeholder="Viết 5-7 câu về tình nguyện xã hội...
+
+Gợi ý bắt đầu:
+1. 우리는 ... 해야 해요.
+2. 한국 사람은 ... 편이에요.
+3. 봉사를 하면서 ... 됐어요.
+4. ...에 따라 ... 달라요.
+5. ...수록 ... 좋아져요.
+6. ...하면 ...기 마련이에요.
+7. ...
+
+Hãy kết hợp ít nhất 1 cấu trúc ngữ pháp trong mỗi câu!"></textarea>
+
+<div style="background: white; padding: 10px 15px; border-radius: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #5B21B6;">
+<span>📝 Số câu đã viết:</span>
+<span id="sentenceCount" style="font-size: 1.2em;">0 / 5-7 câu</span>
+</div>
+
+<button class="check-btn" onclick="checkWriting()">✓ Kiểm tra bài viết</button>
+
+<div id="writing-feedback" class="feedback"></div>
+
+<div class="writing-tips">
+<strong>💡 Mẹo viết câu phức tạp:</strong><br>
+• <strong>Kết hợp ngữ pháp:</strong> Sử dụng 1-2 cấu trúc trong một câu<br>
+• <strong>Độ dài câu:</strong> 15-20 từ mỗi câu<br>
+• <strong>Chủ đề:</strong> Tập trung vào tình nguyện xã hội và quan hệ cộng đồng<br>
+• <strong>Từ vựng:</strong> Sử dụng từ vựng về hàng xóm, cộng đồng, tình cảm đã học<br>
+• <strong>Cấu trúc:</strong> Chủ ngữ + Tân ngữ + Động từ + Ngữ pháp<br>
+• <strong>Liên kết:</strong> Sử dụng từ nối: 그리고 (và), 그래서 (vì vậy), 그러면 (như vậy)
+</div>
+</div>
+</div>
+
+<!-- Reading Section -->
+<div class="section reading-section">
+<h2 class="section-title">📖 3. Đọc hiểu (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Gạch chân từ vựng đã học • Phân tích cấu trúc ngữ pháp • Tóm tắt nội dung chính</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">💝 사회 봉사 (Tình nguyện xã hội)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 280 chữ</span>
+<span class="reading-tag">⏱️ 15 phút</span>
+<span class="reading-tag">🎯 Ngày 4</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>저는 매주 주말에 <strong>사회 봉사</strong>를 해요. <strong>이웃</strong>을 <strong>도와야 해요</strong>. <strong>봉사를 하는 편</strong>이에요.</p>
+
+<p><strong>봉사</strong>를 <strong>하면서</strong> <strong>이웃</strong>과 <strong>친하게 됐어요</strong>. 처음에는 어색했지만 <strong>만날수록 정</strong>이 들어요. <strong>이웃사촌</strong>이라는 말이 <strong>맞아요</strong>.</p>
+
+<p><strong>나이</strong>에 <strong>따라 봉사 활동</strong>이 달라요. 젊은 사람들은 <strong>환경 보호</strong>를 하고, 어른들은 <strong>독거노인</strong>을 도와줘요. 저는 <strong>아이들</strong>을 <strong>가르쳐</strong> 줘요.</p>
+
+<p><strong>봉사</strong>를 하면 <strong>기분</strong>이 좋아져요. <strong>도울수록 행복</strong>해져요. <strong>나눔</strong>의 <strong>기쁨</strong>을 알아요. <strong>협력</strong>하면 <strong>공동체</strong>가 강해져요.</p>
+
+<p><strong>노력</strong>하면 <strong>사회</strong>가 좋아지기 <strong>마련이에요</strong>. <strong>작은 일</strong>부터 시작해야 해요. <strong>기부</strong>도 <strong>해야 해요</strong>. <strong>작은 도움</strong>이 <strong>큰 변화</strong>를 만들어요.</p>
+
+<p><strong>주민</strong>들이 함께 <strong>참여</strong>하면 <strong>더 좋은 사회</strong>가 될 거예요. <strong>소통</strong>하고 <strong>이해</strong>해야 해요. <strong>배려</strong>하는 마음이 중요해요.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="fullAudioBtn" onclick="speakFullReading(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về tình nguyện & cộng đồng:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">사회 봉사 (tình nguyện xã hội)</span>
+<span class="vocab-tag">이웃 (hàng xóm)</span>
+<span class="vocab-tag">봉사 (tình nguyện)</span>
+<span class="vocab-tag">이웃사촌 (hàng xóm như anh em)</span>
+<span class="vocab-tag">환경 보호 (bảo vệ môi trường)</span>
+<span class="vocab-tag">독거노인 (người già sống một mình)</span>
+<span class="vocab-tag">기분 (tâm trạng)</span>
+<span class="vocab-tag">나눔 (chia sẻ)</span>
+<span class="vocab-tag">기쁨 (niềm vui)</span>
+<span class="vocab-tag">협력 (hợp tác)</span>
+<span class="vocab-tag">공동체 (cộng đồng)</span>
+<span class="vocab-tag">기부 (quyên góp)</span>
+<span class="vocab-tag">주민 (cư dân)</span>
+<span class="vocab-tag">참여 (tham gia)</span>
+<span class="vocab-tag">소통 (giao tiếp)</span>
+<span class="vocab-tag">이해 (thấu hiểu)</span>
+<span class="vocab-tag">배려 (quan tâm)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-아/어야 하다 (phải)</span>
+<span class="grammar-tag">-는 편이다 (có xu hướng)</span>
+<span class="grammar-tag">-게 되다 (trở nên)</span>
+<span class="grammar-tag">-에 따라(서) (tùy theo)</span>
+<span class="grammar-tag">-(으)ㄹ수록 (càng...càng)</span>
+<span class="grammar-tag">-기 마련이다 (chắc chắn sẽ)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc nói về <strong>hoạt động tình nguyện xã hội</strong> của tác giả. Mỗi cuối tuần tác giả làm tình nguyện giúp đỡ hàng xóm. Qua tình nguyện đã trở nên thân thiết với hàng xóm. Hoạt động tình nguyện khác nhau tùy theo tuổi tác. Tác giả dạy trẻ em. Làm tình nguyện giúp tâm trạng tốt lên, càng giúp đỡ càng hạnh phúc. Nỗ lực thì xã hội chắc chắn sẽ tốt lên. Phải bắt đầu từ việc nhỏ, quyên góp và tham gia cùng cư dân. Giao tiếp, thấu hiểu và quan tâm là quan trọng.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Pronunciation Section -->
+<div class="section pronunciation-section">
+<h2 class="section-title">🗣️ 4. Tự sửa phát âm (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc to bài viết của bạn • Tự ghi âm và nghe lại • So sánh với audio mẫu • Sửa lỗi phát âm</p>
+
+<div class="pronunciation-box">
+<div class="pronunciation-tips">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">🎯 Phương pháp tự sửa phát âm</h4>
+<div class="pronunciation-tip">
+<strong>Bước 1 (3 phút):</strong> Đọc to bài viết của bạn 2-3 lần. Chú ý phát âm rõ từng từ, đặc biệt là các từ có patchim phức tạp.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 2 (3 phút):</strong> Tự ghi âm bằng điện thoại hoặc máy tính. Đọc với tốc độ tự nhiên, không quá nhanh cũng không quá chậm.
+</div>
+<div class="pronunciation-tip">
+<strong>Bước 3 (4 phút):</strong> Nghe lại bản ghi âm và so sánh với audio mẫu. Ghi chú những từ phát âm chưa chuẩn để luyện tập thêm.
+</div>
+</div>
+
+<div style="background: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+<h4 style="color: #991B1B; font-family: 'Baloo 2', cursive; margin-bottom: 15px;">📚 Các từ cần chú ý phát âm:</h4>
+<div class="pronunciation-grid">
+<div class="pronunciation-card">
+<div class="pronunciation-korean">봉사 <button class="speak-btn" onclick="speakKorean('봉사', this)">🔊</button></div>
+<div class="pronunciation-pron">[bong-sa]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅂ" patchim</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">이웃사촌 <button class="speak-btn" onclick="speakKorean('이웃사촌', this)">🔊</button></div>
+<div class="pronunciation-pron">[i-ut-sa-chon]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ 4 âm tiết</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">독거노인 <button class="speak-btn" onclick="speakKorean('독거노인', this)">🔊</button></div>
+<div class="pronunciation-pron">[dok-geo-no-in]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㄱ" patchim</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">공동체 <button class="speak-btn" onclick="speakKorean('공동체', this)">🔊</button></div>
+<div class="pronunciation-pron">[gong-dong-che]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅇ" patchim</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">기부 <button class="speak-btn" onclick="speakKorean('기부', this)">🔊</button></div>
+<div class="pronunciation-pron">[gi-bu]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm rõ "ㅂ" patchim</div>
+</div>
+<div class="pronunciation-card">
+<div class="pronunciation-korean">배려 <button class="speak-btn" onclick="speakKorean('배려', this)">🔊</button></div>
+<div class="pronunciation-pron">[bae-ryeo]</div>
+<div style="color: #718096; font-size: 0.9em;">Chú ý: Phát âm "ㄹ" nối tiếp</div>
+</div>
+</div>
+</div>
+
+<div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 15px; border-radius: 12px; margin-top: 20px;">
+<strong style="color: #92400E;">💡 Lưu ý quan trọng:</strong>
+<ul style="color: #78350F; margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+<li>Các từ về tình nguyện và cộng đồng thường có patchim phức tạp</li>
+<li>Từ ghép (이웃사촌, 독거노인) cần phát âm rõ từng âm tiết</li>
+<li>Các từ có patchim "ㅂ" (봉사, 기부) cần phát âm rõ ràng</li>
+<li>Ngữ điệu trong bài về tình nguyện nên ấm áp, chân thành</li>
+<li>Đừng ngại ghi âm và nghe lại - đây là cách tốt nhất để tự sửa lỗi</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 5. Mục tiêu đạt được sau Ngày 4</h2>
+<ul class="goals-list">
+<li>Ôn tập và nắm vững 6 cấu trúc ngữ pháp đã học trong tuần</li>
+<li>Viết được 5-7 câu phức tạp về tình nguyện xã hội</li>
+<li>Sử dụng linh hoạt ít nhất 1 cấu trúc ngữ pháp trong mỗi câu</li>
+<li>Đọc hiểu bài đọc 280 chữ "사회 봉사" (Tình nguyện xã hội)</li>
+<li>Phân tích được cấu trúc ngữ pháp trong bài đọc</li>
+<li>Phát âm chuẩn các từ vựng về tình nguyện và cộng đồng</li>
+<li>Tự ghi âm và tự đánh giá phát âm của bản thân</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week10.html" class="day-nav-btn">← Về Hub Tuần 10</a>
+<a href="topik3-week10-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week10-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week10-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week10-day04.html" class="day-nav-btn active">Ngày 4 ✓</a>
+<a href="topik3-week10-day05.html" class="day-nav-btn">Ngày 5 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week10-day03.html" class="nav-btn">← Ngày 3</a>
+<a href="topik3-week10-day05.html" class="nav-btn primary">Tiếp: Ngày 5 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">👥 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Quan hệ là cầu nối, tình cảm là nền tảng của cuộc sống"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['👥', '💝', '🏠', '🤝', '💬', '🎭'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakFullReading(btnElement) {
+    const fullText = '저는 매주 주말에 사회 봉사를 해요. 이웃을 도와야 해요. 봉사를 하는 편이에요. 봉사를 하면서 이웃과 친하게 됐어요. 처음에는 어색했지만 만날수록 정이 들어요. 이웃사촌이라는 말이 맞아요. 나이에 따라 봉사 활동이 달라요. 젊은 사람들은 환경 보호를 하고, 어른들은 독거노인을 도와줘요. 저는 아이들을 가르쳐 줘요. 봉사를 하면 기분이 좋아져요. 도울수록 행복해져요. 나눔의 기쁨을 알아요. 협력하면 공동체가 강해져요. 노력하면 사회가 좋아지기 마련이에요. 작은 일부터 시작해야 해요. 기부도 해야 해요. 작은 도움이 큰 변화를 만들어요. 주민들이 함께 참여하면 더 좋은 사회가 될 거예요. 소통하고 이해해야 해요. 배려하는 마음이 중요해요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Sentence counter
+const writingText = document.getElementById('writingText');
+const sentenceCount = document.getElementById('sentenceCount');
+
+writingText.addEventListener('input', function() {
+    const text = this.value.trim();
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    sentenceCount.textContent = count + ' / 5-7 câu';
+    if (count >= 5 && count <= 7) {
+        sentenceCount.style.color = '#10B981';
+    } else {
+        sentenceCount.style.color = '#5B21B6';
+    }
+});
+
+function checkWriting() {
+    const text = writingText.value.trim();
+    const feedback = document.getElementById('writing-feedback');
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const count = sentences.length;
+    
+    if (count < 5) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết của bạn còn ngắn (' + count + ' câu). Hãy viết ít nhất 5 câu nhé!';
+    } else if (count > 7) {
+        feedback.className = 'feedback show warning';
+        feedback.innerHTML = '⚠️ Bài viết hơi dài (' + count + ' câu). Hãy viết trong khoảng 5-7 câu!';
+    } else {
+        feedback.className = 'feedback show success';
+        feedback.innerHTML = '✅ Xuất sắc! Bài viết của bạn có ' + count + ' câu. Hãy kiểm tra lại:<br>• Đã sử dụng ít nhất 1 cấu trúc ngữ pháp trong mỗi câu?<br>• Câu văn có mạch lạc không?<br>• Sử dụng đa dạng từ vựng chủ đề tình nguyện xã hội?';
+        
+        // Save progress
+        const progress = JSON.parse(localStorage.getItem('topik3_week10_progress') || '[]');
+        if (!progress.includes(4)) {
+            progress.push(4);
+            localStorage.setItem('topik3_week10_progress', JSON.stringify(progress));
+        }
+    }
+}
+
+// Auto-save writing
+window.onbeforeunload = function() {
+    if (writingText.value.trim().length > 0) {
+        localStorage.setItem('topik3_week10_day4_writing', writingText.value);
+    }
+};
+
+// Load saved writing
+window.onload = function() {
+    const saved = localStorage.getItem('topik3_week10_day4_writing');
+    if (saved) {
+        writingText.value = saved;
+        const sentences = saved.split(/[.!?]+/).filter(s => s.trim().length > 0);
+        sentenceCount.textContent = sentences.length + ' / 5-7 câu';
+    }
+};
+</script>
+</body>
+</html>
