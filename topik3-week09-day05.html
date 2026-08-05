@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 5: Đọc hiểu chuyên sâu - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #1E3A8A; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #1E40AF; }
+.breadcrumb-separator { color: #93C5FD; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #1E3A8A; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(30,58,138,0.15); transition: all 0.3s; border: 2px solid #93C5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(30,58,138,0.25); background: #EFF6FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(59,130,246,0.3) 0%, rgba(147,197,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '📺'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '🔬'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #1E40AF; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #1E3A8A; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(30,58,138,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Reading Section - Orange */
+.reading-section .section-title { color: #C05621; border-color: #F59E0B; }
+.reading-box { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border: 2px solid #F59E0B; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.reading-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.reading-title { font-family: 'Baloo 2', cursive; color: #C05621; font-size: 1.5em; }
+.reading-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.reading-tag { background: white; color: #C05621; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+.reading-text { background: white; padding: 25px; border-radius: 15px; line-height: 2.2; color: #2D3748; font-size: 1.1em; margin-bottom: 20px; border: 2px dashed #F59E0B; }
+.reading-text strong { color: #EA580C; background: #FFF7ED; padding: 2px 6px; border-radius: 4px; }
+.reading-text .grammar-highlight { color: #1E40AF; background: #EFF6FF; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+.audio-player { background: linear-gradient(135deg, #FFF7ED 0%, #FED7AA 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #FBBF24; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(245,158,11,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #C05621; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.reading-analysis { background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.analysis-title { font-family: 'Baloo 2', cursive; color: #EA580C; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.analysis-item { padding: 12px 0; border-bottom: 1px dashed #FED7AA; }
+.analysis-item:last-child { border-bottom: none; }
+.analysis-item strong { color: #C05621; display: block; margin-bottom: 5px; }
+.vocab-list, .grammar-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.vocab-tag { background: #EFF6FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+.grammar-tag { background: #F0F9FF; color: #1E40AF; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; font-weight: 600; border: 1px solid #93C5FD; }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Vocabulary Section - Navy */
+.vocab-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.vocab-card { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 22px; border: 2px solid #3B82F6; transition: all 0.3s; }
+.vocab-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(59,130,246,0.2); }
+.vocab-number { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1em; margin-bottom: 12px; }
+.vocab-korean { font-family: 'Baloo 2', cursive; font-size: 1.6em; color: #1E40AF; font-weight: 800; margin-bottom: 5px; }
+.vocab-pron { color: #718096; font-size: 0.9em; font-style: italic; margin-bottom: 8px; }
+.vocab-meaning { color: #1E40AF; font-size: 1.05em; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px dashed #93C5FD; }
+.vocab-example { background: white; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 4px solid #3B82F6; }
+.example-korean { color: #1E40AF; font-weight: 700; font-size: 0.95em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.example-meaning { color: #718096; font-style: italic; font-size: 0.9em; }
+
+.speak-btn { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(30,58,138,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.score-section.show { display: block; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #1E3A8A; border: 2px solid #93C5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #EFF6FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.vocab-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week09.html">📰 Tuần 9</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 5: Đọc hiểu chuyên sâu</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week09.html" class="nav-btn">← Về Tổng quan Tuần 9</a>
+<a href="topik3-week09-day06.html" class="nav-btn primary">Ngày 6 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">📺 NGÀY 5 • 5일차</span>
+<h1>Đọc hiểu chuyên sâu</h1>
+<div class="subtitle">Luyện đọc 2 bài 300 chữ về sự kiện xã hội và khoa học công nghệ</div>
+<p class="description">
+Đọc hiểu 2 bài đọc về <strong>"사회 사건"</strong> (Sự kiện xã hội) và <strong>"과학기술 발전"</strong> (Phát triển khoa học công nghệ). 
+Trả lời 8 câu hỏi TOPIK format và mở rộng vốn từ vựng với 10 từ mới. 🔬
+</p>
+<div class="time-info">⏰ 60 phút • 📖 2 bài đọc 300 chữ • ❓ 8 câu hỏi TOPIK • 📚 10 từ mới</div>
+</div>
+
+<!-- Reading 1: 사회 사건 -->
+<div class="section reading-section">
+<h2 class="section-title">📰 1. Bài đọc 1: 사회 사건 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Phân tích từ vựng</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">📰 사회 사건 (Sự kiện xã hội)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>오늘 <strong>사회 사건</strong> 뉴스를 전해드립니다.</p>
+
+<p><strong>서울</strong>에서 큰 <strong>화재</strong>가 발생했어요. <strong>건물</strong> 3층에서 <strong>불</strong>이 났어요. <strong>소방관</strong>들이 빨리 도착해서 <strong>불</strong>을 껐어요. <strong>다행히</strong> <strong>부상자</strong>는 없었어요. <strong>화재</strong> <strong>원인</strong>은 <strong>전기</strong> <strong>합선</strong>인 것으로 <span class="grammar-highlight">알려졌어요</span>.</p>
+
+<p>한편, <strong>지진</strong>도 있었어요. <strong>경주</strong>에서 <strong>지진</strong>이 발생했어요. <strong>진도</strong>는 4.5였어요. <strong>건물</strong>이 약간 <strong>파손</strong>됐지만 <strong>인명 피해</strong>는 없었어요. <strong>전문가</strong>들에 <strong>따르면</strong> 이번 <strong>지진</strong>은 <strong>여진</strong>일 가능성이 있다고 <span class="grammar-highlight">해요</span>.</p>
+
+<p><strong>교통사고</strong>도 있었어요. <strong>고속도로</strong>에서 <strong>버스</strong>와 <strong>트럭</strong>이 <strong>충돌</strong>했어요. <strong>승객</strong> 10명이 <strong>부상</strong>을 입었어요. <strong>사고</strong> <strong>원인</strong>은 <strong>과속</strong>인 것으로 <span class="grammar-highlight">알려졌어요</span>. <strong>경찰</strong>이 <strong>조사</strong>를 하고 있어요.</p>
+
+<p><strong>환경</strong> <strong>문제</strong>도 있어요. <strong>미세먼지</strong>가 심해졌어요. <strong>정부</strong>는 <strong>미세먼지</strong> <strong>저감</strong> <strong>정책</strong>을 발표할 <span class="grammar-highlight">예정이에요</span>. <strong>전문가</strong>들에 <strong>따르면</strong> 이 <strong>정책</strong>이 <strong>환경</strong> <strong>개선</strong>에 도움이 될 것으로 <span class="grammar-highlight">보여요</span>.</p>
+
+<p>마지막으로, <strong>사회</strong> <strong>봉사</strong> 소식도 있어요. <strong>자원봉사자</strong>들이 <strong>독거노인</strong>을 도와줬어요. <strong>독거노인</strong>이 <strong>고립</strong>되지 않도록 <span class="grammar-highlight">노력</span>하고 있어요. <strong>정부</strong>도 <strong>지원</strong>을 <strong>강화</strong>할 거라고 <span class="grammar-highlight">했어요</span>.</p>
+
+<p>오늘의 사회 사건 뉴스였습니다.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio1Btn" onclick="speakReading1(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 1</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 1</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về sự kiện xã hội:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">화재 (hỏa hoạn)</span>
+<span class="vocab-tag">건물 (tòa nhà)</span>
+<span class="vocab-tag">소방관 (lính cứu hỏa)</span>
+<span class="vocab-tag">부상자 (người bị thương)</span>
+<span class="vocab-tag">원인 (nguyên nhân)</span>
+<span class="vocab-tag">전기 합선 (chập điện)</span>
+<span class="vocab-tag">지진 (động đất)</span>
+<span class="vocab-tag">진도 (cường độ)</span>
+<span class="vocab-tag">파손 (hư hỏng)</span>
+<span class="vocab-tag">인명 피해 (thiệt hại nhân mạng)</span>
+<span class="vocab-tag">여진 (dư chấn)</span>
+<span class="vocab-tag">교통사고 (tai nạn giao thông)</span>
+<span class="vocab-tag">고속도로 (đường cao tốc)</span>
+<span class="vocab-tag">충돌 (va chạm)</span>
+<span class="vocab-tag">승객 (hành khách)</span>
+<span class="vocab-tag">부상 (thương tích)</span>
+<span class="vocab-tag">과속 (chạy quá tốc độ)</span>
+<span class="vocab-tag">경찰 (cảnh sát)</span>
+<span class="vocab-tag">미세먼지 (bụi mịn)</span>
+<span class="vocab-tag">저감 (giảm thiểu)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-는 것으로 알려졌다 (được biết là)</span>
+<span class="grammar-tag">-에 따르면 (theo nguồn tin)</span>
+<span class="grammar-tag">-(으)ㄹ 예정이다 (có kế hoạch)</span>
+<span class="grammar-tag">-(으)ㄹ 것으로 보인다 (có vẻ như sẽ)</span>
+<span class="grammar-tag">-다고 하다 (nói rằng)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc là bản tin xã hội gồm nhiều sự kiện: (1) Hỏa hoạn ở Seoul, tòa nhà 3 tầng bị cháy, nguyên nhân được biết là do chập điện, may mắn không có người bị thương; (2) Động đất ở Gyeongju, cường độ 4.5, tòa nhà hơi hư hỏng nhưng không có thiệt hại nhân mạng, chuyên gia cho biết có thể là dư chấn; (3) Tai nạn giao thông trên đường cao tốc, xe buýt và xe tải va chạm, 10 hành khách bị thương, nguyên nhân được biết là do chạy quá tốc độ; (4) Vấn đề môi trường, bụi mịn tăng cao, chính phủ dự định công bố chính sách giảm thiểu; (5) Hoạt động tình nguyện, tình nguyện viên giúp đỡ người già sống một mình.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 1 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 1</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 서울에서 무슨 일이 있었어요?</div>
+<div class="exercise-question">Ở Seoul đã xảy ra chuyện gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 지진이 났어요 (Động đất)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 화재가 났어요 (Hỏa hoạn)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 교통사고가 났어요 (Tai nạn giao thông)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 시위가 있었어요 (Biểu tình)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'b', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 경주 지진의 진도는 얼마였어요?</div>
+<div class="exercise-question">Cường độ động đất ở Gyeongju là bao nhiêu?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 3.5</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 4.0</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 4.5</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 5.0</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'c', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 교통사고의 원인은 뭐였어요?</div>
+<div class="exercise-question">Nguyên nhân tai nạn giao thông là gì?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 음주운전 (Lái xe say rượu)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 과속 (Chạy quá tốc độ)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 신호위반 (Vượt đèn đỏ)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 졸음운전 (Lái xe buồn ngủ)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'b', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 화재로 부상자가 많았어요 (Có nhiều người bị thương do hỏa hoạn)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 지진으로 건물이 완전히 무너졌어요 (Tòa nhà sụp đổ hoàn toàn do động đất)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 정부가 미세먼지 저감 정책을 발표할 예정이에요 (Chính phủ dự định công bố chính sách giảm bụi mịn)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 자원봉사자가 독거노인을 도와주지 않았어요 (Tình nguyện viên không giúp người già sống một mình)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'c', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Reading 2: 과학기술 발전 -->
+<div class="section reading-section">
+<h2 class="section-title">🔬 2. Bài đọc 2: 과학기술 발전 (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc bài 2 lần • Trả lời 4 câu hỏi • Ghi chú từ vựng mới</p>
+
+<div class="reading-box">
+<div class="reading-header">
+<div class="reading-title">🔬 과학기술 발전 (Phát triển khoa học công nghệ)</div>
+<div class="reading-meta">
+<span class="reading-tag">📝 300 chữ</span>
+<span class="reading-tag">⏱️ 20 phút</span>
+<span class="reading-tag">❓ 4 câu hỏi</span>
+</div>
+</div>
+
+<div class="reading-text">
+<p>오늘 <strong>과학기술</strong> 뉴스를 전해드립니다.</p>
+
+<p><strong>한국</strong>에서 <strong>인공지능</strong> <strong>기술</strong>이 빠르게 <strong>발전</strong>하고 있어요. <strong>인공지능</strong>이 여러 분야에서 <strong>활용</strong>되고 있어요. <strong>의료</strong> 분야에서는 <strong>인공지능</strong>이 <strong>질병</strong>을 <strong>진단</strong>해요. <strong>전문가</strong>들에 <strong>따르면</strong> <strong>인공지능</strong>이 <strong>의사</strong>보다 <strong>정확</strong>할 수 있다고 <span class="grammar-highlight">해요</span>.</p>
+
+<p><strong>로봇</strong> <strong>기술</strong>도 <strong>발전</strong>했어요. <strong>서비스</strong> <strong>로봇</strong>이 <strong>호텔</strong>과 <strong>병원</strong>에서 <strong>활용</strong>되고 있어요. <strong>로봇</strong>이 <strong>고객</strong>을 <strong>안내</strong>하고 <strong>음식</strong>을 <strong>나르</strong>는 <strong>일</strong>을 해요. <strong>미래</strong>에는 <strong>로봇</strong>이 더 많은 <strong>일</strong>을 할 것으로 <span class="grammar-highlight">보여요</span>.</p>
+
+<p><strong>우주</strong> <strong>개발</strong>도 <progress>있어요</strong>. <strong>한국</strong>이 <strong>로켓</strong> <strong>발사</strong>에 <strong>성공</strong>했어요. <strong>인공위성</strong>을 <strong>궤도</strong>에 <strong>진입</strong>시켰어요. <strong>정부</strong>는 2030년까지 <strong>달</strong>에 <strong>탐사선</strong>을 <strong>보낼</strong> <span class="grammar-highlight">예정이에요</span>. <strong>전문가</strong>들은 이 <strong>프로젝트</strong>가 <strong>한국</strong>의 <strong>과학기술</strong>을 <strong>발전</strong>시킬 것으로 <span class="grammar-highlight">예상했어요</span>.</p>
+
+<p><strong>환경</strong> <strong>기술</strong>도 <strong>중요</strong>해요. <strong>태양광</strong>과 <strong>풍력</strong> <strong>발전</strong>이 <strong>활성화</strong>되고 있어요. <strong>전기차</strong>도 <strong>보급</strong>되고 있어요. <strong>정부</strong>는 <strong>친환경</strong> <strong>에너지</strong>를 <strong>확대</strong>할 <span class="grammar-highlight">예정이에요</span>. <strong>전문가</strong>들에 <strong>따르면</strong> 이것이 <strong>기후</strong> <strong>변화</strong>에 <strong>대응</strong>하는 데 <strong>도움</strong>이 될 것으로 <span class="grammar-highlight">보여요</span>.</p>
+
+<p><strong>5G</strong> <strong>통신</strong>도 <strong>보급</strong>됐어요. <strong>5G</strong>는 <strong>기존</strong>보다 <strong>100배</strong> <strong>빠</strong>라요. <strong>자율주행차</strong>와 <strong>사물인터넷</strong>에 <strong>필수</strong>적이에요. <strong>미래</strong>에는 <strong>6G</strong>도 <strong>개발</strong>될 것으로 <span class="grammar-highlight">예상돼요</span>.</p>
+
+<p>오늘의 과학기술 뉴스였습니다.</p>
+</div>
+
+<div class="audio-player">
+<button class="play-btn" id="audio2Btn" onclick="speakReading2(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe toàn bộ bài đọc 2</div>
+<div class="audio-sub">Nghe và đọc theo để luyện phát âm</div>
+</div>
+</div>
+
+<div class="reading-analysis">
+<div class="analysis-title">📝 Phân tích bài đọc 2</div>
+
+<div class="analysis-item">
+<strong>📚 Từ vựng về khoa học công nghệ:</strong>
+<div class="vocab-list">
+<span class="vocab-tag">과학기술 (khoa học công nghệ)</span>
+<span class="vocab-tag">인공지능 (trí tuệ nhân tạo)</span>
+<span class="vocab-tag">기술 (công nghệ)</span>
+<span class="vocab-tag">발전 (phát triển)</span>
+<span class="vocab-tag">활용 (ứng dụng)</span>
+<span class="vocab-tag">의료 (y tế)</span>
+<span class="vocab-tag">질병 (bệnh tật)</span>
+<span class="vocab-tag">진단 (chẩn đoán)</span>
+<span class="vocab-tag">정확 (chính xác)</span>
+<span class="vocab-tag">로봇 (robot)</span>
+<span class="vocab-tag">서비스 (dịch vụ)</span>
+<span class="vocab-tag">안내 (hướng dẫn)</span>
+<span class="vocab-tag">우주 (vũ trụ)</span>
+<span class="vocab-tag">개발 (phát triển)</span>
+<span class="vocab-tag">로켓 (tên lửa)</span>
+<span class="vocab-tag">발사 (phóng)</span>
+<span class="vocab-tag">성공 (thành công)</span>
+<span class="vocab-tag">인공위성 (vệ tinh nhân tạo)</span>
+<span class="vocab-tag">궤도 (quỹ đạo)</span>
+<span class="vocab-tag">탐사선 (tàu thăm dò)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📘 Ngữ pháp áp dụng:</strong>
+<div class="grammar-list">
+<span class="grammar-tag">-에 따르면 (theo nguồn tin)</span>
+<span class="grammar-tag">-(으)ㄹ 것으로 보인다 (có vẻ như sẽ)</span>
+<span class="grammar-tag">-(으)ㄹ 예정이다 (có kế hoạch)</span>
+<span class="grammar-tag">-다고 하다 (nói rằng)</span>
+</div>
+</div>
+
+<div class="analysis-item">
+<strong>📝 Tóm tắt nội dung chính:</strong>
+<p style="color: #78350F; line-height: 1.8;">
+Bài đọc là bản tin khoa học công nghệ gồm nhiều tin chính: (1) Công nghệ AI phát triển nhanh, được ứng dụng trong y tế để chẩn đoán bệnh, chuyên gia cho biết AI có thể chính xác hơn bác sĩ; (2) Công nghệ robot phát triển, robot dịch vụ được sử dụng ở khách sạn và bệnh viện, tương lai robot sẽ làm nhiều việc hơn; (3) Phát triển vũ trụ, Hàn Quốc phóng tên lửa thành công, đưa vệ tinh vào quỹ đạo, chính phủ dự định gửi tàu thăm dò lên Mặt Trăng vào năm 2030; (4) Công nghệ môi trường, năng lượng mặt trời và gió được kích hoạt, xe điện được phổ biến, chính phủ dự định mở rộng năng lượng thân thiện môi trường; (5) Truyền thông 5G được phổ biến, nhanh gấp 100 lần, cần thiết cho xe tự lái và IoT, tương lai sẽ phát triển 6G.
+</p>
+</div>
+</div>
+</div>
+
+<!-- Exercise 2 -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 Câu hỏi bài đọc 2</h2>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 인공지능이 어떤 분야에서 활용돼요?</div>
+<div class="exercise-question">AI được ứng dụng trong lĩnh vực nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 교육 분야 (Lĩnh vực giáo dục)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 의료 분야 (Lĩnh vực y tế)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 스포츠 분야 (Lĩnh vực thể thao)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 예술 분야 (Lĩnh vực nghệ thuật)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'b', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 6: 한국이 언제 달에 탐사선을 보낼 예정이에요?</div>
+<div class="exercise-question">Hàn Quốc dự định gửi tàu thăm dò lên Mặt Trăng khi nào?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 2025년</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 2028년</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 2030년</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 2035년</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'c', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 7: 5G는 기존보다 얼마나 빨라요?</div>
+<div class="exercise-question">5G nhanh hơn bao nhiêu lần so với trước?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 10배 (10 lần)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 50배 (50 lần)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 100배 (100 lần)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 1000배 (1000 lần)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'c', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 8: 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">Chọn câu đúng với nội dung bài đọc.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 인공지능이 의사보다 정확할 수 있어요 (AI có thể chính xác hơn bác sĩ)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 로봇이 아직 어떤 일도 못해요 (Robot chưa làm được việc gì)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 한국이 로켓 발사에 실패했어요 (Hàn Quốc phóng tên lửa thất bại)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 5G가 기존보다 느려요 (5G chậm hơn trước)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'a', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Vocabulary Section -->
+<div class="section vocab-section">
+<h2 class="section-title">📚 3. Tổng hợp 10 từ vựng mới (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Học 10 từ vựng mới • Đọc to mỗi từ 3 lần • Đặt câu ví dụ cho mỗi từ</p>
+
+<div class="vocab-grid">
+<div class="vocab-card">
+<div class="vocab-number">1</div>
+<div class="vocab-korean">화재</div>
+<div class="vocab-pron">[hwa-jae]</div>
+<div class="vocab-meaning">Hỏa hoạn, cháy</div>
+<div class="vocab-example">
+<div class="example-korean">화재가 났어요. <button class="speak-btn" onclick="speakKorean('화재가 났어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã xảy ra hỏa hoạn.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">화재를 조심해야 돼요. <button class="speak-btn" onclick="speakKorean('화재를 조심해야 돼요.', this)">🔊</button></div>
+<div class="example-meaning">Phải cẩn thận với hỏa hoạn.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">2</div>
+<div class="vocab-korean">지진</div>
+<div class="vocab-pron">[ji-jin]</div>
+<div class="vocab-meaning">Động đất</div>
+<div class="vocab-example">
+<div class="example-korean">지진이 났어요. <button class="speak-btn" onclick="speakKorean('지진이 났어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã xảy ra động đất.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">지진이 자주 나요. <button class="speak-btn" onclick="speakKorean('지진이 자주 나요.', this)">🔊</button></div>
+<div class="example-meaning">Động đất xảy ra thường xuyên.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">3</div>
+<div class="vocab-korean">교통사고</div>
+<div class="vocab-pron">[gyo-tong-sa-go]</div>
+<div class="vocab-meaning">Tai nạn giao thông</div>
+<div class="vocab-example">
+<div class="example-korean">교통사고가 났어요. <button class="speak-btn" onclick="speakKorean('교통사고가 났어요.', this)">🔊</button></div>
+<div class="example-meaning">Đã xảy ra tai nạn giao thông.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">교통사고를 조심해야 돼요. <button class="speak-btn" onclick="speakKorean('교통사고를 조심해야 돼요.', this)">🔊</button></div>
+<div class="example-meaning">Phải cẩn thận với tai nạn giao thông.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">4</div>
+<div class="vocab-korean">미세먼지</div>
+<div class="vocab-pron">[mi-se-meon-ji]</div>
+<div class="vocab-meaning">Bụi mịn</div>
+<div class="vocab-example">
+<div class="example-korean">미세먼지가 심해요. <button class="speak-btn" onclick="speakKorean('미세먼지가 심해요.', this)">🔊</button></div>
+<div class="example-meaning">Bụi mịn nghiêm trọng.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">미세먼지가 건강에 나빠요. <button class="speak-btn" onclick="speakKorean('미세먼지가 건강에 나빠요.', this)">🔊</button></div>
+<div class="example-meaning">Bụi mịn có hại cho sức khỏe.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">5</div>
+<div class="vocab-korean">자원봉사</div>
+<div class="vocab-pron">[ja-won-bong-sa]</div>
+<div class="vocab-meaning">Tình nguyện</div>
+<div class="vocab-example">
+<div class="example-korean">자원봉사를 해요. <button class="speak-btn" onclick="speakKorean('자원봉사를 해요.', this)">🔊</button></div>
+<div class="example-meaning">Làm tình nguyện.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">자원봉사가 의미 있어요. <button class="speak-btn" onclick="speakKorean('자원봉사가 의미 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Tình nguyện có ý nghĩa.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">6</div>
+<div class="vocab-korean">인공지능</div>
+<div class="vocab-pron">[in-gong-ji-neung]</div>
+<div class="vocab-meaning">Trí tuệ nhân tạo (AI)</div>
+<div class="vocab-example">
+<div class="example-korean">인공지능이 발전해요. <button class="speak-btn" onclick="speakKorean('인공지능이 발전해요.', this)">🔊</button></div>
+<div class="example-meaning">Trí tuệ nhân tạo phát triển.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">인공지능이 유용해요. <button class="speak-btn" onclick="speakKorean('인공지능이 유용해요.', this)">🔊</button></div>
+<div class="example-meaning">Trí tuệ nhân tạo hữu ích.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">7</div>
+<div class="vocab-korean">로봇</div>
+<div class="vocab-pron">[lo-bot]</div>
+<div class="vocab-meaning">Robot</div>
+<div class="vocab-example">
+<div class="example-korean">로봇이 일을 해요. <button class="speak-btn" onclick="speakKorean('로봇이 일을 해요.', this)">🔊</button></div>
+<div class="example-meaning">Robot làm việc.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">로봇이 발전했어요. <button class="speak-btn" onclick="speakKorean('로봇이 발전했어요.', this)">🔊</button></div>
+<div class="example-meaning">Robot đã phát triển.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">8</div>
+<div class="vocab-korean">우주</div>
+<div class="vocab-pron">[u-ju]</div>
+<div class="vocab-meaning">Vũ trụ</div>
+<div class="vocab-example">
+<div class="example-korean">우주를 탐험해요. <button class="speak-btn" onclick="speakKorean('우주를 탐험해요.', this)">🔊</button></div>
+<div class="example-meaning">Khám phá vũ trụ.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">우주가 넓어요. <button class="speak-btn" onclick="speakKorean('우주가 넓어요.', this)">🔊</button></div>
+<div class="example-meaning">Vũ trụ rộng lớn.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">9</div>
+<div class="vocab-korean">태양광</div>
+<div class="vocab-pron">[tae-yang-gwang]</div>
+<div class="vocab-meaning">Năng lượng mặt trời</div>
+<div class="vocab-example">
+<div class="example-korean">태양광을 사용해요. <button class="speak-btn" onclick="speakKorean('태양광을 사용해요.', this)">🔊</button></div>
+<div class="example-meaning">Sử dụng năng lượng mặt trời.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">태양광이 친환경적이에요. <button class="speak-btn" onclick="speakKorean('태양광이 친환경적이에요.', this)">🔊</button></div>
+<div class="example-meaning">Năng lượng mặt trời thân thiện môi trường.</div>
+</div>
+</div>
+
+<div class="vocab-card">
+<div class="vocab-number">10</div>
+<div class="vocab-korean">전기차</div>
+<div class="vocab-pron">[jeon-gi-cha]</div>
+<div class="vocab-meaning">Xe điện</div>
+<div class="vocab-example">
+<div class="example-korean">전기차를 타요. <button class="speak-btn" onclick="speakKorean('전기차를 타요.', this)">🔊</button></div>
+<div class="example-meaning">Đi xe điện.</div>
+</div>
+<div class="vocab-example">
+<div class="example-korean">전기차가 보급되고 있어요. <button class="speak-btn" onclick="speakKorean('전기차가 보급되고 있어요.', this)">🔊</button></div>
+<div class="example-meaning">Xe điện đang được phổ biến.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">✅ 4. Mục tiêu đạt được sau Ngày 5</h2>
+<ul class="goals-list">
+<li>Đọc hiểu 2 bài đọc 300 chữ ("사회 사건" và "과학기술 발전")</li>
+<li>Trả lời đúng 6/8 câu hỏi TOPIK format</li>
+<li>Mở rộng vốn từ vựng với 10 từ mới về sự kiện xã hội và khoa học công nghệ</li>
+<li>Phân tích được cấu trúc câu trong bài đọc</li>
+<li>Đặt câu ví dụ cho mỗi từ vựng mới</li>
+<li>Nắm vững cách sử dụng từ vựng trong ngữ cảnh tin tức</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week09.html" class="day-nav-btn">← Về Hub Tuần 9</a>
+<a href="topik3-week09-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week09-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week09-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week09-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week09-day05.html" class="day-nav-btn active">Ngày 5 ✓</a>
+<a href="topik3-week09-day06.html" class="day-nav-btn">Ngày 6 →</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week09-day04.html" class="nav-btn">← Ngày 4</a>
+<a href="topik3-week09-day06.html" class="nav-btn primary">Tiếp: Ngày 6 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">📰 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Tin tức là cửa sổ nhìn ra thế giới, ngôn ngữ là chìa khóa mở cửa"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['📰', '📺', '🎤', '📻', '📡', '🗞️'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading1(btnElement) {
+    const fullText = '오늘 사회 사건 뉴스를 전해드립니다. 서울에서 큰 화재가 발생했어요. 건물 3층에서 불이 났어요. 소방관들이 빨리 도착해서 불을 껐어요. 다행히 부상자는 없었어요. 화재 원인은 전기 합선인 것으로 알려졌어요. 한편, 지진도 있었어요. 경주에서 지진이 발생했어요. 진도는 4.5였어요. 건물이 약간 파손됐지만 인명 피해는 없었어요. 전문가들에 따르면 이번 지진은 여진일 가능성이 있다고 해요. 교통사고도 있었어요. 고속도로에서 버스와 트럭이 충돌했어요. 승객 10명이 부상을 입었어요. 사고 원인은 과속인 것으로 알려졌어요. 경찰이 조사를 하고 있어요. 환경 문제도 있어요. 미세먼지가 심해졌어요. 정부는 미세먼지 저감 정책을 발표할 예정이에요. 전문가들에 따르면 이 정책이 환경 개선에 도움이 될 것으로 보여요. 마지막으로, 사회 봉사 소식도 있어요. 자원봉사자들이 독거노인을 도와줬어요. 독거노인이 고립되지 않도록 노력하고 있어요. 정부도 지원을 강화할 거라고 했어요. 오늘의 사회 사건 뉴스였습니다.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakReading2(btnElement) {
+    const fullText = '오늘 과학기술 뉴스를 전해드립니다. 한국에서 인공지능 기술이 빠르게 발전하고 있어요. 인공지능이 여러 분야에서 활용되고 있어요. 의료 분야에서 인공지능이 질병을 진단해요. 전문가들에 따르면 인공지능이 의사보다 정확할 수 있다고 해요. 로봇 기술도 발전했어요. 서비스 로봇이 호텔과 병원에서 활용되고 있어요. 로봇이 고객을 안내하고 음식을 나르는 일을 해요. 미래에는 로봇이 더 많은 일을 할 것으로 보여요. 우주 개발도 있어요. 한국이 로켓 발사에 성공했어요. 인공위성을 궤도에 진입시켰어요. 정부는 2030년까지 달에 탐사선을 보낼 예정이에요. 전문가들은 이 프로젝트가 한국의 과학기술을 발전시킬 것으로 예상했어요. 환경 기술도 중요해요. 태양광과 풍력 발전이 활성화되고 있어요. 전기차도 보급되고 있어요. 정부는 친환경 에너지를 확대할 예정이에요. 전문가들에 따르면 이것이 기후 변화에 대응하는 데 도움이 될 것으로 보여요. 5G 통신도 보급됐어요. 5G는 기존보다 100배 빨라요. 자율주행차와 사물인터넷에 필수적이에요. 미래에는 6G도 개발될 것으로 예상돼요. 오늘의 과학기술 뉴스였습니다.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').classList.add('show');
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 75) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Ngày 6!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài đọc.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week9_progress') || '[]');
+        if (!progress.includes(5)) {
+            progress.push(5);
+            localStorage.setItem('topik3_week9_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngày 7: Ôn tập & Luyện đề TOPIK - TOPIK 3 | Korean Learning Roadmap</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%); min-height: 100vh; color: #2D3748; overflow-x: hidden; }
+.cherry-blossom { position: fixed; top: -50px; font-size: 20px; animation: fall linear infinite; pointer-events: none; z-index: 1; opacity: 0.7; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+.container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; padding: 0 20px; }
+
+.breadcrumb { padding: 20px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-weight: 600; }
+.breadcrumb a { color: #1E3A8A; text-decoration: none; transition: all 0.3s; }
+.breadcrumb a:hover { color: #1E40AF; }
+.breadcrumb-separator { color: #93C5FD; }
+.breadcrumb-current { color: #2D3748; font-weight: 700; }
+
+.day-nav { display: flex; justify-content: space-between; margin: 20px 0; gap: 15px; flex-wrap: wrap; }
+.nav-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px; background: white; color: #1E3A8A; text-decoration: none; border-radius: 25px; font-weight: 700; box-shadow: 0 5px 15px rgba(30,58,138,0.15); transition: all 0.3s; border: 2px solid #93C5FD; }
+.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(30,58,138,0.25); background: #EFF6FF; }
+.nav-btn.primary { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border: none; }
+
+.day-hero { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(59,130,246,0.3) 0%, rgba(147,197,253,0.2) 100%); border-radius: 30px; margin: 20px 0 40px; position: relative; overflow: hidden; }
+.day-hero::before { content: '🏆'; position: absolute; top: 20px; left: 5%; font-size: 2.5em; animation: float 4s ease-in-out infinite; }
+.day-hero::after { content: '📰'; position: absolute; bottom: 20px; right: 5%; font-size: 2em; animation: float 3.5s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.day-badge { display: inline-block; background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; padding: 8px 25px; border-radius: 50px; font-weight: 700; margin-bottom: 15px; }
+.day-hero h1 { font-family: 'Baloo 2', cursive; font-size: 2.5em; color: #1E40AF; margin-bottom: 10px; }
+.day-hero .subtitle { font-size: 1.2em; color: #2D3748; font-weight: 700; margin-bottom: 10px; }
+.day-hero .description { color: #4A5568; font-size: 1.05em; max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+.time-info { display: inline-flex; align-items: center; gap: 8px; background: white; color: #1E3A8A; padding: 8px 20px; border-radius: 25px; font-weight: 700; margin: 15px 0; box-shadow: 0 3px 10px rgba(30,58,138,0.15); }
+
+.section { background: white; border-radius: 25px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 25px rgba(45,55,72,0.08); border: 2px solid #E2E8F0; }
+.section-title { font-family: 'Baloo 2', cursive; font-size: 1.6em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; padding-bottom: 15px; border-bottom: 3px solid; }
+
+/* Flashcard Section - Navy */
+.flashcard-section .section-title { color: #1E40AF; border-color: #3B82F6; }
+.flashcard-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.flashcard-tab { padding: 10px 20px; background: white; color: #1E40AF; border: 2px solid #93C5FD; border-radius: 20px; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-tab.active { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border-color: transparent; }
+.flashcard-container { perspective: 1000px; margin: 20px auto; max-width: 450px; }
+.flashcard { width: 100%; height: 280px; position: relative; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+.flashcard.flipped { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.flashcard-front { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; }
+.flashcard-back { background: white; color: #2D3748; transform: rotateY(180deg); border: 3px solid #1E3A8A; }
+.flashcard-char { font-family: 'Baloo 2', cursive; font-size: 3em; font-weight: 800; margin-bottom: 10px; text-align: center; }
+.flashcard-hint { font-size: 1em; opacity: 0.9; }
+.flashcard-meaning { font-size: 1.4em; font-weight: 700; color: #1E40AF; margin-bottom: 10px; text-align: center; }
+.flashcard-pronunciation { color: #718096; font-style: italic; margin-bottom: 10px; }
+.flashcard-controls { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.flashcard-btn { padding: 10px 20px; border: none; border-radius: 20px; background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; cursor: pointer; font-weight: 700; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.flashcard-btn:hover { transform: scale(1.05); }
+.flashcard-counter { text-align: center; color: #718096; margin-top: 10px; font-weight: 600; }
+
+.speak-btn { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75em; transition: all 0.3s; flex-shrink: 0; }
+.speak-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(30,58,138,0.4); }
+.speak-btn.speaking { animation: pulse 0.8s infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* Exercise Section - Cyan */
+.exercise-section .section-title { color: #0369A1; border-color: #0EA5E9; }
+.exercise-container { background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #0EA5E9; }
+.exercise-title { font-family: 'Baloo 2', cursive; font-size: 1.3em; color: #0369A1; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.exercise-question { font-size: 1.05em; color: #2D3748; margin-bottom: 15px; font-weight: 700; line-height: 1.6; background: white; padding: 15px; border-radius: 12px; }
+.exercise-options { display: grid; gap: 10px; }
+.exercise-option { background: white; border: 2px solid #BAE6FD; padding: 13px; border-radius: 15px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.exercise-option:hover { border-color: #0EA5E9; background: #F0F9FF; transform: translateX(5px); }
+.exercise-option.correct { border-color: #10B981; background: #F0FFF4; color: #065F46; }
+.exercise-option.incorrect { border-color: #EF4444; background: #FEF2F2; color: #991B1B; }
+.check-answer-btn { background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-size: 1em; font-weight: 700; cursor: pointer; margin-top: 15px; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.check-answer-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(14,165,233,0.4); }
+.exercise-feedback { padding: 15px; border-radius: 15px; margin-top: 15px; display: none; font-weight: 700; }
+.exercise-feedback.show { display: block; animation: fadeIn 0.3s; }
+.exercise-feedback.correct { background: #F0FFF4; color: #065F46; border: 2px solid #10B981; }
+.exercise-feedback.incorrect { background: #FEF2F2; color: #991B1B; border: 2px solid #EF4444; }
+
+/* Listening Exercise - Navy */
+.listening-exercise .section-title { color: #1E40AF; border-color: #3B82F6; }
+.listening-container { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 25px; margin: 20px 0; border: 2px solid #3B82F6; }
+.listening-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.listening-number { background: #3B82F6; color: white; padding: 5px 15px; border-radius: 15px; font-weight: 700; }
+.listening-type { background: white; color: #1E40AF; padding: 5px 15px; border-radius: 15px; font-size: 0.85em; font-weight: 600; }
+
+.audio-player { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border-radius: 20px; padding: 18px; margin: 15px 0; display: flex; align-items: center; gap: 15px; border: 2px solid #93C5FD; }
+.play-btn { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); border: none; color: white; font-size: 1.4em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0; box-shadow: 0 5px 15px rgba(30,58,138,0.3); }
+.play-btn:hover { transform: scale(1.1) rotate(5deg); }
+.play-btn.playing { animation: pulse 1s infinite; }
+.audio-info { flex: 1; }
+.audio-label { font-weight: 700; color: #1E40AF; margin-bottom: 4px; }
+.audio-sub { color: #718096; font-size: 0.88em; }
+
+.transcript-box { background: white; padding: 20px; border-radius: 15px; margin: 20px 0; border: 2px dashed #3B82F6; display: none; }
+.transcript-box.show { display: block; }
+.transcript-title { font-family: 'Baloo 2', cursive; color: #1E40AF; font-size: 1.2em; margin-bottom: 15px; }
+.dialogue-line { margin-bottom: 12px; padding: 10px; background: #EFF6FF; border-radius: 10px; display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+.speaker { font-weight: 700; color: #1E40AF; min-width: 100px; background: #DBEAFE; padding: 4px 10px; border-radius: 15px; font-size: 0.9em; }
+.dialogue-text { flex: 1; color: #2D3748; line-height: 1.6; }
+
+/* Score Section - Gold */
+.score-section { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 25px; padding: 30px; margin: 30px 0; border: 3px solid #F59E0B; display: none; }
+.score-section.show { display: block; }
+.score-title { font-family: 'Baloo 2', cursive; color: #92400E; font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+.score-display { text-align: center; margin: 20px 0; }
+.score-circle { width: 150px; height: 150px; border-radius: 50%; background: white; border: 8px solid #F59E0B; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2em; font-weight: 800; color: #92400E; }
+.score-message { text-align: center; margin-top: 20px; font-size: 1.1em; color: #92400E; font-weight: 700; }
+
+/* Evaluation Section - Violet */
+.evaluation-section .section-title { color: #5B21B6; border-color: #8B5CF6; }
+.evaluation-box { background: linear-gradient(135deg, #FAF5FF 0%, #E9D5FF 100%); border: 2px solid #8B5CF6; border-radius: 20px; padding: 25px; margin: 20px 0; }
+.evaluation-title { font-family: 'Baloo 2', cursive; color: #5B21B6; font-size: 1.3em; margin-bottom: 15px; }
+.evaluation-textarea { width: 100%; min-height: 150px; padding: 15px; border: 2px solid #C4B5FD; border-radius: 12px; font-family: 'Quicksand', sans-serif; font-size: 1em; resize: vertical; margin-bottom: 15px; }
+.evaluation-textarea:focus { outline: none; border-color: #8B5CF6; }
+.save-btn { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); color: white; border: none; padding: 12px 25px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'Quicksand', sans-serif; }
+.save-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(139,92,246,0.4); }
+
+/* Checklist Section - Green */
+.checklist-section .section-title { color: #065F46; border-color: #10B981; }
+.checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.checklist-card { background: white; padding: 20px; border-radius: 15px; border: 2px solid #E2E8F0; }
+.checklist-card-title { font-family: 'Baloo 2', cursive; color: #047857; font-size: 1.2em; margin-bottom: 15px; }
+.checklist-item { padding: 10px; margin: 8px 0; background: #F0FFF4; border-radius: 10px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s; }
+.checklist-item:hover { background: #D1FAE5; }
+.checklist-item input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; accent-color: #10B981; }
+.checklist-item.checked { background: #D1FAE5; opacity: 0.7; }
+.checklist-item.checked span { text-decoration: line-through; }
+
+/* Goals Section - Green */
+.goals-section .section-title { color: #065F46; border-color: #10B981; }
+.goals-list { list-style: none; }
+.goals-list li { padding: 12px 20px; margin: 10px 0; background: linear-gradient(135deg, #F0FFF4 0%, #D1FAE5 100%); border-radius: 12px; border-left: 5px solid #10B981; font-weight: 600; color: #065F46; display: flex; align-items: center; gap: 10px; }
+.goals-list li::before { content: '✅'; font-size: 1.2em; }
+
+/* Navigation */
+.day-navigation { display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+.day-nav-btn { padding: 10px 20px; background: white; color: #1E3A8A; border: 2px solid #93C5FD; border-radius: 20px; text-decoration: none; font-weight: 700; transition: all 0.3s; }
+.day-nav-btn:hover { background: #EFF6FF; transform: translateY(-2px); }
+.day-nav-btn.active { background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%); color: white; border-color: transparent; }
+
+footer { background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; border-radius: 30px 30px 0 0; }
+.footer-text { font-size: 1.2em; margin-bottom: 10px; }
+.footer-quote { font-style: italic; opacity: 0.9; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+.day-hero h1 { font-size: 2em; }
+.checklist-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cherryContainer"></div>
+
+<div class="container">
+<nav class="breadcrumb">
+<a href="index.html">🏠 Trang chủ</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3.html">🌳 TOPIK 3</a>
+<span class="breadcrumb-separator">›</span>
+<a href="topik3-week09.html">📰 Tuần 9</a>
+<span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Ngày 7: Ôn tập & Luyện đề</span>
+</nav>
+
+<div class="day-nav">
+<a href="topik3-week09.html" class="nav-btn">← Về Tổng quan Tuần 9</a>
+<a href="topik3-week10.html" class="nav-btn primary">Tuần 10 →</a>
+</div>
+
+<div class="day-hero">
+<span class="day-badge">🏆 NGÀY 7 • 7일차</span>
+<h1>Ôn tập & Luyện đề TOPIK format</h1>
+<div class="subtitle">Tổng kết Tuần 9 và chuẩn bị cho Tuần 10</div>
+<p class="description">
+Ôn tập toàn bộ kiến thức Tuần 9 về Báo chí & Tin tức qua flashcard, luyện đề TOPIK format với 5 câu đọc và 3 câu nghe, 
+tự đánh giá và lên kế hoạch cho Tuần 10 (Ẩm thực Hàn Quốc). 📰
+</p>
+<div class="time-info">⏰ 60 phút • 🎴 Flashcard • 📝 Đề TOPIK • 📊 Tự đánh giá</div>
+</div>
+
+<!-- Flashcard Section -->
+<div class="section flashcard-section">
+<h2 class="section-title">🎴 1. Ôn tập Flashcard (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ôn lại từ vựng và ngữ pháp đã học trong tuần. Click vào thẻ để lật và xem nghĩa.</p>
+
+<div class="flashcard-tabs">
+<button class="flashcard-tab active" onclick="switchTab('vocab', event)">📚 Từ vựng (100 từ)</button>
+<button class="flashcard-tab" onclick="switchTab('grammar', event)">📘 Ngữ pháp (6 cấu trúc)</button>
+</div>
+
+<div class="flashcard-container">
+<div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+<div class="flashcard-front">
+<div class="flashcard-char" id="flashcardChar">신문</div>
+<div class="flashcard-hint">Click để xem nghĩa</div>
+</div>
+<div class="flashcard-back">
+<div class="flashcard-meaning" id="flashcardMeaning">Báo (giấy)</div>
+<div class="flashcard-pronunciation" id="flashcardPron">[sin-mun]</div>
+<button class="speak-btn" onclick="event.stopPropagation(); speakKorean(document.getElementById('flashcardChar').textContent)" style="margin-top: 10px;">🔊</button>
+</div>
+</div>
+</div>
+<div class="flashcard-controls">
+<button class="flashcard-btn" onclick="prevFlashcard()">◀ Trước</button>
+<button class="flashcard-btn" onclick="nextFlashcard()">Sau ▶</button>
+<button class="flashcard-btn" onclick="shuffleFlashcards()">🔀 Trộn</button>
+</div>
+<div class="flashcard-counter" id="flashcardCounter">1 / 100</div>
+</div>
+
+<!-- Reading Exercise -->
+<div class="section exercise-section">
+<h2 class="section-title">📝 2. Luyện đề TOPIK - Phần Đọc (20 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Đọc kỹ đoạn văn và chọn đáp án đúng. Tổng cộng 5 câu hỏi.</p>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 1: 신문에 _____ 경기가 좋아질 거예요.</div>
+<div class="exercise-question">Điền từ phù hợp: _____ báo, kinh tế sẽ tốt lên.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q1" value="a"><span>① 따르면 (Theo)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="b"><span>② 때문에 (Bởi vì)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="c"><span>③ 예정 (Dự định)</span></label>
+<label class="exercise-option"><input type="radio" name="q1" value="d"><span>④ 알려졌 (Được biết)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q1', 'a', 'f1')">✓ Kiểm tra</button>
+<div id="f1" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 2: 정부가 새로운 경제 _____을 발표할 예정이에요.</div>
+<div class="exercise-question">Điền từ phù hợp: Chính phủ dự định công bố _____ kinh tế mới.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q2" value="a"><span>① 정책 (Chính sách)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="b"><span>② 기자 (Nhà báo)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="c"><span>③ 사건 (Sự kiện)</span></label>
+<label class="exercise-option"><input type="radio" name="q2" value="d"><span>④ 로봇 (Robot)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q2', 'a', 'f2')">✓ Kiểm tra</button>
+<div id="f2" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 3: 물가가 오른 _____ 생활비가 늘어났어요.</div>
+<div class="exercise-question">Điền từ phù hợp: _____ vật giá tăng nên chi phí sinh hoạt tăng.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q3" value="a"><span>① 때문에 (Bởi vì)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="b"><span>② 따르면 (Theo)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="c"><span>③ 예정이에요 (Dự định)</span></label>
+<label class="exercise-option"><input type="radio" name="q3" value="d"><span>④ 보여요 (Có vẻ)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q3', 'a', 'f3')">✓ Kiểm tra</button>
+<div id="f3" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 4: 전문가들에 _____ 이 정책이 효과적일 것으로 보여요.</div>
+<div class="exercise-question">Điền từ phù hợp: _____ các chuyên gia, có vẻ như chính sách này sẽ hiệu quả.</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q4" value="a"><span>① 때문에 (Bởi vì)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="b"><span>② 따르면 (Theo)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="c"><span>③ 예정이에요 (Dự định)</span></label>
+<label class="exercise-option"><input type="radio" name="q4" value="d"><span>④ 알려졌어요 (Được biết)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q4', 'b', 'f4')">✓ Kiểm tra</button>
+<div id="f4" class="exercise-feedback"></div>
+</div>
+
+<div class="exercise-container">
+<div class="exercise-title">📝 Câu 5: 다음 글을 읽고 내용과 같은 것을 고르십시오.</div>
+<div class="exercise-question">
+<div style="background: #F0F9FF; padding: 15px; border-radius: 10px; margin-bottom: 15px; line-height: 1.8;">
+<strong>오늘의 뉴스</strong><br><br>
+정부는 미세먼지를 줄이기 위해 새로운 정책을 발표할 예정이에요. 
+전문가들에 따르면 이 정책이 환경 개선에 도움이 될 것으로 보여요. 
+하지만 일부 시민들은 불편할 것이라고 해요. 
+정부는 시민들의 의견을 듣고 정책을 수정할 거라고 했어요. 
+미세먼지 문제는 우리 모두의 관심사예요.
+</div>
+</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q5" value="a"><span>① 정책이 이미 시행됐어요 (Chính sách đã được thực thi)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="b"><span>② 모든 시민이 찬성해요 (Tất cả công dân đều tán thành)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="c"><span>③ 정부가 정책을 발표할 예정이에요 (Chính phủ dự định công bố chính sách)</span></label>
+<label class="exercise-option"><input type="radio" name="q5" value="d"><span>④ 미세먼지 문제가 해결됐어요 (Vấn đề bụi mịn đã được giải quyết)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q5', 'c', 'f5')">✓ Kiểm tra</button>
+<div id="f5" class="exercise-feedback"></div>
+</div>
+</div>
+
+<!-- Listening Exercise -->
+<div class="section listening-exercise">
+<h2 class="section-title">🎧 3. Luyện đề TOPIK - Phần Nghe (10 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Nghe hội thoại "기자회견" từ Ngày 6 và trả lời 3 câu hỏi.</p>
+
+<div class="listening-container">
+<div class="audio-player">
+<button class="play-btn" id="listeningAudioBtn" onclick="speakListeningAudio(this)">▶️</button>
+<div class="audio-info">
+<div class="audio-label">🎧 Nghe hội thoại "기자회견" (Họp báo)</div>
+<div class="audio-sub">Nghe 2-3 lần trước khi trả lời câu hỏi</div>
+</div>
+</div>
+
+<button class="nav-btn" onclick="toggleTranscript()" style="margin: 15px 0; display: inline-block;">📜 Xem Transcript</button>
+
+<div class="transcript-box" id="transcriptBox">
+<div class="transcript-title">📜 Transcript</div>
+<div class="dialogue-line">
+<span class="speaker">기자:</span>
+<span class="dialogue-text">안녕하세요, 사장님. 새로운 제품에 대해 말씀해 주세요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">사장님:</span>
+<span class="dialogue-text">네, 저희 회사는 새로운 스마트폰을 출시할 예정이에요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기자:</span>
+<span class="dialogue-text">언제 출시될 예정이에요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">사장님:</span>
+<span class="dialogue-text">다음 달에 출시될 예정이에요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기자:</span>
+<span class="dialogue-text">어떤 특징이 있어요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">사장님:</span>
+<span class="dialogue-text">인공지능 기능이 강화됐어요. 카메라 성능도 좋아졌어요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기자:</span>
+<span class="dialogue-text">가격은 얼마예요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">사장님:</span>
+<span class="dialogue-text">100만 원부터 시작할 예정이에요.</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">기자:</span>
+<span class="dialogue-text">판매 목표는 얼마예요?</span>
+</div>
+<div class="dialogue-line">
+<span class="speaker">사장님:</span>
+<span class="dialogue-text">올해 안에 100만 대 판매를 목표로 하고 있어요.</span>
+</div>
+</div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 6</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">회사는 무엇을 출시할 예정이에요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q6" value="a"><span>① 컴퓨터 (Máy tính)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="b"><span>② 스마트폰 (Smartphone)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="c"><span>③ 태블릿 (Máy tính bảng)</span></label>
+<label class="exercise-option"><input type="radio" name="q6" value="d"><span>④ 로봇 (Robot)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q6', 'b', 'f6')">✓ Kiểm tra</button>
+<div id="f6" class="exercise-feedback"></div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 7</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">언제 출시될 예정이에요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q7" value="a"><span>① 이번 달 (Tháng này)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="b"><span>② 다음 달 (Tháng sau)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="c"><span>③ 내년 (Năm sau)</span></label>
+<label class="exercise-option"><input type="radio" name="q7" value="d"><span>④ 내일 (Ngày mai)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q7', 'b', 'f7')">✓ Kiểm tra</button>
+<div id="f7" class="exercise-feedback"></div>
+</div>
+
+<div class="listening-container">
+<div class="listening-header">
+<span class="listening-number">Câu 8</span>
+<span class="listening-type">Nghe hiểu</span>
+</div>
+<div class="exercise-question">판매 목표는 얼마예요?</div>
+<div class="exercise-options">
+<label class="exercise-option"><input type="radio" name="q8" value="a"><span>① 50만 대 (500.000 chiếc)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="b"><span>② 100만 대 (1 triệu chiếc)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="c"><span>③ 200만 대 (2 triệu chiếc)</span></label>
+<label class="exercise-option"><input type="radio" name="q8" value="d"><span>④ 500만 대 (5 triệu chiếc)</span></label>
+</div>
+<button class="check-answer-btn" onclick="checkAnswer('q8', 'b', 'f8')">✓ Kiểm tra</button>
+<div id="f8" class="exercise-feedback"></div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section" id="scoreSection">
+<div class="score-title">🏆 Kết quả bài kiểm tra</div>
+<div class="score-display">
+<div class="score-circle" id="scoreCircle">0/8</div>
+</div>
+<div class="score-message" id="scoreMessage"></div>
+</div>
+</div>
+
+<!-- Evaluation Section -->
+<div class="section evaluation-section">
+<h2 class="section-title">📊 4. Tự đánh giá (15 phút)</h2>
+<p style="color: #718096; margin-bottom: 20px;"><strong>Hướng dẫn:</strong> Ghi chú điểm yếu cần cải thiện và lên kế hoạch cho Tuần 10.</p>
+
+<div class="evaluation-box">
+<div class="evaluation-title">📝 Ghi chú điểm yếu cần cải thiện</div>
+<textarea class="evaluation-textarea" id="evaluationNotes" placeholder="Viết về những điểm bạn còn yếu và cần cải thiện trong Tuần 10...
+
+Ví dụ:
+- Ngữ pháp -는 것으로 알려졌다 còn chưa nhớ rõ
+- Từ vựng về khoa học công nghệ cần ôn thêm
+- Nghe hiểu hội thoại họp báo cần luyện thêm
+- Phát âm các từ mượn tiếng Anh (인공지능, 로봇)..."></textarea>
+
+<div class="evaluation-title">📋 Kế hoạch Tuần 10 (Chủ đề: Ẩm thực Hàn Quốc)</div>
+<textarea class="evaluation-textarea" id="week10Plan" placeholder="Viết kế hoạch học tập cho Tuần 10...
+
+Ví dụ:
+- Mỗi ngày học 60 phút
+- Ôn từ vựng 15 phút mỗi sáng về ẩm thực
+- Luyện ngữ pháp 15 phút
+- Đọc 1 bài đọc 300 chữ về ẩm thực mỗi ngày
+- Cuối tuần làm đề thi thử TOPIK
+- Luyện nghe hội thoại nhà hàng, nấu ăn..."></textarea>
+
+<button class="save-btn" onclick="saveEvaluation()">💾 Lưu đánh giá</button>
+<div id="evaluation-feedback" style="margin-top: 15px; padding: 15px; border-radius: 12px; display: none;"></div>
+</div>
+</div>
+
+<!-- Checklist Section -->
+<div class="section checklist-section">
+<h2 class="section-title">✅ 5. Checklist hoàn thành Tuần 9</h2>
+<div class="checklist-grid">
+<div class="checklist-card">
+<div class="checklist-card-title">📰 Ngày 1-2</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thuộc 20 từ vựng về báo chí & truyền thông</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -에 따르면 và -다고 하다</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "오늘의 뉴스" 200 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -(으)ㄹ 것으로 보인다 và -는 것으로 알려졌다</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "정치 뉴스" 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Tóm tắt bài đọc 3-4 câu</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">🎤 Ngày 3-4</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hiểu -(으)ㄹ 예정이다 và -기 때문이다</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu hội thoại "뉴스 토론"</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Trả lời đúng 3/3 câu hỏi nghe</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Thực hành Shadowing</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết 5-7 câu phức tạp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu "경제 뉴스"</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">📺 Ngày 5-6</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đọc hiểu 2 bài 300 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Trả lời đúng 6/8 câu TOPIK</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Học 10 từ vựng mới</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Viết đoạn văn 300-400 chữ</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Sử dụng 4+ cấu trúc ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Nghe hiểu "기자회견"</span></div>
+</div>
+<div class="checklist-card">
+<div class="checklist-card-title">🏆 Ngày 7</div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Ôn tập 100 từ vựng + 6 ngữ pháp</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Làm đề TOPIK (5 Đọc + 3 Nghe)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Đạt điểm ≥ 80% (4/5 câu)</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Tự đánh giá và ghi chú</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Lên kế hoạch Tuần 10</span></div>
+<div class="checklist-item" onclick="toggleChecklist(this)"><input type="checkbox"><span>Hoàn thành checklist 7 ngày</span></div>
+</div>
+</div>
+</div>
+
+<!-- Goals Section -->
+<div class="section goals-section">
+<h2 class="section-title">🎯 Mục tiêu đạt được sau Ngày 7</h2>
+<ul class="goals-list">
+<li>Điểm kiểm tra ≥ 80% (4/5 câu Đọc + 3/3 câu Nghe)</li>
+<li>Hoàn thành checklist 7 ngày của Tuần 9</li>
+<li>Ôn tập và nắm vững 100 từ vựng chủ đề báo chí & tin tức</li>
+<li>Hiểu và sử dụng linh hoạt 6 cấu trúc ngữ pháp trích dẫn và dự đoán</li>
+<li>Viết được đoạn văn 300-400 chữ về tin tức quan tâm</li>
+<li>Nghe hiểu hội thoại 10 lượt về họp báo</li>
+<li>Sẵn sàng chuyển sang Tuần 10 (Ẩm thực Hàn Quốc)</li>
+</ul>
+</div>
+
+<div class="day-navigation">
+<a href="topik3-week09.html" class="day-nav-btn">← Về Hub Tuần 9</a>
+<a href="topik3-week09-day01.html" class="day-nav-btn">Ngày 1</a>
+<a href="topik3-week09-day02.html" class="day-nav-btn">Ngày 2</a>
+<a href="topik3-week09-day03.html" class="day-nav-btn">Ngày 3</a>
+<a href="topik3-week09-day04.html" class="day-nav-btn">Ngày 4</a>
+<a href="topik3-week09-day05.html" class="day-nav-btn">Ngày 5</a>
+<a href="topik3-week09-day06.html" class="day-nav-btn">Ngày 6</a>
+<a href="topik3-week09-day07.html" class="day-nav-btn active">Ngày 7 ✓</a>
+</div>
+
+<div class="day-nav" style="margin-top: 40px;">
+<a href="topik3-week09-day06.html" class="nav-btn">← Ngày 6</a>
+<a href="topik3-week10.html" class="nav-btn primary">Tiếp: Tuần 10 →</a>
+</div>
+</div>
+
+<footer>
+<div class="footer-text">📰 Chúc bạn học tiếng Hàn thật vui!</div>
+<div class="footer-quote">"Tin tức là cửa sổ nhìn ra thế giới, ngôn ngữ là chìa khóa mở cửa"</div>
+</footer>
+
+<script>
+function createCherryBlossoms() {
+    const container = document.getElementById('cherryContainer');
+    const blossoms = ['📰', '📺', '🎤', '📻', '📡', '🗞️'];
+    setInterval(() => {
+        const blossom = document.createElement('div');
+        blossom.className = 'cherry-blossom';
+        blossom.textContent = blossoms[Math.floor(Math.random() * blossoms.length)];
+        blossom.style.left = Math.random() * 100 + 'vw';
+        blossom.style.animationDuration = (8 + Math.random() * 7) + 's';
+        blossom.style.fontSize = (15 + Math.random() * 15) + 'px';
+        container.appendChild(blossom);
+        setTimeout(() => blossom.remove(), 15000);
+    }, 2500);
+}
+createCherryBlossoms();
+
+let koreanVoice = null;
+function loadKoreanVoice() {
+    const voices = speechSynthesis.getVoices();
+    koreanVoice = voices.find(v => v.lang === 'ko-KR') || voices.find(v => v.lang.startsWith('ko'));
+}
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadKoreanVoice;
+loadKoreanVoice();
+
+function speakKorean(text, btnElement) {
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    if (btnElement) {
+        btnElement.classList.add('speaking');
+    }
+    utterance.onend = utterance.onerror = function() {
+        if (btnElement) {
+            btnElement.classList.remove('speaking');
+        }
+    };
+    speechSynthesis.speak(utterance);
+}
+
+function speakListeningAudio(btnElement) {
+    const fullText = '안녕하세요, 사장님. 새로운 제품에 대해 말씀해 주세요. 네, 저희 회사는 새로운 스마트폰을 출시할 예정이에요. 언제 출시될 예정이에요? 다음 달에 출시될 예정이에요. 어떤 특징이 있어요? 인공지능 기능이 강화됐어요. 카메라 성능도 좋아졌어요. 가격은 얼마예요? 100만 원부터 시작할 예정이에요. 판매 목표는 얼마예요? 올해 안에 100만 대 판매를 목표로 하고 있어요.';
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(fullText);
+    utterance.lang = 'ko-KR';
+    utterance.rate = 0.85;
+    if (koreanVoice) utterance.voice = koreanVoice;
+    btnElement.classList.add('playing');
+    btnElement.innerHTML = '⏸️';
+    utterance.onend = utterance.onerror = function() {
+        btnElement.classList.remove('playing');
+        btnElement.innerHTML = '▶️';
+    };
+    speechSynthesis.speak(utterance);
+}
+
+// Flashcard data
+const vocabFlashcards = [
+    { char: '신문', meaning: 'Báo (giấy)', pron: '[sin-mun]' },
+    { char: '기자', meaning: 'Nhà báo', pron: '[gi-ja]' },
+    { char: '기사', meaning: 'Bài báo', pron: '[gi-sa]' },
+    { char: '방송', meaning: 'Phát sóng', pron: '[bang-song]' },
+    { char: '뉴스', meaning: 'Tin tức', pron: '[nyu-seu]' },
+    { char: '매체', meaning: 'Phương tiện truyền thông', pron: '[mae-che]' },
+    { char: '헤드라인', meaning: 'Tít chính', pron: '[he-deu-ra-in]' },
+    { char: '인터뷰', meaning: 'Phỏng vấn', pron: '[in-teo-byu]' },
+    { char: '취재', meaning: 'Phóng sự', pron: '[chwi-jae]' },
+    { char: '보도', meaning: 'Đưa tin', pron: '[bo-do]' },
+    { char: '속보', meaning: 'Tin nhanh', pron: '[song-bo]' },
+    { char: '칼럼', meaning: 'Chuyên mục', pron: '[kal-leom]' },
+    { char: '사설', meaning: 'Xã luận', pron: '[sa-seol]' },
+    { char: '구독', meaning: 'Đăng ký', pron: '[gu-dok]' },
+    { char: '발행', meaning: 'Phát hành', pron: '[bal-haeng]' },
+    { char: '기자회견', meaning: 'Họp báo', pron: '[gi-ja-hoe-dam]' },
+    { char: '언론', meaning: 'Báo chí', pron: '[eon-lon]' },
+    { char: '통신사', meaning: 'Hãng thông tấn', pron: '[tong-sin-sa]' },
+    { char: '편집', meaning: 'Biên tập', pron: '[pyeon-jip]' },
+    { char: '출판', meaning: 'Xuất bản', pron: '[chul-pan]' },
+    { char: '사건', meaning: 'Sự kiện', pron: '[sa-geon]' },
+    { char: '사고', meaning: 'Tai nạn', pron: '[sa-go]' },
+    { char: '정치', meaning: 'Chính trị', pron: '[jeong-chi]' },
+    { char: '경제', meaning: 'Kinh tế', pron: '[gyeong-je]' },
+    { char: '사회', meaning: 'Xã hội', pron: '[sa-hoe]' },
+    { char: '문화', meaning: 'Văn hóa', pron: '[mun-hwa]' },
+    { char: '스포츠', meaning: 'Thể thao', pron: '[seu-po-cheu]' },
+    { char: '국제', meaning: 'Quốc tế', pron: '[guk-je]' },
+    { char: '지역', meaning: 'Địa phương', pron: '[ji-yeok]' },
+    { char: '대통령', meaning: 'Tổng thống', pron: '[dae-tong-ryeong]' },
+    { char: '국회', meaning: 'Quốc hội', pron: '[guk-hoe]' },
+    { char: '정부', meaning: 'Chính phủ', pron: '[jeong-bu]' },
+    { char: '선거', meaning: 'Bầu cử', pron: '[seon-geo]' },
+    { char: '투표', meaning: 'Bỏ phiếu', pron: '[tu-pyo]' },
+    { char: '정책', meaning: 'Chính sách', pron: '[jeong-chaek]' },
+    { char: '법률', meaning: 'Pháp luật', pron: '[beop-ryul]' },
+    { char: '시위', meaning: 'Biểu tình', pron: '[si-wi]' },
+    { char: '외교', meaning: 'Ngoại giao', pron: '[oe-gyo]' },
+    { char: '민주주의', meaning: 'Dân chủ', pron: '[min-ju-ju-ui]' },
+    { char: '인권', meaning: 'Nhân quyền', pron: '[in-gwon]' },
+    { char: '기업', meaning: 'Doanh nghiệp', pron: '[gi-eop]' },
+    { char: '회사', meaning: 'Công ty', pron: '[hoe-sa]' },
+    { char: '주식', meaning: 'Cổ phiếu', pron: '[ju-sik]' },
+    { char: '시장', meaning: 'Thị trường', pron: '[si-jang]' },
+    { char: '수출', meaning: 'Xuất khẩu', pron: '[su-chul]' },
+    { char: '수입', meaning: 'Nhập khẩu', pron: '[su-ip]' },
+    { char: '물가', meaning: 'Vật giá', pron: '[mul-ga]' },
+    { char: '인플레이션', meaning: 'Lạm phát', pron: '[in-peul-le-i-syeon]' },
+    { char: '환율', meaning: 'Tỷ giá', pron: '[hwan-yul]' },
+    { char: '투자', meaning: 'Đầu tư', pron: '[tu-ja]' },
+    { char: '기술', meaning: 'Công nghệ', pron: '[gi-sul]' },
+    { char: '연구', meaning: 'Nghiên cứu', pron: '[yeon-gu]' },
+    { char: '개발', meaning: 'Phát triển', pron: '[gae-bal]' },
+    { char: '과학', meaning: 'Khoa học', pron: '[gwa-hak]' },
+    { char: '발견', meaning: 'Phát hiện', pron: '[bal-gyeon]' },
+    { char: '발명', meaning: 'Phát minh', pron: '[bal-myeong]' },
+    { char: '인공지능', meaning: 'Trí tuệ nhân tạo', pron: '[in-gong-ji-neung]' },
+    { char: '로봇', meaning: 'Robot', pron: '[lo-bot]' },
+    { char: '우주', meaning: 'Vũ trụ', pron: '[u-ju]' },
+    { char: '환경', meaning: 'Môi trường', pron: '[hwan-gyeong]' },
+    { char: '기후', meaning: 'Khí hậu', pron: '[gi-hu]' },
+    { char: '에너지', meaning: 'Năng lượng', pron: '[e-neo-ji]' },
+    { char: '디지털', meaning: 'Kỹ thuật số', pron: '[di-ji-teol]' },
+    { char: '인터넷', meaning: 'Internet', pron: '[in-teo-net]' },
+    { char: '스마트폰', meaning: 'Smartphone', pron: '[seu-ma-teu-pfon]' },
+    { char: '앱', meaning: 'Ứng dụng', pron: '[aep]' },
+    { char: '데이터', meaning: 'Dữ liệu', pron: '[de-i-teo]' },
+    { char: '사이버', meaning: 'Không gian mạng', pron: '[sa-i-beo]' },
+    { char: '혁신', meaning: 'Đổi mới', pron: '[hyeok-sin]' },
+    { char: '특허', meaning: 'Bằng sáng chế', pron: '[teuk-heo]' }
+];
+
+const grammarFlashcards = [
+    { char: '-에 따르면', meaning: 'Theo (nguồn tin)', pron: '[-e tta-ra-myeon]' },
+    { char: '-다고 하다', meaning: 'Nói rằng (trích dẫn)', pron: '[-da-go ha-da]' },
+    { char: '-(으)ㄹ 것으로 보인다', meaning: 'Có vẻ như sẽ', pron: '[-(eu)l geos-euro bo-yeo-da]' },
+    { char: '-는 것으로 알려졌다', meaning: 'Được biết là', pron: '[-neun geos-euro al-lyeo-jyeot-da]' },
+    { char: '-기 때문이다', meaning: 'Bởi vì (nguyên nhân)', pron: '[-gi ttae-mun-i-da]' },
+    { char: '-(으)ㄹ 예정이다', meaning: 'Có kế hoạch', pron: '[-(eu)l ye-jeong-i-da]' }
+];
+
+let currentFlashcards = vocabFlashcards;
+let currentFlashcard = 0;
+
+function switchTab(type, event) {
+    document.querySelectorAll('.flashcard-tab').forEach(tab => tab.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    if (type === 'vocab') {
+        currentFlashcards = vocabFlashcards;
+    } else {
+        currentFlashcards = grammarFlashcards;
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+function updateFlashcard() {
+    document.getElementById('flashcardChar').textContent = currentFlashcards[currentFlashcard].char;
+    document.getElementById('flashcardMeaning').textContent = currentFlashcards[currentFlashcard].meaning;
+    document.getElementById('flashcardPron').textContent = currentFlashcards[currentFlashcard].pron;
+    document.getElementById('flashcardCounter').textContent = (currentFlashcard + 1) + ' / ' + currentFlashcards.length;
+    document.getElementById('flashcard').classList.remove('flipped');
+}
+
+function nextFlashcard() {
+    currentFlashcard = (currentFlashcard + 1) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function prevFlashcard() {
+    currentFlashcard = (currentFlashcard - 1 + currentFlashcards.length) % currentFlashcards.length;
+    updateFlashcard();
+}
+
+function shuffleFlashcards() {
+    for (let i = currentFlashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [currentFlashcards[i], currentFlashcards[j]] = [currentFlashcards[j], currentFlashcards[i]];
+    }
+    currentFlashcard = 0;
+    updateFlashcard();
+}
+
+let correctAnswers = 0;
+let answeredQuestions = new Set();
+
+function checkAnswer(questionName, correctAnswer, feedbackId) {
+    const options = document.querySelectorAll(`input[name="${questionName}"]`);
+    let selectedValue = null;
+    options.forEach(option => {
+        const parent = option.closest('.exercise-option');
+        parent.classList.remove('correct', 'incorrect');
+        if (option.checked) {
+            selectedValue = option.value;
+            if (selectedValue === correctAnswer) parent.classList.add('correct');
+            else parent.classList.add('incorrect');
+        }
+    });
+    const feedback = document.getElementById(feedbackId);
+    feedback.classList.add('show');
+    if (selectedValue === correctAnswer) {
+        feedback.innerHTML = '✅ Chính xác! 잘했어요! 🌟';
+        feedback.className = 'exercise-feedback show correct';
+        if (!answeredQuestions.has(questionName)) {
+            answeredQuestions.add(questionName);
+            correctAnswers++;
+        }
+    } else if (selectedValue) {
+        feedback.innerHTML = '❌ Chưa đúng. 다시 해봐요! 💪';
+        feedback.className = 'exercise-feedback show incorrect';
+    }
+    updateTotalScore();
+}
+
+function updateTotalScore() {
+    const total = 8;
+    const answered = answeredQuestions.size;
+    
+    if (answered === total) {
+        document.getElementById('scoreSection').classList.add('show');
+        document.getElementById('scoreCircle').textContent = `${correctAnswers}/${total}`;
+        
+        let message = '';
+        const percentage = (correctAnswers / total) * 100;
+        if (percentage >= 80) {
+            message = `🏆 Xuất sắc! Bạn đạt ${percentage}% - Sẵn sàng cho Tuần 10!`;
+        } else if (percentage >= 60) {
+            message = `👍 Khá tốt! Bạn đạt ${percentage}% - Cần ôn tập thêm.`;
+        } else {
+            message = `💪 Cần cố gắng! Bạn đạt ${percentage}% - Hãy xem lại bài học.`;
+        }
+        document.getElementById('scoreMessage').textContent = message;
+        
+        const progress = JSON.parse(localStorage.getItem('topik3_week9_progress') || '[]');
+        if (!progress.includes(7)) {
+            progress.push(7);
+            localStorage.setItem('topik3_week9_progress', JSON.stringify(progress));
+        }
+        
+        document.getElementById('scoreSection').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function toggleTranscript() {
+    const transcriptBox = document.getElementById('transcriptBox');
+    transcriptBox.classList.toggle('show');
+}
+
+function saveEvaluation() {
+    const notes = document.getElementById('evaluationNotes').value.trim();
+    const plan = document.getElementById('week10Plan').value.trim();
+    const feedback = document.getElementById('evaluation-feedback');
+    
+    if (notes && plan) {
+        localStorage.setItem('topik3_week9_evaluation', notes);
+        localStorage.setItem('topik3_week10_plan', plan);
+        feedback.style.display = 'block';
+        feedback.style.background = '#F0FFF4';
+        feedback.style.color = '#065F46';
+        feedback.style.border = '2px solid #10B981';
+        feedback.innerHTML = '✅ Đã lưu đánh giá và kế hoạch Tuần 10!';
+    } else {
+        feedback.style.display = 'block';
+        feedback.style.background = '#FEF3C7';
+        feedback.style.color = '#92400E';
+        feedback.style.border = '2px solid #F59E0B';
+        feedback.innerHTML = '⚠️ Vui lòng điền đầy đủ thông tin!';
+    }
+}
+
+function toggleChecklist(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    element.classList.toggle('checked');
+}
+
+// Load saved data
+window.onload = function() {
+    const savedNotes = localStorage.getItem('topik3_week9_evaluation');
+    if (savedNotes) {
+        document.getElementById('evaluationNotes').value = savedNotes;
+    }
+    const savedPlan = localStorage.getItem('topik3_week10_plan');
+    if (savedPlan) {
+        document.getElementById('week10Plan').value = savedPlan;
+    }
+};
+</script>
+</body>
+</html>
